@@ -1,3 +1,5 @@
+import { CONTACT_EMAIL } from '@/lib/constants'
+
 export const metadata = {
   title: 'Cookie Policy',
   description: 'Pareo Cookie Policy'
@@ -39,7 +41,7 @@ export default function CookiesPage() {
 
           <h2>Contact</h2>
           <p>
-            For questions about our use of cookies, contact us at: <a href="mailto:admin@pareo.ai">admin@pareo.ai</a>
+            For questions about our use of cookies, contact us at: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
           </p>
         </div>
       </div>

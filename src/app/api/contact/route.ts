@@ -10,11 +10,11 @@ interface ContactFormData {
 
 async function sendEmailViaMailgun(data: ContactFormData): Promise<void> {
   const mailgunApiKey = process.env.MAILGUN_API_KEY
-  const mailgunDomain = process.env.MAILGUN_DOMAIN || 'mg.pareo.ai'
-  const mailgunSenderEmail = process.env.MAILGUN_SENDER_EMAIL || 'noreply@mg.pareo.ai'
+  const mailgunDomain = process.env.MAILGUN_DOMAIN
+  const mailgunSenderEmail = process.env.MAILGUN_SENDER_EMAIL
 
-  if (!mailgunApiKey) {
-    console.warn('MAILGUN_API_KEY not configured, skipping email send')
+  if (!mailgunApiKey || !mailgunDomain || !mailgunSenderEmail) {
+    console.warn('Mailgun env vars not configured, skipping email send')
     return
   }
 

@@ -1,8 +1,8 @@
 import { MetadataRoute } from 'next'
-import { SUPPORTED_LANGUAGES } from '@/lib/constants'
+import { SUPPORTED_LANGUAGES, SITE_URL } from '@/lib/constants'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://new.pareo.ai'
+  const baseUrl = SITE_URL
   const routes = ['', '/features', '/contact', '/privacy', '/terms', '/cookies']
 
   const sitemap: MetadataRoute.Sitemap = []

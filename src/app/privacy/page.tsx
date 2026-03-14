@@ -1,3 +1,5 @@
+import { CONTACT_EMAIL } from '@/lib/constants'
+
 export const metadata = {
   title: 'Privacy Policy',
   description: 'Pareo Privacy Policy'
@@ -16,7 +18,7 @@ export default function PrivacyPage() {
             Jonathan Kaleve<br />
             Baumstraße 2<br />
             80469 München, Germany<br />
-            Email: admin@pareo.ai
+            Email: {CONTACT_EMAIL}
           </p>
 
           <h2>Data We Collect</h2>
@@ -53,7 +55,7 @@ export default function PrivacyPage() {
 
           <h2>Contact</h2>
           <p>
-            For privacy-related inquiries, contact us at: <a href="mailto:admin@pareo.ai">admin@pareo.ai</a>
+            For privacy-related inquiries, contact us at: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
           </p>
         </div>
       </div>

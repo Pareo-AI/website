@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
 import { IBM_Plex_Sans } from 'next/font/google'
 import '@/styles/globals.css'
-import { SITE_NAME, SITE_DESCRIPTION } from '@/lib/constants'
+import { SITE_NAME, SITE_DESCRIPTION, SITE_URL } from '@/lib/constants'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
+import { PostHogProvider } from '@/components/PostHogProvider'
 
 const ibmPlex = IBM_Plex_Sans({
   subsets: ['latin'],
@@ -47,7 +48,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://pareo.ai',
+    url: SITE_URL,
     siteName: SITE_NAME,
     title: SITE_NAME,
     description: SITE_DESCRIPTION
@@ -71,9 +72,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={ibmPlex.variable}>
       <body>
-        <Header />
-        <main className="min-h-screen">{children}</main>
-        <Footer />
+        <PostHogProvider>
+          <Header />
+          <main className="min-h-screen">{children}</main>
+          <Footer />
+        </PostHogProvider>
       </body>
     </html>
   )

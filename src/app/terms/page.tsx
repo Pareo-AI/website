@@ -1,3 +1,5 @@
+import { CONTACT_EMAIL } from '@/lib/constants'
+
 export const metadata = {
   title: 'Terms of Service',
   description: 'Pareo Terms of Service'
@@ -56,7 +58,7 @@ export default function TermsPage() {
 
           <h2>Contact</h2>
           <p>
-            For questions about these Terms, contact us at: <a href="mailto:admin@pareo.ai">admin@pareo.ai</a>
+            For questions about these Terms, contact us at: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
           </p>
         </div>
       </div>
