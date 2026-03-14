@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { IBM_Plex_Sans } from 'next/font/google'
 import '@/styles/globals.css'
-import { SITE_NAME, SITE_DESCRIPTION, SITE_URL } from '@/lib/constants'
+import { SITE_NAME, SITE_DESCRIPTION, SITE_URL, CONTACT_EMAIL } from '@/lib/constants'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { PostHogProvider } from '@/components/PostHogProvider'
@@ -64,6 +64,33 @@ export const metadata: Metadata = {
   }
 }
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: SITE_NAME,
+  url: SITE_URL,
+  description: SITE_DESCRIPTION,
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web',
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'EUR',
+    description: 'Contact us for pricing'
+  },
+  provider: {
+    '@type': 'Organization',
+    name: SITE_NAME,
+    url: SITE_URL,
+    email: CONTACT_EMAIL,
+    foundingLocation: 'Munich, Germany',
+    sameAs: [
+      'https://github.com/pareo-ai',
+      'https://linkedin.com/company/pareo-ai'
+    ]
+  }
+}
+
 export default function RootLayout({
   children
 }: Readonly<{
@@ -71,6 +98,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className={ibmPlex.variable}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body>
         <PostHogProvider>
           <Header />

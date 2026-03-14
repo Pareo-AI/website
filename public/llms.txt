@@ -1,0 +1,29 @@
+# Pareo
+
+> AI agents that automate compliance data extraction from supplier documents — turning weeks of manual work into hours.
+
+Pareo is a B2B SaaS platform for European industrial manufacturers (automotive, electronics, machinery) that need to respond to product compliance requests from their customers. Compliance teams receive hundreds of requests per year in formats like email, Excel spreadsheets, and supplier portals, asking them to declare substances under regulations such as REACH, RoHS, PFAS, TSCA, and conflict minerals. Pareo automates this end-to-end: ingesting incoming requests in any format, matching them against ERP and product data, and returning validated, audit-ready responses — directly into platforms like Assent, CDX, or any customer-required format.
+
+Built on 180+ interviews with industrial compliance teams. Incubated at TUM and UnternehmerTUM, Munich.
+
+## Key pages
+
+- Homepage: https://pareo.ai
+- Features: https://pareo.ai/en/features
+- Contact / Request Demo: https://pareo.ai/en/contact
+- Privacy Policy: https://pareo.ai/en/privacy
+- Terms of Service: https://pareo.ai/en/terms
+
+## Supported regulations
+
+- REACH (SVHC / candidate list substances)
+- RoHS (Restriction of Hazardous Substances)
+- PFAS (per- and polyfluoroalkyl substances)
+- TSCA (Toxic Substances Control Act)
+- SCIP database reporting
+- Conflict minerals (3TG)
+- IPC-1752A standard
+
+## Contact
+
+hello@pareo.ai
