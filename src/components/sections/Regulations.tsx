@@ -43,9 +43,10 @@ export function Regulations() {
           <p className="text-base leading-relaxed"
             style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}>
             Compliance obligations are growing — but the bigger shift is structural. The EU Data Act establishes
-            rights and obligations around industrial data sharing across the single market. Catena-X and Manufacturing-X
-            are building the data spaces where suppliers and OEMs exchange product data automatically. OPC UA is
-            standardizing machine communication protocols. Every one of these initiatives requires the same thing:
+            rights and obligations around industrial data sharing across the single market. Manufacturing-X
+            is building the data space infrastructure where machine builders, electrical equipment manufacturers,
+            and their supply chains exchange product data automatically. OPC UA is standardizing machine
+            communication protocols. Every one of these initiatives requires the same thing:
             your product data, structured and interoperable.
           </p>
         </div>
@@ -105,10 +106,10 @@ export function Regulations() {
           </h3>
           <p className="text-sm leading-relaxed mb-4"
             style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}>
-            The EU's industrial data spaces — Catena-X for automotive, Manufacturing-X for broader industry,
-            Factory-X at the shop floor — require suppliers to maintain continuous, machine-readable records
-            across every supply chain tier. Participation isn't optional: OEMs are already mandating data space
-            connectivity as a supplier qualification criterion.
+            Manufacturing-X — the data space infrastructure for German mechanical and electrical engineering —
+            requires suppliers to maintain continuous, machine-readable product records across every supply
+            chain tier. Factory-X extends this to the shop floor. Participation isn't optional: OEMs and
+            system integrators are already making data space connectivity a supplier qualification criterion.
           </p>
           <p className="text-sm leading-relaxed"
             style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}>

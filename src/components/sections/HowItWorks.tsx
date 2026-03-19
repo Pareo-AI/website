@@ -6,33 +6,33 @@ import { motion, AnimatePresence } from 'framer-motion'
 const tabs = [
   {
     id: 'ingestion',
-    label: 'Request Ingestion',
-    headline: 'Any request. Any format. Zero manual sorting.',
-    body: 'Compliance requests arrive in every shape — an email with a PDF attachment, an Excel template from procurement, a notification from Assent or CDX, a standalone questionnaire. Pareo ingests all of it automatically, classifies the request type, extracts the relevant requirements, and queues it for processing.\n\nNo manual triage. No copy-paste into a tracking sheet. It\'s in the system the moment it arrives.',
+    label: 'Data Capture',
+    headline: 'Every compliance interaction is a structured data input.',
+    body: 'Compliance requests arrive in every format — an email with a PDF, an Excel template from procurement, a portal notification, a standalone questionnaire. Pareo ingests each one automatically, extracts the product identifiers and regulatory requirements, and begins building the structured data record needed to respond.\n\nThe request isn\'t just a task to handle. It\'s a signal about what product data you need to have — and keep current.',
     tags: ['Email', 'PDF', 'Excel', 'Assent', 'CDX'],
     visual: 'ingestion',
   },
   {
     id: 'retrieval',
-    label: 'Data Retrieval',
-    headline: 'Your product data, found automatically.',
-    body: 'To answer a compliance request, your team typically searches across SAP, PLM systems, shared drives, lab reports, and old supplier emails. Pareo does this in seconds — connecting to your existing systems, retrieving the relevant product and material data, and building the evidence base for a response.\n\nNothing leaves your infrastructure. Pareo reads from your systems; it doesn\'t copy data out.',
+    label: 'Data Assembly',
+    headline: 'A complete, validated product data record — assembled automatically.',
+    body: 'Structuring product data for compliance means pulling together bills of materials from SAP, specifications from PLM, lab results, and supplier declarations. Pareo connects to your existing systems and assembles the complete picture in seconds.\n\nEvery data point retrieved is validated, linked to its source, and added to a structured product record — making each subsequent request faster and your data progressively more complete.',
     tags: ['SAP ERP', 'TEAMCENTER', 'ORACLE', 'SharePoint', 'Lab reports', 'Supplier documents'],
     visual: 'retrieval',
   },
   {
     id: 'generation',
-    label: 'Response Generation',
-    headline: 'Validated, audit-ready responses. Human-approved before anything is sent.',
-    body: 'Pareo drafts the compliance response — mapped to the exact format your customer requires, whether that\'s an IPC-1752 XML schema, an Assent portal submission, a filled Excel template, or a structured PDF. Every answer is linked to its source document, so the evidence trail is built in.\n\nNothing is sent automatically. Your compliance specialist reviews the draft, confirms the evidence, and approves. Pareo handles the generation; your team owns the sign-off.',
-    tags: ['IPC-1752', 'Assent', 'CDX', 'Excel', 'PDF', 'XML'],
+    label: 'Structured Output',
+    headline: 'Machine-readable output in any format. Approved by your team.',
+    body: 'Pareo generates the output in the exact format required — IPC-1752A XML, a Manufacturing-X compatible schema, a filled Excel template, or a portal submission. Every data point is linked to its source document, so the evidence trail is always intact.\n\nNothing is sent automatically. Your specialist reviews and approves. But what gets generated isn\'t just a response — it\'s validated, structured product data that any downstream system can consume.',
+    tags: ['IPC-1752', 'Manufacturing-X', 'Excel', 'PDF', 'XML', 'Data Space'],
     visual: 'generation',
   },
   {
     id: 'gap',
-    label: 'Gap Orchestration',
-    headline: 'Missing data? Pareo finds it — before it becomes your problem.',
-    body: 'When the data needed to answer a request isn\'t available internally, Pareo identifies the gap and automatically reaches out to the relevant sub-supplier to request it. Responses are tracked, consolidated, and fed back into the system — closing the loop without your team chasing emails.\n\nThe result: fewer open requests, fewer missed deadlines, fewer compliance gaps left unresolved.',
+    label: 'Data Completeness',
+    headline: 'Incomplete product data is a liability. Pareo closes the gaps.',
+    body: 'A product data record is only as useful as it is complete. When Pareo identifies missing material declarations, substance data, or supplier certifications, it automatically reaches out to the relevant sub-supplier to request them. Responses are tracked, validated, and added to the record.\n\nThe result isn\'t just a closed compliance request — it\'s a more complete, more reliable product data foundation.',
     tags: ['Sub-supplier outreach', 'Automated follow-up', 'Gap detection', 'Regulation monitoring'],
     visual: 'gap',
   },
@@ -246,18 +246,19 @@ export function HowItWorks() {
             <div className="h-px w-10" style={{ background: '#7B5CF5' }} />
             <span className="text-xs font-semibold tracking-[0.2em] uppercase"
               style={{ color: '#7B5CF5', fontFamily: 'var(--font-ibm)' }}>
-              How It Works
+              The Product
             </span>
           </div>
           <h2 className="mb-4 leading-tight tracking-tight"
             style={{ fontFamily: 'var(--font-ibm)', fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 800, color: '#ffffff' }}>
-            One request in.{' '}
-            <span style={{ color: '#7B5CF5' }}>Audit-ready response out.</span>
+            Your product data,{' '}
+            <span style={{ color: '#7B5CF5' }}>structured and validated.</span>
             {' '}Automatically.
           </h2>
           <p className="max-w-2xl text-base leading-relaxed"
             style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}>
-            Pareo handles the full workflow — from the moment a request arrives to the moment your response leaves.
+            Every compliance interaction captures, validates, and organizes your product data — building a machine-readable
+            record that answers today's requests and is ready for tomorrow's data spaces.
           </p>
         </div>
 

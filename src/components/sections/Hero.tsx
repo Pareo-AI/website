@@ -72,11 +72,9 @@ export function Hero() {
               fontWeight: 800,
             }}
           >
-            <span style={{ color: '#ffffff' }}>Industrial data</span>
+            <span style={{ color: '#ffffff' }}>The data layer for</span>
             <br />
-            <span style={{ color: '#ffffff' }}>is being standardized.</span>
-            <br />
-            <span style={{ color: '#7B5CF5' }}>Be ready for it.</span>
+            <span style={{ color: '#7B5CF5' }}>European manufacturing.</span>
           </motion.h1>
 
           {/* Subheadline */}
@@ -92,10 +90,11 @@ export function Hero() {
               color: 'rgba(255,255,255,0.62)',
             }}
           >
-            The EU Data Act, Catena-X, and the Digital Product Passport are building a shared
-            industrial data economy across Europe. Manufacturers who have their product data
-            structured, machine-readable, and interoperable will gain a decisive advantage.
-            Those who don't will be locked out. Pareo gets you ready — starting with compliance.
+            Manufacturing-X. Digital Product Passport. EU Data Act. Europe is building the
+            infrastructure for a unified industrial data economy. Manufacturers who enter it
+            with structured, interoperable product data will move faster, qualify for more,
+            and bear less risk. Pareo starts with compliance — the most immediate data problem
+            you already have — and builds from there.
           </motion.p>
 
           {/* CTA */}

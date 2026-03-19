@@ -16,7 +16,7 @@ export function Vision() {
       phase: "2026",
       icon: Network,
       title: "Data Space Readiness",
-      description: "Your product data — already structured for compliance — becomes the foundation for industrial data space participation. Catena-X, Manufacturing-X, and Factory-X connectors let you share data with OEMs automatically, without rebuilding from scratch.",
+      description: "Your product data — already structured for compliance — becomes the foundation for industrial data space participation. Manufacturing-X and Factory-X connectors let you share product data with OEMs and system integrators automatically, without rebuilding from scratch.",
       status: "roadmap"
     },
     {
@@ -115,7 +115,7 @@ export function Vision() {
           <div className="p-6 rounded-lg border bg-card">
             <div className="text-3xl font-bold text-primary mb-2">Structural Tailwind</div>
             <p className="text-sm text-muted-foreground">
-              EU Data Act, Digital Product Passport, CSRD, Catena-X, Manufacturing-X — the regulatory and infrastructure forces are aligned. Industrial data standardization isn't optional. We're the readiness layer.
+              EU Data Act, Digital Product Passport, CSRD, Manufacturing-X, Factory-X — the regulatory and infrastructure forces are aligned. Industrial data standardization isn't optional. We're the readiness layer.
             </p>
           </div>
           <div className="p-6 rounded-lg border bg-card">

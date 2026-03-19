@@ -196,7 +196,7 @@ export function Problem() {
             When SI units replaced regional measurement systems in the 19th century, cross-border
             trade and engineering collaboration accelerated beyond what had been possible before.
             The same structural shift is happening to industrial data today — driven by the EU Data
-            Act, OPC UA, Catena-X, and the Digital Product Passport. A unified, machine-readable
+            Act, OPC UA, Manufacturing-X, and the Digital Product Passport. A unified, machine-readable
             data layer for European manufacturing is being built. Most suppliers aren't ready for it.
           </p>
           <p
