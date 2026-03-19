@@ -2,6 +2,50 @@
 
 import { motion } from 'framer-motion'
 
+// ─── Grid data pulses ─────────────────────────────────────────────────────────
+
+const gridParticles = [
+  // horizontal — travel left → right along these y positions
+  { axis: 'h' as const, pos: 120, delay: 0,   duration: 5,   repeatDelay: 6 },
+  { axis: 'h' as const, pos: 300, delay: 2.5, duration: 6,   repeatDelay: 5 },
+  { axis: 'h' as const, pos: 540, delay: 1.2, duration: 4.5, repeatDelay: 7 },
+  // vertical — travel top → bottom along these x positions
+  { axis: 'v' as const, pos: 240, delay: 0.8, duration: 7,   repeatDelay: 4 },
+  { axis: 'v' as const, pos: 600, delay: 3.5, duration: 5.5, repeatDelay: 6 },
+  { axis: 'v' as const, pos: 900, delay: 5,   duration: 6,   repeatDelay: 5 },
+]
+
+function GridParticle({
+  axis, pos, delay, duration, repeatDelay,
+}: {
+  axis: 'h' | 'v'
+  pos: number
+  delay: number
+  duration: number
+  repeatDelay: number
+}) {
+  const isH = axis === 'h'
+  return (
+    <motion.div
+      style={{
+        position: 'absolute',
+        top:    isH ? pos : 0,
+        left:   isH ? 0   : pos,
+        width:  isH ? 80  : 1,
+        height: isH ? 1   : 80,
+        background: isH
+          ? 'linear-gradient(90deg, transparent, rgba(123,92,245,0.55), transparent)'
+          : 'linear-gradient(180deg, transparent, rgba(123,92,245,0.55), transparent)',
+        filter: 'blur(0.5px)',
+      }}
+      animate={isH ? { x: [-80, 1800] } : { y: [-80, 1200] }}
+      transition={{ delay, duration, repeat: Infinity, repeatDelay, ease: 'linear' }}
+    />
+  )
+}
+
+// ─── Section ──────────────────────────────────────────────────────────────────
+
 export function Hero() {
   const handleDemoClick = () => {
     const el = document.querySelector('#contact')
@@ -14,24 +58,39 @@ export function Hero() {
       className="relative min-h-screen flex flex-col"
       style={{ background: '#0A0A12' }}
     >
-      {/* Purple gradient bloom */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            'radial-gradient(ellipse 90% 60% at 5% 110%, rgba(123, 92, 245, 0.22) 0%, transparent 55%), radial-gradient(ellipse 50% 40% at 95% 0%, rgba(123, 92, 245, 0.07) 0%, transparent 50%)',
-        }}
-      />
+      {/* Background animations — clipped so transforms don't cause scrollbars */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Purple gradient bloom — oversized so drift never exposes a bare edge */}
+        <motion.div
+          className="absolute"
+          animate={{
+            x: [0, 14, 0],
+            y: [0, -10, 0],
+            opacity: [1, 0.82, 1],
+          }}
+          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
+          style={{
+            inset: '-20px',
+            background:
+              'radial-gradient(ellipse 90% 60% at 5% 110%, rgba(123, 92, 245, 0.22) 0%, transparent 55%), radial-gradient(ellipse 50% 40% at 95% 0%, rgba(123, 92, 245, 0.07) 0%, transparent 50%)',
+          }}
+        />
 
-      {/* Subtle grid overlay */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage:
-            'linear-gradient(rgba(123,92,245,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(123,92,245,0.04) 1px, transparent 1px)',
-          backgroundSize: '60px 60px',
-        }}
-      />
+        {/* Static grid */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              'linear-gradient(rgba(123,92,245,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(123,92,245,0.04) 1px, transparent 1px)',
+            backgroundSize: '60px 60px',
+          }}
+        />
+
+        {/* Data pulses along grid lines */}
+        {gridParticles.map((p, i) => (
+          <GridParticle key={i} {...p} />
+        ))}
+      </div>
 
       {/* Main content — vertically centred, takes up full viewport */}
       <div className="relative flex-1 flex flex-col justify-center mx-auto max-w-7xl w-full px-6 lg:px-8 pt-24 pb-12">

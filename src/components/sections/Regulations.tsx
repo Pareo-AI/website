@@ -1,68 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-
-// ─── Citation primitives ──────────────────────────────────────────────────────
-
-function Sup({ n, href }: { n: number; href: string }) {
-  return (
-    <sup style={{ lineHeight: 0 }}>
-      <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        style={{
-          color: '#7B5CF5',
-          fontSize: '0.68em',
-          textDecoration: 'none',
-          marginLeft: '1px',
-          opacity: 0.8,
-        }}
-        onClick={e => e.stopPropagation()}
-      >
-        {n}
-      </a>
-    </sup>
-  )
-}
-
-function Footnotes({ items }: { items: { n: number; label: string; href: string }[] }) {
-  return (
-    <div className="mt-3 space-y-0.5">
-      {items.map(item => (
-        <div key={item.n} className="flex items-baseline gap-1.5">
-          <span
-            style={{
-              color: 'rgba(255,255,255,0.2)',
-              fontSize: '10px',
-              fontFamily: 'var(--font-ibm)',
-              lineHeight: '1.5',
-              minWidth: '10px',
-              flexShrink: 0,
-            }}
-          >
-            {item.n}
-          </span>
-          <a
-            href={item.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              color: 'rgba(255,255,255,0.28)',
-              fontSize: '10px',
-              fontFamily: 'var(--font-ibm)',
-              lineHeight: '1.5',
-              textDecoration: 'underline',
-              textDecorationColor: 'rgba(255,255,255,0.12)',
-            }}
-          >
-            {item.label}
-          </a>
-        </div>
-      ))}
-    </div>
-  )
-}
+import { Citation } from '@/components/ui/Citation'
 
 // ─── Sources ──────────────────────────────────────────────────────────────────
 
@@ -97,37 +36,28 @@ type OemCard = {
   org: string
   date: string
   detail: React.ReactNode
-  footnotes: { n: number; label: string; href: string }[]
 }
 
 const oemCards: OemCard[] = [
   {
     org: 'BMW Group',
     date: 'April 2025',
-    detail: 'Catena-X registration mandatory for all suppliers as part of procurement process.',
-    footnotes: [{ n: 4, ...src[4] }],
+    detail: <>Catena-X registration mandatory for all suppliers as part of procurement process.<Citation n={4} {...src[4]} /></>,
   },
   {
     org: 'Ford',
     date: 'July 2024',
-    detail: 'Catena-X included in supplier contract terms.',
-    footnotes: [{ n: 5, ...src[5] }],
+    detail: <>Catena-X included in supplier contract terms.<Citation n={5} {...src[5]} /></>,
   },
   {
     org: 'Volkswagen',
     date: 'Committed',
-    detail: (
-      <>"Catena-X is a prerequisite for data-driven value chains."<Sup n={6} href={src[6].href} /> — VW Board, IAA 2025</>
-    ),
-    footnotes: [{ n: 6, ...src[6] }],
+    detail: <>"Catena-X is a prerequisite for data-driven value chains."<Citation n={6} {...src[6]} /> — VW Board, IAA 2025</>,
   },
   {
     org: 'Mercedes-Benz',
     date: 'Committed',
-    detail: (
-      <>"Catena-X will become the new standard of the automotive industry."<Sup n={6} href={src[6].href} /> — Head of Procurement, IAA 2025</>
-    ),
-    footnotes: [{ n: 6, ...src[6] }],
+    detail: <>"Catena-X will become the new standard of the automotive industry."<Citation n={6} {...src[6]} /> — Head of Procurement, IAA 2025</>,
   },
 ]
 
@@ -141,36 +71,26 @@ export function Regulations() {
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
-        {/* Header */}
         <div className="mb-14 max-w-3xl">
           <div className="flex items-center gap-3 mb-6">
             <div className="h-px w-10" style={{ background: '#7B5CF5' }} />
-            <span
-              className="text-xs font-semibold tracking-[0.2em] uppercase"
-              style={{ color: '#7B5CF5', fontFamily: 'var(--font-ibm)' }}
-            >
+            <span className="text-xs font-semibold tracking-[0.2em] uppercase" style={{ color: '#7B5CF5', fontFamily: 'var(--font-ibm)' }}>
               The Regulatory Shift
             </span>
           </div>
-          <h2
-            className="mb-4 leading-tight"
-            style={{ fontFamily: 'var(--font-ibm)', fontSize: 'clamp(30px, 4vw, 50px)', fontWeight: 800, color: '#ffffff' }}
-          >
+          <h2 className="mb-4 leading-tight" style={{ fontFamily: 'var(--font-ibm)', fontSize: 'clamp(30px, 4vw, 50px)', fontWeight: 800, color: '#ffffff' }}>
             The rules keep expanding.{' '}
             <span style={{ color: '#7B5CF5' }}>So does what your data must do.</span>
           </h2>
-          <p
-            className="text-base leading-relaxed"
-            style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}
-          >
-            Compliance obligations are growing — but the bigger shift is structural. The EU Data Act establishes
-            rights and obligations around industrial data sharing across the single market. Manufacturing-X<Sup n={2} href={src[2].href} />{' '}
-            is building the data space infrastructure where machine builders, electrical equipment manufacturers,
-            and their supply chains exchange product data automatically. Factory-X<Sup n={3} href={src[3].href} />{' '}
-            extends this to the shop floor. Every one of these initiatives requires the same thing:
-            your product data, structured and interoperable.
+          <p className="text-base leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}>
+            Compliance obligations are growing — but the bigger shift is structural. The EU Data Act
+            establishes rights and obligations around industrial data sharing across the single market.
+            Manufacturing-X<Citation n={2} {...src[2]} /> is building the data space infrastructure
+            where machine builders, electrical equipment manufacturers, and their supply chains exchange
+            product data automatically. Factory-X<Citation n={3} {...src[3]} /> extends this to the
+            shop floor. Every one of these initiatives requires the same thing: your product data,
+            structured and interoperable.
           </p>
-          <Footnotes items={[{ n: 2, ...src[2] }, { n: 3, ...src[3] }]} />
         </div>
 
         {/* Regulation pills */}
@@ -195,10 +115,7 @@ export function Regulations() {
                 <span style={{ fontSize: '13px' }}>{reg.flag}</span>
                 <span>{reg.name}</span>
                 {!reg.active && (
-                  <span
-                    className="text-xs px-1.5 py-0.5 rounded"
-                    style={{ background: 'rgba(255,255,255,0.06)', color: 'rgba(255,255,255,0.25)', fontSize: '10px' }}
-                  >
+                  <span className="text-xs px-1.5 py-0.5 rounded" style={{ background: 'rgba(255,255,255,0.06)', color: 'rgba(255,255,255,0.25)', fontSize: '10px' }}>
                     Soon
                   </span>
                 )}
@@ -220,26 +137,16 @@ export function Regulations() {
               style={{ background: '#16162A', border: '1px solid rgba(123,92,245,0.15)' }}
             >
               <div className="flex items-center justify-between mb-2">
-                <span
-                  className="text-sm font-bold"
-                  style={{ color: '#ffffff', fontFamily: 'var(--font-ibm)' }}
-                >
+                <span className="text-sm font-bold" style={{ color: '#ffffff', fontFamily: 'var(--font-ibm)' }}>
                   {item.org}
                 </span>
-                <span
-                  className="text-xs px-2 py-0.5 rounded-full"
-                  style={{ background: 'rgba(123,92,245,0.15)', color: '#b89cff', fontFamily: 'var(--font-ibm)' }}
-                >
+                <span className="text-xs px-2 py-0.5 rounded-full" style={{ background: 'rgba(123,92,245,0.15)', color: '#b89cff', fontFamily: 'var(--font-ibm)' }}>
                   {item.date}
                 </span>
               </div>
-              <p
-                className="text-xs leading-relaxed"
-                style={{ color: 'rgba(255,255,255,0.45)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}
-              >
+              <p className="text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.45)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}>
                 {item.detail}
               </p>
-              <Footnotes items={item.footnotes} />
             </motion.div>
           ))}
         </div>
@@ -252,37 +159,25 @@ export function Regulations() {
           className="rounded-xl p-7 max-w-3xl"
           style={{ background: '#1E1E35', borderLeft: '3px solid #7B5CF5' }}
         >
-          <div
-            className="text-xs font-semibold tracking-[0.2em] uppercase mb-4"
-            style={{ color: '#7B5CF5', fontFamily: 'var(--font-ibm)' }}
-          >
+          <div className="text-xs font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: '#7B5CF5', fontFamily: 'var(--font-ibm)' }}>
             Data Space Readiness
           </div>
-          <h3
-            className="text-lg font-bold mb-3"
-            style={{ fontFamily: 'var(--font-ibm)', color: '#ffffff' }}
-          >
+          <h3 className="text-lg font-bold mb-3" style={{ fontFamily: 'var(--font-ibm)', color: '#ffffff' }}>
             Compliance today. Data space readiness tomorrow.
           </h3>
-          <p
-            className="text-sm leading-relaxed mb-4"
-            style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}
-          >
-            Manufacturing-X<Sup n={2} href={src[2].href} /> — the data space infrastructure for German mechanical
-            and electrical engineering — requires suppliers to maintain continuous, machine-readable product records
-            across every supply chain tier. Factory-X<Sup n={3} href={src[3].href} /> extends this to the shop
-            floor. Participation isn't optional: OEMs and system integrators are already making data space
-            connectivity a supplier qualification criterion.<Sup n={4} href={src[4].href} /><Sup n={5} href={src[5].href} />
+          <p className="text-sm leading-relaxed mb-4" style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}>
+            Manufacturing-X<Citation n={2} {...src[2]} /> — the data space infrastructure for German
+            mechanical and electrical engineering — requires suppliers to maintain continuous,
+            machine-readable product records across every supply chain tier.
+            Factory-X<Citation n={3} {...src[3]} /> extends this to the shop floor. Participation
+            isn't optional: OEMs and system integrators are already making data space connectivity a
+            supplier qualification criterion.<Citation n={4} {...src[4]} /><Citation n={5} {...src[5]} />
           </p>
-          <p
-            className="text-sm leading-relaxed"
-            style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}
-          >
-            The structured product data Pareo helps you generate and validate today is the same data these
-            ecosystems will require tomorrow. You're not preparing for compliance — you're building the
-            foundation for full data space participation.
+          <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}>
+            The structured product data Pareo helps you generate and validate today is the same data
+            these ecosystems will require tomorrow. You're not preparing for compliance — you're
+            building the foundation for full data space participation.
           </p>
-          <Footnotes items={[{ n: 2, ...src[2] }, { n: 3, ...src[3] }, { n: 4, ...src[4] }, { n: 5, ...src[5] }]} />
         </motion.div>
 
       </div>
