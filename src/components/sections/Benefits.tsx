@@ -150,8 +150,10 @@ export function Benefits() {
         <div className="mt-12 text-center max-w-3xl mx-auto">
           <p className="text-base leading-relaxed"
             style={{ color: 'rgba(255,255,255,0.4)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}>
-            Compliance requests aren't going away. The regulations keep coming, the OEMs keep asking, and the deadlines keep tightening.
-            Pareo means your team never falls behind again.
+            Compliance requests aren't going away — and they're only the beginning. Every piece of structured,
+            validated product data your team generates is a building block for data space participation, Digital
+            Product Passport readiness, and the automated supply chain exchanges that OEMs will require next.
+            Pareo means you're building the foundation while handling today's workload.
           </p>
         </div>
       </div>

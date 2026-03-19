@@ -7,6 +7,7 @@ const regulations = [
   { name: 'RoHS', theme: 'Electrical / Electronic', flag: '🇪🇺', active: true },
   { name: 'PFAS', theme: 'Chemical Substances', flag: '🇪🇺🇺🇸', active: true },
   { name: 'SCIP', theme: 'Chemical Substances', flag: '🇪🇺', active: true },
+  { name: 'EU Data Act', theme: 'Industrial Data', flag: '🇪🇺', active: true },
   { name: 'Conflict Minerals', theme: 'Trade & Conflict', flag: '🇺🇸', active: true },
   { name: 'TSCA', theme: 'Chemical Substances', flag: '🇺🇸', active: true },
   { name: 'California Prop. 65', theme: 'Chemical Substances', flag: '🇺🇸', active: true },
@@ -14,6 +15,7 @@ const regulations = [
   { name: 'CSRD', theme: 'Sustainability Reporting', flag: '🇪🇺', active: true },
   { name: 'EU Battery Regulation', theme: 'Electrical / Electronic', flag: '🇪🇺', active: true },
   { name: 'IPC-1752', theme: 'Electrical / Electronic', flag: '🌐', active: true },
+  { name: 'OPC UA', theme: 'Industrial Data Standard', flag: '🌐', active: true },
   { name: 'OSHA', theme: 'Chemical Substances', flag: '🇺🇸', active: true },
   { name: 'Digital Product Passport', theme: 'Sustainability', flag: '🇪🇺', active: false },
 ]
@@ -31,18 +33,21 @@ export function Regulations() {
             <div className="h-px w-10" style={{ background: '#7B5CF5' }} />
             <span className="text-xs font-semibold tracking-[0.2em] uppercase"
               style={{ color: '#7B5CF5', fontFamily: 'var(--font-ibm)' }}>
-              Built for Your World
+              The Regulatory Shift
             </span>
           </div>
           <h2 className="mb-4 leading-tight"
             style={{ fontFamily: 'var(--font-ibm)', fontSize: 'clamp(30px, 4vw, 50px)', fontWeight: 800, color: '#ffffff' }}>
-            Product compliance isn't one regulation.{' '}
-            <span style={{ color: '#7B5CF5' }}>It's hundreds — and counting.</span>
+            The rules keep expanding.{' '}
+            <span style={{ color: '#7B5CF5' }}>So does what your data must do.</span>
           </h2>
           <p className="text-base leading-relaxed"
             style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}>
-            Every year, new substances get restricted, new reporting obligations come into force, and OEMs add new requirements
-            to their supplier contracts. Pareo is built to move with it.
+            Compliance obligations are growing — but the bigger shift is structural. The EU Data Act establishes
+            rights and obligations around industrial data sharing across the single market. Catena-X and Manufacturing-X
+            are building the data spaces where suppliers and OEMs exchange product data automatically. OPC UA is
+            standardizing machine communication protocols. Every one of these initiatives requires the same thing:
+            your product data, structured and interoperable.
           </p>
         </div>
 
@@ -93,17 +98,24 @@ export function Regulations() {
         >
           <div className="text-xs font-semibold tracking-[0.2em] uppercase mb-4"
             style={{ color: '#7B5CF5', fontFamily: 'var(--font-ibm)' }}>
-            Where We're Headed
+            Data Space Readiness
           </div>
           <h3 className="text-lg font-bold mb-3"
             style={{ fontFamily: 'var(--font-ibm)', color: '#ffffff' }}>
-            Built for today's requests. Architected for tomorrow's data infrastructure.
+            Compliance today. Data space readiness tomorrow.
           </h3>
+          <p className="text-sm leading-relaxed mb-4"
+            style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}>
+            The EU's industrial data spaces — Catena-X for automotive, Manufacturing-X for broader industry,
+            Factory-X at the shop floor — require suppliers to maintain continuous, machine-readable records
+            across every supply chain tier. Participation isn't optional: OEMs are already mandating data space
+            connectivity as a supplier qualification criterion.
+          </p>
           <p className="text-sm leading-relaxed"
             style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}>
-            The European Digital Product Passport and initiatives like Catena-X will require suppliers to maintain continuous,
-            machine-readable compliance records across every supply chain tier. The structured product data Pareo helps you
-            generate today becomes the foundation for that — so you're not rebuilding from scratch when the requirements arrive.
+            The structured product data Pareo helps you generate and validate today is the same data these
+            ecosystems will require tomorrow. You're not preparing for compliance — you're building the
+            foundation for full data space participation.
           </p>
         </motion.div>
       </div>

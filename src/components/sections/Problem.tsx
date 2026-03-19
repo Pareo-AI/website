@@ -22,7 +22,7 @@ const steps = [
   },
   {
     visual: 5,
-    text: 'The data your team needs exists. It\'s just scattered across too many systems, in too many formats, with no way to move fast.',
+    text: 'The data your team needs exists. It\'s scattered across too many systems, in too many formats — and none of it is structured for what\'s coming next.',
   },
 ]
 
@@ -161,7 +161,7 @@ export function Problem() {
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8 pt-24 pb-8">
         {/* Section header */}
-        <div className="max-w-3xl mb-16">
+        <div className="max-w-3xl mb-10">
           <div className="flex items-center gap-3 mb-6">
             <div className="h-px w-10" style={{ background: '#7B5CF5' }} />
             <span
@@ -180,8 +180,34 @@ export function Problem() {
               color: '#ffffff',
             }}
           >
-            Your compliance team didn't sign up to be a data entry department.
+            Industrial data is fragmented. And the cost is accelerating.
           </h2>
+        </div>
+
+        {/* Macro context callout */}
+        <div
+          className="mb-16 rounded-xl p-7 max-w-3xl"
+          style={{ background: '#16162A', borderLeft: '3px solid #7B5CF5' }}
+        >
+          <p
+            className="text-base leading-relaxed"
+            style={{ color: 'rgba(255,255,255,0.65)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}
+          >
+            When SI units replaced regional measurement systems in the 19th century, cross-border
+            trade and engineering collaboration accelerated beyond what had been possible before.
+            The same structural shift is happening to industrial data today — driven by the EU Data
+            Act, OPC UA, Catena-X, and the Digital Product Passport. A unified, machine-readable
+            data layer for European manufacturing is being built. Most suppliers aren't ready for it.
+          </p>
+          <p
+            className="mt-4 text-base leading-relaxed"
+            style={{ color: 'rgba(255,255,255,0.65)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}
+          >
+            The daily compliance inbox is a symptom. The underlying problem is that product data
+            lives in silos — locked in ERP systems, shared drives, lab reports, and email threads,
+            in formats that can't talk to each other and aren't ready for what regulators and OEMs
+            will require next.
+          </p>
         </div>
 
         {/* Scrollytelling */}
@@ -260,7 +286,8 @@ export function Problem() {
             className="text-lg max-w-2xl mx-auto"
             style={{ color: 'rgba(255,255,255,0.45)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}
           >
-            The answer isn't hiring more compliance engineers. It's changing how the work gets done.
+            The answer isn't hiring more compliance engineers. It's building the data infrastructure
+            that makes compliance — and data space readiness — automatic.
           </p>
         </div>
       </div>

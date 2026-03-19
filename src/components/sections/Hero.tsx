@@ -56,7 +56,7 @@ export function Hero() {
               className="text-xs font-semibold tracking-[0.2em] uppercase"
               style={{ color: '#7B5CF5', fontFamily: 'var(--font-ibm)' }}
             >
-              AI-Powered Compliance
+              Industrial Data Infrastructure
             </span>
           </motion.div>
 
@@ -72,9 +72,11 @@ export function Hero() {
               fontWeight: 800,
             }}
           >
-            <span style={{ color: '#ffffff' }}>Every compliance request.</span>
+            <span style={{ color: '#ffffff' }}>Industrial data</span>
             <br />
-            <span style={{ color: '#7B5CF5' }}>Handled. Automatically.</span>
+            <span style={{ color: '#ffffff' }}>is being standardized.</span>
+            <br />
+            <span style={{ color: '#7B5CF5' }}>Be ready for it.</span>
           </motion.h1>
 
           {/* Subheadline */}
@@ -90,11 +92,10 @@ export function Hero() {
               color: 'rgba(255,255,255,0.62)',
             }}
           >
-            Pareo gives your compliance team an AI workforce that works every request — so your
-            engineers stop doing data entry. Incoming requests in any format — email, Excel, portal
-            notification — are automatically ingested, matched against your ERP and product data,
-            and returned as validated, audit-ready responses. REACH, RoHS, PFAS, TSCA and more.
-            Directly into Assent, CDX, or any format your customer requires.
+            The EU Data Act, Catena-X, and the Digital Product Passport are building a shared
+            industrial data economy across Europe. Manufacturers who have their product data
+            structured, machine-readable, and interoperable will gain a decisive advantage.
+            Those who don't will be locked out. Pareo gets you ready — starting with compliance.
           </motion.p>
 
           {/* CTA */}
