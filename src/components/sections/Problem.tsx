@@ -3,49 +3,186 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 
-const steps = [
+// ─── Citation primitives ──────────────────────────────────────────────────────
+
+function Sup({ n, href }: { n: number; href: string }) {
+  return (
+    <sup style={{ lineHeight: 0 }}>
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          color: '#7B5CF5',
+          fontSize: '0.68em',
+          textDecoration: 'none',
+          marginLeft: '1px',
+          opacity: 0.8,
+        }}
+        onClick={e => e.stopPropagation()}
+      >
+        {n}
+      </a>
+    </sup>
+  )
+}
+
+function Footnotes({ items }: { items: { n: number; label: string; href: string }[] }) {
+  return (
+    <div className="mt-3 space-y-0.5">
+      {items.map(item => (
+        <div key={item.n} className="flex items-baseline gap-1.5">
+          <span
+            style={{
+              color: 'rgba(255,255,255,0.2)',
+              fontSize: '10px',
+              fontFamily: 'var(--font-ibm)',
+              lineHeight: '1.5',
+              minWidth: '10px',
+              flexShrink: 0,
+            }}
+          >
+            {item.n}
+          </span>
+          <a
+            href={item.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              color: 'rgba(255,255,255,0.28)',
+              fontSize: '10px',
+              fontFamily: 'var(--font-ibm)',
+              lineHeight: '1.5',
+              textDecoration: 'underline',
+              textDecorationColor: 'rgba(255,255,255,0.12)',
+            }}
+          >
+            {item.label}
+          </a>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+// ─── Sources (shared numbering) ───────────────────────────────────────────────
+
+const src = {
+  1: { label: 'EU Data Act — Morgan Lewis, Sep 2025', href: 'https://www.morganlewis.com/blogs/sourcingatmorganlewis/2025/09/eu-data-act-begins-september-12-impacting-cloud-services-connected-products-and-other-data-industries' },
+  2: { label: 'Manufacturing-X — BMWK', href: 'https://www.bundeswirtschaftsministerium.de/Redaktion/EN/Dossier/manufacturing-x.html' },
+  3: { label: 'Factory-X — SAP News, Sep 2025', href: 'https://news.sap.com/2025/09/factory-x-driving-mechanical-engineering-digitalization/' },
+  4: { label: 'BMW Group mandate — BMW Newsroom, 2025', href: 'https://www.bmwgroup.com/en/news/general/2025/catena-x-connects-digital-supply-chains.html' },
+  5: { label: 'Ford & BMW contracts — Plattform Industrie 4.0, Apr 2025', href: 'https://plattformindustrie40.at/en/blog/2025/04/07/operational-use-of-catena-x-in-the-automotive-industry/' },
+  6: { label: 'VW, Mercedes-Benz — Catena-X Newsroom, IAA 2025', href: 'https://catena-x.net/news/catena-x-reaches-turning-point-industry-leaders-confirm-commitment-at-iaa/' },
+  7: { label: 'EU Battery Regulation 2023/1542 — TÜV Rheinland', href: 'https://www.tuv.com/landingpage/en/eu-new-battery-regulation-eu-2023-1542/' },
+} as const
+
+// ─── Scroll steps ─────────────────────────────────────────────────────────────
+
+type Step = {
+  visual: number
+  content: React.ReactNode
+  footnotes: { n: number; label: string; href: string }[]
+}
+
+const steps: Step[] = [
   {
     visual: 1,
-    text: 'Every morning, the inbox has more. An Excel template from a customer. A portal notification from Assent. A PDF about PFAS restrictions, forwarded from procurement with no context.',
+    content: (
+      <>
+        The EU Data Act entered into force in January 2024.<Sup n={1} href={src[1].href} /> From
+        September 2025, connected product manufacturers are legally required to make product usage
+        data accessible and shareable across the EU single market.<Sup n={1} href={src[1].href} />{' '}
+        Structured, interoperable data is no longer optional — it is a legal obligation.
+      </>
+    ),
+    footnotes: [{ n: 1, ...src[1] }],
   },
   {
     visual: 2,
-    text: 'To answer any of them, your engineer opens SAP. Searches a shared drive. Digs through old email threads with sub-suppliers. Cross-references a lab report from two years ago.',
+    content: (
+      <>
+        Manufacturing-X — backed by €140 million in federal funding from BMWK<Sup n={2} href={src[2].href} /> — is
+        building the cross-sector data space infrastructure for European manufacturing. 115+
+        companies across 12 industry sectors are already participating.<Sup n={2} href={src[2].href} /> Factory-X,
+        led by Siemens and SAP, moves into its operational phase in mid-2026.<Sup n={3} href={src[3].href} />
+      </>
+    ),
+    footnotes: [{ n: 2, ...src[2] }, { n: 3, ...src[3] }],
   },
   {
     visual: 3,
-    text: 'The engineer pieces it together manually. Types it into whatever format the customer requires. Checks it. Sends it. Then the next one arrives.',
+    content: (
+      <>
+        BMW Group made data space participation mandatory for all suppliers in April 2025.<Sup n={4} href={src[4].href} />{' '}
+        Ford included it in supplier contract terms in July 2024.<Sup n={5} href={src[5].href} />{' '}
+        Volkswagen has publicly committed.<Sup n={6} href={src[6].href} /> Mercedes-Benz has called
+        it "the new standard of the automotive industry."<Sup n={6} href={src[6].href} />
+      </>
+    ),
+    footnotes: [{ n: 4, ...src[4] }, { n: 5, ...src[5] }, { n: 6, ...src[6] }],
   },
   {
     visual: 4,
-    text: 'This happens hundreds of times a year. Across every product line, every customer, every regulation. And the volume keeps growing.',
+    content: (
+      <>
+        The EU Battery Passport — the first hard Digital Product Passport deadline — requires all EV
+        and industrial batteries to carry a machine-readable product record from February 2027.<Sup n={7} href={src[7].href} />{' '}
+        Electronics, machinery, and other sectors follow under the Ecodesign for Sustainable
+        Products Regulation.
+      </>
+    ),
+    footnotes: [{ n: 7, ...src[7] }],
   },
   {
     visual: 5,
-    text: 'The data your team needs exists. It\'s scattered across too many systems, in too many formats — and none of it is structured for what\'s coming next.',
+    content: (
+      <>
+        Every one of these initiatives requires the same thing: structured, validated,
+        machine-readable product data at every supply chain tier. Most suppliers store that data in
+        ERP silos, shared drives, and email threads. It cannot participate.
+      </>
+    ),
+    footnotes: [],
   },
 ]
 
+// ─── Stat cards ───────────────────────────────────────────────────────────────
+
 const stats = [
-  { number: '30%', label: 'Increase per year', body: 'Compliance request volume is growing every year — driven by new regulations, deeper data requirements, and OEMs automating their outreach.' },
-  { number: '1+ hr', label: 'Per request', body: 'Retrieving data from multiple systems, validating it, and formatting the output correctly takes hours of expert time — for a single response.' },
-  { number: '4+', label: 'Systems to check', body: 'The data needed to answer a single request lives in your ERP, PLM, shared drives, lab reports, and supplier email threads — with no single source of truth.' },
+  {
+    number: '€140M',
+    label: 'BMWK Investment',
+    body: 'Federal funding committed to Manufacturing-X — the data space infrastructure for German mechanical and electrical engineering.',
+    footnotes: [{ n: 2, ...src[2] }],
+  },
+  {
+    number: 'Apr 2025',
+    label: 'BMW Group Mandate',
+    body: 'BMW Group made Catena-X data space participation mandatory for all suppliers. Ford required it in contracts from July 2024.',
+    footnotes: [{ n: 4, ...src[4] }, { n: 5, ...src[5] }],
+  },
+  {
+    number: 'Feb 2027',
+    label: 'Battery Passport',
+    body: 'First hard DPP deadline under EU law: all EV and industrial batteries placed on the EU market must carry a machine-readable Digital Product Passport.',
+    footnotes: [{ n: 7, ...src[7] }],
+  },
 ]
 
-const inboxMessages = [
-  { from: 'Assent Portal', subject: 'New SVHC request — response due in 5 days', tag: 'REACH', color: '#7B5CF5' },
-  { from: 'procurement@customer.de', subject: 'FW: PFAS declaration template — urgent', tag: 'PFAS', color: '#a87fff' },
-  { from: 'compliance@oem-group.com', subject: 'RoHS compliance data needed for Q3 audit', tag: 'RoHS', color: '#7B5CF5' },
-  { from: 'CDX Platform', subject: 'Action required: conflict minerals report', tag: 'CMR', color: '#6b4fd4' },
-  { from: 'supplier-mgmt@tier1.eu', subject: 'RE: REACH SVHC — missing CAS numbers', tag: 'REACH', color: '#7B5CF5' },
-  { from: 'ecodesign@regulation.eu', subject: 'New ecodesign requirements — product XA-4420', tag: 'ECO', color: '#9b6dff' },
-  { from: 'assent@portal.io', subject: 'Overdue: 3 pending declarations', tag: 'PORTAL', color: '#c084fc' },
-  { from: 'compliance.team@automotive.de', subject: 'CSRD supply chain data request Q4', tag: 'CSRD', color: '#7B5CF5' },
+// ─── Timeline visual ──────────────────────────────────────────────────────────
+
+const timelineEvents = [
+  { date: 'Jan 2024', label: 'EU Data Act', detail: 'Enters into force' },
+  { date: 'Jul 2024', label: 'Ford', detail: 'Catena-X required in supplier contracts' },
+  { date: 'Apr 2025', label: 'BMW Group', detail: 'Catena-X mandatory for all suppliers' },
+  { date: 'Sep 2025', label: 'EU Data Act', detail: 'Fully applies — data sharing obligations active' },
+  { date: 'Mid-2026', label: 'Manufacturing-X', detail: 'Moves from development to operational' },
+  { date: 'Feb 2027', label: 'EU Battery Passport', detail: 'Mandatory for all EV & industrial batteries' },
+  { date: '2027–28', label: 'DPP expands', detail: 'Textiles, electronics, machinery' },
 ]
 
-function InboxVisual({ step }: { step: number }) {
-  const visibleCount = Math.min(step + 1, inboxMessages.length)
-
+function TimelineVisual() {
   return (
     <div
       className="rounded-xl overflow-hidden"
@@ -55,7 +192,6 @@ function InboxVisual({ step }: { step: number }) {
         minHeight: '340px',
       }}
     >
-      {/* Inbox header */}
       <div
         className="flex items-center justify-between px-4 py-3 border-b"
         style={{ borderColor: 'rgba(123,92,245,0.15)', background: 'rgba(123,92,245,0.05)' }}
@@ -65,58 +201,63 @@ function InboxVisual({ step }: { step: number }) {
           <div className="w-3 h-3 rounded-full" style={{ background: '#febc2e' }} />
           <div className="w-3 h-3 rounded-full" style={{ background: '#28c840' }} />
         </div>
-        <span className="text-xs font-medium" style={{ color: 'rgba(255,255,255,0.4)', fontFamily: 'var(--font-ibm)' }}>
-          Compliance Inbox
-        </span>
-        <div
-          className="px-2 py-0.5 rounded-full text-xs font-bold"
-          style={{ background: 'rgba(239,68,68,0.15)', color: '#ef4444', fontFamily: 'var(--font-ibm)' }}
+        <span
+          className="text-xs font-medium"
+          style={{ color: 'rgba(255,255,255,0.4)', fontFamily: 'var(--font-ibm)' }}
         >
-          {visibleCount} unread
-        </div>
+          Mandate Timeline
+        </span>
+        <div style={{ width: 56 }} />
       </div>
 
-      {/* Messages */}
-      <div className="divide-y" style={{ borderColor: 'rgba(255,255,255,0.04)' }}>
-        {inboxMessages.slice(0, visibleCount).map((msg, i) => (
+      <div className="px-5 py-5">
+        {timelineEvents.map((event, i) => (
           <motion.div
             key={i}
-            initial={i === visibleCount - 1 && step > 0 ? { opacity: 0, y: -8 } : { opacity: 1, y: 0 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-            className="px-4 py-3 flex items-start gap-3"
-            style={{ background: i === 0 ? 'rgba(123,92,245,0.04)' : 'transparent' }}
+            initial={{ opacity: 0, x: -8 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.3, delay: i * 0.06 }}
+            className="flex items-start gap-3 relative"
           >
-            <div
-              className="w-2 h-2 rounded-full mt-2 shrink-0"
-              style={{ background: i < 2 ? '#7B5CF5' : 'rgba(123,92,245,0.3)' }}
-            />
-            <div className="min-w-0 flex-1">
-              <div className="flex items-center justify-between gap-2 mb-0.5">
-                <span
-                  className="text-xs font-medium truncate"
-                  style={{ color: i < 2 ? '#ffffff' : 'rgba(255,255,255,0.55)', fontFamily: 'var(--font-ibm)' }}
-                >
-                  {msg.from}
-                </span>
-                <span
-                  className="text-xs px-1.5 py-0.5 rounded shrink-0"
-                  style={{
-                    background: 'rgba(123,92,245,0.15)',
-                    color: '#b89cff',
-                    fontFamily: 'var(--font-ibm)',
-                    fontSize: '10px',
-                  }}
-                >
-                  {msg.tag}
-                </span>
-              </div>
-              <p
-                className="text-xs truncate"
-                style={{ color: 'rgba(255,255,255,0.35)', fontFamily: 'var(--font-ibm)' }}
+            {i < timelineEvents.length - 1 && (
+              <div
+                className="absolute"
+                style={{
+                  left: '60px',
+                  top: '20px',
+                  width: '1px',
+                  height: '100%',
+                  background: 'rgba(123,92,245,0.18)',
+                }}
+              />
+            )}
+            <div className="shrink-0 w-14 pt-1 text-right">
+              <span
+                className="text-xs font-bold"
+                style={{ color: '#7B5CF5', fontFamily: 'var(--font-ibm)' }}
               >
-                {msg.subject}
-              </p>
+                {event.date}
+              </span>
+            </div>
+            <div
+              className="shrink-0 mt-1.5 w-3.5 h-3.5 rounded-full border-2 flex items-center justify-center"
+              style={{ borderColor: 'rgba(123,92,245,0.5)', background: '#0D0D1A' }}
+            >
+              <div className="w-1.5 h-1.5 rounded-full" style={{ background: '#7B5CF5' }} />
+            </div>
+            <div className="flex-1 pb-4">
+              <div
+                className="text-xs font-semibold"
+                style={{ color: '#ffffff', fontFamily: 'var(--font-ibm)' }}
+              >
+                {event.label}
+              </div>
+              <div
+                className="text-xs"
+                style={{ color: 'rgba(255,255,255,0.38)', fontFamily: 'var(--font-ibm)' }}
+              >
+                {event.detail}
+              </div>
             </div>
           </motion.div>
         ))}
@@ -125,7 +266,9 @@ function InboxVisual({ step }: { step: number }) {
   )
 }
 
-function ScrollStep({ step, index }: { step: typeof steps[0]; index: number }) {
+// ─── Scroll step ──────────────────────────────────────────────────────────────
+
+function ScrollStep({ step, index }: { step: Step; index: number }) {
   const ref = useRef(null)
   const inView = useInView(ref, { amount: 0.6, once: false })
 
@@ -146,20 +289,21 @@ function ScrollStep({ step, index }: { step: typeof steps[0]; index: number }) {
           className="text-lg leading-relaxed"
           style={{ color: 'rgba(255,255,255,0.75)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}
         >
-          {step.text}
+          {step.content}
         </p>
+        {step.footnotes.length > 0 && <Footnotes items={step.footnotes} />}
       </motion.div>
     </div>
   )
 }
 
+// ─── Section ──────────────────────────────────────────────────────────────────
+
 export function Problem() {
   return (
-    <section
-      style={{ background: '#0D0D1A' }}
-      className="relative"
-    >
+    <section style={{ background: '#0D0D1A' }} className="relative">
       <div className="mx-auto max-w-7xl px-6 lg:px-8 pt-24 pb-8">
+
         {/* Section header */}
         <div className="max-w-3xl mb-10">
           <div className="flex items-center gap-3 mb-6">
@@ -168,7 +312,7 @@ export function Problem() {
               className="text-xs font-semibold tracking-[0.2em] uppercase"
               style={{ color: '#7B5CF5', fontFamily: 'var(--font-ibm)' }}
             >
-              The Problem
+              The Stakes
             </span>
           </div>
           <h2
@@ -180,7 +324,7 @@ export function Problem() {
               color: '#ffffff',
             }}
           >
-            Industrial data is fragmented. And the cost is accelerating.
+            A new industrial data economy is being mandated. Most suppliers aren't ready.
           </h2>
         </div>
 
@@ -196,30 +340,29 @@ export function Problem() {
             When SI units replaced regional measurement systems in the 19th century, cross-border
             trade and engineering collaboration accelerated beyond what had been possible before.
             The same structural shift is happening to industrial data today — driven by the EU Data
-            Act, OPC UA, Manufacturing-X, and the Digital Product Passport. A unified, machine-readable
+            Act,<Sup n={1} href={src[1].href} /> Manufacturing-X,<Sup n={2} href={src[2].href} /> and
+            the Digital Product Passport.<Sup n={7} href={src[7].href} /> A unified, machine-readable
             data layer for European manufacturing is being built. Most suppliers aren't ready for it.
           </p>
           <p
             className="mt-4 text-base leading-relaxed"
             style={{ color: 'rgba(255,255,255,0.65)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}
           >
-            The daily compliance inbox is a symptom. The underlying problem is that product data
-            lives in silos — locked in ERP systems, shared drives, lab reports, and email threads,
-            in formats that can't talk to each other and aren't ready for what regulators and OEMs
-            will require next.
+            This isn't a future risk. OEM mandates are already written into supplier contracts.<Sup n={4} href={src[4].href} /><Sup n={5} href={src[5].href} />{' '}
+            Regulatory deadlines are fixed in EU law.<Sup n={7} href={src[7].href} /> The data
+            infrastructure gap — product data locked in ERP systems, shared drives, and email
+            threads — is a qualification risk today.
           </p>
+          <Footnotes items={[{ n: 1, ...src[1] }, { n: 2, ...src[2] }, { n: 4, ...src[4] }, { n: 5, ...src[5] }, { n: 7, ...src[7] }]} />
         </div>
 
-        {/* Scrollytelling */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-24">
-          {/* Left: sticky inbox */}
+        {/* Scrollytelling — desktop */}
+        <div className="hidden lg:grid grid-cols-1 lg:grid-cols-2 gap-16 mb-24">
           <div className="hidden lg:block">
             <div className="sticky top-28">
-              <InboxSticky />
+              <TimelineVisual />
             </div>
           </div>
-
-          {/* Right: scroll steps */}
           <div>
             {steps.map((step, i) => (
               <ScrollStep key={i} step={step} index={i} />
@@ -241,8 +384,9 @@ export function Problem() {
                 className="text-base leading-relaxed"
                 style={{ color: 'rgba(255,255,255,0.7)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}
               >
-                {step.text}
+                {step.content}
               </p>
+              {step.footnotes.length > 0 && <Footnotes items={step.footnotes} />}
             </div>
           ))}
         </div>
@@ -253,10 +397,7 @@ export function Problem() {
             <div
               key={stat.label}
               className="p-7 rounded-xl"
-              style={{
-                background: '#16162A',
-                border: '1px solid rgba(123,92,245,0.15)',
-              }}
+              style={{ background: '#16162A', border: '1px solid rgba(123,92,245,0.15)' }}
             >
               <div
                 className="text-4xl font-extrabold mb-1 leading-none"
@@ -276,6 +417,7 @@ export function Problem() {
               >
                 {stat.body}
               </p>
+              <Footnotes items={stat.footnotes} />
             </div>
           ))}
         </div>
@@ -286,22 +428,12 @@ export function Problem() {
             className="text-lg max-w-2xl mx-auto"
             style={{ color: 'rgba(255,255,255,0.45)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}
           >
-            The answer isn't hiring more compliance engineers. It's building the data infrastructure
-            that makes compliance — and data space readiness — automatic.
+            The answer isn't a compliance tool. It's building the data infrastructure that makes
+            your products qualifiable, traceable, and ready for every data space that will demand them.
           </p>
         </div>
+
       </div>
     </section>
-  )
-}
-
-function InboxSticky() {
-  const ref = useRef(null)
-  const inView = useInView(ref, { amount: 0.1 })
-
-  return (
-    <div ref={ref}>
-      <InboxVisual step={inView ? 5 : 0} />
-    </div>
   )
 }

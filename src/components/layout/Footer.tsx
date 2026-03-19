@@ -52,6 +52,15 @@ export function Footer() {
         </div>
 
         <div className="mt-8 pt-6 border-t" style={{ borderColor: 'rgba(123,92,245,0.08)' }}>
+          <div
+            className="flex flex-wrap justify-center gap-x-6 gap-y-1 mb-4 text-xs"
+            style={{ color: 'rgba(255,255,255,0.25)', fontFamily: 'var(--font-ibm)' }}
+          >
+            <span>Made in Germany</span>
+            <span>DSGVO Compliant</span>
+            <span>No model training on your data</span>
+            <span>Isolated infrastructure per customer</span>
+          </div>
           <p
             className="text-center text-xs"
             style={{ color: 'rgba(255,255,255,0.2)', fontFamily: 'var(--font-ibm)' }}

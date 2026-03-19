@@ -251,14 +251,14 @@ export function HowItWorks() {
           </div>
           <h2 className="mb-4 leading-tight tracking-tight"
             style={{ fontFamily: 'var(--font-ibm)', fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 800, color: '#ffffff' }}>
-            Your product data,{' '}
-            <span style={{ color: '#7B5CF5' }}>structured and validated.</span>
-            {' '}Automatically.
+            Every compliance interaction{' '}
+            <span style={{ color: '#7B5CF5' }}>builds your data layer.</span>
           </h2>
           <p className="max-w-2xl text-base leading-relaxed"
             style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}>
-            Every compliance interaction captures, validates, and organizes your product data — building a machine-readable
-            record that answers today's requests and is ready for tomorrow's data spaces.
+            Each request Pareo handles — capturing, assembling, validating, and outputting product data — adds to a
+            machine-readable product record built to Manufacturing-X-compatible standards. You're handling today's
+            workload and building the infrastructure for data space participation at the same time.
           </p>
         </div>
 

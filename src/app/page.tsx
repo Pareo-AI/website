@@ -5,7 +5,7 @@ import { Problem } from '@/components/sections/Problem'
 import { HowItWorks } from '@/components/sections/HowItWorks'
 import { Benefits } from '@/components/sections/Benefits'
 import { Regulations } from '@/components/sections/Regulations'
-import { Security } from '@/components/sections/Security'
+import { DataSovereignty } from '@/components/sections/DataSovereignty'
 import { CTA } from '@/components/sections/CTA'
 
 export default function HomePage() {
@@ -16,7 +16,7 @@ export default function HomePage() {
       <HowItWorks />
       <Benefits />
       <Regulations />
-      <Security />
+      <DataSovereignty />
       <CTA />
     </>
   )
