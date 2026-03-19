@@ -15,8 +15,7 @@ const regulations = [
   { name: 'CSRD', theme: 'Sustainability Reporting', flag: '🇪🇺', active: true },
   { name: 'EU Battery Regulation', theme: 'Electrical / Electronic', flag: '🇪🇺', active: true },
   { name: 'IPC-1752', theme: 'Electrical / Electronic', flag: '🌐', active: true },
-  { name: 'OPC UA', theme: 'Industrial Data Standard', flag: '🌐', active: true },
-  { name: 'OSHA', theme: 'Chemical Substances', flag: '🇺🇸', active: true },
+{ name: 'OSHA', theme: 'Chemical Substances', flag: '🇺🇸', active: true },
   { name: 'Digital Product Passport', theme: 'Sustainability', flag: '🇪🇺', active: false },
 ]
 
