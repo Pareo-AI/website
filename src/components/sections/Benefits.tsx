@@ -17,21 +17,30 @@ const statCards = [
   },
 ]
 
-const outcomes = [
+const comparison = [
   {
-    icon: '◈',
-    title: 'OEM qualification readiness',
-    body: 'BMW Group and Ford have already made data space participation mandatory in supplier contracts. Volkswagen and Mercedes-Benz have publicly committed. Suppliers who can demonstrate structured, interoperable product data qualify faster and are less likely to be deprioritized as OEMs automate their supply chain requirements.',
+    without: 'Requests arrive by email, portal, and Excel and pile up in a shared inbox',
+    with: 'Every incoming request is automatically ingested and classified the moment it arrives',
   },
   {
-    icon: '⬡',
-    title: 'Data space participation',
-    body: 'Every validated product record Pareo generates is built to Manufacturing-X-compatible standards. You\'re not preparing for data spaces — you\'re building your presence in them from day one. The compliance requests you handle today are the foundation for full data space participation tomorrow.',
+    without: 'Your engineer searches SAP, shared drives, lab reports, and email threads to find the data',
+    with: 'Agents retrieve the relevant product and material data from your connected systems in seconds',
   },
   {
-    icon: '◻',
-    title: 'Regulatory future-proofing',
-    body: 'The EU Battery Passport is mandatory from February 2027. ESPR-based DPPs follow for electronics, machinery, and textiles. As requirements expand, the foundation is already in place. New regulations become new queries against structured data you already own — not new projects.',
+    without: 'Responses drafted from scratch each time, inconsistent quality across the team',
+    with: 'Responses generated automatically, mapped to the exact format required, evidence linked',
+  },
+  {
+    without: 'Data manually copy-pasted into Assent or customer templates',
+    with: 'Direct write-back into portals and output formats — no re-entry, no transcription errors',
+  },
+  {
+    without: 'Sub-supplier data chased over email, delays compound',
+    with: 'Automated outreach triggered immediately when data is missing, gaps tracked until closed',
+  },
+  {
+    without: 'Evidence scattered across systems, hard to reconstruct for audits',
+    with: 'Full source trail archived with every response — audit-ready from day one',
   },
 ]
 
@@ -46,29 +55,22 @@ export function Benefits() {
         <div className="mb-14">
           <div className="flex items-center gap-3 mb-6">
             <div className="h-px w-10" style={{ background: '#7B5CF5' }} />
-            <span
-              className="text-xs font-semibold tracking-[0.2em] uppercase"
-              style={{ color: '#7B5CF5', fontFamily: 'var(--font-ibm)' }}
-            >
+            <span className="text-xs font-semibold tracking-[0.2em] uppercase"
+              style={{ color: '#7B5CF5', fontFamily: 'var(--font-ibm)' }}>
               The Results
             </span>
           </div>
-          <h2
-            className="mb-4 leading-tight"
-            style={{ fontFamily: 'var(--font-ibm)', fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 800, color: '#ffffff' }}
-          >
-            The same team. A data layer that works.
+          <h2 className="mb-4 leading-tight"
+            style={{ fontFamily: 'var(--font-ibm)', fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 800, color: '#ffffff' }}>
+            The same team. A fraction of the work.
           </h2>
-          <p
-            className="max-w-2xl text-base"
-            style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}
-          >
-            Pareo doesn't replace your compliance specialists. It removes the part of their job
-            that shouldn't exist — while building the product data infrastructure your company needs.
+          <p className="max-w-2xl text-base"
+            style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}>
+            Pareo doesn't replace your compliance specialists. It removes the part of their job that shouldn't exist in the first place.
           </p>
         </div>
 
-        {/* Operational stat cards */}
+        {/* Stat cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-16">
           {statCards.map((card, i) => (
             <motion.div
@@ -80,69 +82,76 @@ export function Benefits() {
               className="p-7 rounded-xl"
               style={{ background: '#16162A', border: '1px solid rgba(123,92,245,0.15)' }}
             >
-              <div
-                className="text-4xl font-extrabold mb-3 leading-none"
-                style={{ color: '#7B5CF5', fontFamily: 'var(--font-ibm)' }}
-              >
+              <div className="text-4xl font-extrabold mb-3 leading-none"
+                style={{ color: '#7B5CF5', fontFamily: 'var(--font-ibm)' }}>
                 {card.stat}
               </div>
-              <p
-                className="text-sm leading-relaxed"
-                style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}
-              >
+              <p className="text-sm leading-relaxed"
+                style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}>
                 {card.body}
               </p>
             </motion.div>
           ))}
         </div>
 
-        {/* Strategic outcomes */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-          {outcomes.map((item, i) => (
-            <motion.div
+        {/* Comparison table */}
+        <div className="rounded-xl overflow-hidden" style={{ border: '1px solid rgba(123,92,245,0.15)' }}>
+          {/* Table header */}
+          <div className="grid grid-cols-2">
+            <div className="px-6 py-4" style={{ background: 'rgba(255,255,255,0.03)', borderRight: '1px solid rgba(123,92,245,0.1)' }}>
+              <span className="text-sm font-semibold"
+                style={{ color: 'rgba(255,255,255,0.35)', fontFamily: 'var(--font-ibm)' }}>
+                ✗ Without Pareo
+              </span>
+            </div>
+            <div className="px-6 py-4" style={{ background: 'rgba(123,92,245,0.07)' }}>
+              <span className="text-sm font-semibold"
+                style={{ color: '#7B5CF5', fontFamily: 'var(--font-ibm)' }}>
+                ✓ With Pareo
+              </span>
+            </div>
+          </div>
+
+          {/* Rows */}
+          {comparison.map((row, i) => (
+            <div
               key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ delay: i * 0.12 }}
-              className="p-7 rounded-xl"
-              style={{
-                background: 'rgba(123,92,245,0.06)',
-                border: '1px solid rgba(123,92,245,0.2)',
-              }}
+              className="grid grid-cols-2 border-t"
+              style={{ borderColor: 'rgba(123,92,245,0.08)' }}
             >
               <div
-                className="text-2xl mb-4"
-                style={{ color: '#7B5CF5' }}
+                className="px-6 py-4 text-sm leading-relaxed"
+                style={{
+                  color: 'rgba(255,255,255,0.35)',
+                  fontFamily: 'var(--font-ibm)',
+                  fontWeight: 300,
+                  borderRight: '1px solid rgba(123,92,245,0.08)',
+                  background: i % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.01)',
+                }}
               >
-                {item.icon}
+                {row.without}
               </div>
-              <h3
-                className="text-base font-bold mb-3"
-                style={{ color: '#ffffff', fontFamily: 'var(--font-ibm)' }}
+              <div
+                className="px-6 py-4 text-sm leading-relaxed"
+                style={{
+                  color: 'rgba(255,255,255,0.75)',
+                  fontFamily: 'var(--font-ibm)',
+                  fontWeight: 300,
+                  background: i % 2 === 0 ? 'rgba(123,92,245,0.04)' : 'rgba(123,92,245,0.03)',
+                }}
               >
-                {item.title}
-              </h3>
-              <p
-                className="text-sm leading-relaxed"
-                style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}
-              >
-                {item.body}
-              </p>
-            </motion.div>
+                {row.with}
+              </div>
+            </div>
           ))}
         </div>
 
         {/* Closing statement */}
-        <div className="mt-4 text-center max-w-3xl mx-auto">
-          <p
-            className="text-base leading-relaxed"
-            style={{ color: 'rgba(255,255,255,0.4)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}
-          >
-            Compliance requests aren't going away — and they're only the beginning. Every piece of structured,
-            validated product data your team generates is a building block for data space participation, Digital
-            Product Passport readiness, and the automated supply chain exchanges that OEMs will require next.
-            Pareo means you're building the foundation while handling today's workload.
+        <div className="mt-12 text-center max-w-3xl mx-auto">
+          <p className="text-base leading-relaxed"
+            style={{ color: 'rgba(255,255,255,0.4)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}>
+            Compliance requests aren't going away. The regulations keep coming, the OEMs keep asking, and the deadlines keep tightening.
+            Pareo means your team never falls behind again.
           </p>
         </div>
       </div>

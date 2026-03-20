@@ -8,29 +8,29 @@ export function Vision() {
     {
       phase: "Today",
       icon: Sparkles,
-      title: "Compliance Intelligence",
-      description: "AI agents that understand regulatory requirements and automate compliance workflows for RoHS, REACH, SCIP, and PFAS.",
+      title: "Compliance Automation",
+      description: "AI agents automate compliance workflows for RoHS, REACH, SCIP, PFAS, and more — turning days of manual data work into minutes. Every response structured, validated, and audit-ready.",
       status: "shipping"
     },
     {
       phase: "2026",
       icon: Network,
-      title: "Supply Chain Knowledge Graph",
-      description: "Connect products → components → materials → suppliers. Every compliance question becomes a graph query. Suppliers update once, all customers see it.",
+      title: "Data Space Readiness",
+      description: "Your product data — already structured for compliance — becomes the foundation for industrial data space participation. Manufacturing-X and Factory-X connectors let you share product data with OEMs and system integrators automatically, without rebuilding from scratch.",
       status: "roadmap"
     },
     {
       phase: "2027",
       icon: Globe,
-      title: "Proactive Compliance Platform",
-      description: "Monitor regulatory changes globally. Alert customers before new substances hit candidate lists. Auto-generate impact assessments. Predict compliance risks before they materialize.",
+      title: "Proactive Regulatory Intelligence",
+      description: "Monitor regulatory changes globally. Alert customers before new substances hit candidate lists. Auto-generate EU Data Act compliance assessments. Predict supply chain risk before it materializes.",
       status: "roadmap"
     },
     {
       phase: "2028+",
       icon: Leaf,
       title: "Digital Product Passport Infrastructure",
-      description: "EU's Digital Product Passport mandate arrives. We're already the compliance data backbone - extending to circularity, carbon footprint, and full product lifecycle transparency.",
+      description: "The EU Digital Product Passport mandate arrives. We're already the structured data backbone — extending to circularity, carbon footprint, and full lifecycle transparency across the single market.",
       status: "vision"
     }
   ]
@@ -39,15 +39,12 @@ export function Vision() {
     <section className="py-24 bg-background">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <div className="inline-block mb-4">
-            <span className="bg-primary/10 text-primary px-4 py-1.5 rounded-full text-sm font-medium">
-              For Investors
-            </span>
-          </div>
-          <h2 className="text-3xl font-bold sm:text-4xl">Compliance is the Wedge. Transparency is the Market.</h2>
+          <h2 className="text-3xl font-bold sm:text-4xl">Where compliance work leads.</h2>
           <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
-            Every manufacturer is drowning in compliance data. But compliance is just the first use case.
-            The real opportunity is becoming the <span className="font-semibold text-foreground">universal supply chain transparency layer</span> - the system of record for what's actually in products, where it came from, and whether it meets evolving standards.
+            The EU Data Act, Manufacturing-X, and Digital Product Passport mandates are converging
+            on the same requirement: structured, machine-readable product data across every supply
+            chain tier. Pareo starts with the compliance problem your team already has — and builds
+            the data foundation that every subsequent requirement draws from.
           </p>
         </div>
 
@@ -101,31 +98,10 @@ export function Vision() {
           </div>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="p-6 rounded-lg border bg-card">
-            <div className="text-3xl font-bold text-primary mb-2">Network Effects</div>
-            <p className="text-sm text-muted-foreground">
-              Every supplier we onboard creates value for multiple manufacturers. Eventually, suppliers maintain their compliance data once in Pareo - and all their customers benefit.
-            </p>
-          </div>
-          <div className="p-6 rounded-lg border bg-card">
-            <div className="text-3xl font-bold text-primary mb-2">Regulatory Tailwind</div>
-            <p className="text-sm text-muted-foreground">
-              EU Green Deal, PFAS restrictions, Digital Product Passport, CSRD sustainability reporting - regulation is accelerating. Compliance isn't optional. We're infrastructure.
-            </p>
-          </div>
-          <div className="p-6 rounded-lg border bg-card">
-            <div className="text-3xl font-bold text-primary mb-2">Vertical → Horizontal</div>
-            <p className="text-sm text-muted-foreground">
-              Start with electronics (automotive sensors, semiconductors). Expand to medical devices, machinery, consumer goods. Same regulations, same problem, different industries.
-            </p>
-          </div>
-        </div>
-
         <div className="mt-12 text-center">
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            We're not building a compliance tool. We're building the <span className="font-semibold text-foreground">data backbone for the circular economy</span>.
-            Compliance is just the first killer app.
+            The compliance work you do today doesn't have to be a cost centre.
+            Done with the right data structure, it becomes the <span className="font-semibold text-foreground">foundation for data space participation, DPP readiness, and automated supply chain integration</span> — work your team would otherwise have to do again from scratch.
           </p>
         </div>
       </div>

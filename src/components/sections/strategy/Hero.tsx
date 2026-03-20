@@ -2,6 +2,45 @@
 
 import { motion } from 'framer-motion'
 
+// ─── Grid data pulses ─────────────────────────────────────────────────────────
+
+const gridParticles = [
+  { axis: 'h' as const, pos: 300, delay: 2.5, duration: 6,   repeatDelay: 5 },
+  { axis: 'v' as const, pos: 240, delay: 0.8, duration: 7,   repeatDelay: 4 },
+  { axis: 'v' as const, pos: 900, delay: 5,   duration: 6,   repeatDelay: 5 },
+]
+
+function GridParticle({
+  axis, pos, delay, duration, repeatDelay,
+}: {
+  axis: 'h' | 'v'
+  pos: number
+  delay: number
+  duration: number
+  repeatDelay: number
+}) {
+  const isH = axis === 'h'
+  return (
+    <motion.div
+      style={{
+        position: 'absolute',
+        top:    isH ? pos : 0,
+        left:   isH ? 0   : pos,
+        width:  isH ? 80  : 1,
+        height: isH ? 1   : 80,
+        background: isH
+          ? 'linear-gradient(90deg, transparent, rgba(123,92,245,0.32), transparent)'
+          : 'linear-gradient(180deg, transparent, rgba(123,92,245,0.32), transparent)',
+        filter: 'blur(0.5px)',
+      }}
+      animate={isH ? { x: [-80, 1800] } : { y: [-80, 1200] }}
+      transition={{ delay, duration, repeat: Infinity, repeatDelay, ease: 'linear' }}
+    />
+  )
+}
+
+// ─── Section ──────────────────────────────────────────────────────────────────
+
 export function Hero() {
   const handleDemoClick = () => {
     const el = document.querySelector('#contact')
@@ -14,24 +53,39 @@ export function Hero() {
       className="relative min-h-screen flex flex-col"
       style={{ background: '#0A0A12' }}
     >
-      {/* Purple gradient bloom */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            'radial-gradient(ellipse 90% 60% at 5% 110%, rgba(123, 92, 245, 0.22) 0%, transparent 55%), radial-gradient(ellipse 50% 40% at 95% 0%, rgba(123, 92, 245, 0.07) 0%, transparent 50%)',
-        }}
-      />
+      {/* Background animations — clipped so transforms don't cause scrollbars */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Purple gradient bloom — oversized so drift never exposes a bare edge */}
+        <motion.div
+          className="absolute"
+          animate={{
+            x: [0, 14, 0],
+            y: [0, -10, 0],
+            opacity: [1, 0.82, 1],
+          }}
+          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
+          style={{
+            inset: '-20px',
+            background:
+              'radial-gradient(ellipse 90% 60% at 5% 110%, rgba(123, 92, 245, 0.12) 0%, transparent 55%), radial-gradient(ellipse 50% 40% at 95% 0%, rgba(123, 92, 245, 0.04) 0%, transparent 50%)',
+          }}
+        />
 
-      {/* Subtle grid overlay */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage:
-            'linear-gradient(rgba(123,92,245,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(123,92,245,0.04) 1px, transparent 1px)',
-          backgroundSize: '60px 60px',
-        }}
-      />
+        {/* Static grid */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              'linear-gradient(rgba(123,92,245,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(123,92,245,0.025) 1px, transparent 1px)',
+            backgroundSize: '60px 60px',
+          }}
+        />
+
+        {/* Data pulses along grid lines */}
+        {gridParticles.map((p, i) => (
+          <GridParticle key={i} {...p} />
+        ))}
+      </div>
 
       {/* Main content — vertically centred, takes up full viewport */}
       <div className="relative flex-1 flex flex-col justify-center mx-auto max-w-7xl w-full px-6 lg:px-8 pt-24 pb-12">
@@ -56,7 +110,7 @@ export function Hero() {
               className="text-xs font-semibold tracking-[0.2em] uppercase"
               style={{ color: '#7B5CF5', fontFamily: 'var(--font-ibm)' }}
             >
-              AI-Powered Compliance
+              Industrial Data Infrastructure
             </span>
           </motion.div>
 
@@ -72,9 +126,9 @@ export function Hero() {
               fontWeight: 800,
             }}
           >
-            <span style={{ color: '#ffffff' }}>Every compliance request.</span>
+            <span style={{ color: '#ffffff' }}>The data layer for</span>
             <br />
-            <span style={{ color: '#7B5CF5' }}>Handled. Automatically.</span>
+            <span style={{ color: '#7B5CF5' }}>European manufacturing.</span>
           </motion.h1>
 
           {/* Subheadline */}
@@ -90,11 +144,11 @@ export function Hero() {
               color: 'rgba(255,255,255,0.62)',
             }}
           >
-            Pareo gives your compliance team an AI workforce that works every request — so your
-            engineers stop doing data entry. Incoming requests in any format — email, Excel, portal
-            notification — are automatically ingested, matched against your ERP and product data,
-            and returned as validated, audit-ready responses. REACH, RoHS, PFAS, TSCA and more.
-            Directly into Assent, CDX, or any format your customer requires.
+            Manufacturing-X. Digital Product Passport. EU Data Act. Europe is building the
+            infrastructure for a unified industrial data economy. Manufacturers who enter it
+            with structured, interoperable product data will move faster, qualify for more,
+            and bear less risk. Pareo starts with compliance — the most immediate data problem
+            you already have — and builds from there.
           </motion.p>
 
           {/* CTA */}
@@ -141,7 +195,7 @@ export function Hero() {
             className="text-center text-xs mb-4"
             style={{ color: 'rgba(255,255,255,0.35)', fontFamily: 'var(--font-ibm)', letterSpacing: '0.04em' }}
           >
-            Built with 180+ interviews across industrial compliance teams.
+            Built through 180+ conversations with compliance managers, RoHS engineers, and supply chain directors at European electronics and machinery manufacturers.
             Incubated at TUM &amp; UnternehmerTUM.
           </p>
           <div className="flex items-center justify-center gap-8 flex-wrap">

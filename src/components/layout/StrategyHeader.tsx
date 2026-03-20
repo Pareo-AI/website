@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
 import { useState, useEffect } from 'react'
 
-export function Header() {
+export function StrategyHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
@@ -17,7 +17,6 @@ export function Header() {
 
   const navigation = [
     { name: 'Product', href: '#product' },
-    { name: 'Security', href: '#security' },
     { name: 'Contact', href: '#contact' },
   ]
 
