@@ -1,22 +1,23 @@
-import type { Metadata } from 'next'
-import { IBM_Plex_Sans } from 'next/font/google'
-import '@/styles/globals.css'
-import { SITE_NAME, SITE_DESCRIPTION, SITE_URL, CONTACT_EMAIL } from '@/lib/constants'
-import { Header } from '@/components/layout/Header'
-import { Footer } from '@/components/layout/Footer'
-import { PostHogProvider } from '@/components/PostHogProvider'
+import type { Metadata } from 'next';
+import { IBM_Plex_Sans } from 'next/font/google';
+import '@/styles/globals.css';
+import { CookieConsentProvider } from '@/components/CookieConsent';
+import { Footer } from '@/components/layout/Footer';
+import { Header } from '@/components/layout/Header';
+import { PostHogProvider } from '@/components/PostHogProvider';
+import { CONTACT_EMAIL, SITE_DESCRIPTION, SITE_NAME, SITE_URL } from '@/lib/constants';
 
 const ibmPlex = IBM_Plex_Sans({
   subsets: ['latin'],
   variable: '--font-ibm',
   weight: ['300', '400', '500', '600', '700'],
   display: 'swap',
-})
+});
 
 export const metadata: Metadata = {
   title: {
     default: SITE_NAME,
-    template: `%s | ${SITE_NAME}`
+    template: `%s | ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
   keywords: [
@@ -38,12 +39,12 @@ export const metadata: Metadata = {
     'IPC-1752A',
     'ECHA candidate list',
     'CAS number validation',
-    'compliance data extraction'
+    'compliance data extraction',
   ],
   authors: [{ name: 'Pareo' }],
   icons: {
     icon: '/favicon.ico',
-    apple: '/favicon.svg'
+    apple: '/favicon.svg',
   },
   openGraph: {
     type: 'website',
@@ -51,18 +52,18 @@ export const metadata: Metadata = {
     url: SITE_URL,
     siteName: SITE_NAME,
     title: SITE_NAME,
-    description: SITE_DESCRIPTION
+    description: SITE_DESCRIPTION,
   },
   twitter: {
     card: 'summary_large_image',
     title: SITE_NAME,
-    description: SITE_DESCRIPTION
+    description: SITE_DESCRIPTION,
   },
   robots: {
     index: true,
-    follow: true
-  }
-}
+    follow: true,
+  },
+};
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -76,7 +77,7 @@ const jsonLd = {
     '@type': 'Offer',
     price: '0',
     priceCurrency: 'EUR',
-    description: 'Contact us for pricing'
+    description: 'Contact us for pricing',
   },
   provider: {
     '@type': 'Organization',
@@ -84,17 +85,14 @@ const jsonLd = {
     url: SITE_URL,
     email: CONTACT_EMAIL,
     foundingLocation: 'Munich, Germany',
-    sameAs: [
-      'https://github.com/pareo-ai',
-      'https://linkedin.com/company/pareo-ai'
-    ]
-  }
-}
+    sameAs: ['https://github.com/pareo-ai', 'https://linkedin.com/company/pareo-ai'],
+  },
+};
 
 export default function RootLayout({
-  children
+  children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className={ibmPlex.variable}>
@@ -105,12 +103,14 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <PostHogProvider>
-          <Header />
-          <main className="min-h-screen">{children}</main>
-          <Footer />
-        </PostHogProvider>
+        <CookieConsentProvider>
+          <PostHogProvider>
+            <Header />
+            <main className="min-h-screen">{children}</main>
+            <Footer />
+          </PostHogProvider>
+        </CookieConsentProvider>
       </body>
     </html>
-  )
+  );
 }

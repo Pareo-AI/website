@@ -1,16 +1,21 @@
-'use client'
+'use client';
 
-import posthog from 'posthog-js'
-import { PostHogProvider as PHProvider } from 'posthog-js/react'
-import { useEffect } from 'react'
+import posthog from 'posthog-js';
+import { PostHogProvider as PHProvider } from 'posthog-js/react';
+import { useEffect } from 'react';
+import { useCookieConsent } from './CookieConsent';
 
 export function PostHogProvider({ children }: { children: React.ReactNode }) {
-  useEffect(() => {
-    posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!, {
-      api_host: 'https://eu.i.posthog.com',
-      defaults: '2026-01-30',
-    })
-  }, [])
+  const consent = useCookieConsent();
 
-  return <PHProvider client={posthog}>{children}</PHProvider>
+  useEffect(() => {
+    if (consent === 'accepted') {
+      posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!, {
+        api_host: 'https://eu.i.posthog.com',
+        defaults: '2026-01-30',
+      });
+    }
+  }, [consent]);
+
+  return <PHProvider client={posthog}>{children}</PHProvider>;
 }
