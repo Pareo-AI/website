@@ -1,12 +1,12 @@
-'use client'
+'use client';
 
-import { Hero } from '@/components/sections/Hero'
-import { Problem } from '@/components/sections/Problem'
-import { HowItWorks } from '@/components/sections/HowItWorks'
-import { Benefits } from '@/components/sections/Benefits'
-import { Regulations } from '@/components/sections/Regulations'
-import { Security } from '@/components/sections/Security'
-import { CTA } from '@/components/sections/CTA'
+import { Benefits } from '@/components/sections/Benefits';
+import { CTA } from '@/components/sections/CTA';
+import { Hero } from '@/components/sections/Hero';
+import { HowItWorks } from '@/components/sections/HowItWorks';
+import { Problem } from '@/components/sections/Problem';
+import { Regulations } from '@/components/sections/Regulations';
+import { Security } from '@/components/sections/Security';
 
 export default function HomePage() {
   return (
@@ -19,5 +19,5 @@ export default function HomePage() {
       <Security />
       <CTA />
     </>
-  )
+  );
 }
