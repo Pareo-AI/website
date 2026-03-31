@@ -2,6 +2,7 @@ import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata } from 'next';
 import { IBM_Plex_Sans } from 'next/font/google';
+import Script from 'next/script';
 import '@/styles/globals.css';
 import { CookieConsentProvider } from '@/components/CookieConsent';
 import { Footer } from '@/components/layout/Footer';
@@ -114,6 +115,16 @@ export default function RootLayout({
         </CookieConsentProvider>
         <Analytics />
         <SpeedInsights />
+        <Script id="dealfront" strategy="afterInteractive">{`
+          (function(ss,ex){
+            window.ldfdr=window.ldfdr||function(){(ldfdr._q=ldfdr._q||[]).push([].slice.call(arguments));};
+            (function(d,s){
+              fs=d.getElementsByTagName(s)[0];
+              function ce(src){var cs=d.createElement(s);cs.src=src;cs.async=1;fs.parentNode.insertBefore(cs,fs);};
+              ce('https://sc.lfeeder.com/lftracker_v1_'+ss+(ex?'_'+ex:'')+'.js');
+            })(document,'script');
+          })('kn9Eq4R3ZPxaRlvP');
+        `}</Script>
       </body>
     </html>
   );
