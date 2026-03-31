@@ -4,7 +4,6 @@ import { Benefits } from '@/components/sections/Benefits';
 import { CTA } from '@/components/sections/CTA';
 import { Hero } from '@/components/sections/Hero';
 import { HowItWorks } from '@/components/sections/HowItWorks';
-import { MatchCheck } from '@/components/sections/MatchCheck';
 import { Problem } from '@/components/sections/Problem';
 import { Regulations } from '@/components/sections/Regulations';
 import { Security } from '@/components/sections/Security';
@@ -18,7 +17,6 @@ export default function HomePage() {
       <Benefits />
       <Regulations />
       <Security />
-      <MatchCheck />
       <CTA />
     </>
   );

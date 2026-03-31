@@ -1,14 +1,13 @@
 import { NextResponse } from 'next/server';
 import { CONTACT_EMAIL } from '@/lib/constants';
 
-interface SubscribeData {
+interface FitCheckData {
   email: string;
-  company: string;
   gdprConsent: boolean;
   score: number;
 }
 
-async function sendNotificationViaMailgun(data: SubscribeData): Promise<void> {
+async function notifyTeam(data: FitCheckData): Promise<void> {
   const mailgunApiKey = process.env.MAILGUN_API_KEY;
   const mailgunDomain = process.env.MAILGUN_DOMAIN;
   const mailgunSenderEmail = process.env.MAILGUN_SENDER_EMAIL;
@@ -18,24 +17,11 @@ async function sendNotificationViaMailgun(data: SubscribeData): Promise<void> {
     return;
   }
 
-  const emailBody = `
-New match-check lead from the website
-
-Email: ${data.email}
-Company: ${data.company}
-Checklist score: ${data.score} / 10
-
-GDPR consent: granted ✓
-
----
-Submitted at: ${new Date().toISOString()}
-`.trim();
-
   const formData = new URLSearchParams({
     from: `Pareo Website <${mailgunSenderEmail}>`,
     to: CONTACT_EMAIL,
-    subject: `New Lead: ${data.company} (score ${data.score}/10)`,
-    text: emailBody,
+    subject: `Fit-check lead: ${data.email} (score ${data.score}/10)`,
+    text: `New fit-check submission.\n\nEmail: ${data.email}\nScore: ${data.score} / 10\nGDPR consent: granted ✓\nTimestamp: ${new Date().toISOString()}`,
   });
 
   const response = await fetch(`https://api.eu.mailgun.net/v3/${mailgunDomain}/messages`, {
@@ -55,28 +41,27 @@ Submitted at: ${new Date().toISOString()}
 
 export async function POST(request: Request) {
   try {
-    const data: SubscribeData = await request.json();
+    const data: FitCheckData = await request.json();
 
-    if (!data.email || !data.company) {
-      return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
+    if (!data.email) {
+      return NextResponse.json({ error: 'Email is required' }, { status: 400 });
     }
 
     if (!data.gdprConsent) {
       return NextResponse.json({ error: 'GDPR consent is required' }, { status: 400 });
     }
 
-    console.log('Match-check lead:', {
+    console.log('Fit-check submission:', {
       email: data.email,
-      company: data.company,
       score: data.score,
       timestamp: new Date().toISOString(),
     });
 
-    await sendNotificationViaMailgun(data);
+    await notifyTeam(data);
 
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (error) {
-    console.error('Error processing subscription:', error);
+    console.error('Error processing fit-check submission:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }
