@@ -14,7 +14,7 @@ const bullets = [
   'Every compliance interaction builds a Manufacturing-X-compatible product data layer',
 ];
 
-export default function ChecklistPage() {
+export default function PitchDeckPage() {
   const consent = useCookieConsent();
   const [email, setEmail] = useState('');
   const [gdprConsent, setGdprConsent] = useState(false);
@@ -40,7 +40,7 @@ export default function ChecklistPage() {
       if (response.ok) {
         setStatus('success');
         if (consent === 'accepted') {
-          posthog.capture('pitch_deck_requested', { source: 'checklist_page' });
+          posthog.capture('pitch_deck_requested', { source: 'pitch_deck_page' });
         }
       } else {
         setStatus('error');
