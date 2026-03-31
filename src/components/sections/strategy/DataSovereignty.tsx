@@ -1,12 +1,12 @@
-'use client'
+'use client';
 
-import { motion } from 'framer-motion'
+import { motion } from 'framer-motion';
 
 const pillars = [
   {
     icon: '⟳',
-    title: 'Real-time, not retained',
-    body: 'Connections to SAP ERP and PLM are live queries. Structured product data is retrieved at the moment it\'s needed and not stored in Pareo\'s systems. Your ERP remains the system of record — Pareo reads from it, nothing more.',
+    title: 'Your ERP stays the system of record',
+    body: "Pareo is designed to query your ERP and PLM directly — retrieving structured product data at the moment it's needed, not accumulating a copy inside Pareo's systems. Direct ERP and PLM connectors are rolling out in 2026. Until then, documents you process stay in storage you control.",
   },
   {
     icon: '◉',
@@ -23,7 +23,7 @@ const pillars = [
     title: 'Self-hosted storage',
     body: 'Document storage can be deployed in your own infrastructure. You bring the storage layer; Pareo uses it. Your unstructured data — lab reports, supplier declarations, material certificates — stays in an environment you control and can audit independently.',
   },
-]
+];
 
 export function DataSovereignty() {
   return (
@@ -32,7 +32,6 @@ export function DataSovereignty() {
       style={{ background: '#13131F', borderColor: 'rgba(123,92,245,0.1)' }}
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-
         {/* Header */}
         <div className="mb-14 max-w-3xl">
           <div className="flex items-center gap-3 mb-6">
@@ -58,20 +57,28 @@ export function DataSovereignty() {
           </h2>
           <p
             className="text-base leading-relaxed"
-            style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}
+            style={{
+              color: 'rgba(255,255,255,0.5)',
+              fontFamily: 'var(--font-ibm)',
+              fontWeight: 300,
+            }}
           >
             The Datenraum ecosystem — GAIA-X, IDS, Manufacturing-X — exists because manufacturers
-            refused to upload crown-jewels data to a central platform they didn't control. The entire
-            architecture was designed around one principle: data stays with the owner; access is
-            granted, not surrendered.
+            refused to upload crown-jewels data to a central platform they didn't control. The
+            entire architecture was designed around one principle: data stays with the owner; access
+            is granted, not surrendered.
           </p>
           <p
             className="mt-4 text-base leading-relaxed"
-            style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}
+            style={{
+              color: 'rgba(255,255,255,0.5)',
+              fontFamily: 'var(--font-ibm)',
+              fontWeight: 300,
+            }}
           >
             Pareo is built the same way — not as a compliance feature added later, but as a
-            structural consequence of how it works. Your product data stays in your systems.
-            What Pareo generates belongs to you, in formats you can take anywhere.
+            structural consequence of how it works. Your product data stays in your systems. What
+            Pareo generates belongs to you, in formats you can take anywhere.
           </p>
         </div>
 
@@ -104,7 +111,11 @@ export function DataSovereignty() {
               </h3>
               <p
                 className="text-sm leading-relaxed"
-                style={{ color: 'rgba(255,255,255,0.45)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}
+                style={{
+                  color: 'rgba(255,255,255,0.45)',
+                  fontFamily: 'var(--font-ibm)',
+                  fontWeight: 300,
+                }}
               >
                 {pillar.body}
               </p>
@@ -122,17 +133,20 @@ export function DataSovereignty() {
         >
           <p
             className="text-sm leading-relaxed"
-            style={{ color: 'rgba(255,255,255,0.55)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}
+            style={{
+              color: 'rgba(255,255,255,0.55)',
+              fontFamily: 'var(--font-ibm)',
+              fontWeight: 300,
+            }}
           >
-            When your CISO asks what access Pareo has to your ERP: it has read access to the
-            specific data types needed to answer a compliance request, at the moment the request
-            is processed. When your CTO asks where your lab reports go: into your own storage
-            layer, in a format defined by an open standard, under your control. That's the answer
-            before the first meeting.
+            When your CISO asks what Pareo holds: compliance records generated from your data, in
+            open formats, in storage you control. When your CTO asks about ERP access: read-only, to
+            the specific fields a compliance request needs, at the moment it's processed — that's
+            the architecture we're building toward, and why storage is yours from day one. That's
+            the answer before the first meeting.
           </p>
         </motion.div>
-
       </div>
     </section>
-  )
+  );
 }

@@ -18,20 +18,20 @@ async function sendPdfViaMailgun(email: string): Promise<void> {
     return;
   }
 
-  const pdfPath = join(process.cwd(), 'public', 'pareo-checklist.pdf');
+  const pdfPath = join(process.cwd(), 'public', 'pareo-pitch-deck.pdf');
   const pdfBuffer = readFileSync(pdfPath);
 
   const formData = new FormData();
   formData.append('from', `Pareo <${mailgunSenderEmail}>`);
   formData.append('to', email);
-  formData.append('subject', 'Your Pareo Checklist');
+  formData.append('subject', 'Pareo Pitch Deck');
   formData.append(
     'text',
     `Hi,
 
-thanks for your interest in Pareo. Find attached the checklist we shared with you.
+thanks for your interest in Pareo. Find attached our pitch deck.
 
-If any of the points hit close to home, let's talk — no commitment, no pitch deck.
+If you'd like to dig into the details or discuss a specific use case, happy to jump on a call.
 
 → Book a call: https://pareo.ai/#contact
 
@@ -42,7 +42,7 @@ Bjoern@pareo.ai · +49 151 73038393`
   formData.append(
     'attachment',
     new Blob([pdfBuffer], { type: 'application/pdf' }),
-    'Pareo-Checklist.pdf'
+    'Pareo-Pitch-Deck.pdf'
   );
 
   const response = await fetch(`https://api.eu.mailgun.net/v3/${mailgunDomain}/messages`, {
@@ -69,8 +69,8 @@ async function notifyTeam(email: string): Promise<void> {
   const formData = new URLSearchParams({
     from: `Pareo Website <${mailgunSenderEmail}>`,
     to: CONTACT_EMAIL,
-    subject: `Checklist download: ${email}`,
-    text: `Someone downloaded the Pareo checklist.\n\nEmail: ${email}\nTimestamp: ${new Date().toISOString()}`,
+    subject: `Pitch deck download: ${email}`,
+    text: `Someone downloaded the Pareo pitch deck.\n\nEmail: ${email}\nTimestamp: ${new Date().toISOString()}`,
   });
 
   await fetch(`https://api.eu.mailgun.net/v3/${mailgunDomain}/messages`, {
@@ -95,7 +95,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'GDPR consent is required' }, { status: 400 });
     }
 
-    console.log('Checklist download request:', {
+    console.log('Pitch deck download request:', {
       email: data.email,
       timestamp: new Date().toISOString(),
     });

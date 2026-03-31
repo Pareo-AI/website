@@ -9,9 +9,9 @@ import { useCookieConsent } from '@/components/CookieConsent';
 type Status = 'idle' | 'loading' | 'success' | 'error';
 
 const bullets = [
-  '10-question self-assessment — see where your process stands today',
-  'Regulatory timeline — key deadlines from 2025 to 2028',
-  'A benchmark from 50+ manufacturer interviews',
+  'AI agents retrieve data from ERP and PLM — no manual copy-paste',
+  'Audit-ready responses written directly into OEM portals like Assent',
+  'Every compliance interaction builds a Manufacturing-X-compatible product data layer',
 ];
 
 export default function ChecklistPage() {
@@ -22,7 +22,7 @@ export default function ChecklistPage() {
 
   useEffect(() => {
     if (consent === 'accepted') {
-      posthog.capture('checklist_page_viewed');
+      posthog.capture('pitch_deck_page_viewed');
     }
   }, [consent]);
 
@@ -40,7 +40,7 @@ export default function ChecklistPage() {
       if (response.ok) {
         setStatus('success');
         if (consent === 'accepted') {
-          posthog.capture('checklist_requested', { source: 'checklist_page' });
+          posthog.capture('pitch_deck_requested', { source: 'checklist_page' });
         }
       } else {
         setStatus('error');
@@ -77,7 +77,7 @@ export default function ChecklistPage() {
                 className="text-xs font-semibold tracking-[0.2em] uppercase"
                 style={{ color: '#7B5CF5', fontFamily: 'var(--font-ibm)' }}
               >
-                Free Resource
+                Pitch Deck
               </span>
             </div>
 
@@ -91,7 +91,8 @@ export default function ChecklistPage() {
                 color: '#ffffff',
               }}
             >
-              The Product Compliance <span style={{ color: '#7B5CF5' }}>Checklist</span>
+              Compliance Automation.{' '}
+              <span style={{ color: '#7B5CF5' }}>Industrial Data Infrastructure.</span>
             </h1>
 
             {/* Subline */}
@@ -105,8 +106,11 @@ export default function ChecklistPage() {
                 maxWidth: '520px',
               }}
             >
-              10 questions that tell you whether your compliance process is ready for what's coming
-              — Manufacturing-X, the Digital Product Passport, and rising OEM demands.
+              Industrial suppliers handle thousands of product compliance requests per year — REACH,
+              RoHS, PFAS, TSCA, CSRD — each answered manually, often from scratch, every time. Pareo
+              automates this. And every compliance interaction doesn&apos;t just save time: it
+              builds the machine-readable product data layer that powers Digital Product Passport
+              readiness, Factory-X participation, and every OEM mandate that follows.
             </p>
 
             {/* Bullet list */}
@@ -160,7 +164,7 @@ export default function ChecklistPage() {
                   strokeLinejoin="round"
                 />
               </svg>
-              Sent to your inbox immediately. No spam.
+              Sent to your inbox immediately. No sales calls.
             </p>
           </motion.div>
 
@@ -220,7 +224,7 @@ export default function ChecklistPage() {
                       fontWeight: 300,
                     }}
                   >
-                    We&apos;ve sent the checklist to{' '}
+                    We&apos;ve sent the pitch deck to{' '}
                     <strong style={{ color: 'rgba(255,255,255,0.75)', fontWeight: 500 }}>
                       {email}
                     </strong>
@@ -241,7 +245,7 @@ export default function ChecklistPage() {
                       className="text-lg font-semibold mb-1"
                       style={{ fontFamily: 'var(--font-ibm)', color: '#ffffff' }}
                     >
-                      Get the checklist
+                      Access the pitch deck
                     </p>
                     <p
                       className="text-xs"
@@ -251,7 +255,7 @@ export default function ChecklistPage() {
                         fontWeight: 300,
                       }}
                     >
-                      Enter your work email and we&apos;ll send it right away.
+                      Enter your work email and we&apos;ll send the deck right away.
                     </p>
                   </div>
 
@@ -342,7 +346,7 @@ export default function ChecklistPage() {
                       }}
                       onClick={() => setGdprConsent(v => !v)}
                     >
-                      I agree that Pareo may use my email to send me this resource and relevant
+                      I agree that Pareo may use my email to send me this pitch deck and relevant
                       updates.{' '}
                       <Link
                         href="/privacy"
@@ -379,7 +383,7 @@ export default function ChecklistPage() {
                       }
                     }}
                   >
-                    {status === 'loading' ? 'Sending…' : 'Send me the checklist →'}
+                    {status === 'loading' ? 'Sending…' : 'Access Pitch Deck →'}
                   </button>
 
                   {/* Error message */}
