@@ -86,10 +86,10 @@ export function EmailWallModal({ open, onOpenChange, score }: EmailWallModalProp
                   ✓
                 </div>
                 <h3 className="text-xl font-bold mb-2" style={{ color: '#ffffff' }}>
-                  Wir melden uns.
+                  We'll be in touch.
                 </h3>
                 <p className="text-sm" style={{ color: 'rgba(255,255,255,0.45)', fontWeight: 300 }}>
-                  Innerhalb eines Werktages erhalten Sie eine Nachricht von uns.
+                  Expect a message within one business day.
                 </p>
               </motion.div>
             ) : (
@@ -102,21 +102,21 @@ export function EmailWallModal({ open, onOpenChange, score }: EmailWallModalProp
                         className="text-xs font-semibold tracking-[0.2em] uppercase"
                         style={{ color: '#7B5CF5' }}
                       >
-                        {score} / 10 Aussagen treffen zu
+                        {score} / 10 statements apply
                       </div>
                     </div>
                     <Dialog.Title
                       className="text-xl font-bold leading-snug"
                       style={{ color: '#ffffff' }}
                     >
-                      Klingt vertraut?
+                      Sound familiar?
                     </Dialog.Title>
                     <Dialog.Description
                       className="mt-2 text-sm leading-relaxed"
                       style={{ color: 'rgba(255,255,255,0.5)', fontWeight: 300 }}
                     >
-                      Das ist ein klares Signal. Lassen Sie uns 20 Minuten sprechen — unverbindlich,
-                      ohne Pitch-Deck.
+                      That's a clear signal. Let's spend 20 minutes together — no commitment, no
+                      pitch deck.
                     </Dialog.Description>
                   </div>
                   <Dialog.Close
@@ -124,7 +124,7 @@ export function EmailWallModal({ open, onOpenChange, score }: EmailWallModalProp
                     style={{ color: 'rgba(255,255,255,0.3)' }}
                     onMouseEnter={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.7)')}
                     onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.3)')}
-                    aria-label="Schließen"
+                    aria-label="Close"
                   >
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                       <path
@@ -145,7 +145,7 @@ export function EmailWallModal({ open, onOpenChange, score }: EmailWallModalProp
                       className="block text-xs font-medium mb-1.5"
                       style={{ color: 'rgba(255,255,255,0.5)' }}
                     >
-                      Work-E-Mail
+                      Work email
                     </label>
                     <input
                       id="ew-email"
@@ -153,7 +153,7 @@ export function EmailWallModal({ open, onOpenChange, score }: EmailWallModalProp
                       required
                       value={email}
                       onChange={e => setEmail(e.target.value)}
-                      placeholder="jan@unternehmen.de"
+                      placeholder="jan@company.com"
                       className="w-full px-4 py-3 rounded-lg text-sm outline-none transition-all"
                       style={{
                         background: 'rgba(255,255,255,0.04)',
@@ -178,7 +178,7 @@ export function EmailWallModal({ open, onOpenChange, score }: EmailWallModalProp
                       required
                       value={company}
                       onChange={e => setCompany(e.target.value)}
-                      placeholder="Muster GmbH"
+                      placeholder="Acme GmbH"
                       className="w-full px-4 py-3 rounded-lg text-sm outline-none transition-all"
                       style={{
                         background: 'rgba(255,255,255,0.04)',
@@ -225,23 +225,22 @@ export function EmailWallModal({ open, onOpenChange, score }: EmailWallModalProp
                       className="text-xs leading-relaxed"
                       style={{ color: 'rgba(255,255,255,0.4)', fontWeight: 300 }}
                     >
-                      Ich stimme zu, dass Pareo meine Angaben verwendet, um mich zum Thema
-                      Compliance-Automatisierung zu kontaktieren.{' '}
+                      I agree that Pareo may use my details to contact me about compliance
+                      automation.{' '}
                       <Link
                         href="/privacy"
                         target="_blank"
                         className="underline"
                         style={{ color: 'rgba(255,255,255,0.6)' }}
                       >
-                        Datenschutzhinweis
+                        Privacy policy
                       </Link>
                     </span>
                   </label>
 
                   {status === 'error' && (
                     <p className="text-xs" style={{ color: '#f87171' }}>
-                      Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie uns
-                      direkt.
+                      Something went wrong. Please try again or reach out to us directly.
                     </p>
                   )}
 
@@ -263,7 +262,7 @@ export function EmailWallModal({ open, onOpenChange, score }: EmailWallModalProp
                         e.currentTarget.style.background = '#7B5CF5';
                     }}
                   >
-                    {status === 'loading' ? 'Wird gesendet…' : 'Gespräch anfragen'}
+                    {status === 'loading' ? 'Sending…' : 'Request a call'}
                   </button>
                 </form>
               </motion.div>

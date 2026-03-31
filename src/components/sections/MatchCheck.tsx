@@ -9,59 +9,59 @@ import { EmailWallModal } from '@/components/EmailWallModal';
 const CATEGORIES = [
   {
     id: 'process',
-    label: 'Beantwortungsprozess',
+    label: 'Response Process',
     items: [
       {
         id: 'p1',
-        text: 'Wir erhalten regelmäßig Anfragen von Kunden zu Produktkonformität — z.B. Materialdeklarationen, Stoffverbotsnachweise oder Lieferantenerklärungen.',
+        text: 'We regularly receive product compliance requests from customers — e.g. material declarations, substance restriction confirmations, or supplier declarations.',
       },
       {
         id: 'p2',
-        text: 'Diese Anfragen werden heute überwiegend manuell bearbeitet: durch Suche in ERP-Systemen, Laufwerken oder per E-Mail an interne Stellen.',
+        text: 'These requests are handled mostly manually today: searching ERP systems, shared drives, or emailing internal teams.',
       },
       {
         id: 'p3',
-        text: 'Unsere Mitarbeitenden übertragen Daten regelmäßig in Kundenportale (z.B. Assent, CDX, BOMcheck) oder individuelle PDF-/Excel-Templates.',
+        text: 'Our staff regularly transfer data into customer portals (e.g. Assent, CDX, BOMcheck) or fill out individual PDF/Excel templates.',
       },
       {
         id: 'p4',
-        text: 'Es gibt Mitarbeitende, deren Arbeitszeit zu einem wesentlichen Teil durch die Beantwortung solcher Anfragen gebunden ist.',
+        text: 'There are employees whose working time is significantly consumed by answering compliance requests.',
       },
     ],
   },
   {
     id: 'data',
-    label: 'Datenlage',
+    label: 'Data Landscape',
     items: [
       {
         id: 'd1',
-        text: 'Unsere produktbezogenen Compliance-Daten liegen an mehreren Orten verteilt vor — ohne zentrale, strukturierte Ablage.',
+        text: 'Our product-related compliance data is scattered across multiple systems — with no central, structured repository.',
       },
       {
         id: 'd2',
-        text: 'Bei neuen Regularien haben wir Schwierigkeiten, schnell zu prüfen, welche Produkte betroffen sind.',
+        text: 'When new regulations come into force, we struggle to quickly determine which products are affected.',
       },
       {
         id: 'd3',
-        text: 'Für bestimmte Produkte oder Komponenten fehlen uns Nachweise von Vorlieferanten, die wir regelmäßig neu anfordern müssen.',
+        text: 'For certain products or components, we are missing supplier documentation that we repeatedly have to re-request.',
       },
     ],
   },
   {
     id: 'outlook',
-    label: 'Regulatorischer Ausblick',
+    label: 'Regulatory Outlook',
     items: [
       {
         id: 'o1',
-        text: 'Als Tier-1/2/3-Lieferant sind wir bereits mit strukturierten Datenanforderungen von OEMs konfrontiert — über klassische Konformitätserklärungen hinaus.',
+        text: 'As a Tier-1/2/3 supplier, we already face structured data requirements from OEMs that go beyond standard declarations of conformity.',
       },
       {
         id: 'o2',
-        text: 'Wir beschäftigen uns mit dem Digitalen Produktpass (DPP) oder Manufacturing-X, haben aber noch keine konkrete Umsetzungsstrategie.',
+        text: 'We are looking at the Digital Product Passport (DPP) or Manufacturing-X but have no concrete implementation strategy yet.',
       },
       {
         id: 'o3',
-        text: 'Wir erwarten, dass das Volumen oder die Tiefe der Compliance-Anfragen in den nächsten 1–3 Jahren weiter zunehmen wird.',
+        text: 'We expect the volume or depth of compliance requests to increase over the next 1–3 years.',
       },
     ],
   },
@@ -136,7 +136,7 @@ export function MatchCheck() {
                 className="text-xs font-semibold tracking-[0.2em] uppercase"
                 style={{ color: '#7B5CF5', fontFamily: 'var(--font-ibm)' }}
               >
-                Passt Pareo zu Ihnen?
+                Is Pareo a fit?
               </span>
             </div>
             <h2
@@ -148,8 +148,7 @@ export function MatchCheck() {
                 color: '#ffffff',
               }}
             >
-              Wenn viele dieser Aussagen zutreffen,{' '}
-              <span style={{ color: '#7B5CF5' }}>lassen Sie uns sprechen.</span>
+              If many of these apply to you, <span style={{ color: '#7B5CF5' }}>let's talk.</span>
             </h2>
             <p
               className="text-base"
@@ -159,7 +158,7 @@ export function MatchCheck() {
                 fontWeight: 300,
               }}
             >
-              Wählen Sie alle Aussagen aus, die auf Ihr Unternehmen zutreffen.
+              Select all statements that apply to your company.
             </p>
           </motion.div>
 
@@ -286,15 +285,15 @@ export function MatchCheck() {
               onMouseLeave={e => (e.currentTarget.style.background = '#7B5CF5')}
             >
               {score >= AUTO_TRIGGER_THRESHOLD
-                ? `${score} von ${ALL_ITEMS.length} treffen zu — Gespräch anfragen`
-                : 'Unverbindlich sprechen'}
+                ? `${score} of ${ALL_ITEMS.length} apply — request a call`
+                : 'Talk to us'}
             </button>
             {score === 0 && (
               <p
                 className="text-xs"
                 style={{ color: 'rgba(255,255,255,0.25)', fontFamily: 'var(--font-ibm)' }}
               >
-                Wählen Sie die Aussagen aus, die auf Sie zutreffen.
+                Select the statements that apply to you.
               </p>
             )}
           </motion.div>
