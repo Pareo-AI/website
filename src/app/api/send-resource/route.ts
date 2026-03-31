@@ -1,7 +1,5 @@
-import { readFileSync } from 'fs';
 import { NextResponse } from 'next/server';
-import { join } from 'path';
-import { CONTACT_EMAIL } from '@/lib/constants';
+import { CONTACT_EMAIL, SITE_URL } from '@/lib/constants';
 
 interface ResourceRequestData {
   email: string;
@@ -18,18 +16,17 @@ async function sendPdfViaMailgun(email: string): Promise<void> {
     return;
   }
 
-  const pdfPath = join(process.cwd(), 'public', 'pareo-pitch-deck.pdf');
-  const pdfBuffer = readFileSync(pdfPath);
+  const pdfUrl = `${SITE_URL}/pareo-pitch-deck.pdf`;
 
-  const formData = new FormData();
-  formData.append('from', `Pareo <${mailgunSenderEmail}>`);
-  formData.append('to', email);
-  formData.append('subject', 'Pareo Pitch Deck');
-  formData.append(
-    'text',
-    `Hi,
+  const formData = new URLSearchParams({
+    from: `Pareo <${mailgunSenderEmail}>`,
+    to: email,
+    subject: 'Pareo Pitch Deck',
+    text: `Hi,
 
-thanks for your interest in Pareo. Find attached our pitch deck.
+thanks for your interest in Pareo. Here's the pitch deck:
+
+${pdfUrl}
 
 If you'd like to dig into the details or discuss a specific use case, happy to jump on a call.
 
@@ -37,20 +34,16 @@ If you'd like to dig into the details or discuss a specific use case, happy to j
 
 Best,
 Bjørn & the Pareo team
-Bjoern@pareo.ai · +49 151 73038393`
-  );
-  formData.append(
-    'attachment',
-    new Blob([pdfBuffer], { type: 'application/pdf' }),
-    'Pareo-Pitch-Deck.pdf'
-  );
+Bjoern@pareo.ai · +49 151 73038393`,
+  });
 
   const response = await fetch(`https://api.eu.mailgun.net/v3/${mailgunDomain}/messages`, {
     method: 'POST',
     headers: {
       Authorization: `Basic ${Buffer.from(`api:${mailgunApiKey}`).toString('base64')}`,
+      'Content-Type': 'application/x-www-form-urlencoded',
     },
-    body: formData,
+    body: formData.toString(),
   });
 
   if (!response.ok) {
