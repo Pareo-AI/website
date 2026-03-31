@@ -97,8 +97,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (error) {
-    const message = error instanceof Error ? error.message : String(error);
-    console.error('Error sending resource:', message);
-    return NextResponse.json({ error: message }, { status: 500 });
+    console.error('Error sending resource:', error);
+    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }
