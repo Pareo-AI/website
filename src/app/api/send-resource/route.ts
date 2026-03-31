@@ -35,6 +35,7 @@ If you'd like to dig into the details or discuss a specific use case, happy to j
 Best,
 Bjørn & the Pareo team
 Bjoern@pareo.ai · +49 151 73038393`,
+    'o:tracking-clicks': 'no',
   });
 
   const response = await fetch(`https://api.eu.mailgun.net/v3/${mailgunDomain}/messages`, {
