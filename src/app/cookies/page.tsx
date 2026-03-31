@@ -23,10 +23,11 @@ export default function CookiesPage() {
           <p>This site uses only one category of cookie:</p>
           <ul>
             <li>
-              <strong>Analytics cookies (PostHog):</strong> Set by PostHog to track page views,
-              clicks, and navigation patterns. These cookies help us understand how visitors
-              interact with the site. They are only set if you click &quot;Accept&quot; on the
-              cookie banner. PostHog processes data on EU servers.
+              <strong>Analytics cookies (PostHog):</strong> Set by PostHog to track page views and
+              specific user interactions (e.g. form submissions, checklist usage). Automatic click
+              capture and session recording are disabled — only explicitly defined events are
+              collected. These cookies are only set if you click &quot;Accept&quot; on the cookie
+              banner. PostHog processes data on EU servers.
             </li>
           </ul>
           <p>
