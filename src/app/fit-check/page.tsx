@@ -5,6 +5,7 @@ import Link from 'next/link';
 import posthog from 'posthog-js';
 import { useEffect, useRef, useState } from 'react';
 import { useCookieConsent } from '@/components/CookieConsent';
+import { ObfuscatedEmail } from '@/components/ObfuscatedEmail';
 
 const CATEGORIES = [
   {
@@ -498,12 +499,10 @@ export default function FitCheckPage() {
                         style={{ color: '#f87171', fontFamily: 'var(--font-ibm)' }}
                       >
                         Something went wrong. Please try again or email us at{' '}
-                        <a
-                          href="mailto:Bjoern@pareo.ai"
+                        <ObfuscatedEmail
+                          encoded="QmpvZXJuQHBhcmVvLmFp"
                           style={{ color: '#f87171', textDecoration: 'underline' }}
-                        >
-                          Bjoern@pareo.ai
-                        </a>
+                        />
                       </p>
                     )}
                   </form>

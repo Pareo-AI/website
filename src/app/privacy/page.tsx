@@ -1,3 +1,4 @@
+import { ObfuscatedEmail } from '@/components/ObfuscatedEmail';
 import { CONTACT_EMAIL } from '@/lib/constants';
 
 export const metadata = {
@@ -23,7 +24,7 @@ export default function PrivacyPage() {
               Baumstraße 2<br />
               80469 München, Germany
               <br />
-              Email: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+              Email: <ObfuscatedEmail encoded={Buffer.from(CONTACT_EMAIL).toString('base64')} />
             </p>
           </section>
 
@@ -142,7 +143,7 @@ export default function PrivacyPage() {
             <h2 className="text-lg font-semibold text-foreground">Contact</h2>
             <p className="text-muted-foreground">
               For privacy-related inquiries, contact us at:{' '}
-              <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+              <ObfuscatedEmail encoded={Buffer.from(CONTACT_EMAIL).toString('base64')} />
             </p>
           </section>
         </div>

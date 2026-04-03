@@ -1,12 +1,13 @@
-import Link from 'next/link'
-import { CONTACT_EMAIL } from '@/lib/constants'
+import Link from 'next/link';
+import { ObfuscatedEmail } from '@/components/ObfuscatedEmail';
+import { CONTACT_EMAIL } from '@/lib/constants';
 
 export function StrategyFooter() {
   const legalLinks = [
     { name: 'Privacy Policy', href: '/privacy' },
     { name: 'Terms of Service', href: '/terms' },
     { name: 'Cookie Policy', href: '/cookies' },
-  ]
+  ];
 
   return (
     <footer
@@ -31,7 +32,7 @@ export function StrategyFooter() {
           </div>
 
           <div className="flex items-center gap-6 flex-wrap justify-center">
-            {legalLinks.map((link) => (
+            {legalLinks.map(link => (
               <Link
                 key={link.name}
                 href={link.href}
@@ -41,13 +42,11 @@ export function StrategyFooter() {
                 {link.name}
               </Link>
             ))}
-            <a
-              href={`mailto:${CONTACT_EMAIL}`}
+            <ObfuscatedEmail
+              encoded={Buffer.from(CONTACT_EMAIL).toString('base64')}
               className="text-xs transition-colors"
               style={{ color: 'rgba(255,255,255,0.3)', fontFamily: 'var(--font-ibm)' }}
-            >
-              {CONTACT_EMAIL}
-            </a>
+            />
           </div>
         </div>
 
@@ -70,5 +69,5 @@ export function StrategyFooter() {
         </div>
       </div>
     </footer>
-  )
+  );
 }

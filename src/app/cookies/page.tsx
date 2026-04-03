@@ -1,3 +1,4 @@
+import { ObfuscatedEmail } from '@/components/ObfuscatedEmail';
 import { CONTACT_EMAIL } from '@/lib/constants';
 
 export const metadata = {
@@ -74,7 +75,7 @@ export default function CookiesPage() {
             <h2 className="text-lg font-semibold text-foreground">Contact</h2>
             <p className="text-muted-foreground">
               For questions about our use of cookies, contact us at:{' '}
-              <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+              <ObfuscatedEmail encoded={Buffer.from(CONTACT_EMAIL).toString('base64')} />
             </p>
           </section>
         </div>
