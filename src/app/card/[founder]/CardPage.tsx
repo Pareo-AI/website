@@ -13,7 +13,6 @@ async function buildVCard(founder: Founder): Promise<string> {
   const lastName = nameParts[nameParts.length - 1]
   const firstName = nameParts.slice(0, -1).join(' ')
 
-  // Use Next.js image optimisation to get a small JPEG for embedding in the vCard
   let photoLine = ''
   try {
     const url = `/_next/image?url=${encodeURIComponent(founder.photoUrl)}&w=256&q=80`
@@ -61,9 +60,22 @@ function downloadVCard(vcf: string, name: string) {
   URL.revokeObjectURL(url)
 }
 
+const ACTION_ICONS = (founder: Founder) => [
+  { href: `mailto:${founder.email}`, icon: <Mail className="w-5 h-5" />, label: 'Email', external: false },
+  { href: `tel:${founder.phone}`,    icon: <Phone className="w-5 h-5" />, label: 'Call',  external: false },
+  { href: founder.linkedin,          icon: <Linkedin className="w-5 h-5" />, label: 'LinkedIn', external: true },
+]
+
+const DEMO_BULLETS = [
+  { icon: <Calendar className="w-4 h-4" />, text: '30 minutes, no pitch deck' },
+  { icon: <Check className="w-4 h-4" />,    text: 'Tailored to your situation' },
+  { icon: <Shield className="w-4 h-4" />,   text: 'NDA available on request' },
+]
+
 export function CardPage({ founder }: { founder: Founder }) {
-  const [saved, setSaved] = useState(false)
+  const [saved, setSaved]   = useState(false)
   const [saving, setSaving] = useState(false)
+
   async function handleSaveContact() {
     if (saved || saving) return
     setSaving(true)
@@ -76,177 +88,170 @@ export function CardPage({ founder }: { founder: Founder }) {
     }
   }
 
+  // ── Shared sub-elements ──────────────────────────────────────────
+
+  const Avatar = ({ size }: { size: number }) => (
+    <div
+      className="rounded-full overflow-hidden shrink-0 shadow-lg ring-2 ring-primary/30"
+      style={{ width: size, height: size }}
+    >
+      <Image
+        src={founder.photoUrl}
+        alt={founder.name}
+        width={size}
+        height={size}
+        className="w-full h-full object-cover object-top"
+        priority
+      />
+    </div>
+  )
+
+  const SaveButton = ({ fullWidth }: { fullWidth?: boolean }) => (
+    <button
+      onClick={handleSaveContact}
+      disabled={saving}
+      className={`
+        flex items-center justify-center gap-2 py-3 px-6 rounded-lg
+        text-sm font-semibold transition-all duration-200
+        ${fullWidth ? 'w-full' : 'w-full max-w-xs'}
+        ${saved
+          ? 'bg-success text-success-foreground cursor-default'
+          : 'bg-primary text-primary-foreground hover:bg-primary/90 active:scale-[0.98]'
+        }
+      `}
+    >
+      {saved ? <><Check className="w-4 h-4" /> Contact Saved</> : saving ? 'Saving…' : 'Save Contact'}
+    </button>
+  )
+
+  const ActionIcons = () => (
+    <div className="flex items-center gap-5">
+      {ACTION_ICONS(founder).map(({ href, icon, label, external }) => (
+        <a
+          key={label}
+          href={href}
+          aria-label={label}
+          {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+          className="flex flex-col items-center gap-1.5 text-muted-foreground hover:text-primary transition-colors"
+        >
+          <div className="w-11 h-11 rounded-full border border-border flex items-center justify-center hover:border-primary/50 transition-colors">
+            {icon}
+          </div>
+          <span className="text-xs">{label}</span>
+        </a>
+      ))}
+    </div>
+  )
+
+  const CompanySection = () => (
+    <div className="flex flex-col items-center gap-4 text-center md:items-start md:text-left">
+      <Image src="/PareoAI_Logo_Fade.png" alt="Pareo logo" width={40} height={40} className="opacity-90" />
+      <div>
+        <h2 className="text-base font-semibold text-foreground">Pareo</h2>
+        <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{companyDescription}</p>
+      </div>
+      <Link href={websiteUrl} target="_blank" rel="noopener noreferrer"
+        className="text-sm font-medium text-primary hover:underline">
+        Learn more about Pareo →
+      </Link>
+    </div>
+  )
+
+  const DemoSection = () => (
+    <div className="flex flex-col gap-4">
+      <div>
+        <p className="text-xs font-semibold tracking-widest text-primary uppercase mb-1">Let's talk</p>
+        <h2 className="text-base font-bold text-foreground">Book a personal consultation.</h2>
+        <p className="mt-1 text-sm text-muted-foreground">
+          Free and non-binding — let's explore how Pareo fits your compliance setup.
+        </p>
+      </div>
+      <ul className="flex flex-col gap-2.5">
+        {DEMO_BULLETS.map(({ icon, text }) => (
+          <li key={text} className="flex items-center gap-3 text-sm text-muted-foreground">
+            <span className="w-7 h-7 rounded-md bg-primary/10 flex items-center justify-center text-primary shrink-0">
+              {icon}
+            </span>
+            {text}
+          </li>
+        ))}
+      </ul>
+      <Link href={DEMO_URL} target="_blank" rel="noopener noreferrer"
+        className="flex items-center justify-center gap-2 py-3 px-6 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:bg-primary/90 transition-colors">
+        <Calendar className="w-4 h-4" />
+        Book a call
+      </Link>
+      <p className="text-xs text-center text-muted-foreground/60">No spam. We'll reply within one business day.</p>
+    </div>
+  )
+
+  // ── Mobile layout (< md): three stacked sections ─────────────────
+  // ── Desktop layout (≥ md): centred floating card, two columns ────
+
   return (
-    <div className="min-h-screen bg-background">
+    <>
+      {/* ── MOBILE ───────────────────────────────────────────────── */}
+      <div className="md:hidden min-h-screen bg-background">
 
-      {/* ── Layer 1: Contact Save ────────────────────────────────── */}
-      <section className="px-6 py-10">
-        <div className="flex flex-col items-center gap-6">
+        <section className="px-6 py-10">
+          <div className="flex flex-col items-center gap-6">
+            <Avatar size={96} />
+            <div className="text-center">
+              <h1 className="text-2xl font-bold text-foreground">{founder.name}</h1>
+              <p className="mt-1 text-sm font-medium text-primary">{founder.role}</p>
+              <div className="mt-2 flex items-center justify-center gap-2">
+                <Image src="/PareoAI_Logo_Fade.png" alt="Pareo" width={18} height={18} className="opacity-80" />
+                <span className="text-sm text-muted-foreground">Pareo</span>
+              </div>
+            </div>
+            <SaveButton />
+            <ActionIcons />
+          </div>
+        </section>
 
-          {/* Avatar */}
-          <div className="w-24 h-24 rounded-full overflow-hidden shrink-0 shadow-lg ring-2 ring-primary/30">
-            <Image
-              src={founder.photoUrl}
-              alt={founder.name}
-              width={96}
-              height={96}
-              className="w-full h-full object-cover object-top"
-              priority
-            />
+        <section className="px-6 py-12">
+          <CompanySection />
+        </section>
+
+        <section className="px-6 py-10 bg-card">
+          <DemoSection />
+        </section>
+
+      </div>
+
+      {/* ── DESKTOP ──────────────────────────────────────────────── */}
+      <div className="hidden md:flex min-h-screen items-center justify-center p-[5vw] gradient-purple-bloom bg-background">
+
+        {/* Floating card — scales between 680px and 82vw */}
+        <div className="w-[min(82vw,1040px)] min-h-[min(72vh,640px)] bg-card rounded-2xl border border-border shadow-2xl overflow-hidden flex">
+
+          {/* Left column — contact */}
+          <div className="w-[min(34%,340px)] shrink-0 border-r border-border flex flex-col items-center justify-center gap-8 px-10 py-14 bg-background/40">
+            <Avatar size={140} />
+            <div className="text-center">
+              <h1 className="text-2xl font-bold text-foreground">{founder.name}</h1>
+              <p className="mt-1 text-sm font-medium text-primary">{founder.role}</p>
+              <div className="mt-2 flex items-center justify-center gap-2">
+                <Image src="/PareoAI_Logo_Fade.png" alt="Pareo" width={18} height={18} className="opacity-80" />
+                <span className="text-sm text-muted-foreground">Pareo</span>
+              </div>
+            </div>
+            <SaveButton fullWidth />
+            <ActionIcons />
           </div>
 
-          {/* Identity */}
-          <div className="text-center">
-            <h1 className="text-2xl font-bold text-foreground">{founder.name}</h1>
-            <p className="mt-1 text-sm font-medium text-primary">{founder.role}</p>
-            <div className="mt-2 flex items-center justify-center gap-2">
-              <Image
-                src="/PareoAI_Logo_Fade.png"
-                alt="Pareo"
-                width={20}
-                height={20}
-                className="opacity-80"
-              />
-              <span className="text-sm text-muted-foreground">Pareo</span>
+          {/* Right column — company + demo */}
+          <div className="flex-1 flex flex-col divide-y divide-border overflow-y-auto">
+            <div className="flex-1 px-10 py-12">
+              <CompanySection />
+            </div>
+            <div className="px-10 py-12">
+              <DemoSection />
             </div>
           </div>
 
-          {/* Save Contact CTA */}
-          <button
-            onClick={handleSaveContact}
-            disabled={saving}
-            className={`
-              w-full max-w-xs flex items-center justify-center gap-2 py-3.5 px-6 rounded-lg
-              text-sm font-semibold transition-all duration-200
-              ${saved
-                ? 'bg-success text-success-foreground cursor-default'
-                : 'bg-primary text-primary-foreground hover:bg-primary/90 active:scale-[0.98]'
-              }
-            `}
-          >
-            {saved ? (
-              <>
-                <Check className="w-4 h-4" />
-                Contact Saved
-              </>
-            ) : saving ? (
-              'Saving…'
-            ) : (
-              'Save Contact'
-            )}
-          </button>
-
-          {/* Quick-action icons */}
-          <div className="flex items-center gap-6">
-            <a
-              href={`mailto:${founder.email}`}
-              aria-label="Send email"
-              className="flex flex-col items-center gap-1.5 text-muted-foreground hover:text-primary transition-colors"
-            >
-              <div className="w-12 h-12 rounded-full border border-border flex items-center justify-center hover:border-primary/50 transition-colors">
-                <Mail className="w-5 h-5" />
-              </div>
-              <span className="text-xs">Email</span>
-            </a>
-
-            <a
-              href={`tel:${founder.phone}`}
-              aria-label="Call"
-              className="flex flex-col items-center gap-1.5 text-muted-foreground hover:text-primary transition-colors"
-            >
-              <div className="w-12 h-12 rounded-full border border-border flex items-center justify-center hover:border-primary/50 transition-colors">
-                <Phone className="w-5 h-5" />
-              </div>
-              <span className="text-xs">Call</span>
-            </a>
-
-            <a
-              href={founder.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn profile"
-              className="flex flex-col items-center gap-1.5 text-muted-foreground hover:text-primary transition-colors"
-            >
-              <div className="w-12 h-12 rounded-full border border-border flex items-center justify-center hover:border-primary/50 transition-colors">
-                <Linkedin className="w-5 h-5" />
-              </div>
-              <span className="text-xs">LinkedIn</span>
-            </a>
-          </div>
-
         </div>
-      </section>
-
-      {/* ── Layer 2: Company Context ─────────────────────────────── */}
-      <section className="px-6 py-14">
-        <div className="max-w-sm mx-auto flex flex-col items-center gap-5 text-center">
-          <Image
-            src="/PareoAI_Logo_Fade.png"
-            alt="Pareo logo"
-            width={48}
-            height={48}
-            className="opacity-90"
-          />
-          <div>
-            <h2 className="text-lg font-semibold text-foreground">Pareo</h2>
-            <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-              {companyDescription}
-            </p>
-          </div>
-          <Link
-            href={websiteUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm font-medium text-primary hover:underline"
-          >
-            Learn more about Pareo →
-          </Link>
-        </div>
-      </section>
-
-      {/* ── Layer 3: Book a Demo ─────────────────────────────────── */}
-      <section className="px-6 py-10 bg-card">
-        <div className="max-w-sm mx-auto flex flex-col gap-5">
-
-          <div>
-            <p className="text-xs font-semibold tracking-widest text-primary uppercase mb-2">Let's talk</p>
-            <h2 className="text-lg font-bold text-foreground">Book a personal consultation.</h2>
-            <p className="mt-1 text-sm text-muted-foreground">
-              Free and non-binding — let's explore how Pareo fits your compliance setup.
-            </p>
-          </div>
-
-          <ul className="flex flex-col gap-3">
-            {[
-              { icon: <Calendar className="w-4 h-4" />, text: '30 minutes, no pitch deck' },
-              { icon: <Check className="w-4 h-4" />,    text: 'Tailored to your situation' },
-              { icon: <Shield className="w-4 h-4" />,   text: 'NDA available on request' },
-            ].map(({ icon, text }) => (
-              <li key={text} className="flex items-center gap-3 text-sm text-muted-foreground">
-                <span className="w-7 h-7 rounded-md bg-primary/10 flex items-center justify-center text-primary shrink-0">
-                  {icon}
-                </span>
-                {text}
-              </li>
-            ))}
-          </ul>
-
-          <Link
-            href={DEMO_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:bg-primary/90 transition-colors"
-          >
-            <Calendar className="w-4 h-4" />
-            Book a call
-          </Link>
-
-          <p className="text-xs text-center text-muted-foreground/60">
-            No spam. We'll reply within one business day.
-          </p>
-        </div>
-      </section>
-
-    </div>
+      </div>
+    </>
   )
 }
