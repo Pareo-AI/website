@@ -5,8 +5,7 @@ import { IBM_Plex_Sans } from 'next/font/google';
 import Script from 'next/script';
 import '@/styles/globals.css';
 import { CookieConsentProvider } from '@/components/CookieConsent';
-import { Footer } from '@/components/layout/Footer';
-import { Header } from '@/components/layout/Header';
+import { ConditionalSiteLayout } from '@/components/layout/ConditionalSiteLayout';
 import { PostHogProvider } from '@/components/PostHogProvider';
 import { CONTACT_EMAIL, SITE_DESCRIPTION, SITE_NAME, SITE_URL } from '@/lib/constants';
 
@@ -108,9 +107,7 @@ export default function RootLayout({
       <body>
         <CookieConsentProvider>
           <PostHogProvider>
-            <Header />
-            <main className="min-h-screen">{children}</main>
-            <Footer />
+            <ConditionalSiteLayout>{children}</ConditionalSiteLayout>
           </PostHogProvider>
         </CookieConsentProvider>
         <Analytics />
