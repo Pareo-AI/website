@@ -41,7 +41,7 @@ export function ProductDemo() {
                 controls
                 autoPlay
                 className="w-full aspect-video"
-                preload="metadata"
+                preload="none"
               >
                 <source src="/videos/PareoAI_product_intro.mp4?v=2" type="video/mp4" />
                 Your browser does not support the video tag.

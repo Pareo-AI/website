@@ -20,7 +20,7 @@ export const founders: Record<string, Founder> = {
     linkedin: 'https://www.linkedin.com/in/angelika-bordunova',
     vcardNote: 'Pareo: AI compliance automation for manufacturing.',
     initials: 'AB',
-    photoUrl: '/team/Angelika.jpg',
+    photoUrl: '/team/Angelika.avif',
   },
   bjoern: {
     key: 'bjoern',
@@ -31,7 +31,7 @@ export const founders: Record<string, Founder> = {
     linkedin: 'https://www.linkedin.com/in/bjoern-schick/',
     vcardNote: 'Pareo: AI compliance automation for manufacturing.',
     initials: 'BS',
-    photoUrl: '/team/Bjoern.jpg',
+    photoUrl: '/team/Bjoern.avif',
   },
   jonathan: {
     key: 'jonathan',
@@ -42,7 +42,7 @@ export const founders: Record<string, Founder> = {
     linkedin: 'https://www.linkedin.com/in/jonathan-kaleve/',
     vcardNote: 'Pareo: AI compliance automation for manufacturing.',
     initials: 'JK',
-    photoUrl: '/team/Jonathan.jpg',
+    photoUrl: '/team/Jonathan.avif',
   },
 }
 
