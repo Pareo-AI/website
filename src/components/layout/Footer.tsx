@@ -42,11 +42,13 @@ export function Footer() {
                 {link.name}
               </Link>
             ))}
-            <ObfuscatedEmail
-              encoded={Buffer.from(CONTACT_EMAIL).toString('base64')}
-              className="text-xs transition-colors"
-              style={{ color: 'rgba(255,255,255,0.3)', fontFamily: 'var(--font-ibm)' }}
-            />
+            {CONTACT_EMAIL && (
+              <ObfuscatedEmail
+                encoded={Buffer.from(CONTACT_EMAIL).toString('base64')}
+                className="text-xs transition-colors"
+                style={{ color: 'rgba(255,255,255,0.3)', fontFamily: 'var(--font-ibm)' }}
+              />
+            )}
           </div>
         </div>
 
