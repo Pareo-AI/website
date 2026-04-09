@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import { motion } from 'framer-motion'
 
 export function CTA() {
   const [name, setName] = useState('')
@@ -76,11 +75,7 @@ export function CTA() {
           {/* Right: form */}
           <div className="rounded-2xl p-8" style={{ background: '#16162A', border: '1px solid rgba(123,92,245,0.15)' }}>
             {submitted ? (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="text-center py-8"
-              >
+              <div className="text-center py-8 animate-scale-sm-in">
                 <div className="text-4xl mb-4">✓</div>
                 <h3 className="text-xl font-bold mb-2" style={{ fontFamily: 'var(--font-ibm)', color: '#ffffff' }}>
                   We'll be in touch shortly.
@@ -88,7 +83,7 @@ export function CTA() {
                 <p className="text-sm" style={{ color: 'rgba(255,255,255,0.45)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}>
                   Expect a message within one business day.
                 </p>
-              </motion.div>
+              </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div>

@@ -1,11 +1,12 @@
 'use client';
 
-import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
 import posthog from 'posthog-js';
 import { useEffect, useRef, useState } from 'react';
 import { useCookieConsent } from '@/components/CookieConsent';
 import { ObfuscatedEmail } from '@/components/ObfuscatedEmail';
+
+const EASE = 'cubic-bezier(0.16,1,0.3,1)'
 
 const CATEGORIES = [
   {
@@ -149,11 +150,9 @@ export default function FitCheckPage() {
 
       <div className="relative mx-auto max-w-3xl px-6 lg:px-8 py-20 lg:py-28" style={{ zIndex: 1 }}>
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+        <div
           className="mb-14"
+          style={{ animation: `fade-in-up 0.5s ${EASE} both` }}
         >
           <div className="flex items-center gap-3 mb-6">
             <div className="h-px w-8" style={{ background: '#7B5CF5' }} />
@@ -187,24 +186,24 @@ export default function FitCheckPage() {
             Select all the statements that apply to your company. We'll reach out with a
             personalised view of how Pareo could help.
           </p>
-        </motion.div>
+        </div>
 
         {/* Score bar */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
+        <div
           className="mb-10 flex items-center gap-4"
+          style={{ animation: `fade-in 0.5s ${EASE} 0.2s both` }}
         >
           <div
             className="flex-1 h-1.5 rounded-full overflow-hidden"
             style={{ background: 'rgba(255,255,255,0.06)' }}
           >
-            <motion.div
+            <div
               className="h-full rounded-full"
-              style={{ background: '#7B5CF5' }}
-              animate={{ width: `${(score / ALL_ITEMS.length) * 100}%` }}
-              transition={{ type: 'spring', stiffness: 200, damping: 30 }}
+              style={{
+                background: '#7B5CF5',
+                width: `${(score / ALL_ITEMS.length) * 100}%`,
+                transition: `width 0.4s ${EASE}`,
+              }}
             />
           </div>
           <span
@@ -216,16 +215,14 @@ export default function FitCheckPage() {
           >
             {score} / {ALL_ITEMS.length}
           </span>
-        </motion.div>
+        </div>
 
         {/* Checklist */}
         <div className="space-y-10 mb-16">
           {CATEGORIES.map((cat, ci) => (
-            <motion.div
+            <div
               key={cat.id}
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.15 + ci * 0.08, ease: [0.16, 1, 0.3, 1] }}
+              style={{ animation: `fade-in-up 0.5s ${EASE} ${0.15 + ci * 0.08}s both` }}
             >
               <div className="flex items-center gap-3 mb-4">
                 <span
@@ -240,12 +237,11 @@ export default function FitCheckPage() {
                 {cat.items.map(item => {
                   const isChecked = checked.has(item.id);
                   return (
-                    <motion.button
+                    <button
                       key={item.id}
                       type="button"
                       onClick={() => toggle(item.id, cat.id)}
-                      whileTap={{ scale: 0.99 }}
-                      className="w-full flex items-start gap-3 rounded-xl p-4 text-left transition-all"
+                      className="w-full flex items-start gap-3 rounded-xl p-4 text-left transition-all active:scale-[0.99]"
                       style={{
                         background: isChecked ? 'rgba(123,92,245,0.12)' : '#16162A',
                         border: `1px solid ${isChecked ? 'rgba(123,92,245,0.4)' : 'rgba(123,92,245,0.1)'}`,
@@ -282,20 +278,18 @@ export default function FitCheckPage() {
                       >
                         {item.text}
                       </p>
-                    </motion.button>
+                    </button>
                   );
                 })}
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
         {/* Email gate */}
-        <motion.div
+        <div
           ref={formRef}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          style={{ animation: `fade-in-up 0.5s ${EASE} 0.4s both` }}
         >
           <div
             className="rounded-2xl p-8 lg:p-10"
@@ -304,213 +298,208 @@ export default function FitCheckPage() {
               border: '1px solid rgba(123,92,245,0.15)',
             }}
           >
-            <AnimatePresence mode="wait">
-              {status === 'success' ? (
-                <motion.div
-                  key="success"
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                  className="text-center py-4"
+            {status === 'success' ? (
+              <div
+                className="text-center py-4"
+                style={{ animation: `scale-sm-in 0.4s ${EASE} both` }}
+              >
+                <div
+                  className="mx-auto mb-6 flex items-center justify-center rounded-full"
+                  style={{
+                    width: '64px',
+                    height: '64px',
+                    background: 'rgba(123,92,245,0.15)',
+                    border: '1px solid rgba(123,92,245,0.3)',
+                  }}
                 >
-                  <div
-                    className="mx-auto mb-6 flex items-center justify-center rounded-full"
-                    style={{
-                      width: '64px',
-                      height: '64px',
-                      background: 'rgba(123,92,245,0.15)',
-                      border: '1px solid rgba(123,92,245,0.3)',
-                    }}
-                  >
-                    <svg width="28" height="22" viewBox="0 0 28 22" fill="none">
-                      <path
-                        d="M2 11L10 19L26 3"
-                        stroke="#7B5CF5"
-                        strokeWidth="3"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </div>
-                  <h2
-                    className="mb-3 text-2xl font-bold"
+                  <svg width="28" height="22" viewBox="0 0 28 22" fill="none">
+                    <path
+                      d="M2 11L10 19L26 3"
+                      stroke="#7B5CF5"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
+                <h2
+                  className="mb-3 text-2xl font-bold"
+                  style={{ fontFamily: 'var(--font-ibm)', color: '#ffffff' }}
+                >
+                  We'll be in touch.
+                </h2>
+                <p
+                  className="mb-8 text-sm leading-relaxed"
+                  style={{
+                    color: 'rgba(255,255,255,0.5)',
+                    fontFamily: 'var(--font-ibm)',
+                    fontWeight: 300,
+                  }}
+                >
+                  {score > 0
+                    ? `You matched ${score} of ${ALL_ITEMS.length} — that's a strong signal. Expect a message within one business day.`
+                    : 'Expect a message within one business day.'}
+                </p>
+                <Link
+                  href="/"
+                  className="text-xs"
+                  style={{ color: 'rgba(255,255,255,0.3)', fontFamily: 'var(--font-ibm)' }}
+                >
+                  ← Back to pareo.ai
+                </Link>
+              </div>
+            ) : (
+              <div>
+                <div className="mb-6">
+                  <p
+                    className="text-lg font-semibold mb-1"
                     style={{ fontFamily: 'var(--font-ibm)', color: '#ffffff' }}
                   >
-                    We'll be in touch.
-                  </h2>
+                    {score >= 3
+                      ? `${score} of ${ALL_ITEMS.length} apply — let's talk.`
+                      : 'Talk to us.'}
+                  </p>
                   <p
-                    className="mb-8 text-sm leading-relaxed"
+                    className="text-sm"
                     style={{
-                      color: 'rgba(255,255,255,0.5)',
+                      color: 'rgba(255,255,255,0.4)',
                       fontFamily: 'var(--font-ibm)',
                       fontWeight: 300,
                     }}
                   >
-                    {score > 0
-                      ? `You matched ${score} of ${ALL_ITEMS.length} — that's a strong signal. Expect a message within one business day.`
-                      : 'Expect a message within one business day.'}
+                    Leave your email and we'll reach out within one business day. No commitment,
+                    no pitch deck.
                   </p>
-                  <Link
-                    href="/"
-                    className="text-xs"
-                    style={{ color: 'rgba(255,255,255,0.3)', fontFamily: 'var(--font-ibm)' }}
-                  >
-                    ← Back to pareo.ai
-                  </Link>
-                </motion.div>
-              ) : (
-                <motion.div key="form" initial={{ opacity: 1 }} animate={{ opacity: 1 }}>
-                  <div className="mb-6">
-                    <p
-                      className="text-lg font-semibold mb-1"
-                      style={{ fontFamily: 'var(--font-ibm)', color: '#ffffff' }}
-                    >
-                      {score >= 3
-                        ? `${score} of ${ALL_ITEMS.length} apply — let's talk.`
-                        : 'Talk to us.'}
-                    </p>
-                    <p
-                      className="text-sm"
+                </div>
+
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label
+                        htmlFor="fc-email"
+                        className="block text-xs font-medium mb-2"
+                        style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-ibm)' }}
+                      >
+                        Work email
+                      </label>
+                      <input
+                        id="fc-email"
+                        type="email"
+                        required
+                        value={email}
+                        onChange={e => setEmail(e.target.value)}
+                        placeholder="jan@company.com"
+                        className="w-full px-4 py-3 rounded-lg text-sm outline-none transition-all"
+                        style={{
+                          background: 'rgba(255,255,255,0.04)',
+                          border: '1px solid rgba(123,92,245,0.2)',
+                          color: '#ffffff',
+                          fontFamily: 'var(--font-ibm)',
+                        }}
+                        onFocus={e =>
+                          (e.currentTarget.style.borderColor = 'rgba(123,92,245,0.5)')
+                        }
+                        onBlur={e => (e.currentTarget.style.borderColor = 'rgba(123,92,245,0.2)')}
+                      />
+                    </div>
+                    <div className="sm:flex sm:items-end">
+                      <button
+                        type="submit"
+                        disabled={status === 'loading' || !gdprConsent}
+                        className="w-full py-3 rounded-lg text-sm font-semibold text-white transition-all"
+                        style={{
+                          background:
+                            !gdprConsent || status === 'loading'
+                              ? 'rgba(123,92,245,0.4)'
+                              : '#7B5CF5',
+                          fontFamily: 'var(--font-ibm)',
+                          cursor:
+                            !gdprConsent || status === 'loading' ? 'not-allowed' : 'pointer',
+                        }}
+                        onMouseEnter={e => {
+                          if (gdprConsent && status !== 'loading')
+                            e.currentTarget.style.background = '#6d4ee0';
+                        }}
+                        onMouseLeave={e => {
+                          if (gdprConsent && status !== 'loading')
+                            e.currentTarget.style.background = '#7B5CF5';
+                        }}
+                      >
+                        {status === 'loading' ? 'Sending…' : 'Request a call →'}
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* GDPR */}
+                  <label className="flex items-start gap-3 cursor-pointer">
+                    <div className="relative mt-0.5 shrink-0">
+                      <input
+                        type="checkbox"
+                        required
+                        checked={gdprConsent}
+                        onChange={e => setGdprConsent(e.target.checked)}
+                        className="sr-only"
+                      />
+                      <div
+                        className="w-4 h-4 rounded flex items-center justify-center transition-all"
+                        style={{
+                          background: gdprConsent ? '#7B5CF5' : 'rgba(255,255,255,0.05)',
+                          border: `1px solid ${gdprConsent ? '#7B5CF5' : 'rgba(123,92,245,0.3)'}`,
+                        }}
+                        onClick={() => setGdprConsent(v => !v)}
+                      >
+                        {gdprConsent && (
+                          <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
+                            <path
+                              d="M1 4L3.5 6.5L9 1"
+                              stroke="white"
+                              strokeWidth="1.5"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        )}
+                      </div>
+                    </div>
+                    <span
+                      className="text-xs leading-relaxed"
                       style={{
                         color: 'rgba(255,255,255,0.4)',
                         fontFamily: 'var(--font-ibm)',
                         fontWeight: 300,
                       }}
                     >
-                      Leave your email and we'll reach out within one business day. No commitment,
-                      no pitch deck.
+                      I agree that Pareo may use my details to contact me about compliance
+                      automation.{' '}
+                      <Link
+                        href="/privacy"
+                        target="_blank"
+                        className="underline"
+                        style={{ color: 'rgba(255,255,255,0.6)' }}
+                        onClick={e => e.stopPropagation()}
+                      >
+                        Privacy policy
+                      </Link>
+                    </span>
+                  </label>
+
+                  {status === 'error' && (
+                    <p
+                      className="text-xs"
+                      style={{ color: '#f87171', fontFamily: 'var(--font-ibm)' }}
+                    >
+                      Something went wrong. Please try again or email us at{' '}
+                      <ObfuscatedEmail
+                        encoded="QmpvZXJuQHBhcmVvLmFp"
+                        style={{ color: '#f87171', textDecoration: 'underline' }}
+                      />
                     </p>
-                  </div>
-
-                  <form onSubmit={handleSubmit} className="space-y-5">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <label
-                          htmlFor="fc-email"
-                          className="block text-xs font-medium mb-2"
-                          style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-ibm)' }}
-                        >
-                          Work email
-                        </label>
-                        <input
-                          id="fc-email"
-                          type="email"
-                          required
-                          value={email}
-                          onChange={e => setEmail(e.target.value)}
-                          placeholder="jan@company.com"
-                          className="w-full px-4 py-3 rounded-lg text-sm outline-none transition-all"
-                          style={{
-                            background: 'rgba(255,255,255,0.04)',
-                            border: '1px solid rgba(123,92,245,0.2)',
-                            color: '#ffffff',
-                            fontFamily: 'var(--font-ibm)',
-                          }}
-                          onFocus={e =>
-                            (e.currentTarget.style.borderColor = 'rgba(123,92,245,0.5)')
-                          }
-                          onBlur={e => (e.currentTarget.style.borderColor = 'rgba(123,92,245,0.2)')}
-                        />
-                      </div>
-                      <div className="sm:flex sm:items-end">
-                        <button
-                          type="submit"
-                          disabled={status === 'loading' || !gdprConsent}
-                          className="w-full py-3 rounded-lg text-sm font-semibold text-white transition-all"
-                          style={{
-                            background:
-                              !gdprConsent || status === 'loading'
-                                ? 'rgba(123,92,245,0.4)'
-                                : '#7B5CF5',
-                            fontFamily: 'var(--font-ibm)',
-                            cursor:
-                              !gdprConsent || status === 'loading' ? 'not-allowed' : 'pointer',
-                          }}
-                          onMouseEnter={e => {
-                            if (gdprConsent && status !== 'loading')
-                              e.currentTarget.style.background = '#6d4ee0';
-                          }}
-                          onMouseLeave={e => {
-                            if (gdprConsent && status !== 'loading')
-                              e.currentTarget.style.background = '#7B5CF5';
-                          }}
-                        >
-                          {status === 'loading' ? 'Sending…' : 'Request a call →'}
-                        </button>
-                      </div>
-                    </div>
-
-                    {/* GDPR */}
-                    <label className="flex items-start gap-3 cursor-pointer">
-                      <div className="relative mt-0.5 shrink-0">
-                        <input
-                          type="checkbox"
-                          required
-                          checked={gdprConsent}
-                          onChange={e => setGdprConsent(e.target.checked)}
-                          className="sr-only"
-                        />
-                        <div
-                          className="w-4 h-4 rounded flex items-center justify-center transition-all"
-                          style={{
-                            background: gdprConsent ? '#7B5CF5' : 'rgba(255,255,255,0.05)',
-                            border: `1px solid ${gdprConsent ? '#7B5CF5' : 'rgba(123,92,245,0.3)'}`,
-                          }}
-                          onClick={() => setGdprConsent(v => !v)}
-                        >
-                          {gdprConsent && (
-                            <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
-                              <path
-                                d="M1 4L3.5 6.5L9 1"
-                                stroke="white"
-                                strokeWidth="1.5"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                              />
-                            </svg>
-                          )}
-                        </div>
-                      </div>
-                      <span
-                        className="text-xs leading-relaxed"
-                        style={{
-                          color: 'rgba(255,255,255,0.4)',
-                          fontFamily: 'var(--font-ibm)',
-                          fontWeight: 300,
-                        }}
-                      >
-                        I agree that Pareo may use my details to contact me about compliance
-                        automation.{' '}
-                        <Link
-                          href="/privacy"
-                          target="_blank"
-                          className="underline"
-                          style={{ color: 'rgba(255,255,255,0.6)' }}
-                          onClick={e => e.stopPropagation()}
-                        >
-                          Privacy policy
-                        </Link>
-                      </span>
-                    </label>
-
-                    {status === 'error' && (
-                      <p
-                        className="text-xs"
-                        style={{ color: '#f87171', fontFamily: 'var(--font-ibm)' }}
-                      >
-                        Something went wrong. Please try again or email us at{' '}
-                        <ObfuscatedEmail
-                          encoded="QmpvZXJuQHBhcmVvLmFp"
-                          style={{ color: '#f87171', textDecoration: 'underline' }}
-                        />
-                      </p>
-                    )}
-                  </form>
-                </motion.div>
-              )}
-            </AnimatePresence>
+                  )}
+                </form>
+              </div>
+            )}
           </div>
-        </motion.div>
+        </div>
       </div>
     </div>
   );

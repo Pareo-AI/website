@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+const EASE = 'cubic-bezier(0.16,1,0.3,1)'
 
 export function Hero() {
   const handleDemoClick = () => {
@@ -33,61 +33,50 @@ export function Hero() {
         }}
       />
 
-      {/* Main content — vertically centred, takes up full viewport */}
+      {/* Main content */}
       <div className="relative flex-1 flex flex-col justify-center mx-auto max-w-7xl w-full px-6 lg:px-8 pt-24 pb-12">
-        <motion.div
-          initial={{ opacity: 0, y: 32 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+        <div
           className="max-w-5xl"
+          style={{ animation: `fade-in-up 0.75s ${EASE} both` }}
         >
           {/* Eyebrow */}
-          <motion.div
-            initial={{ opacity: 0, x: -16 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+          <div
             className="mb-8 flex items-center gap-3"
+            style={{ animation: `slide-in-left 0.5s ${EASE} 0.1s both` }}
           >
-            <div
-              className="h-px w-10"
-              style={{ background: '#7B5CF5' }}
-            />
+            <div className="h-px w-10" style={{ background: '#7B5CF5' }} />
             <span
               className="text-xs font-semibold tracking-[0.2em] uppercase"
               style={{ color: '#7B5CF5', fontFamily: 'var(--font-ibm)' }}
             >
               AI-Powered Compliance
             </span>
-          </motion.div>
+          </div>
 
           {/* Main headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          <h1
             className="mb-8 leading-[1.05] tracking-tight"
             style={{
               fontFamily: 'var(--font-ibm)',
               fontSize: 'clamp(52px, 7vw, 92px)',
               fontWeight: 800,
+              animation: `fade-in-up 0.7s ${EASE} 0.2s both`,
             }}
           >
             <span style={{ color: '#ffffff' }}>Every compliance request.</span>
             <br />
             <span style={{ color: '#7B5CF5' }}>Handled. Automatically.</span>
-          </motion.h1>
+          </h1>
 
           {/* Subheadline */}
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.38, ease: [0.16, 1, 0.3, 1] }}
+          <p
             className="mb-10 max-w-2xl leading-relaxed"
             style={{
               fontFamily: 'var(--font-ibm)',
               fontSize: 'clamp(17px, 2.2vw, 22px)',
               fontWeight: 300,
               color: 'rgba(255,255,255,0.62)',
+              animation: `fade-in-up 0.6s ${EASE} 0.38s both`,
             }}
           >
             Pareo gives your compliance team an AI workforce that works every request — so your
@@ -95,14 +84,10 @@ export function Hero() {
             notification — are automatically ingested, matched against your ERP and product data,
             and returned as validated, audit-ready responses. REACH, RoHS, PFAS, TSCA and more.
             Directly into Assent, CDX, or any format your customer requires.
-          </motion.p>
+          </p>
 
           {/* CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.52 }}
-          >
+          <div style={{ animation: `fade-in-up 0.5s ${EASE} 0.52s both` }}>
             <button
               onClick={handleDemoClick}
               className="inline-flex items-center gap-2 px-8 py-4 rounded-lg text-base font-semibold text-white transition-all duration-200"
@@ -124,17 +109,17 @@ export function Hero() {
             >
               Request Demo
             </button>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
 
-      {/* Trust strip — pinned to bottom of viewport */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.9 }}
+      {/* Trust strip */}
+      <div
         className="relative border-t"
-        style={{ borderColor: 'rgba(123, 92, 245, 0.12)' }}
+        style={{
+          borderColor: 'rgba(123, 92, 245, 0.12)',
+          animation: 'fade-in 0.6s ease 0.9s both',
+        }}
       >
         <div className="mx-auto max-w-7xl px-6 lg:px-8 py-6">
           <p
@@ -156,7 +141,7 @@ export function Hero() {
             ))}
           </div>
         </div>
-      </motion.div>
+      </div>
     </section>
   )
 }

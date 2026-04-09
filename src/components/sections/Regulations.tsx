@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { Reveal } from '@/components/ui/Reveal'
 
 const regulations = [
   { name: 'REACH SVHC', theme: 'Chemical Substances', flag: '🇪🇺', active: true },
@@ -50,20 +50,19 @@ export function Regulations() {
         <div className="mb-16">
           <div className="flex flex-wrap gap-3">
             {regulations.map((reg, i) => (
-              <motion.div
+              <Reveal
                 key={reg.name}
-                initial={{ opacity: 0, scale: 0.85 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ delay: i * 0.05, duration: 0.3 }}
+                delay={i * 50}
+                threshold={0.2}
+                variant="scale"
                 className="flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium"
+                title={reg.theme}
                 style={{
                   background: reg.active ? 'rgba(123,92,245,0.1)' : 'rgba(255,255,255,0.04)',
                   border: reg.active ? '1px solid rgba(123,92,245,0.25)' : '1px solid rgba(255,255,255,0.08)',
                   color: reg.active ? '#c4b0ff' : 'rgba(255,255,255,0.25)',
                   fontFamily: 'var(--font-ibm)',
                 }}
-                title={reg.theme}
               >
                 <span style={{ fontSize: '13px' }}>{reg.flag}</span>
                 <span>{reg.name}</span>
@@ -75,21 +74,16 @@ export function Regulations() {
                     Soon
                   </span>
                 )}
-              </motion.div>
+              </Reveal>
             ))}
           </div>
         </div>
 
         {/* Forward-looking callout */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
+        <Reveal
+          threshold={0.5}
           className="rounded-xl p-7 max-w-3xl"
-          style={{
-            background: '#1E1E35',
-            borderLeft: '3px solid #7B5CF5',
-          }}
+          style={{ background: '#1E1E35', borderLeft: '3px solid #7B5CF5' }}
         >
           <div className="text-xs font-semibold tracking-[0.2em] uppercase mb-4"
             style={{ color: '#7B5CF5', fontFamily: 'var(--font-ibm)' }}>
@@ -105,7 +99,7 @@ export function Regulations() {
             machine-readable compliance records across every supply chain tier. The structured product data Pareo helps you
             generate today becomes the foundation for that — so you're not rebuilding from scratch when the requirements arrive.
           </p>
-        </motion.div>
+        </Reveal>
       </div>
     </section>
   )

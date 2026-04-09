@@ -1,7 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+
+const EASE = 'cubic-bezier(0.16,1,0.3,1)'
 
 const tabs = [
   {
@@ -51,13 +52,14 @@ function IngestionVisual() {
         { icon: '📄', type: 'PDF Attachment', label: 'RoHS_compliance_form_Q3.pdf', status: 'Processing', tag: 'RoHS' },
         { icon: '📊', type: 'Excel Template', label: 'Conflict_minerals_CMRT_v6.xlsx', status: 'Queued', tag: 'CMR' },
       ].map((item, i) => (
-        <motion.div
+        <div
           key={i}
-          initial={{ opacity: 0, x: 16 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: i * 0.08 }}
           className="flex items-center gap-3 p-3 rounded-lg"
-          style={{ background: 'rgba(123,92,245,0.07)', border: '1px solid rgba(123,92,245,0.12)' }}
+          style={{
+            background: 'rgba(123,92,245,0.07)',
+            border: '1px solid rgba(123,92,245,0.12)',
+            animation: `slide-in-right 0.4s ${EASE} ${i * 80}ms both`,
+          }}
         >
           <span className="text-base">{item.icon}</span>
           <div className="flex-1 min-w-0">
@@ -71,7 +73,7 @@ function IngestionVisual() {
             </span>
             <div className="w-1.5 h-1.5 rounded-full" style={{ background: item.status === 'Ingested' ? '#22c55e' : '#7B5CF5' }} />
           </div>
-        </motion.div>
+        </div>
       ))}
     </div>
   )
@@ -89,12 +91,10 @@ function RetrievalVisual() {
     <div className="h-full flex items-center justify-center p-6">
       <div className="relative w-full max-w-xs mx-auto" style={{ height: '260px' }}>
         {sources.map((s, i) => (
-          <motion.div
+          <div
             key={i}
             className={`absolute ${s.pos} flex flex-col items-center gap-1`}
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: i * 0.1 }}
+            style={{ animation: `fade-in-up 0.4s ${EASE} ${i * 100}ms both` }}
           >
             <div className="w-14 h-14 rounded-xl flex items-center justify-center text-2xl"
               style={{ background: '#16162A', border: '1px solid rgba(123,92,245,0.2)' }}>
@@ -103,20 +103,18 @@ function RetrievalVisual() {
             <span className="text-xs font-medium" style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-ibm)' }}>
               {s.label}
             </span>
-          </motion.div>
+          </div>
         ))}
 
         {/* Centre node */}
         <div className="absolute inset-0 flex items-center justify-center">
-          <motion.div
-            animate={{ boxShadow: ['0 0 20px rgba(123,92,245,0.3)', '0 0 40px rgba(123,92,245,0.6)', '0 0 20px rgba(123,92,245,0.3)'] }}
-            transition={{ repeat: Infinity, duration: 2 }}
-            className="w-20 h-20 rounded-2xl flex flex-col items-center justify-center"
+          <div
+            className="animate-pulse-glow w-20 h-20 rounded-2xl flex flex-col items-center justify-center"
             style={{ background: 'rgba(123,92,245,0.15)', border: '2px solid rgba(123,92,245,0.4)' }}
           >
             <span className="text-xl">✦</span>
             <span className="text-xs font-bold mt-1" style={{ color: '#7B5CF5', fontFamily: 'var(--font-ibm)' }}>Pareo</span>
-          </motion.div>
+          </div>
         </div>
 
         {/* Connector lines (SVG) */}
@@ -188,12 +186,13 @@ function GapVisual() {
           </div>
         </div>
       </div>
-      <motion.div
-        initial={{ opacity: 0, y: 8 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3 }}
+      <div
         className="rounded-lg p-4"
-        style={{ background: 'rgba(123,92,245,0.08)', border: '1px solid rgba(123,92,245,0.2)' }}
+        style={{
+          background: 'rgba(123,92,245,0.08)',
+          border: '1px solid rgba(123,92,245,0.2)',
+          animation: `fade-in-up 0.4s ${EASE} 300ms both`,
+        }}
       >
         <div className="text-xs font-semibold mb-2" style={{ color: '#b89cff', fontFamily: 'var(--font-ibm)' }}>
           📧 Automated outreach sent
@@ -203,13 +202,14 @@ function GapVisual() {
           Subject: PFAS data request — component SC-2291<br />
           Follow-up scheduled: +5 days
         </div>
-      </motion.div>
-      <motion.div
-        initial={{ opacity: 0, y: 8 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.6 }}
+      </div>
+      <div
         className="rounded-lg p-4"
-        style={{ background: 'rgba(34,197,94,0.07)', border: '1px solid rgba(34,197,94,0.2)' }}
+        style={{
+          background: 'rgba(34,197,94,0.07)',
+          border: '1px solid rgba(34,197,94,0.2)',
+          animation: `fade-in-up 0.4s ${EASE} 600ms both`,
+        }}
       >
         <div className="flex items-center gap-2">
           <span className="text-xs" style={{ color: '#86efac' }}>✓</span>
@@ -217,7 +217,7 @@ function GapVisual() {
             Gap resolved — declaration received &amp; validated
           </span>
         </div>
-      </motion.div>
+      </div>
     </div>
   )
 }
@@ -276,75 +276,67 @@ export function HowItWorks() {
               }}
             >
               {t.label}
-              {active === i && (
-                <motion.div
-                  layoutId="tab-indicator"
-                  className="absolute bottom-0 left-0 right-0 h-0.5"
-                  style={{ background: '#7B5CF5' }}
-                />
-              )}
+              <div
+                className="absolute bottom-0 left-0 right-0 h-0.5 transition-opacity duration-200"
+                style={{ background: '#7B5CF5', opacity: active === i ? 1 : 0 }}
+              />
             </button>
           ))}
         </div>
 
         {/* Tab content */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={active}
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.3 }}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start"
-          >
-            {/* Left: copy */}
-            <div>
-              <h3 className="mb-5 leading-snug"
-                style={{ fontFamily: 'var(--font-ibm)', fontSize: 'clamp(22px, 2.5vw, 30px)', fontWeight: 700, color: '#ffffff' }}>
-                {tab.headline}
-              </h3>
-              <div className="space-y-4 mb-7">
-                {tab.body.split('\n\n').map((para, i) => (
-                  <p key={i} className="text-base leading-relaxed"
-                    style={{ color: 'rgba(255,255,255,0.6)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}>
-                    {para}
-                  </p>
-                ))}
-              </div>
-              <div className="flex flex-wrap gap-2 mb-8">
-                {tab.tags.map((tag) => (
-                  <span key={tag} className="px-3 py-1 rounded-full text-xs font-medium"
-                    style={{
-                      background: 'rgba(123,92,245,0.1)',
-                      border: '1px solid rgba(123,92,245,0.2)',
-                      color: '#b89cff',
-                      fontFamily: 'var(--font-ibm)',
-                    }}>
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              <button
-                onClick={() => {
-                  const el = document.querySelector('#contact')
-                  if (el) el.scrollIntoView({ behavior: 'smooth' })
-                }}
-                className="px-6 py-3 rounded-lg text-sm font-semibold text-white transition-all"
-                style={{ background: '#7B5CF5', fontFamily: 'var(--font-ibm)' }}
-                onMouseEnter={e => (e.currentTarget.style.background = '#6d4ee0')}
-                onMouseLeave={e => (e.currentTarget.style.background = '#7B5CF5')}
-              >
-                Request Demo →
-              </button>
+        <div
+          key={active}
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start"
+          style={{ animation: `fade-in-up 0.3s ${EASE} both` }}
+        >
+          {/* Left: copy */}
+          <div>
+            <h3 className="mb-5 leading-snug"
+              style={{ fontFamily: 'var(--font-ibm)', fontSize: 'clamp(22px, 2.5vw, 30px)', fontWeight: 700, color: '#ffffff' }}>
+              {tab.headline}
+            </h3>
+            <div className="space-y-4 mb-7">
+              {tab.body.split('\n\n').map((para, i) => (
+                <p key={i} className="text-base leading-relaxed"
+                  style={{ color: 'rgba(255,255,255,0.6)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}>
+                  {para}
+                </p>
+              ))}
             </div>
+            <div className="flex flex-wrap gap-2 mb-8">
+              {tab.tags.map((tag) => (
+                <span key={tag} className="px-3 py-1 rounded-full text-xs font-medium"
+                  style={{
+                    background: 'rgba(123,92,245,0.1)',
+                    border: '1px solid rgba(123,92,245,0.2)',
+                    color: '#b89cff',
+                    fontFamily: 'var(--font-ibm)',
+                  }}>
+                  {tag}
+                </span>
+              ))}
+            </div>
+            <button
+              onClick={() => {
+                const el = document.querySelector('#contact')
+                if (el) el.scrollIntoView({ behavior: 'smooth' })
+              }}
+              className="px-6 py-3 rounded-lg text-sm font-semibold text-white transition-all"
+              style={{ background: '#7B5CF5', fontFamily: 'var(--font-ibm)' }}
+              onMouseEnter={e => (e.currentTarget.style.background = '#6d4ee0')}
+              onMouseLeave={e => (e.currentTarget.style.background = '#7B5CF5')}
+            >
+              Request Demo →
+            </button>
+          </div>
 
-            {/* Right: visual */}
-            <div className="rounded-xl overflow-hidden min-h-[320px]"
-              style={{ background: '#0A0A12', border: '1px solid rgba(123,92,245,0.18)' }}>
-              {visuals[tab.visual]}
-            </div>
-          </motion.div>
-        </AnimatePresence>
+          {/* Right: visual */}
+          <div className="rounded-xl overflow-hidden min-h-[320px]"
+            style={{ background: '#0A0A12', border: '1px solid rgba(123,92,245,0.18)' }}>
+            {visuals[tab.visual]}
+          </div>
+        </div>
       </div>
     </section>
   )

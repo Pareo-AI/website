@@ -1,9 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { motion } from 'framer-motion'
-
-const ease: [number, number, number, number] = [0.16, 1, 0.3, 1]
+import { Reveal } from '@/components/ui/Reveal'
 
 const points = [
   {
@@ -86,13 +84,7 @@ export function CTA() {
           {/* ── Left: copy ── */}
           <div>
             {/* Eyebrow */}
-            <motion.div
-              initial={{ opacity: 0, x: -16 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, ease }}
-              className="flex items-center gap-3 mb-8"
-            >
+            <Reveal variant="left" className="flex items-center gap-3 mb-8">
               <div className="h-px w-10" style={{ background: '#7B5CF5' }} />
               <span
                 className="text-xs font-semibold tracking-[0.2em] uppercase"
@@ -100,54 +92,47 @@ export function CTA() {
               >
                 Let's Talk
               </span>
-            </motion.div>
+            </Reveal>
 
             {/* Headline */}
-            <motion.h2
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.1, ease }}
-              className="mb-6 leading-[1.05] tracking-tight"
-              style={{
-                fontFamily: 'var(--font-ibm)',
-                fontSize: 'clamp(36px, 4.5vw, 60px)',
-                fontWeight: 800,
-                color: '#ffffff',
-              }}
-            >
-              Talk to the team.
-            </motion.h2>
+            <Reveal delay={100}>
+              <h2
+                className="mb-6 leading-[1.05] tracking-tight"
+                style={{
+                  fontFamily: 'var(--font-ibm)',
+                  fontSize: 'clamp(36px, 4.5vw, 60px)',
+                  fontWeight: 800,
+                  color: '#ffffff',
+                }}
+              >
+                Talk to the team.
+              </h2>
+            </Reveal>
 
             {/* Sub */}
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2, ease }}
-              className="mb-12 leading-relaxed"
-              style={{
-                fontFamily: 'var(--font-ibm)',
-                fontSize: 'clamp(15px, 1.8vw, 18px)',
-                fontWeight: 300,
-                color: 'rgba(255,255,255,0.5)',
-                maxWidth: '420px',
-              }}
-            >
-              Most manufacturers we speak with have never mapped their compliance
-              exposure. Start there. One conversation is usually enough to know
-              whether Pareo is the right fit.
-            </motion.p>
+            <Reveal delay={200}>
+              <p
+                className="mb-12 leading-relaxed"
+                style={{
+                  fontFamily: 'var(--font-ibm)',
+                  fontSize: 'clamp(15px, 1.8vw, 18px)',
+                  fontWeight: 300,
+                  color: 'rgba(255,255,255,0.5)',
+                  maxWidth: '420px',
+                }}
+              >
+                Most manufacturers we speak with have never mapped their compliance
+                exposure. Start there. One conversation is usually enough to know
+                whether Pareo is the right fit.
+              </p>
+            </Reveal>
 
             {/* Numbered points */}
             <div className="space-y-0">
               {points.map((item, i) => (
-                <motion.div
+                <Reveal
                   key={item.n}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.55, delay: 0.28 + i * 0.1, ease }}
+                  delay={280 + i * 100}
                   className="flex items-start gap-6 py-6"
                   style={{
                     borderBottom:
@@ -187,17 +172,14 @@ export function CTA() {
                       {item.detail}
                     </div>
                   </div>
-                </motion.div>
+                </Reveal>
               ))}
             </div>
           </div>
 
           {/* ── Right: form card ── */}
-          <motion.div
-            initial={{ opacity: 0, y: 32 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.75, delay: 0.15, ease }}
+          <Reveal
+            delay={150}
             className="rounded-2xl p-8"
             style={{
               background: '#13131F',
@@ -207,12 +189,7 @@ export function CTA() {
             }}
           >
             {submitted ? (
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease }}
-                className="py-12 flex flex-col items-start"
-              >
+              <div className="py-12 flex flex-col items-start animate-scale-sm-in">
                 {/* Accent line */}
                 <div
                   className="h-px w-12 mb-8"
@@ -239,7 +216,7 @@ export function CTA() {
                 >
                   We'll be back within one business day.
                 </p>
-              </motion.div>
+              </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
                 {[
@@ -371,7 +348,7 @@ export function CTA() {
                 </p>
               </form>
             )}
-          </motion.div>
+          </Reveal>
         </div>
       </div>
     </section>

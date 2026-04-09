@@ -1,7 +1,7 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { ArrowRight, Sparkles, Network, Globe, Leaf } from 'lucide-react'
+import { Reveal } from '@/components/ui/Reveal'
+import { Sparkles, Network, Globe, Leaf } from 'lucide-react'
 
 export function Vision() {
   const phases = [
@@ -54,12 +54,9 @@ export function Vision() {
 
           <div className="space-y-12">
             {phases.map((phase, index) => (
-              <motion.div
+              <Reveal
                 key={phase.phase}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
+                delay={index * 100}
                 className={`flex flex-col lg:flex-row gap-8 items-center ${
                   index % 2 === 0 ? 'lg:flex-row-reverse' : ''
                 }`}
@@ -93,7 +90,7 @@ export function Vision() {
                 <div className="flex-1" style={{ textAlign: index % 2 === 0 ? 'right' : 'left' }}>
                   <div className="text-3xl font-bold text-muted-foreground/30">{phase.phase}</div>
                 </div>
-              </motion.div>
+              </Reveal>
             ))}
           </div>
         </div>

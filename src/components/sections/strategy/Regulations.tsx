@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { Reveal } from '@/components/ui/Reveal'
 import { Citation } from '@/components/ui/Citation'
 
 // ─── Sources ──────────────────────────────────────────────────────────────────
@@ -129,12 +129,11 @@ export function Regulations() {
         <div className="mb-16">
           <div className="flex flex-wrap gap-3">
             {regulations.map((reg, i) => (
-              <motion.div
+              <Reveal
                 key={reg.name}
-                initial={{ opacity: 0, scale: 0.85 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ delay: i * 0.05, duration: 0.3 }}
+                variant="scale"
+                delay={i * 50}
+                threshold={0.2}
                 className="flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium"
                 style={{
                   background: reg.active ? 'rgba(123,92,245,0.1)' : 'rgba(255,255,255,0.04)',
@@ -151,7 +150,7 @@ export function Regulations() {
                     Soon
                   </span>
                 )}
-              </motion.div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -168,12 +167,10 @@ export function Regulations() {
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {group.cards.map((item, i) => (
-                  <motion.div
+                  <Reveal
                     key={i}
-                    initial={{ opacity: 0, y: 12 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{ delay: i * 0.08 }}
+                    delay={i * 80}
+                    threshold={0.3}
                     className="p-5 rounded-xl"
                     style={{ background: '#16162A', border: '1px solid rgba(123,92,245,0.15)' }}
                   >
@@ -188,7 +185,7 @@ export function Regulations() {
                     <p className="text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.45)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}>
                       {item.detail}
                     </p>
-                  </motion.div>
+                  </Reveal>
                 ))}
               </div>
             </div>
@@ -196,10 +193,8 @@ export function Regulations() {
         </div>
 
         {/* Forward-looking callout */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
+        <Reveal
+          threshold={0.5}
           className="rounded-xl p-7 max-w-3xl"
           style={{ background: '#1E1E35', borderLeft: '3px solid #7B5CF5' }}
         >
@@ -221,7 +216,7 @@ export function Regulations() {
             obligations maps directly to what the DPP will require. Every compliance request handled
             now is a building block for the infrastructure that replaces it.
           </p>
-        </motion.div>
+        </Reveal>
 
       </div>
     </section>

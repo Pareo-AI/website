@@ -1,7 +1,7 @@
 'use client'
 
 import { useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { useInView } from '@/hooks/useInView'
 import { Citation } from '@/components/ui/Citation'
 
 // ─── Sources ──────────────────────────────────────────────────────────────────
@@ -125,12 +125,10 @@ function TimelineVisual() {
 
       <div className="px-5 py-5">
         {timelineEvents.map((event, i) => (
-          <motion.div
+          <div
             key={i}
-            initial={{ opacity: 0, x: -8 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.3, delay: i * 0.06 }}
             className="flex items-start gap-3 relative"
+            style={{ animation: `slide-in-left 0.3s ease ${i * 60}ms both` }}
           >
             {i < timelineEvents.length - 1 && (
               <div
@@ -157,7 +155,7 @@ function TimelineVisual() {
                 {event.detail}
               </div>
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
     </div>
@@ -167,15 +165,18 @@ function TimelineVisual() {
 // ─── Scroll step ──────────────────────────────────────────────────────────────
 
 function ScrollStep({ step, index }: { step: Step; index: number }) {
-  const ref = useRef(null)
+  const ref = useRef<HTMLDivElement>(null)
   const inView = useInView(ref, { amount: 0.6, once: false })
 
   return (
     <div ref={ref} className="min-h-[60vh] flex items-center py-16">
-      <motion.div
-        animate={{ opacity: inView ? 1 : 0.25, x: inView ? 0 : 16 }}
-        transition={{ duration: 0.45 }}
+      <div
         className="max-w-lg"
+        style={{
+          opacity: inView ? 1 : 0.25,
+          transform: inView ? 'none' : 'translateX(16px)',
+          transition: 'opacity 0.45s ease, transform 0.45s ease',
+        }}
       >
         <div
           className="text-6xl font-bold mb-4 leading-none"
@@ -189,7 +190,7 @@ function ScrollStep({ step, index }: { step: Step; index: number }) {
         >
           {step.content}
         </p>
-      </motion.div>
+      </div>
     </div>
   )
 }

@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { Reveal } from '@/components/ui/Reveal'
 
 const statCards = [
   {
@@ -71,12 +71,10 @@ export function Benefits() {
         {/* Operational stat cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-3">
           {statCards.map((card, i) => (
-            <motion.div
+            <Reveal
               key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.4 }}
-              transition={{ delay: i * 0.1 }}
+              delay={i * 100}
+              threshold={0.4}
               className="p-7 rounded-xl"
               style={{ background: '#16162A', border: '1px solid rgba(123,92,245,0.15)' }}
             >
@@ -92,7 +90,7 @@ export function Benefits() {
               >
                 {card.body}
               </p>
-            </motion.div>
+            </Reveal>
           ))}
         </div>
 
@@ -106,12 +104,10 @@ export function Benefits() {
         {/* Strategic outcomes */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
           {outcomes.map((item, i) => (
-            <motion.div
+            <Reveal
               key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ delay: i * 0.12 }}
+              delay={i * 120}
+              threshold={0.3}
               className="p-7 rounded-xl"
               style={{
                 background: 'rgba(123,92,245,0.06)',
@@ -136,7 +132,7 @@ export function Benefits() {
               >
                 {item.body}
               </p>
-            </motion.div>
+            </Reveal>
           ))}
         </div>
 

@@ -1,8 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
-
-// ─── Grid data pulses ─────────────────────────────────────────────────────────
+const EASE = 'cubic-bezier(0.16,1,0.3,1)'
 
 const gridParticles = [
   { axis: 'h' as const, pos: 300, delay: 2.5, duration: 6,   repeatDelay: 5 },
@@ -10,18 +8,13 @@ const gridParticles = [
   { axis: 'v' as const, pos: 900, delay: 5,   duration: 6,   repeatDelay: 5 },
 ]
 
-function GridParticle({
-  axis, pos, delay, duration, repeatDelay,
-}: {
-  axis: 'h' | 'v'
-  pos: number
-  delay: number
-  duration: number
-  repeatDelay: number
+function GridParticle({ axis, pos, delay, duration, repeatDelay }: {
+  axis: 'h' | 'v'; pos: number; delay: number; duration: number; repeatDelay: number
 }) {
   const isH = axis === 'h'
+  const totalCycle = duration + repeatDelay
   return (
-    <motion.div
+    <div
       style={{
         position: 'absolute',
         top:    isH ? pos : 0,
@@ -32,14 +25,12 @@ function GridParticle({
           ? 'linear-gradient(90deg, transparent, rgba(123,92,245,0.32), transparent)'
           : 'linear-gradient(180deg, transparent, rgba(123,92,245,0.32), transparent)',
         filter: 'blur(0.5px)',
+        animation: `${isH ? 'particle-x' : 'particle-y'} ${duration}s linear ${delay}s infinite`,
+        animationDelay: `${delay}s`,
       }}
-      animate={isH ? { x: [-80, 1800] } : { y: [-80, 1200] }}
-      transition={{ delay, duration, repeat: Infinity, repeatDelay, ease: 'linear' }}
     />
   )
 }
-
-// ─── Section ──────────────────────────────────────────────────────────────────
 
 export function Hero() {
   const handleDemoClick = () => {
@@ -53,17 +44,11 @@ export function Hero() {
       className="relative min-h-screen flex flex-col"
       style={{ background: '#0A0A12' }}
     >
-      {/* Background animations — clipped so transforms don't cause scrollbars */}
+      {/* Background animations */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Purple gradient bloom — oversized so drift never exposes a bare edge */}
-        <motion.div
-          className="absolute"
-          animate={{
-            x: [0, 14, 0],
-            y: [0, -10, 0],
-            opacity: [1, 0.82, 1],
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
+        {/* Purple gradient bloom — drifts gently */}
+        <div
+          className="absolute animate-bloom-drift"
           style={{
             inset: '-20px',
             background:
@@ -81,67 +66,56 @@ export function Hero() {
           }}
         />
 
-        {/* Data pulses along grid lines */}
+        {/* Data pulses */}
         {gridParticles.map((p, i) => (
           <GridParticle key={i} {...p} />
         ))}
       </div>
 
-      {/* Main content — vertically centred, takes up full viewport */}
+      {/* Main content */}
       <div className="relative flex-1 flex flex-col justify-center mx-auto max-w-7xl w-full px-6 lg:px-8 pt-24 pb-12">
-        <motion.div
-          initial={{ opacity: 0, y: 32 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+        <div
           className="max-w-5xl"
+          style={{ animation: `fade-in-up 0.75s ${EASE} both` }}
         >
           {/* Eyebrow */}
-          <motion.div
-            initial={{ opacity: 0, x: -16 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+          <div
             className="mb-8 flex items-center gap-3"
+            style={{ animation: `slide-in-left 0.5s ${EASE} 0.1s both` }}
           >
-            <div
-              className="h-px w-10"
-              style={{ background: '#7B5CF5' }}
-            />
+            <div className="h-px w-10" style={{ background: '#7B5CF5' }} />
             <span
               className="text-xs font-semibold tracking-[0.2em] uppercase"
               style={{ color: '#7B5CF5', fontFamily: 'var(--font-ibm)' }}
             >
               Industrial Data Infrastructure
             </span>
-          </motion.div>
+          </div>
 
           {/* Main headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          <h1
             className="mb-8 leading-[1.05] tracking-tight"
             style={{
               fontFamily: 'var(--font-ibm)',
               fontSize: 'clamp(52px, 7vw, 92px)',
               fontWeight: 800,
+              animation: `fade-in-up 0.7s ${EASE} 0.2s both`,
             }}
           >
             <span style={{ color: '#ffffff' }}>The data layer for</span>
             <br />
             <span style={{ color: '#7B5CF5' }}>European manufacturing.</span>
-          </motion.h1>
+          </h1>
 
           {/* Subheadline */}
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.38, ease: [0.16, 1, 0.3, 1] }}
+          <p
             className="mb-10 max-w-2xl leading-relaxed"
             style={{
               fontFamily: 'var(--font-ibm)',
               fontSize: 'clamp(17px, 2.2vw, 22px)',
               fontWeight: 300,
               color: 'rgba(255,255,255,0.62)',
+              animation: `fade-in-up 0.6s ${EASE} 0.38s both`,
             }}
           >
             Manufacturing-X. Digital Product Passport. EU Data Act. Europe is building the
@@ -149,14 +123,10 @@ export function Hero() {
             with structured, interoperable product data will move faster, qualify for more,
             and bear less risk. Pareo starts with compliance — the most immediate data problem
             you already have — and builds from there.
-          </motion.p>
+          </p>
 
           {/* CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.52 }}
-          >
+          <div style={{ animation: `fade-in-up 0.5s ${EASE} 0.52s both` }}>
             <button
               onClick={handleDemoClick}
               className="inline-flex items-center gap-2 px-8 py-4 rounded-lg text-base font-semibold text-white transition-all duration-200"
@@ -178,17 +148,17 @@ export function Hero() {
             >
               Request Demo
             </button>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
 
-      {/* Trust strip — pinned to bottom of viewport */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.9 }}
+      {/* Trust strip */}
+      <div
         className="relative border-t"
-        style={{ borderColor: 'rgba(123, 92, 245, 0.12)' }}
+        style={{
+          borderColor: 'rgba(123, 92, 245, 0.12)',
+          animation: 'fade-in 0.6s ease 0.9s both',
+        }}
       >
         <div className="mx-auto max-w-7xl px-6 lg:px-8 py-6">
           <p
@@ -210,7 +180,7 @@ export function Hero() {
             ))}
           </div>
         </div>
-      </motion.div>
+      </div>
     </section>
   )
 }

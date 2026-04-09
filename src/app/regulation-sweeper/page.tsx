@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { RegulationSweeper } from '@/components/game/RegulationSweeper';
 import { Problem } from '@/components/sections/Problem';
 import { HowItWorks } from '@/components/sections/HowItWorks';
@@ -8,6 +7,8 @@ import { Benefits } from '@/components/sections/Benefits';
 import { Regulations } from '@/components/sections/Regulations';
 import { Security } from '@/components/sections/Security';
 import { CTA } from '@/components/sections/CTA';
+
+const EASE = 'cubic-bezier(0.16,1,0.3,1)'
 
 // ─── Custom hero that is transparent so the game shows through ────────────────
 // pointer-events: none on the section lets clicks pass through to game cells.
@@ -56,18 +57,16 @@ function GameHero() {
           padding: '96px 32px 48px',
         }}
       >
-        <motion.div
-          initial={{ opacity: 0, y: 32 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
-          style={{ maxWidth: '64rem' }}
-        >
+        <div style={{ maxWidth: '64rem', animation: `fade-in-up 0.75s ${EASE} both` }}>
           {/* Eyebrow */}
-          <motion.div
-            initial={{ opacity: 0, x: -16 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            style={{ marginBottom: '32px', display: 'flex', alignItems: 'center', gap: '12px' }}
+          <div
+            style={{
+              marginBottom: '32px',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '12px',
+              animation: `slide-in-left 0.5s ${EASE} 0.1s both`,
+            }}
           >
             <div style={{ height: '1px', width: '40px', background: '#7B5CF5' }} />
             <span style={{
@@ -77,13 +76,10 @@ function GameHero() {
             }}>
               AI-Powered Compliance
             </span>
-          </motion.div>
+          </div>
 
           {/* Headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          <h1
             style={{
               fontFamily: 'var(--font-ibm)',
               fontSize: 'clamp(52px, 7vw, 92px)',
@@ -91,18 +87,16 @@ function GameHero() {
               lineHeight: 1.05,
               letterSpacing: '-0.02em',
               marginBottom: '32px',
+              animation: `fade-in-up 0.7s ${EASE} 0.2s both`,
             }}
           >
             <span style={{ color: '#ffffff' }}>Every compliance request.</span>
             <br />
             <span style={{ color: '#7B5CF5' }}>Handled. Automatically.</span>
-          </motion.h1>
+          </h1>
 
           {/* Subheadline */}
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.38, ease: [0.16, 1, 0.3, 1] }}
+          <p
             style={{
               fontFamily: 'var(--font-ibm)',
               fontSize: 'clamp(17px, 2.2vw, 22px)',
@@ -111,19 +105,23 @@ function GameHero() {
               lineHeight: 1.65,
               maxWidth: '40rem',
               marginBottom: '40px',
+              animation: `fade-in-up 0.6s ${EASE} 0.38s both`,
             }}
           >
             Pareo gives your compliance team an AI workforce that works every request — so your
             engineers stop doing data entry. REACH, RoHS, PFAS, TSCA and more. Directly into
             Assent, CDX, or any format your customer requires.
-          </motion.p>
+          </p>
 
           {/* CTA — re-enable pointer events only here */}
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.52 }}
-            style={{ display: 'flex', alignItems: 'center', gap: '24px', pointerEvents: 'auto' }}
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '24px',
+              pointerEvents: 'auto',
+              animation: `fade-in-up 0.5s ${EASE} 0.52s both`,
+            }}
           >
             <button
               onClick={scrollToContact}
@@ -156,13 +154,10 @@ function GameHero() {
             >
               Request Demo
             </button>
-          </motion.div>
+          </div>
 
           {/* Game hint */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 1.6 }}
+          <p
             style={{
               marginTop: '28px',
               fontSize: '12px',
@@ -172,25 +167,24 @@ function GameHero() {
               display: 'flex',
               alignItems: 'center',
               gap: '8px',
+              animation: `fade-in 0.6s ease 1.6s both`,
             }}
           >
             <span style={{ color: '#7B5CF5', opacity: 0.6 }}>↖</span>
             Click the grid to sweep — right-click to flag regulations
-          </motion.p>
-        </motion.div>
+          </p>
+        </div>
       </div>
 
       {/* Trust strip — pinned to bottom of viewport */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.9 }}
+      <div
         style={{
           position: 'relative',
           borderTop: '1px solid rgba(123,92,245,0.12)',
           background: 'rgba(10,10,18,0.6)',
           backdropFilter: 'blur(8px)',
           WebkitBackdropFilter: 'blur(8px)',
+          animation: `fade-in 0.6s ease 0.9s both`,
         }}
       >
         <div style={{ maxWidth: '80rem', margin: '0 auto', padding: '24px 32px' }}>
@@ -220,7 +214,7 @@ function GameHero() {
             ))}
           </div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

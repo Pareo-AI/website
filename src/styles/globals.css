@@ -93,11 +93,45 @@
     to { width: 100%; }
   }
 
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slide-in-left {
+    from { opacity: 0; transform: translateX(-16px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes scale-sm-in {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  @keyframes particle-x {
+    from { transform: translateX(-80px); }
+    to { transform: translateX(1800px); }
+  }
+
+  @keyframes particle-y {
+    from { transform: translateY(-80px); }
+    to { transform: translateY(1200px); }
+  }
+
+  @keyframes bloom-drift {
+    0%, 100% { transform: translate(0, 0); opacity: 1; }
+    50%       { transform: translate(14px, -10px); opacity: 0.82; }
+  }
+
   .animate-shimmer { animation: 2s infinite shimmer; }
   .animate-float { animation: 4s ease-in-out infinite float; }
   .animate-pulse-glow { animation: 2s ease-in-out infinite pulse-glow; }
   .animate-fade-in-up { animation: 0.6s ease-out forwards fade-in-up; }
   .animate-slide-in-right { animation: 0.5s ease-out forwards slide-in-right; }
+  .animate-fade-in { animation: fade-in 0.6s cubic-bezier(0.16,1,0.3,1) both; }
+  .animate-slide-in-left { animation: slide-in-left 0.5s cubic-bezier(0.16,1,0.3,1) both; }
+  .animate-scale-sm-in { animation: scale-sm-in 0.4s cubic-bezier(0.16,1,0.3,1) both; }
+  .animate-bloom-drift { animation: bloom-drift 10s ease-in-out infinite; }
 
   .font-display { font-family: var(--font-ibm), system-ui, sans-serif; }
   .font-body { font-family: var(--font-ibm), system-ui, sans-serif; }

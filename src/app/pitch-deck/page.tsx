@@ -1,11 +1,12 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import Link from 'next/link';
 import posthog from 'posthog-js';
 import { useEffect, useState } from 'react';
 import { useCookieConsent } from '@/components/CookieConsent';
 import { ObfuscatedEmail } from '@/components/ObfuscatedEmail';
+
+const EASE = 'cubic-bezier(0.16,1,0.3,1)'
 
 type Status = 'idle' | 'loading' | 'success' | 'error';
 
@@ -66,11 +67,7 @@ export default function PitchDeckPage() {
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8 py-20 lg:py-32" style={{ zIndex: 1 }}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* ── Left: value prop ── */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          >
+          <div style={{ animation: `fade-in-up 0.5s ${EASE} both` }}>
             {/* Eyebrow */}
             <div className="flex items-center gap-3 mb-8">
               <div className="h-px w-8" style={{ background: '#7B5CF5' }} />
@@ -127,7 +124,6 @@ export default function PitchDeckPage() {
                       border: '1px solid rgba(123,92,245,0.35)',
                     }}
                   >
-                    {/* Checkmark SVG */}
                     <svg width="11" height="8" viewBox="0 0 11 8" fill="none">
                       <path
                         d="M1 4L4 7L10 1"
@@ -167,14 +163,12 @@ export default function PitchDeckPage() {
               </svg>
               Sent to your inbox immediately. No sales calls.
             </p>
-          </motion.div>
+          </div>
 
           {/* ── Right: email gate card ── */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          <div
             className="mx-auto w-full max-w-lg"
+            style={{ animation: `fade-in-up 0.5s ${EASE} 0.1s both` }}
           >
             <div
               className="rounded-2xl p-8 lg:p-10"
@@ -184,11 +178,9 @@ export default function PitchDeckPage() {
               }}
             >
               {status === 'success' ? (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                <div
                   className="text-center py-6"
+                  style={{ animation: `scale-sm-in 0.4s ${EASE} both` }}
                 >
                   {/* Checkmark icon */}
                   <div
@@ -238,7 +230,7 @@ export default function PitchDeckPage() {
                   >
                     ← Back to pareo.ai
                   </Link>
-                </motion.div>
+                </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
@@ -403,7 +395,7 @@ export default function PitchDeckPage() {
                 </form>
               )}
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </div>

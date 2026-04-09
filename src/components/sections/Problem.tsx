@@ -1,7 +1,7 @@
 'use client'
 
 import { useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { useInView } from '@/hooks/useInView'
 
 const steps = [
   {
@@ -79,13 +79,13 @@ function InboxVisual({ step }: { step: number }) {
       {/* Messages */}
       <div className="divide-y" style={{ borderColor: 'rgba(255,255,255,0.04)' }}>
         {inboxMessages.slice(0, visibleCount).map((msg, i) => (
-          <motion.div
+          <div
             key={i}
-            initial={i === visibleCount - 1 && step > 0 ? { opacity: 0, y: -8 } : { opacity: 1, y: 0 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
             className="px-4 py-3 flex items-start gap-3"
-            style={{ background: i === 0 ? 'rgba(123,92,245,0.04)' : 'transparent' }}
+            style={{
+              background: i === 0 ? 'rgba(123,92,245,0.04)' : 'transparent',
+              animation: i === visibleCount - 1 && step > 0 ? 'fade-in-up 0.3s ease both' : undefined,
+            }}
           >
             <div
               className="w-2 h-2 rounded-full mt-2 shrink-0"
@@ -118,7 +118,7 @@ function InboxVisual({ step }: { step: number }) {
                 {msg.subject}
               </p>
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
     </div>
@@ -126,15 +126,18 @@ function InboxVisual({ step }: { step: number }) {
 }
 
 function ScrollStep({ step, index }: { step: typeof steps[0]; index: number }) {
-  const ref = useRef(null)
+  const ref = useRef<HTMLDivElement>(null)
   const inView = useInView(ref, { amount: 0.6, once: false })
 
   return (
     <div ref={ref} className="min-h-[60vh] flex items-center py-16">
-      <motion.div
-        animate={{ opacity: inView ? 1 : 0.25, x: inView ? 0 : 16 }}
-        transition={{ duration: 0.45 }}
+      <div
         className="max-w-lg"
+        style={{
+          opacity: inView ? 1 : 0.25,
+          transform: inView ? 'none' : 'translateX(16px)',
+          transition: 'opacity 0.45s ease, transform 0.45s ease',
+        }}
       >
         <div
           className="text-6xl font-bold mb-4 leading-none"
@@ -148,7 +151,7 @@ function ScrollStep({ step, index }: { step: typeof steps[0]; index: number }) {
         >
           {step.text}
         </p>
-      </motion.div>
+      </div>
     </div>
   )
 }
@@ -269,7 +272,7 @@ export function Problem() {
 }
 
 function InboxSticky() {
-  const ref = useRef(null)
+  const ref = useRef<HTMLDivElement>(null)
   const inView = useInView(ref, { amount: 0.1 })
 
   return (

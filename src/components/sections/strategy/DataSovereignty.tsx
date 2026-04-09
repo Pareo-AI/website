@@ -1,6 +1,6 @@
-'use client';
+'use client'
 
-import { motion } from 'framer-motion';
+import { Reveal } from '@/components/ui/Reveal'
 
 const pillars = [
   {
@@ -23,7 +23,7 @@ const pillars = [
     title: 'Self-hosted storage',
     body: 'Document storage can be deployed in your own infrastructure. You bring the storage layer; Pareo uses it. Your unstructured data — lab reports, supplier declarations, material certificates — stays in an environment you control and can audit independently.',
   },
-];
+]
 
 export function DataSovereignty() {
   return (
@@ -85,12 +85,10 @@ export function DataSovereignty() {
         {/* Pillars */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-14">
           {pillars.map((pillar, i) => (
-            <motion.div
+            <Reveal
               key={i}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ delay: i * 0.1 }}
+              delay={i * 100}
+              threshold={0.3}
               className="p-7 rounded-xl"
               style={{
                 background: '#0D0D1A',
@@ -119,15 +117,13 @@ export function DataSovereignty() {
               >
                 {pillar.body}
               </p>
-            </motion.div>
+            </Reveal>
           ))}
         </div>
 
         {/* Closing callout */}
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
+        <Reveal
+          threshold={0.5}
           className="rounded-xl p-7 max-w-3xl"
           style={{ background: '#16162A', borderLeft: '3px solid #7B5CF5' }}
         >
@@ -145,8 +141,8 @@ export function DataSovereignty() {
             the architecture we're building toward, and why storage is yours from day one. That's
             the answer before the first meeting.
           </p>
-        </motion.div>
+        </Reveal>
       </div>
     </section>
-  );
+  )
 }
