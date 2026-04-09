@@ -7,8 +7,9 @@ import { Header } from './Header'
 export function ConditionalSiteLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
   const isCardPage = pathname.startsWith('/card')
+  const isStrategyPage = pathname.startsWith('/strategy')
 
-  if (isCardPage) {
+  if (isCardPage || isStrategyPage) {
     return <>{children}</>
   }
 
