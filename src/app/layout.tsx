@@ -103,6 +103,14 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        {/* HubSpot tracking */}
+        <script
+          type="text/javascript"
+          id="hs-script-loader"
+          async
+          defer
+          src="https://js-eu1.hs-scripts.com/147054386.js"
+        />
       </head>
       <body>
         <CookieConsentProvider>
@@ -112,7 +120,6 @@ export default function RootLayout({
         </CookieConsentProvider>
         <Analytics />
         <SpeedInsights />
-        <Script id="hs-script-loader" src="//js-eu1.hs-scripts.com/147054386.js" strategy="afterInteractive" />
         <Script id="dealfront" strategy="afterInteractive">{`
           (function(ss,ex){
             window.ldfdr=window.ldfdr||function(){(ldfdr._q=ldfdr._q||[]).push([].slice.call(arguments));};
