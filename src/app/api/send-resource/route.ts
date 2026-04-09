@@ -1,9 +1,11 @@
 import { NextResponse } from 'next/server';
 import { CONTACT_EMAIL, SITE_URL } from '@/lib/constants';
+import { verifyTurnstile } from '@/lib/turnstile';
 
 interface ResourceRequestData {
   email: string;
   gdprConsent: boolean;
+  turnstileToken: string;
 }
 
 async function sendPdfViaMailgun(email: string): Promise<void> {
@@ -87,6 +89,11 @@ export async function POST(request: Request) {
 
     if (!data.gdprConsent) {
       return NextResponse.json({ error: 'GDPR consent is required' }, { status: 400 });
+    }
+
+    const humanVerified = await verifyTurnstile(data.turnstileToken);
+    if (!humanVerified) {
+      return NextResponse.json({ error: 'Bot check failed' }, { status: 400 });
     }
 
     console.log('Pitch deck download request:', {

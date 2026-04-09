@@ -5,6 +5,7 @@ import posthog from 'posthog-js';
 import { useEffect, useRef, useState } from 'react';
 import { useCookieConsent } from '@/components/CookieConsent';
 import { ObfuscatedEmail } from '@/components/ObfuscatedEmail';
+import { TurnstileWidget } from '@/components/TurnstileWidget';
 
 const EASE = 'cubic-bezier(0.16,1,0.3,1)'
 
@@ -77,6 +78,7 @@ export default function FitCheckPage() {
   const [email, setEmail] = useState('');
   const [gdprConsent, setGdprConsent] = useState(false);
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [turnstileToken, setTurnstileToken] = useState('');
   const formRef = useRef<HTMLDivElement>(null);
   const hasScrolled = useRef(false);
 
@@ -124,7 +126,7 @@ export default function FitCheckPage() {
       const res = await fetch('/api/fit-check', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, gdprConsent, score }),
+        body: JSON.stringify({ email, gdprConsent, score, turnstileToken }),
       });
 
       if (!res.ok) throw new Error();
@@ -405,23 +407,23 @@ export default function FitCheckPage() {
                     <div className="sm:flex sm:items-end">
                       <button
                         type="submit"
-                        disabled={status === 'loading' || !gdprConsent}
+                        disabled={status === 'loading' || !gdprConsent || !turnstileToken}
                         className="w-full py-3 rounded-lg text-sm font-semibold text-white transition-all"
                         style={{
                           background:
-                            !gdprConsent || status === 'loading'
+                            !gdprConsent || status === 'loading' || !turnstileToken
                               ? 'rgba(123,92,245,0.4)'
                               : '#7B5CF5',
                           fontFamily: 'var(--font-ibm)',
                           cursor:
-                            !gdprConsent || status === 'loading' ? 'not-allowed' : 'pointer',
+                            !gdprConsent || status === 'loading' || !turnstileToken ? 'not-allowed' : 'pointer',
                         }}
                         onMouseEnter={e => {
-                          if (gdprConsent && status !== 'loading')
+                          if (gdprConsent && status !== 'loading' && turnstileToken)
                             e.currentTarget.style.background = '#6d4ee0';
                         }}
                         onMouseLeave={e => {
-                          if (gdprConsent && status !== 'loading')
+                          if (gdprConsent && status !== 'loading' && turnstileToken)
                             e.currentTarget.style.background = '#7B5CF5';
                         }}
                       >
@@ -429,6 +431,11 @@ export default function FitCheckPage() {
                       </button>
                     </div>
                   </div>
+
+                  <TurnstileWidget
+                    onVerify={setTurnstileToken}
+                    onExpire={() => setTurnstileToken('')}
+                  />
 
                   {/* GDPR */}
                   <label className="flex items-start gap-3 cursor-pointer">

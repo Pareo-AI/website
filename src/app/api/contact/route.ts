@@ -1,11 +1,13 @@
 import { NextResponse } from 'next/server'
 import { CONTACT_EMAIL } from '@/lib/constants'
+import { verifyTurnstile } from '@/lib/turnstile'
 
 interface ContactFormData {
   name: string
   email: string
   company?: string
   message: string
+  turnstileToken: string
 }
 
 async function sendEmailViaMailgun(data: ContactFormData): Promise<void> {
@@ -65,6 +67,11 @@ export async function POST(request: Request) {
         { error: 'Missing required fields' },
         { status: 400 }
       )
+    }
+
+    const humanVerified = await verifyTurnstile(data.turnstileToken)
+    if (!humanVerified) {
+      return NextResponse.json({ error: 'Bot check failed' }, { status: 400 })
     }
 
     console.log('Contact form submission:', {

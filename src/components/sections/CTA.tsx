@@ -1,6 +1,8 @@
 'use client'
 
 import { useState } from 'react'
+import { ObfuscatedEmail } from '@/components/ObfuscatedEmail'
+import { TurnstileWidget } from '@/components/TurnstileWidget'
 
 export function CTA() {
   const [name, setName] = useState('')
@@ -9,13 +11,29 @@ export function CTA() {
   const [message, setMessage] = useState('')
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(false)
+  const [turnstileToken, setTurnstileToken] = useState('')
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
-    await new Promise((r) => setTimeout(r, 900))
-    setLoading(false)
-    setSubmitted(true)
+    setError(false)
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, company, message, turnstileToken }),
+      })
+      if (response.ok) {
+        setSubmitted(true)
+      } else {
+        setError(true)
+      }
+    } catch {
+      setError(true)
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -173,19 +191,30 @@ export function CTA() {
                     onBlur={e => (e.currentTarget.style.borderColor = 'rgba(123,92,245,0.2)')}
                   />
                 </div>
+                <TurnstileWidget
+                  onVerify={setTurnstileToken}
+                  onExpire={() => setTurnstileToken('')}
+                />
                 <button
                   type="submit"
-                  disabled={loading}
+                  disabled={loading || !turnstileToken}
                   className="w-full py-3.5 rounded-lg text-sm font-semibold text-white transition-all"
                   style={{
-                    background: loading ? 'rgba(123,92,245,0.5)' : '#7B5CF5',
+                    background: loading || !turnstileToken ? 'rgba(123,92,245,0.5)' : '#7B5CF5',
                     fontFamily: 'var(--font-ibm)',
+                    cursor: loading || !turnstileToken ? 'not-allowed' : 'pointer',
                   }}
-                  onMouseEnter={e => !loading && (e.currentTarget.style.background = '#6d4ee0')}
-                  onMouseLeave={e => !loading && (e.currentTarget.style.background = '#7B5CF5')}
+                  onMouseEnter={e => !loading && !!turnstileToken && (e.currentTarget.style.background = '#6d4ee0')}
+                  onMouseLeave={e => !loading && !!turnstileToken && (e.currentTarget.style.background = '#7B5CF5')}
                 >
                   {loading ? 'Sending…' : 'Request a Demo'}
                 </button>
+                {error && (
+                  <p className="text-xs text-center" style={{ color: '#f87171', fontFamily: 'var(--font-ibm)' }}>
+                    Something went wrong. Please try again or email{' '}
+                    <ObfuscatedEmail encoded="aGVsbG9AcGFyZW8uYWk=" style={{ color: '#f87171' }} />.
+                  </p>
+                )}
                 <p className="text-xs text-center"
                   style={{ color: 'rgba(255,255,255,0.25)', fontFamily: 'var(--font-ibm)' }}>
                   No spam. We'll reply within one business day.

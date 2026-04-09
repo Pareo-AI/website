@@ -5,6 +5,7 @@ import posthog from 'posthog-js';
 import { useEffect, useState } from 'react';
 import { useCookieConsent } from '@/components/CookieConsent';
 import { ObfuscatedEmail } from '@/components/ObfuscatedEmail';
+import { TurnstileWidget } from '@/components/TurnstileWidget';
 
 const EASE = 'cubic-bezier(0.16,1,0.3,1)'
 
@@ -21,6 +22,7 @@ export default function PitchDeckPage() {
   const [email, setEmail] = useState('');
   const [gdprConsent, setGdprConsent] = useState(false);
   const [status, setStatus] = useState<Status>('idle');
+  const [turnstileToken, setTurnstileToken] = useState('');
 
   useEffect(() => {
     if (consent === 'accepted') {
@@ -36,7 +38,7 @@ export default function PitchDeckPage() {
       const response = await fetch('/api/send-resource', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, gdprConsent: true }),
+        body: JSON.stringify({ email, gdprConsent: true, turnstileToken }),
       });
 
       if (response.ok) {
@@ -354,24 +356,29 @@ export default function PitchDeckPage() {
                     </label>
                   </div>
 
+                  <TurnstileWidget
+                    onVerify={setTurnstileToken}
+                    onExpire={() => setTurnstileToken('')}
+                  />
+
                   {/* Submit */}
                   <button
                     type="submit"
-                    disabled={status === 'loading' || !gdprConsent}
+                    disabled={status === 'loading' || !gdprConsent || !turnstileToken}
                     className="w-full py-3.5 rounded-lg text-sm font-semibold text-white transition-all"
                     style={{
                       background:
-                        status === 'loading' || !gdprConsent ? 'rgba(123,92,245,0.45)' : '#7B5CF5',
+                        status === 'loading' || !gdprConsent || !turnstileToken ? 'rgba(123,92,245,0.45)' : '#7B5CF5',
                       fontFamily: 'var(--font-ibm)',
-                      cursor: status === 'loading' || !gdprConsent ? 'not-allowed' : 'pointer',
+                      cursor: status === 'loading' || !gdprConsent || !turnstileToken ? 'not-allowed' : 'pointer',
                     }}
                     onMouseEnter={e => {
-                      if (status !== 'loading' && gdprConsent) {
+                      if (status !== 'loading' && gdprConsent && turnstileToken) {
                         e.currentTarget.style.background = '#6d4ee0';
                       }
                     }}
                     onMouseLeave={e => {
-                      if (status !== 'loading' && gdprConsent) {
+                      if (status !== 'loading' && gdprConsent && turnstileToken) {
                         e.currentTarget.style.background = '#7B5CF5';
                       }
                     }}

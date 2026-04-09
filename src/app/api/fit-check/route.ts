@@ -1,10 +1,12 @@
 import { NextResponse } from 'next/server';
 import { CONTACT_EMAIL } from '@/lib/constants';
+import { verifyTurnstile } from '@/lib/turnstile';
 
 interface FitCheckData {
   email: string;
   gdprConsent: boolean;
   score: number;
+  turnstileToken: string;
 }
 
 async function notifyTeam(data: FitCheckData): Promise<void> {
@@ -49,6 +51,11 @@ export async function POST(request: Request) {
 
     if (!data.gdprConsent) {
       return NextResponse.json({ error: 'GDPR consent is required' }, { status: 400 });
+    }
+
+    const humanVerified = await verifyTurnstile(data.turnstileToken);
+    if (!humanVerified) {
+      return NextResponse.json({ error: 'Bot check failed' }, { status: 400 });
     }
 
     console.log('Fit-check submission:', {

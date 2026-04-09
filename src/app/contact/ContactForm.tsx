@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
+import { TurnstileWidget } from '@/components/TurnstileWidget'
 
 interface FormState {
   name: string
@@ -18,6 +19,7 @@ export function ContactForm() {
     message: ''
   })
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const [turnstileToken, setTurnstileToken] = useState('')
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -27,7 +29,7 @@ export function ContactForm() {
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formState)
+        body: JSON.stringify({ ...formState, turnstileToken })
       })
 
       if (response.ok) {
@@ -110,7 +112,12 @@ export function ContactForm() {
         </div>
       )}
 
-      <Button type="submit" disabled={status === 'loading'} className="w-full">
+      <TurnstileWidget
+        onVerify={setTurnstileToken}
+        onExpire={() => setTurnstileToken('')}
+        theme="light"
+      />
+      <Button type="submit" disabled={status === 'loading' || !turnstileToken} className="w-full">
         {status === 'loading' ? 'Sending...' : 'Send Message'}
       </Button>
     </form>
