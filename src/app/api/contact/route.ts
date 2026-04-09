@@ -62,7 +62,7 @@ export async function POST(request: Request) {
   try {
     const data: ContactFormData = await request.json()
 
-    if (!data.name || !data.email || !data.message) {
+    if (!data.name || !data.email) {
       return NextResponse.json(
         { error: 'Missing required fields' },
         { status: 400 }
