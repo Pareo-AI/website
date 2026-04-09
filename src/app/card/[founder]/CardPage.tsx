@@ -7,6 +7,7 @@ import { Calendar, Check, Linkedin, Mail, Phone, Shield } from 'lucide-react'
 import { DEMO_URL } from '@/lib/constants'
 import type { Founder } from '@/lib/founders'
 import { companyDescription, websiteUrl } from '@/lib/founders'
+import { ObfuscatedLink } from '@/components/ObfuscatedLink'
 
 async function buildVCard(founder: Founder): Promise<string> {
   const nameParts = founder.name.split(' ')
@@ -60,10 +61,13 @@ function downloadVCard(vcf: string, name: string) {
   URL.revokeObjectURL(url)
 }
 
-const ACTION_ICONS = (founder: Founder) => [
-  { href: `mailto:${founder.email}`, icon: <Mail className="w-5 h-5" />, label: 'Email', external: false },
-  { href: `tel:${founder.phone}`,    icon: <Phone className="w-5 h-5" />, label: 'Call',  external: false },
-  { href: founder.linkedin,          icon: <Linkedin className="w-5 h-5" />, label: 'LinkedIn', external: true },
+const OBFUSCATED_ACTIONS = (founder: Founder) => [
+  { encoded: btoa(`mailto:${founder.email}`), icon: <Mail className="w-5 h-5" />,     label: 'Email' },
+  { encoded: btoa(`tel:${founder.phone}`),    icon: <Phone className="w-5 h-5" />,    label: 'Call'  },
+]
+
+const EXTERNAL_ACTIONS = (founder: Founder) => [
+  { href: founder.linkedin, icon: <Linkedin className="w-5 h-5" />, label: 'LinkedIn' },
 ]
 
 const DEMO_BULLETS = [
@@ -124,19 +128,26 @@ export function CardPage({ founder }: { founder: Founder }) {
     </button>
   )
 
+  const iconClass = 'flex flex-col items-center gap-1.5 text-muted-foreground hover:text-primary transition-colors'
+  const iconInner = (icon: React.ReactNode) => (
+    <>
+      <div className="w-11 h-11 rounded-full border border-border flex items-center justify-center hover:border-primary/50 transition-colors">
+        {icon}
+      </div>
+    </>
+  )
+
   const ActionIcons = () => (
     <div className="flex items-center gap-5">
-      {ACTION_ICONS(founder).map(({ href, icon, label, external }) => (
-        <a
-          key={label}
-          href={href}
-          aria-label={label}
-          {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-          className="flex flex-col items-center gap-1.5 text-muted-foreground hover:text-primary transition-colors"
-        >
-          <div className="w-11 h-11 rounded-full border border-border flex items-center justify-center hover:border-primary/50 transition-colors">
-            {icon}
-          </div>
+      {OBFUSCATED_ACTIONS(founder).map(({ encoded, icon, label }) => (
+        <ObfuscatedLink key={label} encoded={encoded} aria-label={label} className={iconClass}>
+          {iconInner(icon)}
+          <span className="text-xs">{label}</span>
+        </ObfuscatedLink>
+      ))}
+      {EXTERNAL_ACTIONS(founder).map(({ href, icon, label }) => (
+        <a key={label} href={href} aria-label={label} target="_blank" rel="noopener noreferrer" className={iconClass}>
+          {iconInner(icon)}
           <span className="text-xs">{label}</span>
         </a>
       ))}
