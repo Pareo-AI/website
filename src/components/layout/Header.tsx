@@ -11,7 +11,7 @@ export function Header() {
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20)
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
@@ -49,6 +49,7 @@ export function Header() {
               width={36}
               height={36}
               className="h-9 w-auto"
+              priority
             />
             <span
               className="text-xl font-bold tracking-tight"

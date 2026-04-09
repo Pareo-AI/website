@@ -99,6 +99,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={ibmPlex.variable}>
       <head>
+        <link rel="preconnect" href="https://js-eu1.hs-scripts.com" />
+        <link rel="preconnect" href="https://eu.i.posthog.com" />
+        <link rel="preconnect" href="https://sc.lfeeder.com" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
