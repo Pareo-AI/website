@@ -15,6 +15,24 @@ export function Header() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  useEffect(() => {
+    const sectionIds = ['hero', 'product', 'security', 'contact']
+    const updateHash = () => {
+      let current = ''
+      for (const id of sectionIds) {
+        const el = document.getElementById(id)
+        if (!el) continue
+        if (el.getBoundingClientRect().top <= window.innerHeight * 0.4) current = id
+      }
+      const hash = current && current !== 'hero' ? `#${current}` : ''
+      if (window.location.hash !== hash) {
+        window.history.replaceState(null, '', window.location.pathname + hash)
+      }
+    }
+    window.addEventListener('scroll', updateHash, { passive: true })
+    return () => window.removeEventListener('scroll', updateHash)
+  }, [])
+
   const navigation = [
     { name: 'Product', href: '#product' },
     { name: 'Security', href: '#security' },
@@ -25,7 +43,10 @@ export function Header() {
     setMobileMenuOpen(false)
     if (href.startsWith('#')) {
       const el = document.querySelector(href)
-      if (el) el.scrollIntoView({ behavior: 'smooth' })
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' })
+        window.history.replaceState(null, '', href)
+      }
     }
   }
 
