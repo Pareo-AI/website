@@ -1,31 +1,18 @@
 import { MetadataRoute } from 'next'
-import { SUPPORTED_LANGUAGES, SITE_URL } from '@/lib/constants'
+import { SITE_URL } from '@/lib/constants'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = SITE_URL
-  const routes = ['', '/features', '/contact', '/privacy', '/terms', '/cookies']
+  const routes: Array<{ path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency'] }> = [
+    { path: '',         priority: 1.0, changeFrequency: 'daily'   },
+    { path: '/privacy', priority: 0.5, changeFrequency: 'monthly' },
+    { path: '/terms',   priority: 0.5, changeFrequency: 'monthly' },
+    { path: '/cookies', priority: 0.5, changeFrequency: 'monthly' },
+  ]
 
-  const sitemap: MetadataRoute.Sitemap = []
-
-  SUPPORTED_LANGUAGES.forEach((lang) => {
-    routes.forEach((route) => {
-      sitemap.push({
-        url: `${baseUrl}/${lang}${route}`,
-        lastModified: new Date(),
-        changeFrequency: route === '' ? 'daily' : 'weekly',
-        priority: route === '' ? 1 : 0.8
-      })
-    })
-
-    if (lang === 'de') {
-      sitemap.push({
-        url: `${baseUrl}/${lang}/impressum`,
-        lastModified: new Date(),
-        changeFrequency: 'monthly',
-        priority: 0.5
-      })
-    }
-  })
-
-  return sitemap
+  return routes.map(({ path, priority, changeFrequency }) => ({
+    url: `${SITE_URL}${path}`,
+    lastModified: new Date(),
+    changeFrequency,
+    priority,
+  }))
 }

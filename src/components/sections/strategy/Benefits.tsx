@@ -1,41 +1,23 @@
 'use client'
 
+import { useTranslations } from 'next-intl'
 import { Reveal } from '@/components/ui/Reveal'
 
-const statCards = [
-  {
-    stat: 'Hours → Minutes',
-    body: 'What used to take hours to days of searching, formatting, and submitting now completes within a few minutes.',
-  },
-  {
-    stat: '>70%',
-    body: 'Of manual research and documentation effort eliminated per request — freeing your engineers for work that actually needs their expertise.',
-  },
-  {
-    stat: '100%',
-    body: 'Audit trail on every response. Every answer linked to its source document, retrievable in seconds when an auditor comes knocking.',
-  },
-]
-
-const outcomes = [
-  {
-    icon: '◈',
-    title: 'OEM qualification readiness',
-    body: 'Siemens, Philips, Schneider Electric, and TE Connectivity already require structured material declarations from electronics suppliers via BOMcheck. BMW, Ford, and other automotive OEMs have mandated data space participation. Suppliers with structured, validated product data qualify faster across all of these requirements — and are positioned for every new mandate that follows.',
-  },
-  {
-    icon: '⬡',
-    title: 'Data space participation',
-    body: 'Every validated product record Pareo generates is built to Manufacturing-X-compatible standards. You\'re not preparing for data spaces — you\'re building your presence in them from day one. The compliance requests you handle today are the foundation for full data space participation tomorrow.',
-  },
-  {
-    icon: '◻',
-    title: 'Regulatory future-proofing',
-    body: 'The EU Battery Passport is mandatory from February 2027. ESPR-based DPPs follow for electronics, machinery, and textiles. As requirements expand, the foundation is already in place. New regulations become new queries against structured data you already own — not new projects.',
-  },
-]
-
 export function Benefits() {
+  const t = useTranslations('StrategyBenefits')
+
+  const statCards = [
+    { stat: t('stats.0.stat'), body: t('stats.0.body') },
+    { stat: t('stats.1.stat'), body: t('stats.1.body') },
+    { stat: t('stats.2.stat'), body: t('stats.2.body') },
+  ]
+
+  const outcomes = [
+    { icon: t('outcomes.0.icon'), title: t('outcomes.0.title'), body: t('outcomes.0.body') },
+    { icon: t('outcomes.1.icon'), title: t('outcomes.1.title'), body: t('outcomes.1.body') },
+    { icon: t('outcomes.2.icon'), title: t('outcomes.2.title'), body: t('outcomes.2.body') },
+  ]
+
   return (
     <section
       className="py-24 border-t"
@@ -50,21 +32,20 @@ export function Benefits() {
               className="text-xs font-semibold tracking-[0.2em] uppercase"
               style={{ color: '#7B5CF5', fontFamily: 'var(--font-ibm)' }}
             >
-              The Results
+              {t('eyebrow')}
             </span>
           </div>
           <h2
             className="mb-4 leading-tight"
             style={{ fontFamily: 'var(--font-ibm)', fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 800, color: '#ffffff' }}
           >
-            The same team. A data layer that works.
+            {t('headline')}
           </h2>
           <p
             className="max-w-2xl text-base"
             style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}
           >
-            Pareo doesn't replace your compliance specialists. It removes the part of their job
-            that shouldn't exist — while building the product data infrastructure your company needs.
+            {t('subheadline')}
           </p>
         </div>
 
@@ -98,7 +79,7 @@ export function Benefits() {
           className="text-xs mb-16 mt-3"
           style={{ color: 'rgba(255,255,255,0.2)', fontFamily: 'var(--font-ibm)' }}
         >
-          Based on benchmark processing of real supplier documentation across pilot workflows.
+          {t('benchmarkNote')}
         </p>
 
         {/* Strategic outcomes */}
@@ -142,10 +123,7 @@ export function Benefits() {
             className="text-base leading-relaxed"
             style={{ color: 'rgba(255,255,255,0.4)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}
           >
-            Compliance requests aren't going away — and they're only the beginning. Every piece of structured,
-            validated product data your team generates is a building block for data space participation, Digital
-            Product Passport readiness, and the automated supply chain exchanges that OEMs will require next.
-            Pareo means you're building the foundation while handling today's workload.
+            {t('closing')}
           </p>
         </div>
       </div>

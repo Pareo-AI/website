@@ -1,5 +1,7 @@
 'use client'
 
+import { useTranslations } from 'next-intl'
+
 const EASE = 'cubic-bezier(0.16,1,0.3,1)'
 
 const gridParticles = [
@@ -33,6 +35,8 @@ function GridParticle({ axis, pos, delay, duration, repeatDelay }: {
 }
 
 export function Hero() {
+  const t = useTranslations('StrategyHero')
+
   const handleDemoClick = () => {
     const el = document.querySelector('#contact')
     if (el) el.scrollIntoView({ behavior: 'smooth' })
@@ -88,7 +92,7 @@ export function Hero() {
               className="text-xs font-semibold tracking-[0.2em] uppercase"
               style={{ color: '#7B5CF5', fontFamily: 'var(--font-ibm)' }}
             >
-              Industrial Data Infrastructure
+              {t('eyebrow')}
             </span>
           </div>
 
@@ -102,9 +106,9 @@ export function Hero() {
               animation: `fade-in-up 0.7s ${EASE} 0.2s both`,
             }}
           >
-            <span style={{ color: '#ffffff' }}>The data layer for</span>
+            <span style={{ color: '#ffffff' }}>{t('headline1')}</span>
             <br />
-            <span style={{ color: '#7B5CF5' }}>European manufacturing.</span>
+            <span style={{ color: '#7B5CF5' }}>{t('headline2')}</span>
           </h1>
 
           {/* Subheadline */}
@@ -118,11 +122,7 @@ export function Hero() {
               animation: `fade-in-up 0.6s ${EASE} 0.38s both`,
             }}
           >
-            Manufacturing-X. Digital Product Passport. EU Data Act. Europe is building the
-            infrastructure for a unified industrial data economy. Manufacturers who enter it
-            with structured, interoperable product data will move faster, qualify for more,
-            and bear less risk. Pareo starts with compliance — the most immediate data problem
-            you already have — and builds from there.
+            {t('subheadline')}
           </p>
 
           {/* CTA */}
@@ -146,7 +146,7 @@ export function Hero() {
                 e.currentTarget.style.transform = 'translateY(0)'
               }}
             >
-              Request Demo
+              {t('cta')}
             </button>
           </div>
         </div>
@@ -165,8 +165,7 @@ export function Hero() {
             className="text-center text-xs mb-4"
             style={{ color: 'rgba(255,255,255,0.35)', fontFamily: 'var(--font-ibm)', letterSpacing: '0.04em' }}
           >
-            Built through 180+ conversations with compliance managers, RoHS engineers, and supply chain directors at European electronics and machinery manufacturers.
-            Incubated at TUM &amp; UnternehmerTUM.
+            {t('trustStrip')}
           </p>
           <div className="flex items-center justify-center gap-8 flex-wrap">
             {['TUM', 'UnternehmerTUM', 'XPLORE'].map((name) => (

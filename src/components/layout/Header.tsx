@@ -5,33 +5,33 @@ import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
 import { useState, useEffect } from 'react'
 import { useTranslations, useLocale } from 'next-intl'
-import { usePathname, useRouter } from '@/i18n/navigation'
 
 function LocaleSwitcher() {
   const locale = useLocale()
-  const router = useRouter()
-  const pathname = usePathname()
 
-  const locales: Array<'en' | 'de'> = ['en', 'de']
+  const switchLocale = (code: string) => {
+    document.cookie = `NEXT_LOCALE=${code}; path=/; max-age=31536000; SameSite=Lax`
+    window.location.reload()
+  }
 
   return (
     <div
       className="flex items-center gap-0.5 rounded-md p-0.5"
       style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.08)' }}
     >
-      {locales.map((l) => (
+      {(['en', 'de'] as const).map((code) => (
         <button
-          key={l}
-          onClick={() => router.replace(pathname, { locale: l })}
+          key={code}
+          onClick={() => { if (code !== locale) switchLocale(code) }}
           className="text-xs font-semibold px-2 py-1 rounded transition-all duration-150 uppercase"
           style={{
             fontFamily: 'var(--font-ibm)',
-            background: locale === l ? 'rgba(123,92,245,0.35)' : 'transparent',
-            color: locale === l ? '#ffffff' : 'rgba(255,255,255,0.4)',
-            cursor: locale === l ? 'default' : 'pointer',
+            background: locale === code ? 'rgba(123,92,245,0.35)' : 'transparent',
+            color: locale === code ? '#ffffff' : 'rgba(255,255,255,0.4)',
+            cursor: locale === code ? 'default' : 'pointer',
           }}
         >
-          {l}
+          {code}
         </button>
       ))}
     </div>

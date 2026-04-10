@@ -1,65 +1,25 @@
+import { useTranslations } from 'next-intl'
 import { Brain, FileText, Mail, Database, Shield, Zap, CheckCircle, GitBranch } from 'lucide-react'
 
+const icons = [Brain, FileText, Shield, Database, CheckCircle, Zap, Mail, GitBranch]
+
 export function Features() {
-  const features = [
-    {
-      icon: Brain,
-      title: 'Multi-Agent AI System',
-      description: 'Agents collaborate to understand requests, extract data, and generate compliant outputs - handling complexity you need multiple specialists for.',
-      technical: 'Intelligent task delegation'
-    },
-    {
-      icon: FileText,
-      title: 'Format-Agnostic Processing',
-      description: 'Parse Excel pivot tables, extract from scanned PDFs, interpret XML schemas, and process email threads - no matter how suppliers format their data.',
-      technical: 'Excel · PDF · XML · DOCX · EML'
-    },
-    {
-      icon: Shield,
-      title: 'EU Regulation Coverage',
-      description: 'RoHS exemption tracking, REACH SVHC validation with CAS checksums, SCIP notification support, PFAS restrictions, and conflict minerals reporting.',
-      technical: 'IPC-1752A XML generation'
-    },
-    {
-      icon: Database,
-      title: 'Institutional Memory',
-      description: 'Every document becomes searchable knowledge. Semantic search finds relevant supplier data across thousands of files - answers questions your team forgot to document.',
-      technical: 'AI-powered search'
-    },
-    {
-      icon: CheckCircle,
-      title: 'Validation & Verification',
-      description: 'CAS checksum validation, product ownership verification, and threshold checking - catch errors before they reach customers.',
-      technical: 'Automated quality gates'
-    },
-    {
-      icon: Zap,
-      title: 'Human-in-the-Loop',
-      description: 'AI handles 95% automatically. For edge cases, agents pause and ask clarifying questions through the web UI - ensuring accuracy without sacrificing speed.',
-      technical: 'Confidence-based routing'
-    },
-    {
-      icon: Mail,
-      title: 'Email-Native Workflow',
-      description: 'Forward supplier emails directly to Pareo. Attachments are automatically processed, data extracted, and responses drafted - no copy-pasting between systems.',
-      technical: 'Email integration · Outlook (roadmap)'
-    },
-    {
-      icon: GitBranch,
-      title: 'Audit Trail & Traceability',
-      description: 'Every data point links back to source documents. Complete activity logs, version history, and domain events provide compliance-ready audit trails.',
-      technical: 'Complete traceability'
-    }
-  ]
+  const t = useTranslations('StrategyFeatures')
+
+  const features = [0, 1, 2, 3, 4, 5, 6, 7].map((i) => ({
+    icon: icons[i],
+    title: t(`features.${i}.title`),
+    description: t(`features.${i}.description`),
+    technical: t(`features.${i}.technical`),
+  }))
 
   return (
     <section className="py-24 bg-background">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold sm:text-4xl">What Pareo does.</h2>
+          <h2 className="text-3xl font-bold sm:text-4xl">{t('headline')}</h2>
           <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
-            From inbound supplier request to validated, structured output — handled automatically,
-            reviewed by your team, traceable to every source document.
+            {t('subheadline')}
           </p>
         </div>
 

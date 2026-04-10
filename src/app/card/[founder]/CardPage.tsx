@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
+import { useTranslations } from 'next-intl'
 import { Calendar, Check, Linkedin, Mail, Phone, Shield } from 'lucide-react'
 import { DEMO_URL } from '@/lib/constants'
 import type { Founder } from '@/lib/founders'
@@ -61,24 +62,25 @@ function downloadVCard(vcf: string, name: string) {
   URL.revokeObjectURL(url)
 }
 
-const OBFUSCATED_ACTIONS = (founder: Founder) => [
-  { encoded: btoa(`mailto:${founder.email}`), icon: <Mail className="w-5 h-5" />,     label: 'Email' },
-  { encoded: btoa(`tel:${founder.phone}`),    icon: <Phone className="w-5 h-5" />,    label: 'Call'  },
-]
-
-const EXTERNAL_ACTIONS = (founder: Founder) => [
-  { href: founder.linkedin, icon: <Linkedin className="w-5 h-5" />, label: 'LinkedIn' },
-]
-
-const DEMO_BULLETS = [
-  { icon: <Calendar className="w-4 h-4" />, text: '30 minutes, no pitch deck' },
-  { icon: <Check className="w-4 h-4" />,    text: 'Tailored to your situation' },
-  { icon: <Shield className="w-4 h-4" />,   text: 'NDA available on request' },
-]
-
 export function CardPage({ founder }: { founder: Founder }) {
+  const t = useTranslations('Card')
   const [saved, setSaved]   = useState(false)
   const [saving, setSaving] = useState(false)
+
+  const obfuscatedActions = [
+    { encoded: btoa(`mailto:${founder.email}`), icon: <Mail className="w-5 h-5" />,  label: t('email') },
+    { encoded: btoa(`tel:${founder.phone}`),    icon: <Phone className="w-5 h-5" />, label: t('call')  },
+  ]
+
+  const externalActions = [
+    { href: founder.linkedin, icon: <Linkedin className="w-5 h-5" />, label: t('linkedin') },
+  ]
+
+  const demoBullets = [
+    { icon: <Calendar className="w-4 h-4" />, text: t('bullets.0') },
+    { icon: <Check className="w-4 h-4" />,    text: t('bullets.1') },
+    { icon: <Shield className="w-4 h-4" />,   text: t('bullets.2') },
+  ]
 
   async function handleSaveContact() {
     if (saved || saving) return
@@ -124,7 +126,7 @@ export function CardPage({ founder }: { founder: Founder }) {
         }
       `}
     >
-      {saved ? <><Check className="w-4 h-4" /> Contact Saved</> : saving ? 'Saving…' : 'Save Contact'}
+      {saved ? <><Check className="w-4 h-4" /> {t('contactSaved')}</> : saving ? t('saving') : t('saveContact')}
     </button>
   )
 
@@ -139,13 +141,13 @@ export function CardPage({ founder }: { founder: Founder }) {
 
   const ActionIcons = () => (
     <div className="flex items-center gap-5">
-      {OBFUSCATED_ACTIONS(founder).map(({ encoded, icon, label }) => (
+      {obfuscatedActions.map(({ encoded, icon, label }) => (
         <ObfuscatedLink key={label} encoded={encoded} aria-label={label} className={iconClass}>
           {iconInner(icon)}
           <span className="text-xs">{label}</span>
         </ObfuscatedLink>
       ))}
-      {EXTERNAL_ACTIONS(founder).map(({ href, icon, label }) => (
+      {externalActions.map(({ href, icon, label }) => (
         <a key={label} href={href} aria-label={label} target="_blank" rel="noopener noreferrer" className={iconClass}>
           {iconInner(icon)}
           <span className="text-xs">{label}</span>
@@ -163,7 +165,7 @@ export function CardPage({ founder }: { founder: Founder }) {
       </div>
       <Link href={websiteUrl} target="_blank" rel="noopener noreferrer"
         className="text-sm font-medium text-primary hover:underline">
-        Learn more about Pareo →
+        {t('learnMore')}
       </Link>
     </div>
   )
@@ -171,14 +173,14 @@ export function CardPage({ founder }: { founder: Founder }) {
   const DemoSection = () => (
     <div className="flex flex-col gap-4">
       <div>
-        <p className="text-xs font-semibold tracking-widest text-primary uppercase mb-1">Let's talk</p>
-        <h2 className="text-base font-bold text-foreground">Book a personal consultation.</h2>
+        <p className="text-xs font-semibold tracking-widest text-primary uppercase mb-1">{t('letsTalk')}</p>
+        <h2 className="text-base font-bold text-foreground">{t('bookingHeadline')}</h2>
         <p className="mt-1 text-sm text-muted-foreground">
-          Free and non-binding — let's explore how Pareo fits your compliance setup.
+          {t('bookingDescription')}
         </p>
       </div>
       <ul className="flex flex-col gap-2.5">
-        {DEMO_BULLETS.map(({ icon, text }) => (
+        {demoBullets.map(({ icon, text }) => (
           <li key={text} className="flex items-center gap-3 text-sm text-muted-foreground">
             <span className="w-7 h-7 rounded-md bg-primary/10 flex items-center justify-center text-primary shrink-0">
               {icon}
@@ -190,9 +192,9 @@ export function CardPage({ founder }: { founder: Founder }) {
       <Link href={DEMO_URL} target="_blank" rel="noopener noreferrer"
         className="flex items-center justify-center gap-2 py-3 px-6 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:bg-primary/90 transition-colors">
         <Calendar className="w-4 h-4" />
-        Book a call
+        {t('bookCall')}
       </Link>
-      <p className="text-xs text-center text-muted-foreground/60">No spam. We'll reply within one business day.</p>
+      <p className="text-xs text-center text-muted-foreground/60">{t('noSpam')}</p>
     </div>
   )
 

@@ -13,9 +13,7 @@
     "headline2": "Handled. Automatically.",
     "subheadline": "Pareo gives your compliance team an AI workforce that works every request — so your engineers stop doing data entry. Incoming requests in any format — email, Excel, portal notification — are automatically ingested, matched against your ERP and product data, and returned as validated, audit-ready responses. REACH, RoHS, PFAS, TSCA and more. Directly into Assent, CDX, or any format your customer requires.",
     "cta": "Request Demo",
-    "trustStrip": "Built with 180+ interviews across industrial compliance teams. Incubated at TUM & UnternehmerTUM.",
-    "gameSubheadline": "Pareo gives your compliance team an AI workforce that works every request — so your engineers stop doing data entry. REACH, RoHS, PFAS, TSCA and more. Directly into Assent, CDX, or any format your customer requires.",
-    "gameHint": "Click the grid to sweep — right-click to flag regulations"
+    "trustStrip": "Built with 180+ interviews across industrial compliance teams. Incubated at TUM & UnternehmerTUM."
   },
   "Problem": {
     "eyebrow": "The Problem",
@@ -169,5 +167,412 @@
       "cookies": "Cookie Policy"
     },
     "copyright": "© {year} Pareo. All rights reserved."
+  },
+  "Privacy": {
+    "meta": { "title": "Privacy Policy", "description": "Pareo Privacy Policy" },
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated: March 27, 2026",
+    "dataController": {
+      "heading": "Data Controller",
+      "email": "Email:"
+    },
+    "dataCollect": {
+      "heading": "Data We Collect",
+      "intro": "This is the Pareo marketing website. We collect:",
+      "contact": { "label": "Contact form submissions:", "body": "name, email address, company name (optional), and message — when you fill out the contact form." },
+      "analytics": { "label": "Analytics data (with your consent):", "body": "page views, clicks, referring URLs, browser type, device type, and anonymised IP address — via PostHog, processed on EU servers. Only collected if you accept analytics cookies." }
+    },
+    "legalBasis": {
+      "heading": "Legal Basis for Processing",
+      "contact": { "label": "Contact form data:", "body": "processed on the basis of your consent (Article 6(1)(a) GDPR) given by submitting the form, in order to respond to your enquiry." },
+      "analytics": { "label": "Analytics data:", "body": "processed on the basis of your consent (Article 6(1)(a) GDPR) given via the cookie banner." }
+    },
+    "usage": {
+      "heading": "How We Use Your Data",
+      "contact": { "label": "Contact form data", "body": "is used solely to respond to your enquiry. We do not add you to marketing lists without separate consent." },
+      "analytics": { "label": "Analytics data", "body": "is used to understand how visitors use this site so we can improve it." }
+    },
+    "processors": {
+      "heading": "Third-Party Processors",
+      "posthog": { "label": "PostHog", "body": "analytics platform. Data is processed on EU servers (eu.i.posthog.com). Only active if you accept analytics cookies. See", "policyLink": "PostHog's Privacy Policy" },
+      "mailgun": { "label": "Mailgun", "body": "used to deliver contact form submissions to us. Data is processed in the EU. See", "policyLink": "Mailgun's Privacy Policy" }
+    },
+    "retention": {
+      "heading": "Data Retention",
+      "body": "Contact form submissions are retained only as long as necessary to handle your enquiry. Analytics data is retained per PostHog's default retention policy."
+    },
+    "rights": {
+      "heading": "Your Rights",
+      "intro": "Under GDPR, you have the right to:",
+      "items": {
+        "0": "Access your personal data",
+        "1": "Rectify inaccurate data",
+        "2": "Request erasure of your data",
+        "3": "Object to data processing",
+        "4": "Withdraw consent at any time — for cookie-based analytics, clear your cookies or decline via the cookie banner",
+        "5": "Data portability",
+        "6": "Lodge a complaint with your local supervisory authority"
+      }
+    },
+    "contact": {
+      "heading": "Contact",
+      "body": "For privacy-related inquiries, contact us at:"
+    }
+  },
+  "Terms": {
+    "meta": { "title": "Terms of Service", "description": "Pareo Terms of Service" },
+    "title": "Terms of Service",
+    "lastUpdated": "Last updated: April 2, 2026",
+    "acceptance": {
+      "heading": "1. Acceptance of Terms",
+      "body": "By accessing and using Pareo's services, you agree to be bound by these Terms of Service."
+    },
+    "description": {
+      "heading": "2. Service Description",
+      "body": "Pareo provides AI-powered compliance management services for supply chain regulations, including document analysis, data extraction, and compliance reporting."
+    },
+    "obligations": {
+      "heading": "3. User Obligations",
+      "intro": "You agree to:",
+      "items": {
+        "0": "Provide accurate information",
+        "1": "Maintain the security of your account",
+        "2": "Use the service in compliance with applicable laws",
+        "3": "Not misuse or attempt to disrupt the service"
+      }
+    },
+    "ip": {
+      "heading": "4. Intellectual Property",
+      "body": "All content, features, and functionality of Pareo are owned by us and protected by international copyright, trademark, and other intellectual property laws."
+    },
+    "liability": {
+      "heading": "5. Limitation of Liability",
+      "intro": "Pareo is provided \"as is\" without warranties of any kind. Our liability is governed as follows:",
+      "items": {
+        "0": "We are fully liable for damages resulting from intentional acts (Vorsatz) or gross negligence (grobe Fahrlässigkeit), for injury to life, body, or health, and under any mandatory statutory provisions.",
+        "1": "For slight negligence (leichte Fahrlässigkeit), we are liable only where an essential contractual obligation (Kardinalpflicht) has been breached — that is, an obligation whose fulfilment is fundamental to the proper performance of this agreement and on whose observance you may reasonably rely. In such cases, liability is limited to foreseeable damages typical for this type of contract.",
+        "2": "We are not liable for slight negligence in cases not involving essential contractual obligations, or for any indirect, incidental, or consequential damages in those cases."
+      },
+      "note": "Pareo's outputs are provided for informational and operational assistance purposes only and do not constitute legal advice. You are responsible for independently verifying any compliance determinations before relying on them for regulatory purposes."
+    },
+    "termination": {
+      "heading": "6. Termination",
+      "body": "We reserve the right to terminate or suspend access to our service for any reason, including breach of these Terms."
+    },
+    "dataProcessing": {
+      "heading": "7. Data Processing",
+      "body1": "When you upload or submit documents containing personal data (for example, supplier contact information) through Pareo's services, we act as a data processor on your behalf within the meaning of Article 28 GDPR, and you act as the data controller. We process such data solely to provide the services described in these Terms and in accordance with our",
+      "privacyLink": "Privacy Policy",
+      "body2": "If your use of Pareo requires a Data Processing Agreement (DPA) under Article 28 GDPR, please contact us at the address below and we will provide one."
+    },
+    "governingLaw": {
+      "heading": "8. Governing Law",
+      "body": "These Terms are governed by the laws of Germany."
+    },
+    "contact": {
+      "heading": "Contact",
+      "body": "For questions about these Terms, contact us at:"
+    }
+  },
+  "Cookies": {
+    "meta": { "title": "Cookie Policy", "description": "Pareo Cookie Policy" },
+    "title": "Cookie Policy",
+    "lastUpdated": "Last updated: March 27, 2026",
+    "whatAre": {
+      "heading": "What Are Cookies",
+      "body": "Cookies are small text files stored on your device when you visit a website. They help us understand how visitors use our site."
+    },
+    "weUse": {
+      "heading": "Cookies We Use",
+      "intro": "This site uses only one category of cookie:",
+      "analytics": { "label": "Analytics cookies (PostHog):", "body": "Set by PostHog to track page views and specific user interactions (e.g. form submissions). Automatic click capture and session recording are disabled — only explicitly defined events are collected. These cookies are only set if you click \"Accept\" on the cookie banner. PostHog processes data on EU servers." },
+      "note": "We do not use essential/functional cookies, authentication cookies, or advertising cookies on this marketing website."
+    },
+    "consent": {
+      "heading": "Your Consent",
+      "body1": "When you first visit the site, a banner asks for your consent before any analytics cookies are set. You can accept or decline. If you decline, no analytics cookies are set and no data is sent to PostHog.",
+      "body2": "You can withdraw consent at any time by clearing your browser cookies. On your next visit the banner will reappear and you can choose again."
+    },
+    "managing": {
+      "heading": "Managing Cookies",
+      "body": "You can also control or delete cookies through your browser settings. Refer to your browser's help documentation for instructions."
+    },
+    "contact": {
+      "heading": "Contact",
+      "body": "For questions about our use of cookies, contact us at:"
+    }
+  },
+  "PitchDeck": {
+    "eyebrow": "Pitch Deck",
+    "headline1": "Compliance Automation.",
+    "headline2": "Industrial Data Infrastructure.",
+    "subline": "Industrial suppliers handle thousands of product compliance requests per year — REACH, RoHS, PFAS, TSCA, CSRD — each answered manually, often from scratch, every time. Pareo automates this. And every compliance interaction doesn't just save time: it builds the machine-readable product data layer that powers Digital Product Passport readiness, Factory-X participation, and every OEM mandate that follows.",
+    "bullets": {
+      "0": "AI agents retrieve data from ERP and PLM — no manual copy-paste",
+      "1": "Audit-ready responses written directly into OEM portals like Assent",
+      "2": "Every compliance interaction builds a Manufacturing-X-compatible product data layer"
+    },
+    "trustNote": "Sent to your inbox immediately. No sales calls.",
+    "form": {
+      "title": "Access the pitch deck",
+      "subtitle": "Enter your work email and we'll send the deck right away.",
+      "emailLabel": "Work email",
+      "emailPlaceholder": "jan@company.com",
+      "gdprLabel": "I agree that Pareo may use my email to send me this pitch deck and relevant updates.",
+      "gdprPrivacyLink": "privacy policy",
+      "submit": "Access Pitch Deck →",
+      "submitting": "Sending…",
+      "error": "Something went wrong. Please try again or email us at"
+    },
+    "success": {
+      "title": "Check your inbox.",
+      "body": "We've sent the pitch deck to {email}. If you don't see it, check your spam folder.",
+      "backLink": "← Back to pareo.ai"
+    }
+  },
+  "StrategyHero": {
+    "eyebrow": "Industrial Data Infrastructure",
+    "headline1": "The data layer for",
+    "headline2": "European manufacturing.",
+    "subheadline": "Manufacturing-X. Digital Product Passport. EU Data Act. Europe is building the infrastructure for a unified industrial data economy. Manufacturers who enter it with structured, interoperable product data will move faster, qualify for more, and bear less risk. Pareo starts with compliance — the most immediate data problem you already have — and builds from there.",
+    "cta": "Request Demo",
+    "trustStrip": "Built through 180+ conversations with compliance managers, RoHS engineers, and supply chain directors at European electronics and machinery manufacturers. Incubated at TUM & UnternehmerTUM."
+  },
+  "StrategyProblem": {
+    "eyebrow": "The Stakes",
+    "headline": "A new industrial data economy is being mandated. Most suppliers aren't ready.",
+    "intro": "This isn't a future risk. OEM mandates are already written into supplier contracts.",
+    "intro2": "Regulatory deadlines are fixed in EU law.",
+    "intro3": "The data infrastructure gap — product data locked in ERP systems, shared drives, and email threads — is a qualification risk today.",
+    "timelineTitle": "Mandate Timeline",
+    "timeline": {
+      "0": { "date": "Jan 2024", "label": "EU Data Act", "detail": "Enters into force" },
+      "1": { "date": "Jan 2024", "label": "Factory-X", "detail": "BMWK-funded lighthouse project begins (40+ partners incl. Siemens, TRUMPF, Festo)" },
+      "2": { "date": "Sep 2025", "label": "EU Data Act", "detail": "Fully applies — data sharing obligations active" },
+      "3": { "date": "Dec 2025", "label": "Environmental Omnibus", "detail": "EC proposes replacing SCIP database with Digital Product Passport" },
+      "4": { "date": "Mid-2026", "label": "Factory-X", "detail": "Moves to operational phase — data space connectivity becomes supplier criterion" },
+      "5": { "date": "Feb 2027", "label": "EU Battery Passport", "detail": "Mandatory for all EV & industrial batteries placed on EU market" },
+      "6": { "date": "2027–28", "label": "Electronics DPP", "detail": "ESPR delegated acts for ICT, displays, and electrical equipment" }
+    },
+    "steps": {
+      "0": { "a": "The EU Data Act entered into force in January 2024.", "b": "From September 2025, connected product manufacturers are legally required to make product usage data accessible and shareable across the EU single market.", "c": "Structured, interoperable data is no longer optional — it is a legal obligation." },
+      "1": { "a": "Manufacturing-X — backed by €140 million in federal funding from BMWK", "b": "— is building the cross-sector data space infrastructure for European manufacturing. Factory-X, its largest lighthouse project, runs January 2024 to June 2026 with 40+ consortium partners including Siemens, SAP, TRUMPF, Phoenix Contact, Festo, SICK, and DMG MORI.", "c": "Structured product data connectivity is a built-in participation requirement." },
+      "2": { "a": "Siemens, Philips, Schneider Electric, and TE Connectivity already require suppliers to submit structured RoHS and REACH declarations at the component level via BOMcheck — a platform co-founded by those same OEMs, now with 480+ OEM members and 3,100+ suppliers.", "b": "Intel requires IPC-1752A Class C/D Full Material Disclosure from all component suppliers as a contractual condition.", "c": "This is not a future data space mandate. It is in supplier agreements today." },
+      "3": { "a": "The EU Battery Passport — the first hard Digital Product Passport deadline — requires all EV and industrial batteries to carry a machine-readable product record from February 2027.", "b": "Electronics, machinery, and other sectors follow under the Ecodesign for Sustainable Products Regulation." }
+    },
+    "stats": {
+      "0": { "number": "€140M", "label": "BMWK Investment", "body": "Federal funding committed to Manufacturing-X — the data space infrastructure for German mechanical and electrical engineering." },
+      "1": { "number": "480+", "label": "OEM Members on BOMcheck", "body": "Electronics OEMs including Siemens, Philips, Schneider Electric, and TE Connectivity require structured RoHS and REACH declarations from all suppliers as a contractual condition — today, not in a future data space." },
+      "2": { "number": "Feb 2027", "label": "Battery Passport", "body": "First hard DPP deadline under EU law: all EV and industrial batteries placed on the EU market must carry a machine-readable Digital Product Passport." }
+    },
+    "closing": "Compliance is where the urgency is today. The structured product data it produces is the foundation for data space participation, Digital Product Passports, and the automated supply chain exchanges OEMs will require next."
+  },
+  "StrategyHowItWorks": {
+    "eyebrow": "The Product",
+    "headline1": "Every compliance interaction",
+    "headline2": "builds your data layer.",
+    "subheadline": "Each request Pareo handles — capturing, assembling, validating, and outputting product data — adds to a machine-readable product record built to Manufacturing-X-compatible standards. You're handling today's workload and building the infrastructure for data space participation at the same time.",
+    "cta": "Request Demo →",
+    "tabs": {
+      "ingestion": {
+        "label": "Data Capture",
+        "headline": "Every compliance interaction is a structured data input.",
+        "body1": "Compliance requests arrive in every format — an email with a PDF, an Excel template from procurement, a portal notification, a standalone questionnaire. Pareo ingests each one automatically, extracts the product identifiers and regulatory requirements, and begins building the structured data record needed to respond.",
+        "body2": "The request isn't just a task to handle. It's a signal about what product data you need to have — and keep current."
+      },
+      "retrieval": {
+        "label": "Data Assembly",
+        "headline": "A complete, validated product data record — assembled automatically.",
+        "body1": "Structuring product data for compliance means pulling together bills of materials from SAP, specifications from PLM, lab results, and supplier declarations. Pareo connects to your existing systems and assembles the complete picture in seconds.",
+        "body2": "Every data point retrieved is validated, linked to its source, and added to a structured product record — making each subsequent request faster and your data progressively more complete."
+      },
+      "generation": {
+        "label": "Structured Output",
+        "headline": "Machine-readable output in any format. Approved by your team.",
+        "body1": "Pareo generates the output in the exact format required — IPC-1752A XML, a Manufacturing-X compatible schema, a filled Excel template, or a portal submission. Every data point is linked to its source document, so the evidence trail is always intact.",
+        "body2": "Nothing is sent automatically. Your specialist reviews and approves. But what gets generated isn't just a response — it's validated, structured product data that any downstream system can consume."
+      },
+      "gap": {
+        "label": "Data Completeness",
+        "headline": "Incomplete product data is a liability. Pareo closes the gaps.",
+        "body1": "A product data record is only as useful as it is complete. When Pareo identifies missing material declarations, substance data, or supplier certifications, it automatically reaches out to the relevant sub-supplier to request them. Responses are tracked, validated, and added to the record.",
+        "body2": "The result isn't just a closed compliance request — it's a more complete, more reliable product data foundation."
+      }
+    },
+    "visuals": {
+      "incomingRequests": "Incoming Requests",
+      "draftResponse": "Draft Response — Pending Review",
+      "approve": "✓ Approve",
+      "requestChanges": "✕ Request changes",
+      "gapDetection": "Gap Detection",
+      "dataGapDetected": "Data gap detected",
+      "automatedOutreach": "📧 Automated outreach sent",
+      "gapResolved": "Gap resolved — declaration received & validated"
+    }
+  },
+  "StrategyBenefits": {
+    "eyebrow": "The Results",
+    "headline": "The same team. A data layer that works.",
+    "subheadline": "Pareo doesn't replace your compliance specialists. It removes the part of their job that shouldn't exist — while building the product data infrastructure your company needs.",
+    "stats": {
+      "0": { "stat": "Hours → Minutes", "body": "What used to take hours to days of searching, formatting, and submitting now completes within a few minutes." },
+      "1": { "stat": ">70%", "body": "Of manual research and documentation effort eliminated per request — freeing your engineers for work that actually needs their expertise." },
+      "2": { "stat": "100%", "body": "Audit trail on every response. Every answer linked to its source document, retrievable in seconds when an auditor comes knocking." }
+    },
+    "benchmarkNote": "Based on benchmark processing of real supplier documentation across pilot workflows.",
+    "outcomes": {
+      "0": { "icon": "◈", "title": "OEM qualification readiness", "body": "Siemens, Philips, Schneider Electric, and TE Connectivity already require structured material declarations from electronics suppliers via BOMcheck. BMW, Ford, and other automotive OEMs have mandated data space participation. Suppliers with structured, validated product data qualify faster across all of these requirements — and are positioned for every new mandate that follows." },
+      "1": { "icon": "⬡", "title": "Data space participation", "body": "Every validated product record Pareo generates is built to Manufacturing-X-compatible standards. You're not preparing for data spaces — you're building your presence in them from day one. The compliance requests you handle today are the foundation for full data space participation tomorrow." },
+      "2": { "icon": "◻", "title": "Regulatory future-proofing", "body": "The EU Battery Passport is mandatory from February 2027. ESPR-based DPPs follow for electronics, machinery, and textiles. As requirements expand, the foundation is already in place. New regulations become new queries against structured data you already own — not new projects." }
+    },
+    "closing": "Compliance requests aren't going away — and they're only the beginning. Every piece of structured, validated product data your team generates is a building block for data space participation, Digital Product Passport readiness, and the automated supply chain exchanges that OEMs will require next. Pareo means you're building the foundation while handling today's workload."
+  },
+  "StrategyTechnicalExcellence": {
+    "headline": "Built for production, not demos.",
+    "subheadline": "Compliance data is too consequential for brittle automation. Pareo is built around the assumption that documents are inconsistent, suppliers are unreliable, and regulators don't accept \"the system had an error.\"",
+    "capabilities": {
+      "0": { "title": "Audit-Ready Traceability", "description": "Every business operation is auditable, every data change is traceable, every integration is testable. Built for compliance from the ground up.", "detail": "Complete audit trails for regulatory compliance" },
+      "1": { "title": "Handles Complex Workflows", "description": "Agents handle rate limits gracefully. Low-confidence extractions pause for human review. Complex workflows resume exactly where they left off.", "detail": "Never lose progress on interrupted tasks" },
+      "2": { "title": "Intelligent Document Search", "description": "Semantic search across supplier documents finds relevant compliance data even when product numbers don't match exactly.", "detail": "AI-powered search understands context, not just keywords" },
+      "3": { "title": "Intelligent Task Delegation", "description": "Orchestrator delegates to specialized agents. Parent-child execution tracking ensures transparency and debugging.", "detail": "AI agents collaborate like your compliance team" },
+      "4": { "title": "Enterprise Security", "description": "SAML 2.0 SSO, JWT authentication, multi-tenancy with data isolation, automatic secret rotation, and encrypted data at rest.", "detail": "Bank-level security for your compliance data" },
+      "5": { "title": "Reliable Processing", "description": "Automatic retries with exponential backoff. Failed jobs are tracked and retried. Complete audit trails for debugging production issues.", "detail": "Built to handle failures gracefully" }
+    },
+    "auditTitle": "Designed for audit, not just function.",
+    "auditBody": "Every action in Pareo produces a traceable record. Your compliance team can show an auditor exactly which source document produced which output, when, and who approved it — without searching through email threads.",
+    "auditList": {
+      "0": "Every extraction linked to source — document, page, field",
+      "1": "Human approval required — nothing leaves without specialist sign-off",
+      "2": "Immutable activity log — timestamped, exportable, regulator-ready",
+      "3": "Continuous monitoring — anomalies flagged before they become incidents"
+    }
+  },
+  "StrategyTeam": {
+    "headline": "Who built this.",
+    "subheadline": "180+ conversations with compliance managers, RoHS engineers, and supply chain directors across European manufacturers before writing the first line of product code. That research is the basis for every design decision in Pareo.",
+    "linkedinLabel": "LinkedIn",
+    "members": {
+      "0": { "role": "Co-Founder, Business", "bio": "Venture Architect at Fraunhofer Venture, embedded in deep tech and industrial ventures. Ran the field research behind Pareo — interviewing compliance leads, procurement directors, and supply chain managers across European electronics and machinery manufacturers." },
+      "1": { "role": "Co-Founder, Product", "bio": "M.Sc. in Management and Technology from TUM. Translated 180+ hours of compliance workflow research into product decisions — every feature in Pareo traces back to a specific process failure she documented with a real compliance team." },
+      "2": { "role": "Co-Founder, Technical", "bio": "Lead engineer responsible for Pareo's AI and data architecture. Built production data systems at Ippen Digital. Designed Pareo's multi-agent processing, ERP integrations, and audit trail infrastructure from the ground up." }
+    }
+  },
+  "StrategyFeatures": {
+    "headline": "What Pareo does.",
+    "subheadline": "From inbound supplier request to validated, structured output — handled automatically, reviewed by your team, traceable to every source document.",
+    "features": {
+      "0": { "title": "Multi-Agent AI System", "description": "Agents collaborate to understand requests, extract data, and generate compliant outputs - handling complexity you need multiple specialists for.", "technical": "Intelligent task delegation" },
+      "1": { "title": "Format-Agnostic Processing", "description": "Parse Excel pivot tables, extract from scanned PDFs, interpret XML schemas, and process email threads - no matter how suppliers format their data.", "technical": "Excel · PDF · XML · DOCX · EML" },
+      "2": { "title": "EU Regulation Coverage", "description": "RoHS exemption tracking, REACH SVHC validation with CAS checksums, SCIP notification support, PFAS restrictions, and conflict minerals reporting.", "technical": "IPC-1752A XML generation" },
+      "3": { "title": "Institutional Memory", "description": "Every document becomes searchable knowledge. Semantic search finds relevant supplier data across thousands of files - answers questions your team forgot to document.", "technical": "AI-powered search" },
+      "4": { "title": "Validation & Verification", "description": "CAS checksum validation, product ownership verification, and threshold checking - catch errors before they reach customers.", "technical": "Automated quality gates" },
+      "5": { "title": "Human-in-the-Loop", "description": "AI handles 95% automatically. For edge cases, agents pause and ask clarifying questions through the web UI - ensuring accuracy without sacrificing speed.", "technical": "Confidence-based routing" },
+      "6": { "title": "Email-Native Workflow", "description": "Forward supplier emails directly to Pareo. Attachments are automatically processed, data extracted, and responses drafted - no copy-pasting between systems.", "technical": "Email integration · Outlook (roadmap)" },
+      "7": { "title": "Audit Trail & Traceability", "description": "Every data point links back to source documents. Complete activity logs, version history, and domain events provide compliance-ready audit trails.", "technical": "Complete traceability" }
+    }
+  },
+  "StrategyRegulations": {
+    "eyebrow": "The Regulatory Shift",
+    "headline1": "The rules keep expanding.",
+    "headline2": "So does what your data must do.",
+    "subheadline": "Compliance obligations are growing — but the bigger shift is structural. The EU Data Act establishes rights and obligations around industrial data sharing across the single market. Manufacturing-X is building the data space infrastructure where machine builders, electrical equipment manufacturers, and their supply chains exchange product data automatically. Factory-X extends this to the shop floor. Every one of these initiatives requires the same thing: your product data, structured and interoperable.",
+    "soonLabel": "Soon",
+    "oemGroups": {
+      "0": { "sector": "Electronics & industrial OEMs — required today" },
+      "1": { "sector": "Automotive supply chains (Catena-X)" },
+      "2": { "sector": "Cross-industry data spaces (2026 onward)" }
+    },
+    "oemCards": {
+      "0": {
+        "0": { "date": "In effect", "detail_a": "BOMcheck — co-founded by Siemens, Philips, and GE Healthcare — requires suppliers to submit RoHS and REACH declarations at component level. 480+ OEM members, 3,100+ suppliers. Structured material data is the entry requirement for most electronics supply chains." },
+        "1": { "date": "In effect", "detail_a": "Intel requires IPC-1752A Class C or Class D (Full Material Disclosure) from all component suppliers via its Environmental Compliance Portal. A contractual condition, not an aspiration." }
+      },
+      "1": {
+        "0": { "date": "April 2025", "detail_a": "Catena-X data space registration mandatory for all suppliers as part of the BMW Group procurement process." },
+        "1": { "date": "July 2024", "detail_a": "Catena-X included in supplier contract terms. Relevant for any electronics manufacturer supplying into automotive." }
+      },
+      "2": {
+        "0": { "date": "Co-Founding Members", "detail_a": "Co-founders of Manufacturing-X alongside BMWK, representing 4,500+ machinery and electrical/electronic manufacturers. \"Small and medium-sized companies in particular will be able to exchange their data more easily and share it with third parties on an equal footing.\"", "detail_b": "— Gunther Koschnick, ZVEI, 2023" },
+        "1": { "date": "Jan 2024 – Jun 2026", "detail_a": "Led by Siemens and SAP with 40+ consortium partners: TRUMPF, Phoenix Contact, Festo, SICK, DMG MORI, and others.", "detail_b": "Structured product data connectivity is a built-in participation requirement from day one." }
+      }
+    },
+    "forwardLabel": "Where this is heading",
+    "forwardHeadline": "The compliance obligations you handle today are being replaced by something harder.",
+    "forwardBody1_a": "In December 2025, the European Commission proposed repealing the SCIP database — citing 15 million submissions that were \"administratively costly but not effective\" — and replacing it with the Digital Product Passport.",
+    "forwardBody1_b": "The DPP requires the same substance and material data, but in a machine-readable, standardised format that any system in the supply chain can query automatically.",
+    "forwardBody2": "The structured product data Pareo generates for today's RoHS, REACH, and SCIP obligations maps directly to what the DPP will require. Every compliance request handled now is a building block for the infrastructure that replaces it."
+  },
+  "StrategyDataSovereignty": {
+    "eyebrow": "Data Sovereignty",
+    "headline1": "Built on the same principle",
+    "headline2": "as the data spaces you're joining.",
+    "intro1": "The Datenraum ecosystem — GAIA-X, IDS, Manufacturing-X — exists because manufacturers refused to upload crown-jewels data to a central platform they didn't control. The entire architecture was designed around one principle: data stays with the owner; access is granted, not surrendered.",
+    "intro2": "Pareo is built the same way — not as a compliance feature added later, but as a structural consequence of how it works. Your product data stays in your systems. What Pareo generates belongs to you, in formats you can take anywhere.",
+    "pillars": {
+      "0": { "title": "Your ERP stays the system of record", "body": "Pareo is designed to query your ERP and PLM directly — retrieving structured product data at the moment it's needed, not accumulating a copy inside Pareo's systems. Direct ERP and PLM connectors are rolling out in 2026. Until then, documents you process stay in storage you control." },
+      "1": { "title": "EU infrastructure", "body": "All data processing takes place within EU-based infrastructure. Documents and unstructured data you process through Pareo stay within European VPCs — no transatlantic data flows." },
+      "2": { "title": "Standards-based, portable records", "body": "Pareo structures the data it processes into AAS-compatible records — the Asset Administration Shell format that underpins Manufacturing-X and the Digital Product Passport. The structured output belongs to you, in a format that works with any data space connector, whether you continue using Pareo or not." },
+      "3": { "title": "Self-hosted storage", "body": "Document storage can be deployed in your own infrastructure. You bring the storage layer; Pareo uses it. Your unstructured data — lab reports, supplier declarations, material certificates — stays in an environment you control and can audit independently." }
+    },
+    "closing": "When your CISO asks what Pareo holds: compliance records generated from your data, in open formats, in storage you control. When your CTO asks about ERP access: read-only, to the specific fields a compliance request needs, at the moment it's processed — that's the architecture we're building toward, and why storage is yours from day one. That's the answer before the first meeting."
+  },
+  "StrategyVision": {
+    "headline": "Where compliance work leads.",
+    "subheadline": "The EU Data Act, Manufacturing-X, and Digital Product Passport mandates are converging on the same requirement: structured, machine-readable product data across every supply chain tier. Pareo starts with the compliance problem your team already has — and builds the data foundation that every subsequent requirement draws from.",
+    "phases": {
+      "0": { "phase": "Today", "title": "Compliance Automation", "description": "AI agents automate compliance workflows for RoHS, REACH, SCIP, PFAS, and more — turning days of manual data work into minutes. Every response structured, validated, and audit-ready." },
+      "1": { "phase": "2026", "title": "Data Space Readiness", "description": "Your product data — already structured for compliance — becomes the foundation for industrial data space participation. Manufacturing-X and Factory-X connectors let you share product data with OEMs and system integrators automatically, without rebuilding from scratch." },
+      "2": { "phase": "2027", "title": "Proactive Regulatory Intelligence", "description": "Monitor regulatory changes globally. Alert customers before new substances hit candidate lists. Auto-generate EU Data Act compliance assessments. Predict supply chain risk before it materializes." },
+      "3": { "phase": "2028+", "title": "Digital Product Passport Infrastructure", "description": "The EU Digital Product Passport mandate arrives. We're already the structured data backbone — extending to circularity, carbon footprint, and full lifecycle transparency across the single market." }
+    },
+    "statusShipping": "✓ Shipping",
+    "statusRoadmap": "→ Roadmap",
+    "statusVision": "⋆ Vision",
+    "closing": "The compliance work you do today doesn't have to be a cost centre. Done with the right data structure, it becomes the foundation for data space participation, DPP readiness, and automated supply chain integration — work your team would otherwise have to do again from scratch."
+  },
+  "StrategyCTA": {
+    "eyebrow": "Let's Talk",
+    "headline": "Talk to the team.",
+    "subheadline": "Most manufacturers we speak with have never mapped their compliance exposure. Start there. One conversation is usually enough to know whether Pareo is the right fit.",
+    "points": {
+      "0": { "title": "We ask before we pitch.", "detail": "We want to understand your current process, request volume, and systems — before suggesting anything." },
+      "1": { "title": "30 minutes. No deck.", "detail": "A direct conversation with the founders. We talk about your situation, not ours." },
+      "2": { "title": "NDA on request.", "detail": "Happy to sign before you share details about your infrastructure or compliance setup." },
+      "3": { "title": "Founding partner terms.", "detail": "We are onboarding our first production customers. Founding partners shape the product directly, receive dedicated integration support from the founders, and agree commercial terms that reflect the early stage." }
+    },
+    "form": {
+      "nameLabel": "Full name",
+      "emailLabel": "Work email",
+      "companyLabel": "Company",
+      "challengeLabel": "What's your biggest compliance challenge?",
+      "optional": "(optional)",
+      "placeholder": "e.g. We receive ~200 SVHC requests per year and respond manually…",
+      "submit": "Request a Conversation",
+      "submitting": "Sending…",
+      "noSpam": "No spam. Reply within one business day."
+    },
+    "success": {
+      "title": "Message received.",
+      "body": "We'll be back within one business day."
+    }
+  },
+  "Card": {
+    "email": "Email",
+    "call": "Call",
+    "linkedin": "LinkedIn",
+    "saveContact": "Save Contact",
+    "saving": "Saving…",
+    "contactSaved": "Contact Saved",
+    "letsTalk": "Let's talk",
+    "bookingHeadline": "Book a personal consultation.",
+    "bookingDescription": "Free and non-binding — let's explore how Pareo fits your compliance setup.",
+    "bullets": {
+      "0": "30 minutes, no pitch deck",
+      "1": "Tailored to your situation",
+      "2": "NDA available on request"
+    },
+    "bookCall": "Book a call",
+    "noSpam": "No spam. We'll reply within one business day.",
+    "learnMore": "Learn more about Pareo →"
   }
 }

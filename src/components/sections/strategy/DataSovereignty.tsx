@@ -1,31 +1,18 @@
 'use client'
 
+import { useTranslations } from 'next-intl'
 import { Reveal } from '@/components/ui/Reveal'
 
-const pillars = [
-  {
-    icon: '⟳',
-    title: 'Your ERP stays the system of record',
-    body: "Pareo is designed to query your ERP and PLM directly — retrieving structured product data at the moment it's needed, not accumulating a copy inside Pareo's systems. Direct ERP and PLM connectors are rolling out in 2026. Until then, documents you process stay in storage you control.",
-  },
-  {
-    icon: '◉',
-    title: 'EU infrastructure',
-    body: 'All data processing takes place within EU-based infrastructure. Documents and unstructured data you process through Pareo stay within European VPCs — no transatlantic data flows.',
-  },
-  {
-    icon: '⬡',
-    title: 'Standards-based, portable records',
-    body: 'Pareo structures the data it processes into AAS-compatible records — the Asset Administration Shell format that underpins Manufacturing-X and the Digital Product Passport. The structured output belongs to you, in a format that works with any data space connector, whether you continue using Pareo or not.',
-  },
-  {
-    icon: '⊞',
-    title: 'Self-hosted storage',
-    body: 'Document storage can be deployed in your own infrastructure. You bring the storage layer; Pareo uses it. Your unstructured data — lab reports, supplier declarations, material certificates — stays in an environment you control and can audit independently.',
-  },
-]
-
 export function DataSovereignty() {
+  const t = useTranslations('StrategyDataSovereignty')
+
+  const pillars = [
+    { icon: '⟳', title: t('pillars.0.title'), body: t('pillars.0.body') },
+    { icon: '◉', title: t('pillars.1.title'), body: t('pillars.1.body') },
+    { icon: '⬡', title: t('pillars.2.title'), body: t('pillars.2.body') },
+    { icon: '⊞', title: t('pillars.3.title'), body: t('pillars.3.body') },
+  ]
+
   return (
     <section
       className="py-24 border-t"
@@ -40,7 +27,7 @@ export function DataSovereignty() {
               className="text-xs font-semibold tracking-[0.2em] uppercase"
               style={{ color: '#7B5CF5', fontFamily: 'var(--font-ibm)' }}
             >
-              Data Sovereignty
+              {t('eyebrow')}
             </span>
           </div>
           <h2
@@ -52,8 +39,8 @@ export function DataSovereignty() {
               color: '#ffffff',
             }}
           >
-            Built on the same principle{' '}
-            <span style={{ color: '#7B5CF5' }}>as the data spaces you're joining.</span>
+            {t('headline1')}{' '}
+            <span style={{ color: '#7B5CF5' }}>{t('headline2')}</span>
           </h2>
           <p
             className="text-base leading-relaxed"
@@ -63,10 +50,7 @@ export function DataSovereignty() {
               fontWeight: 300,
             }}
           >
-            The Datenraum ecosystem — GAIA-X, IDS, Manufacturing-X — exists because manufacturers
-            refused to upload crown-jewels data to a central platform they didn't control. The
-            entire architecture was designed around one principle: data stays with the owner; access
-            is granted, not surrendered.
+            {t('intro1')}
           </p>
           <p
             className="mt-4 text-base leading-relaxed"
@@ -76,9 +60,7 @@ export function DataSovereignty() {
               fontWeight: 300,
             }}
           >
-            Pareo is built the same way — not as a compliance feature added later, but as a
-            structural consequence of how it works. Your product data stays in your systems. What
-            Pareo generates belongs to you, in formats you can take anywhere.
+            {t('intro2')}
           </p>
         </div>
 
@@ -135,11 +117,7 @@ export function DataSovereignty() {
               fontWeight: 300,
             }}
           >
-            When your CISO asks what Pareo holds: compliance records generated from your data, in
-            open formats, in storage you control. When your CTO asks about ERP access: read-only, to
-            the specific fields a compliance request needs, at the moment it's processed — that's
-            the architecture we're building toward, and why storage is yours from day one. That's
-            the answer before the first meeting.
+            {t('closing')}
           </p>
         </Reveal>
       </div>

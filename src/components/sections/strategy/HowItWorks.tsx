@@ -1,50 +1,16 @@
 'use client'
 
 import { useState } from 'react'
+import { useTranslations } from 'next-intl'
 
 const EASE = 'cubic-bezier(0.16,1,0.3,1)'
 
-const tabs = [
-  {
-    id: 'ingestion',
-    label: 'Data Capture',
-    headline: 'Every compliance interaction is a structured data input.',
-    body: 'Compliance requests arrive in every format — an email with a PDF, an Excel template from procurement, a portal notification, a standalone questionnaire. Pareo ingests each one automatically, extracts the product identifiers and regulatory requirements, and begins building the structured data record needed to respond.\n\nThe request isn\'t just a task to handle. It\'s a signal about what product data you need to have — and keep current.',
-    tags: ['Email', 'PDF', 'Excel', 'Assent', 'CDX'],
-    visual: 'ingestion',
-  },
-  {
-    id: 'retrieval',
-    label: 'Data Assembly',
-    headline: 'A complete, validated product data record — assembled automatically.',
-    body: 'Structuring product data for compliance means pulling together bills of materials from SAP, specifications from PLM, lab results, and supplier declarations. Pareo connects to your existing systems and assembles the complete picture in seconds.\n\nEvery data point retrieved is validated, linked to its source, and added to a structured product record — making each subsequent request faster and your data progressively more complete.',
-    tags: ['SAP ERP', 'TEAMCENTER', 'ORACLE', 'SharePoint', 'Lab reports', 'Supplier documents'],
-    visual: 'retrieval',
-  },
-  {
-    id: 'generation',
-    label: 'Structured Output',
-    headline: 'Machine-readable output in any format. Approved by your team.',
-    body: 'Pareo generates the output in the exact format required — IPC-1752A XML, a Manufacturing-X compatible schema, a filled Excel template, or a portal submission. Every data point is linked to its source document, so the evidence trail is always intact.\n\nNothing is sent automatically. Your specialist reviews and approves. But what gets generated isn\'t just a response — it\'s validated, structured product data that any downstream system can consume.',
-    tags: ['IPC-1752', 'Manufacturing-X', 'Excel', 'PDF', 'XML', 'Data Space'],
-    visual: 'generation',
-  },
-  {
-    id: 'gap',
-    label: 'Data Completeness',
-    headline: 'Incomplete product data is a liability. Pareo closes the gaps.',
-    body: 'A product data record is only as useful as it is complete. When Pareo identifies missing material declarations, substance data, or supplier certifications, it automatically reaches out to the relevant sub-supplier to request them. Responses are tracked, validated, and added to the record.\n\nThe result isn\'t just a closed compliance request — it\'s a more complete, more reliable product data foundation.',
-    tags: ['Sub-supplier outreach', 'Automated follow-up', 'Gap detection', 'Regulation monitoring'],
-    visual: 'gap',
-  },
-]
-
-function IngestionVisual() {
+function IngestionVisual({ labels }: { labels: { incomingRequests: string } }) {
   return (
     <div className="h-full flex flex-col gap-3 p-6">
       <div className="text-xs font-semibold uppercase tracking-widest mb-2"
         style={{ color: 'rgba(255,255,255,0.3)', fontFamily: 'var(--font-ibm)' }}>
-        Incoming Requests
+        {labels.incomingRequests}
       </div>
       {[
         { icon: '📧', type: 'Email', label: 'PFAS_questionnaire_2024.xlsx', status: 'Classifying…', tag: 'PFAS' },
@@ -129,12 +95,12 @@ function RetrievalVisual() {
   )
 }
 
-function GenerationVisual() {
+function GenerationVisual({ labels }: { labels: { draftResponse: string; approve: string; requestChanges: string } }) {
   return (
     <div className="h-full flex flex-col gap-3 p-6">
       <div className="text-xs font-semibold uppercase tracking-widest mb-2"
         style={{ color: 'rgba(255,255,255,0.3)', fontFamily: 'var(--font-ibm)' }}>
-        Draft Response — Pending Review
+        {labels.draftResponse}
       </div>
       <div className="rounded-lg p-4" style={{ background: 'rgba(123,92,245,0.07)', border: '1px solid rgba(123,92,245,0.15)' }}>
         {[
@@ -157,29 +123,29 @@ function GenerationVisual() {
       <div className="flex gap-2 mt-2">
         <button className="flex-1 py-2 rounded-lg text-xs font-semibold text-white"
           style={{ background: '#7B5CF5', fontFamily: 'var(--font-ibm)' }}>
-          ✓ Approve
+          {labels.approve}
         </button>
         <button className="flex-1 py-2 rounded-lg text-xs font-semibold"
           style={{ background: 'rgba(255,255,255,0.05)', color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-ibm)', border: '1px solid rgba(255,255,255,0.1)' }}>
-          ✕ Request changes
+          {labels.requestChanges}
         </button>
       </div>
     </div>
   )
 }
 
-function GapVisual() {
+function GapVisual({ labels }: { labels: { gapDetection: string; dataGapDetected: string; automatedOutreach: string; gapResolved: string } }) {
   return (
     <div className="h-full flex flex-col gap-3 p-6">
       <div className="text-xs font-semibold uppercase tracking-widest mb-2"
         style={{ color: 'rgba(255,255,255,0.3)', fontFamily: 'var(--font-ibm)' }}>
-        Gap Detection
+        {labels.gapDetection}
       </div>
       <div className="rounded-lg p-4" style={{ background: 'rgba(239,68,68,0.07)', border: '1px solid rgba(239,68,68,0.2)' }}>
         <div className="flex items-start gap-2">
           <span className="text-sm">⚠</span>
           <div>
-            <div className="text-xs font-semibold mb-1" style={{ color: '#fca5a5', fontFamily: 'var(--font-ibm)' }}>Data gap detected</div>
+            <div className="text-xs font-semibold mb-1" style={{ color: '#fca5a5', fontFamily: 'var(--font-ibm)' }}>{labels.dataGapDetected}</div>
             <div className="text-xs" style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-ibm)' }}>
               PFAS declaration missing for sub-component SC-2291 from Supplier GmbH
             </div>
@@ -195,7 +161,7 @@ function GapVisual() {
         }}
       >
         <div className="text-xs font-semibold mb-2" style={{ color: '#b89cff', fontFamily: 'var(--font-ibm)' }}>
-          📧 Automated outreach sent
+          {labels.automatedOutreach}
         </div>
         <div className="text-xs" style={{ color: 'rgba(255,255,255,0.45)', fontFamily: 'var(--font-ibm)' }}>
           To: compliance@supplier-gmbh.de<br />
@@ -214,7 +180,7 @@ function GapVisual() {
         <div className="flex items-center gap-2">
           <span className="text-xs" style={{ color: '#86efac' }}>✓</span>
           <span className="text-xs font-medium" style={{ color: '#86efac', fontFamily: 'var(--font-ibm)' }}>
-            Gap resolved — declaration received &amp; validated
+            {labels.gapResolved}
           </span>
         </div>
       </div>
@@ -222,15 +188,67 @@ function GapVisual() {
   )
 }
 
-const visuals: Record<string, React.ReactNode> = {
-  ingestion: <IngestionVisual />,
-  retrieval: <RetrievalVisual />,
-  generation: <GenerationVisual />,
-  gap: <GapVisual />,
-}
-
 export function HowItWorks() {
+  const t = useTranslations('StrategyHowItWorks')
   const [active, setActive] = useState(0)
+
+  const tabs = [
+    {
+      id: 'ingestion',
+      label: t('tabs.ingestion.label'),
+      headline: t('tabs.ingestion.headline'),
+      body1: t('tabs.ingestion.body1'),
+      body2: t('tabs.ingestion.body2'),
+      tags: ['Email', 'PDF', 'Excel', 'Assent', 'CDX'],
+      visual: 'ingestion',
+    },
+    {
+      id: 'retrieval',
+      label: t('tabs.retrieval.label'),
+      headline: t('tabs.retrieval.headline'),
+      body1: t('tabs.retrieval.body1'),
+      body2: t('tabs.retrieval.body2'),
+      tags: ['SAP ERP', 'TEAMCENTER', 'ORACLE', 'SharePoint', 'Lab reports', 'Supplier documents'],
+      visual: 'retrieval',
+    },
+    {
+      id: 'generation',
+      label: t('tabs.generation.label'),
+      headline: t('tabs.generation.headline'),
+      body1: t('tabs.generation.body1'),
+      body2: t('tabs.generation.body2'),
+      tags: ['IPC-1752', 'Manufacturing-X', 'Excel', 'PDF', 'XML', 'Data Space'],
+      visual: 'generation',
+    },
+    {
+      id: 'gap',
+      label: t('tabs.gap.label'),
+      headline: t('tabs.gap.headline'),
+      body1: t('tabs.gap.body1'),
+      body2: t('tabs.gap.body2'),
+      tags: ['Sub-supplier outreach', 'Automated follow-up', 'Gap detection', 'Regulation monitoring'],
+      visual: 'gap',
+    },
+  ]
+
+  const visualLabels = {
+    incomingRequests: t('visuals.incomingRequests'),
+    draftResponse: t('visuals.draftResponse'),
+    approve: t('visuals.approve'),
+    requestChanges: t('visuals.requestChanges'),
+    gapDetection: t('visuals.gapDetection'),
+    dataGapDetected: t('visuals.dataGapDetected'),
+    automatedOutreach: t('visuals.automatedOutreach'),
+    gapResolved: t('visuals.gapResolved'),
+  }
+
+  const visuals: Record<string, React.ReactNode> = {
+    ingestion: <IngestionVisual labels={visualLabels} />,
+    retrieval: <RetrievalVisual />,
+    generation: <GenerationVisual labels={visualLabels} />,
+    gap: <GapVisual labels={visualLabels} />,
+  }
+
   const tab = tabs[active]
 
   return (
@@ -246,28 +264,26 @@ export function HowItWorks() {
             <div className="h-px w-10" style={{ background: '#7B5CF5' }} />
             <span className="text-xs font-semibold tracking-[0.2em] uppercase"
               style={{ color: '#7B5CF5', fontFamily: 'var(--font-ibm)' }}>
-              The Product
+              {t('eyebrow')}
             </span>
           </div>
           <h2 className="mb-4 leading-tight tracking-tight"
             style={{ fontFamily: 'var(--font-ibm)', fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 800, color: '#ffffff' }}>
-            Every compliance interaction{' '}
-            <span style={{ color: '#7B5CF5' }}>builds your data layer.</span>
+            {t('headline1')}{' '}
+            <span style={{ color: '#7B5CF5' }}>{t('headline2')}</span>
           </h2>
           <p className="max-w-2xl text-base leading-relaxed"
             style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}>
-            Each request Pareo handles — capturing, assembling, validating, and outputting product data — adds to a
-            machine-readable product record built to Manufacturing-X-compatible standards. You're handling today's
-            workload and building the infrastructure for data space participation at the same time.
+            {t('subheadline')}
           </p>
         </div>
 
         {/* Tab bar */}
         <div className="flex gap-1 mb-10 overflow-x-auto pb-1"
           style={{ borderBottom: '1px solid rgba(123,92,245,0.12)' }}>
-          {tabs.map((t, i) => (
+          {tabs.map((tb, i) => (
             <button
-              key={t.id}
+              key={tb.id}
               onClick={() => setActive(i)}
               className="px-4 py-3 text-sm font-medium whitespace-nowrap transition-all relative shrink-0"
               style={{
@@ -275,7 +291,7 @@ export function HowItWorks() {
                 color: active === i ? '#ffffff' : 'rgba(255,255,255,0.4)',
               }}
             >
-              {t.label}
+              {tb.label}
               <div
                 className="absolute bottom-0 left-0 right-0 h-0.5 transition-opacity duration-200"
                 style={{ background: '#7B5CF5', opacity: active === i ? 1 : 0 }}
@@ -297,12 +313,14 @@ export function HowItWorks() {
               {tab.headline}
             </h3>
             <div className="space-y-4 mb-7">
-              {tab.body.split('\n\n').map((para, i) => (
-                <p key={i} className="text-base leading-relaxed"
-                  style={{ color: 'rgba(255,255,255,0.6)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}>
-                  {para}
-                </p>
-              ))}
+              <p className="text-base leading-relaxed"
+                style={{ color: 'rgba(255,255,255,0.6)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}>
+                {tab.body1}
+              </p>
+              <p className="text-base leading-relaxed"
+                style={{ color: 'rgba(255,255,255,0.6)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}>
+                {tab.body2}
+              </p>
             </div>
             <div className="flex flex-wrap gap-2 mb-8">
               {tab.tags.map((tag) => (
@@ -327,7 +345,7 @@ export function HowItWorks() {
               onMouseEnter={e => (e.currentTarget.style.background = '#6d4ee0')}
               onMouseLeave={e => (e.currentTarget.style.background = '#7B5CF5')}
             >
-              Request Demo →
+              {t('cta')}
             </button>
           </div>
 

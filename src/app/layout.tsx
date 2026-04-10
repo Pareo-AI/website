@@ -119,13 +119,13 @@ export default async function RootLayout({
         />
       </head>
       <body>
-        <CookieConsentProvider>
-          <PostHogProvider>
-            <NextIntlClientProvider locale={locale} messages={messages}>
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <CookieConsentProvider>
+            <PostHogProvider>
               <ConditionalSiteLayout>{children}</ConditionalSiteLayout>
-            </NextIntlClientProvider>
-          </PostHogProvider>
-        </CookieConsentProvider>
+            </PostHogProvider>
+          </CookieConsentProvider>
+        </NextIntlClientProvider>
         <Analytics />
         <SpeedInsights />
         <Script

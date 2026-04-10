@@ -1,50 +1,36 @@
 'use client'
 
+import { useTranslations } from 'next-intl'
 import { Reveal } from '@/components/ui/Reveal'
 import { Sparkles, Network, Globe, Leaf } from 'lucide-react'
 
+const icons = [Sparkles, Network, Globe, Leaf]
+const statuses = ['shipping', 'roadmap', 'roadmap', 'vision'] as const
+
 export function Vision() {
-  const phases = [
-    {
-      phase: "Today",
-      icon: Sparkles,
-      title: "Compliance Automation",
-      description: "AI agents automate compliance workflows for RoHS, REACH, SCIP, PFAS, and more — turning days of manual data work into minutes. Every response structured, validated, and audit-ready.",
-      status: "shipping"
-    },
-    {
-      phase: "2026",
-      icon: Network,
-      title: "Data Space Readiness",
-      description: "Your product data — already structured for compliance — becomes the foundation for industrial data space participation. Manufacturing-X and Factory-X connectors let you share product data with OEMs and system integrators automatically, without rebuilding from scratch.",
-      status: "roadmap"
-    },
-    {
-      phase: "2027",
-      icon: Globe,
-      title: "Proactive Regulatory Intelligence",
-      description: "Monitor regulatory changes globally. Alert customers before new substances hit candidate lists. Auto-generate EU Data Act compliance assessments. Predict supply chain risk before it materializes.",
-      status: "roadmap"
-    },
-    {
-      phase: "2028+",
-      icon: Leaf,
-      title: "Digital Product Passport Infrastructure",
-      description: "The EU Digital Product Passport mandate arrives. We're already the structured data backbone — extending to circularity, carbon footprint, and full lifecycle transparency across the single market.",
-      status: "vision"
-    }
-  ]
+  const t = useTranslations('StrategyVision')
+
+  const phases = [0, 1, 2, 3].map((i) => ({
+    phase: t(`phases.${i}.phase`),
+    icon: icons[i],
+    title: t(`phases.${i}.title`),
+    description: t(`phases.${i}.description`),
+    status: statuses[i],
+  }))
+
+  const statusLabel = (s: typeof statuses[number]) => {
+    if (s === 'shipping') return t('statusShipping')
+    if (s === 'roadmap') return t('statusRoadmap')
+    return t('statusVision')
+  }
 
   return (
     <section className="py-24 bg-background">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold sm:text-4xl">Where compliance work leads.</h2>
+          <h2 className="text-3xl font-bold sm:text-4xl">{t('headline')}</h2>
           <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
-            The EU Data Act, Manufacturing-X, and Digital Product Passport mandates are converging
-            on the same requirement: structured, machine-readable product data across every supply
-            chain tier. Pareo starts with the compliance problem your team already has — and builds
-            the data foundation that every subsequent requirement draws from.
+            {t('subheadline')}
           </p>
         </div>
 
@@ -71,7 +57,7 @@ export function Vision() {
                         ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400'
                         : 'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400'
                     }`}>
-                      {phase.status === 'shipping' ? '✓ Shipping' : phase.status === 'roadmap' ? '→ Roadmap' : '⋆ Vision'}
+                      {statusLabel(phase.status)}
                     </span>
                   </div>
                   <h3 className="text-2xl font-bold mb-2">{phase.title}</h3>
@@ -97,8 +83,7 @@ export function Vision() {
 
         <div className="mt-12 text-center">
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            The compliance work you do today doesn't have to be a cost centre.
-            Done with the right data structure, it becomes the <span className="font-semibold text-foreground">foundation for data space participation, DPP readiness, and automated supply chain integration</span> — work your team would otherwise have to do again from scratch.
+            {t('closing')}
           </p>
         </div>
       </div>

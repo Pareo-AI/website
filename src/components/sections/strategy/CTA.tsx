@@ -1,34 +1,8 @@
 'use client'
 
 import { useState } from 'react'
+import { useTranslations } from 'next-intl'
 import { Reveal } from '@/components/ui/Reveal'
-
-const points = [
-  {
-    n: '01',
-    title: 'We ask before we pitch.',
-    detail:
-      'We want to understand your current process, request volume, and systems — before suggesting anything.',
-  },
-  {
-    n: '02',
-    title: '30 minutes. No deck.',
-    detail:
-      'A direct conversation with the founders. We talk about your situation, not ours.',
-  },
-  {
-    n: '03',
-    title: 'NDA on request.',
-    detail:
-      'Happy to sign before you share details about your infrastructure or compliance setup.',
-  },
-  {
-    n: '04',
-    title: 'Founding partner terms.',
-    detail:
-      'We are onboarding our first production customers. Founding partners shape the product directly, receive dedicated integration support from the founders, and agree commercial terms that reflect the early stage.',
-  },
-]
 
 const inputStyle: React.CSSProperties = {
   background: 'rgba(255,255,255,0.04)',
@@ -38,12 +12,26 @@ const inputStyle: React.CSSProperties = {
 }
 
 export function CTA() {
+  const t = useTranslations('StrategyCTA')
+
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [company, setCompany] = useState('')
   const [message, setMessage] = useState('')
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
+
+  const points = [0, 1, 2, 3].map((i) => ({
+    n: String(i + 1).padStart(2, '0'),
+    title: t(`points.${i}.title`),
+    detail: t(`points.${i}.detail`),
+  }))
+
+  const fields = [
+    { label: t('form.nameLabel'), type: 'text', value: name, set: setName, placeholder: 'Jan Müller', required: true },
+    { label: t('form.emailLabel'), type: 'email', value: email, set: setEmail, placeholder: 'jan@company.com', required: true },
+    { label: t('form.companyLabel'), type: 'text', value: company, set: setCompany, placeholder: 'Acme GmbH', required: true },
+  ]
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -90,7 +78,7 @@ export function CTA() {
                 className="text-xs font-semibold tracking-[0.2em] uppercase"
                 style={{ color: '#7B5CF5', fontFamily: 'var(--font-ibm)' }}
               >
-                Let's Talk
+                {t('eyebrow')}
               </span>
             </Reveal>
 
@@ -105,7 +93,7 @@ export function CTA() {
                   color: '#ffffff',
                 }}
               >
-                Talk to the team.
+                {t('headline')}
               </h2>
             </Reveal>
 
@@ -121,9 +109,7 @@ export function CTA() {
                   maxWidth: '420px',
                 }}
               >
-                Most manufacturers we speak with have never mapped their compliance
-                exposure. Start there. One conversation is usually enough to know
-                whether Pareo is the right fit.
+                {t('subheadline')}
               </p>
             </Reveal>
 
@@ -204,7 +190,7 @@ export function CTA() {
                     color: '#ffffff',
                   }}
                 >
-                  Message received.
+                  {t('success.title')}
                 </h3>
                 <p
                   className="text-sm"
@@ -214,37 +200,12 @@ export function CTA() {
                     fontWeight: 300,
                   }}
                 >
-                  We'll be back within one business day.
+                  {t('success.body')}
                 </p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
-                {[
-                  {
-                    label: 'Full name',
-                    type: 'text',
-                    value: name,
-                    set: setName,
-                    placeholder: 'Jan Müller',
-                    required: true,
-                  },
-                  {
-                    label: 'Work email',
-                    type: 'email',
-                    value: email,
-                    set: setEmail,
-                    placeholder: 'jan@company.com',
-                    required: true,
-                  },
-                  {
-                    label: 'Company',
-                    type: 'text',
-                    value: company,
-                    set: setCompany,
-                    placeholder: 'Acme GmbH',
-                    required: true,
-                  },
-                ].map(({ label, type, value, set, placeholder, required }) => (
+                {fields.map(({ label, type, value, set, placeholder, required }) => (
                   <div key={label}>
                     <label
                       className="block text-xs font-medium mb-2"
@@ -285,16 +246,16 @@ export function CTA() {
                       letterSpacing: '0.04em',
                     }}
                   >
-                    What's your biggest compliance challenge?{' '}
+                    {t('form.challengeLabel')}{' '}
                     <span style={{ color: 'rgba(255,255,255,0.2)' }}>
-                      (optional)
+                      {t('form.optional')}
                     </span>
                   </label>
                   <textarea
                     rows={3}
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    placeholder="e.g. We receive ~200 SVHC requests per year and respond manually…"
+                    placeholder={t('form.placeholder')}
                     className="w-full px-4 py-3 rounded-lg text-sm outline-none transition-all duration-200 resize-none"
                     style={inputStyle}
                     onFocus={(e) =>
@@ -334,7 +295,7 @@ export function CTA() {
                     e.currentTarget.style.transform = 'translateY(0)'
                   }}
                 >
-                  {loading ? 'Sending…' : 'Request a Conversation'}
+                  {loading ? t('form.submitting') : t('form.submit')}
                 </button>
 
                 <p
@@ -344,7 +305,7 @@ export function CTA() {
                     fontFamily: 'var(--font-ibm)',
                   }}
                 >
-                  No spam. Reply within one business day.
+                  {t('form.noSpam')}
                 </p>
               </form>
             )}

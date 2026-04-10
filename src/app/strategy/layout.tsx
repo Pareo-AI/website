@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
-import { StrategyHeader } from '@/components/layout/StrategyHeader'
-import { StrategyFooter } from '@/components/layout/StrategyFooter'
+import { Header } from '@/components/layout/Header'
+import { Footer } from '@/components/layout/Footer'
 
 export const metadata: Metadata = {
   title: 'Pareo — Industrial Data Infrastructure',
@@ -14,9 +14,9 @@ export default function StrategyLayout({
 }) {
   return (
     <>
-      <StrategyHeader />
+      <Header />
       <main>{children}</main>
-      <StrategyFooter />
+      <Footer />
     </>
   )
 }
