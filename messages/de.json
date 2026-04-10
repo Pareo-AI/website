@@ -10,14 +10,14 @@
   "Hero": {
     "eyebrow": "KI-gestützte Compliance",
     "headline1": "Jede Compliance-Anfrage.",
-    "headline2": "Bearbeitet. Automatisch.",
-    "subheadline": "Pareo gibt Ihrem Compliance-Team eine KI-Belegschaft, die jede Anfrage übernimmt – damit Ihre Ingenieure aufhören, Daten einzugeben. Eingehende Anfragen in jedem Format – E-Mail, Excel, Portal-Benachrichtigung – werden automatisch erfasst, mit Ihren ERP- und Produktdaten abgeglichen und als validierte, prüfungsreife Antworten zurückgesendet. REACH, RoHS, PFAS, TSCA und mehr. Direkt in Assent, CDX oder in dem Format, das Ihr Kunde verlangt.",
+    "headline2": "Automatisch erledigt.",
+    "subheadline": "Pareo gibt Ihrem Compliance-Team KI-Agenten an die Hand, die jede Anfrage übernehmen – damit Ihre Ingenieure keine Zeit mehr mit Dateneingabe verbringen. Eingehende Anfragen in jedem Format – E-Mail, Excel, Portal-Benachrichtigung – werden automatisch erfasst, mit Ihren ERP- und Produktdaten abgeglichen und als validierte, prüfungsreife Antworten zurückgesendet. REACH, RoHS, PFAS, TSCA und mehr. Direkt in Assent, CDX oder in dem Format, das Ihr Kunde verlangt.",
     "cta": "Demo anfragen",
     "trustStrip": "Entstanden aus 180+ Gesprächen mit Compliance-Teams in der Industrie. Gegründet an TUM & UnternehmerTUM."
   },
   "Problem": {
     "eyebrow": "Das Problem",
-    "headline": "Ihr Compliance-Team wurde nicht eingestellt, um eine Dateneingabe-Abteilung zu sein.",
+    "headline": "Ihr Compliance-Team ist keine Dateneingabe-Abteilung.",
     "steps": {
       "0": "Jeden Morgen dasselbe: Eine Excel-Vorlage von einem Kunden. Eine Portal-Benachrichtigung von Assent. Ein PDF über PFAS-Beschränkungen, weitergeleitet aus der Beschaffung – ohne Kontext.",
       "1": "Um überhaupt antworten zu können, öffnet Ihr Ingenieur SAP. Durchsucht ein gemeinsames Laufwerk. Gräbt sich durch alte E-Mail-Threads mit Unterlieferanten. Gleicht das Ergebnis mit einem Laborbericht von vor zwei Jahren ab.",
@@ -36,15 +36,15 @@
   },
   "HowItWorks": {
     "eyebrow": "So funktioniert es",
-    "headline1": "Eine Anfrage rein.",
-    "headline2": "Prüfungsreife Antwort raus.",
+    "headline1": "Anfrage eingehend.",
+    "headline2": "Prüfungsreife Antwort ausgehend.",
     "headline3": "Automatisch.",
-    "subheadline": "Pareo übernimmt den gesamten Workflow – von dem Moment, in dem eine Anfrage eingeht, bis die Antwort rausgeht.",
+    "subheadline": "Pareo übernimmt den gesamten Workflow – von dem Moment, in dem eine Anfrage eingeht, bis die Antwort ausgeht.",
     "cta": "Demo anfragen →",
     "tabs": {
       "ingestion": {
         "label": "Anfrageerfassung",
-        "headline": "Jede Anfrage. Jedes Format. Null manuelle Sortierung.",
+        "headline": "Jede Anfrage. Jedes Format. Kein manuelles Sortieren.",
         "body1": "Compliance-Anfragen kommen in jeder Form – eine E-Mail mit PDF-Anhang, eine Excel-Vorlage aus der Beschaffung, eine Benachrichtigung von Assent oder CDX, ein eigenständiger Fragebogen. Pareo erfasst alles automatisch, klassifiziert den Anfragetyp, extrahiert die relevanten Anforderungen und stellt sie zur Bearbeitung in die Warteschlange.",
         "body2": "Keine manuelle Sortierung. Kein Copy-Paste in eine Tabelle. Das System übernimmt es, sobald die Anfrage eintrifft."
       },
@@ -102,7 +102,7 @@
       "4": { "without": "Unterlieferantendaten per E-Mail hinterhergejagt – Verzögerungen summieren sich", "with": "Automatische Kontaktaufnahme sofort ausgelöst, wenn Daten fehlen – Lücken bis zur Lösung verfolgt" },
       "5": { "without": "Nachweise über Systeme verstreut, schwer für Audits zu rekonstruieren", "with": "Vollständiger Quellpfad mit jeder Antwort archiviert – prüfungsbereit von Anfang an" }
     },
-    "closing": "Compliance-Anfragen verschwinden nicht. Die Vorschriften werden mehr, die OEMs fragen weiter, die Fristen werden enger. Mit Pareo fällt Ihr Team nie wieder zurück."
+    "closing": "Compliance-Anfragen verschwinden nicht. Die Vorschriften werden mehr, die OEMs fragen weiter, die Fristen werden enger. Mit Pareo verliert Ihr Team nie wieder den Anschluss."
   },
   "Regulations": {
     "eyebrow": "Für Ihre Welt gemacht",
@@ -110,15 +110,15 @@
     "headline2": "Es sind Hunderte – und es werden mehr.",
     "subheadline": "Jedes Jahr werden neue Stoffe eingeschränkt, neue Meldepflichten treten in Kraft, und OEMs verschärfen ihre Lieferantenanforderungen. Pareo ist darauf ausgelegt, mitzuwachsen.",
     "soon": "Bald",
-    "futureLabel": "Wohin wir gehen",
-    "futureHeadline": "Für heutige Anfragen gebaut. Als Dateninfrastruktur für morgen ausgelegt.",
+    "futureLabel": "Unser Ausblick",
+    "futureHeadline": "Für die Anfragen von heute. Konzipiert für die Datenanforderungen von morgen.",
     "futureBody": "Der Europäische Digitale Produktpass und Initiativen wie Catena-X werden von Lieferanten verlangen, durchgehend maschinenlesbare Compliance-Nachweise über alle Lieferkettenstufen zu pflegen. Die strukturierten Produktdaten, die Pareo Ihnen heute hilft zu generieren, werden dafür die Grundlage – damit Sie nicht von vorne anfangen müssen, wenn die Anforderungen kommen."
   },
   "Security": {
     "eyebrow": "Ihre Daten sind bei uns sicher",
     "headline1": "Compliance-Daten sind sensibel.",
     "headline2": "Wir behandeln sie entsprechend.",
-    "subheadline": "Pareo ist für regulierte Industrieumgebungen gebaut – wo Datensouveränität, Prüfbarkeit und Kontrolle keine Optionen sind.",
+    "subheadline": "Pareo ist für regulierte Industrieumgebungen gebaut – wo Datensouveränität, Prüfbarkeit und Kontrolle nicht verhandelbar sind.",
     "badges": {
       "0": { "label": "Made in Germany", "detail": "Gebaut und betrieben in Deutschland, unter deutschem und EU-Recht." },
       "1": { "label": "DSGVO-konform", "detail": "Vollständig konform mit der europäischen Datenschutzgrundverordnung." },
@@ -131,7 +131,7 @@
     "headline": "Buchen Sie eine persönliche Beratung.",
     "subheadline": "Wir besprechen Ihre aktuellen Compliance-Herausforderungen und schauen gemeinsam, wie Pareo helfen kann. Kostenlos und unverbindlich.",
     "bullets": {
-      "0": { "title": "Auf Ihre Situation zugeschnitten", "detail": "Wir fragen zuerst nach Ihrem aktuellen Prozess, Anfragervolumen und Systemen – bevor wir etwas vorschlagen." },
+      "0": { "title": "Auf Ihre Situation zugeschnitten", "detail": "Wir fragen zuerst nach Ihrem aktuellen Prozess, Anfragevolumen und Systemen – bevor wir etwas vorschlagen." },
       "1": { "title": "30 Minuten, kein Pitch", "detail": "Ein direktes Gespräch – keine Verkaufspräsentation." },
       "2": { "title": "NDA möglich", "detail": "Wir unterzeichnen gerne eine NDA, bevor wir über Einzelheiten Ihrer Infrastruktur oder Ihres Compliance-Setups sprechen." }
     },
@@ -179,7 +179,7 @@
     "dataCollect": {
       "heading": "Erhobene Daten",
       "intro": "Diese Website ist die Marketing-Website von Pareo. Wir erheben:",
-      "contact": { "label": "Kontaktformular-Einsendungen:", "body": "Name, E-Mail-Adresse, Unternehmensname (optional) und Nachricht – wenn Sie das Kontaktformular ausfüllen." },
+      "contact": { "label": "Kontaktanfragen:", "body": "Name, E-Mail-Adresse, Unternehmensname (optional) und Nachricht – wenn Sie das Kontaktformular ausfüllen." },
       "analytics": { "label": "Analysedaten (mit Ihrer Einwilligung):", "body": "Seitenaufrufe, Klicks, verweisende URLs, Browser-Typ, Gerätetyp und anonymisierte IP-Adresse – über PostHog, verarbeitet auf EU-Servern. Nur erhoben, wenn Sie Analyse-Cookies akzeptieren." }
     },
     "legalBasis": {
@@ -195,11 +195,11 @@
     "processors": {
       "heading": "Auftragsverarbeiter",
       "posthog": { "label": "PostHog", "body": "Analyse-Plattform. Daten werden auf EU-Servern verarbeitet (eu.i.posthog.com). Nur aktiv, wenn Sie Analyse-Cookies akzeptieren. Siehe", "policyLink": "Datenschutzerklärung von PostHog" },
-      "mailgun": { "label": "Mailgun", "body": "wird zur Zustellung von Kontaktformular-Einsendungen an uns verwendet. Daten werden in der EU verarbeitet. Siehe", "policyLink": "Datenschutzerklärung von Mailgun" }
+      "mailgun": { "label": "Mailgun", "body": "wird zur Zustellung von Kontaktanfragen an uns verwendet. Daten werden in der EU verarbeitet. Siehe", "policyLink": "Datenschutzerklärung von Mailgun" }
     },
     "retention": {
       "heading": "Datenspeicherung",
-      "body": "Kontaktformular-Einsendungen werden nur so lange aufbewahrt, wie es zur Bearbeitung Ihrer Anfrage erforderlich ist. Analysedaten werden gemäß der Standard-Aufbewahrungsrichtlinie von PostHog gespeichert."
+      "body": "Kontaktanfragen werden nur so lange aufbewahrt, wie es zur Bearbeitung Ihrer Anfrage erforderlich ist. Analysedaten werden gemäß der Standard-Aufbewahrungsrichtlinie von PostHog gespeichert."
     },
     "rights": {
       "heading": "Ihre Rechte",
@@ -429,7 +429,7 @@
   },
   "StrategyTechnicalExcellence": {
     "headline": "Für die Produktion gebaut, nicht für Demos.",
-    "subheadline": "Compliance-Daten sind zu folgenreich für fragile Automatisierung. Pareo ist mit der Annahme gebaut, dass Dokumente inkonsistent sind, Lieferanten unzuverlässig sind und Regulierungsbehörden „das System hatte einen Fehler“ nicht akzeptieren.“,
+    "subheadline": "Compliance-Daten sind zu folgenreich für fragile Automatisierung. Pareo ist mit der Annahme gebaut, dass Dokumente inkonsistent sind, Lieferanten unzuverlässig sind und Regulierungsbehörden „das System hatte einen Fehler“ nicht akzeptieren.",
     "capabilities": {
       "0": { "title": "Prüfungsreife Rückverfolgbarkeit", "description": "Jeder Geschäftsvorgang ist prüfbar, jede Datenänderung nachvollziehbar, jede Integration testbar. Von Grund auf für Compliance gebaut.", "detail": "Vollständige Prüfpfade für regulatorische Compliance" },
       "1": { "title": "Komplexe Workflows bewältigen", "description": "Agenten gehen mit Rate-Limits souverän um. Extraktionen mit geringer Konfidenz werden zur menschlichen Überprüfung angehalten. Komplexe Workflows setzen genau dort wieder an, wo sie unterbrochen wurden.", "detail": "Nie Fortschritt bei unterbrochenen Aufgaben verlieren" },
