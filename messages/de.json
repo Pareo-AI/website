@@ -9,9 +9,9 @@
   },
   "Hero": {
     "eyebrow": "KI-gestützte Compliance",
-    "headline1": "Jede Compliance-Anfrage:",
-    "headline2": "automatisch, vollständig, prüfungsbereit.",
-    "subheadline": "Pareo gibt Ihrem Compliance-Team KI-Agenten an die Hand, die jede Anfrage übernehmen – damit Ihr Team keine Zeit mehr mit Dateneingabe verbringt. Eingehende Anfragen in jedem Format (E-Mail, Excel, Portal-Benachrichtigung) werden automatisch erfasst, mit Ihren ERP- und Produktdaten abgeglichen und als prüfungsreife Entwürfe zur Freigabe aufbereitet. REACH, RoHS, PFAS, TSCA und mehr. Direkt in Assent, CDX oder in dem Format, das Ihr Kunde verlangt.",
+    "headline1": "Compliance-Anfragen:",
+    "headline2": "automatisch, prüfungsbereit.",
+    "subheadline": "Pareo gibt Ihrem Compliance-Team KI-Agenten an die Hand, die jede Anfrage übernehmen – damit Ihr Team keine Zeit mehr mit Dateneingabe verbringt. Eingehende Anfragen werden automatisch erfasst, mit Ihren Produktdaten abgeglichen und als prüfungsreife Entwürfe aufbereitet. REACH, RoHS, PFAS, TSCA und mehr. Direkt in Assent, CDX oder in dem Format, das Ihr Kunde verlangt.",
     "cta": "Demo anfragen",
     "trustStrip": "Entstanden aus 180+ Gesprächen mit Compliance-Teams in der Industrie. Gegründet an TUM & UnternehmerTUM."
   },
