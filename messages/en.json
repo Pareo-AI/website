@@ -1,0 +1,173 @@
+{
+  "Header": {
+    "nav": {
+      "product": "Product",
+      "security": "Security",
+      "contact": "Contact"
+    },
+    "cta": "Request Demo"
+  },
+  "Hero": {
+    "eyebrow": "AI-Powered Compliance",
+    "headline1": "Every compliance request.",
+    "headline2": "Handled. Automatically.",
+    "subheadline": "Pareo gives your compliance team an AI workforce that works every request — so your engineers stop doing data entry. Incoming requests in any format — email, Excel, portal notification — are automatically ingested, matched against your ERP and product data, and returned as validated, audit-ready responses. REACH, RoHS, PFAS, TSCA and more. Directly into Assent, CDX, or any format your customer requires.",
+    "cta": "Request Demo",
+    "trustStrip": "Built with 180+ interviews across industrial compliance teams. Incubated at TUM & UnternehmerTUM.",
+    "gameSubheadline": "Pareo gives your compliance team an AI workforce that works every request — so your engineers stop doing data entry. REACH, RoHS, PFAS, TSCA and more. Directly into Assent, CDX, or any format your customer requires.",
+    "gameHint": "Click the grid to sweep — right-click to flag regulations"
+  },
+  "Problem": {
+    "eyebrow": "The Problem",
+    "headline": "Your compliance team didn't sign up to be a data entry department.",
+    "steps": {
+      "0": "Every morning, the inbox has more. An Excel template from a customer. A portal notification from Assent. A PDF about PFAS restrictions, forwarded from procurement with no context.",
+      "1": "To answer any of them, your engineer opens SAP. Searches a shared drive. Digs through old email threads with sub-suppliers. Cross-references a lab report from two years ago.",
+      "2": "The engineer pieces it together manually. Types it into whatever format the customer requires. Checks it. Sends it. Then the next one arrives.",
+      "3": "This happens hundreds of times a year. Across every product line, every customer, every regulation. And the volume keeps growing.",
+      "4": "The data your team needs exists. It's just scattered across too many systems, in too many formats, with no way to move fast."
+    },
+    "stats": {
+      "0": { "number": "30%", "label": "Increase per year", "body": "Compliance request volume is growing every year — driven by new regulations, deeper data requirements, and OEMs automating their outreach." },
+      "1": { "number": "1+ hr", "label": "Per request", "body": "Retrieving data from multiple systems, validating it, and formatting the output correctly takes hours of expert time — for a single response." },
+      "2": { "number": "4+", "label": "Systems to check", "body": "The data needed to answer a single request lives in your ERP, PLM, shared drives, lab reports, and supplier email threads — with no single source of truth." }
+    },
+    "closing": "The answer isn't hiring more compliance engineers. It's changing how the work gets done.",
+    "inboxTitle": "Compliance Inbox",
+    "unreadLabel": "{count} unread"
+  },
+  "HowItWorks": {
+    "eyebrow": "How It Works",
+    "headline1": "One request in.",
+    "headline2": "Audit-ready response out.",
+    "headline3": "Automatically.",
+    "subheadline": "Pareo handles the full workflow — from the moment a request arrives to the moment your response leaves.",
+    "cta": "Request Demo →",
+    "tabs": {
+      "ingestion": {
+        "label": "Request Ingestion",
+        "headline": "Any request. Any format. Zero manual sorting.",
+        "body1": "Compliance requests arrive in every shape — an email with a PDF attachment, an Excel template from procurement, a notification from Assent or CDX, a standalone questionnaire. Pareo ingests all of it automatically, classifies the request type, extracts the relevant requirements, and queues it for processing.",
+        "body2": "No manual triage. No copy-paste into a tracking sheet. It's in the system the moment it arrives."
+      },
+      "retrieval": {
+        "label": "Data Retrieval",
+        "headline": "Your product data, found automatically.",
+        "body1": "To answer a compliance request, your team typically searches across SAP, PLM systems, shared drives, lab reports, and old supplier emails. Pareo does this in seconds — connecting to your existing systems, retrieving the relevant product and material data, and building the evidence base for a response.",
+        "body2": "Nothing leaves your infrastructure. Pareo reads from your systems; it doesn't copy data out."
+      },
+      "generation": {
+        "label": "Response Generation",
+        "headline": "Validated, audit-ready responses. Human-approved before anything is sent.",
+        "body1": "Pareo drafts the compliance response — mapped to the exact format your customer requires, whether that's an IPC-1752 XML schema, an Assent portal submission, a filled Excel template, or a structured PDF. Every answer is linked to its source document, so the evidence trail is built in.",
+        "body2": "Nothing is sent automatically. Your compliance specialist reviews the draft, confirms the evidence, and approves. Pareo handles the generation; your team owns the sign-off."
+      },
+      "gap": {
+        "label": "Gap Orchestration",
+        "headline": "Missing data? Pareo finds it — before it becomes your problem.",
+        "body1": "When the data needed to answer a request isn't available internally, Pareo identifies the gap and automatically reaches out to the relevant sub-supplier to request it. Responses are tracked, consolidated, and fed back into the system — closing the loop without your team chasing emails.",
+        "body2": "The result: fewer open requests, fewer missed deadlines, fewer compliance gaps left unresolved."
+      }
+    },
+    "visuals": {
+      "incomingRequests": "Incoming Requests",
+      "classifying": "Classifying…",
+      "ingested": "Ingested",
+      "processing": "Processing",
+      "queued": "Queued",
+      "draftResponse": "Draft Response — Pending Review",
+      "approve": "✓ Approve",
+      "requestChanges": "✕ Request changes",
+      "gapDetection": "Gap Detection",
+      "dataGapDetected": "Data gap detected",
+      "automatedOutreach": "📧 Automated outreach sent",
+      "gapResolved": "Gap resolved — declaration received & validated",
+      "followUpScheduled": "Follow-up scheduled: +5 days"
+    }
+  },
+  "Benefits": {
+    "eyebrow": "The Results",
+    "headline": "The same team. A fraction of the work.",
+    "subheadline": "Pareo doesn't replace your compliance specialists. It removes the part of their job that shouldn't exist in the first place.",
+    "stats": {
+      "0": { "stat": "Hours → Minutes", "body": "What used to take hours to days of searching, formatting, and submitting now completes within a few minutes." },
+      "1": { "stat": ">70%", "body": "Of manual research and documentation effort eliminated per request — freeing your engineers for work that actually needs their expertise." },
+      "2": { "stat": "100%", "body": "Audit trail on every response. Every answer linked to its source document, retrievable in seconds when an auditor comes knocking." }
+    },
+    "withoutHeader": "✗ Without Pareo",
+    "withHeader": "✓ With Pareo",
+    "comparison": {
+      "0": { "without": "Requests arrive by email, portal, and Excel and pile up in a shared inbox", "with": "Every incoming request is automatically ingested and classified the moment it arrives" },
+      "1": { "without": "Your engineer searches SAP, shared drives, lab reports, and email threads to find the data", "with": "Agents retrieve the relevant product and material data from your connected systems in seconds" },
+      "2": { "without": "Responses drafted from scratch each time, inconsistent quality across the team", "with": "Responses generated automatically, mapped to the exact format required, evidence linked" },
+      "3": { "without": "Data manually copy-pasted into Assent or customer templates", "with": "Direct write-back into portals and output formats — no re-entry, no transcription errors" },
+      "4": { "without": "Sub-supplier data chased over email, delays compound", "with": "Automated outreach triggered immediately when data is missing, gaps tracked until closed" },
+      "5": { "without": "Evidence scattered across systems, hard to reconstruct for audits", "with": "Full source trail archived with every response — audit-ready from day one" }
+    },
+    "closing": "Compliance requests aren't going away. The regulations keep coming, the OEMs keep asking, and the deadlines keep tightening. Pareo means your team never falls behind again."
+  },
+  "Regulations": {
+    "eyebrow": "Built for Your World",
+    "headline1": "Product compliance isn't one regulation.",
+    "headline2": "It's hundreds — and counting.",
+    "subheadline": "Every year, new substances get restricted, new reporting obligations come into force, and OEMs add new requirements to their supplier contracts. Pareo is built to move with it.",
+    "soon": "Soon",
+    "futureLabel": "Where We're Headed",
+    "futureHeadline": "Built for today's requests. Architected for tomorrow's data infrastructure.",
+    "futureBody": "The European Digital Product Passport and initiatives like Catena-X will require suppliers to maintain continuous, machine-readable compliance records across every supply chain tier. The structured product data Pareo helps you generate today becomes the foundation for that — so you're not rebuilding from scratch when the requirements arrive."
+  },
+  "Security": {
+    "eyebrow": "Your Data is Safe With Us",
+    "headline1": "Compliance data is sensitive.",
+    "headline2": "We treat it that way.",
+    "subheadline": "Pareo is designed for regulated industrial environments — where data sovereignty, auditability, and control aren't optional.",
+    "badges": {
+      "0": { "label": "Made in Germany", "detail": "Built and operated in Germany, under German and EU law." },
+      "1": { "label": "DSGVO Compliant", "detail": "Fully compliant with EU data protection regulation." },
+      "2": { "label": "No model training on your data", "detail": "Your product and compliance data is never used to train AI models — by Pareo or any third party." },
+      "3": { "label": "Isolated infrastructure", "detail": "Deployed in a dedicated VPC. Your data never shares infrastructure with other customers." }
+    }
+  },
+  "CTA": {
+    "eyebrow": "Let's Talk",
+    "headline": "Book a personal consultation.",
+    "subheadline": "Let's discuss your current compliance challenges and explore how Pareo can help. Free and non-binding.",
+    "bullets": {
+      "0": { "title": "Tailored to your situation", "detail": "We'll ask about your current process, request volume, and systems before suggesting anything." },
+      "1": { "title": "30 minutes, no pitch deck", "detail": "A direct conversation — not a sales presentation." },
+      "2": { "title": "NDA available", "detail": "Happy to sign an NDA before discussing specifics about your infrastructure or compliance setup." }
+    },
+    "form": {
+      "nameLabel": "Full name",
+      "namePlaceholder": "Jan Müller",
+      "emailLabel": "Work email",
+      "emailPlaceholder": "jan@company.com",
+      "companyLabel": "Company",
+      "companyPlaceholder": "Acme GmbH",
+      "messageLabel": "What's your biggest compliance challenge?",
+      "messageOptional": "(optional)",
+      "messagePlaceholder": "e.g. We receive ~200 SVHC requests per year and respond manually…",
+      "submit": "Request a Demo",
+      "submitting": "Sending…",
+      "noSpam": "No spam. We'll reply within one business day.",
+      "successTitle": "We'll be in touch shortly.",
+      "successBody": "Expect a message within one business day.",
+      "errorMessage": "Something went wrong. Please try again or email"
+    }
+  },
+  "CookieConsent": {
+    "text": "We use analytics cookies (PostHog) to understand how visitors use this site. Your data is processed in the EU.",
+    "policyLink": "Cookie Policy",
+    "decline": "Decline",
+    "accept": "Accept"
+  },
+  "Footer": {
+    "tagline": "AI-powered compliance automation for industrial manufacturers.",
+    "legal": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "cookies": "Cookie Policy"
+    },
+    "copyright": "© {year} Pareo. All rights reserved."
+  }
+}

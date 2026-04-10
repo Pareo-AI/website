@@ -1,5 +1,6 @@
 'use client'
 
+import { useTranslations } from 'next-intl'
 import { Reveal } from '@/components/ui/Reveal'
 
 const regulations = [
@@ -19,6 +20,8 @@ const regulations = [
 ]
 
 export function Regulations() {
+  const t = useTranslations('Regulations')
+
   return (
     <section
       className="py-24 border-t"
@@ -31,18 +34,17 @@ export function Regulations() {
             <div className="h-px w-10" style={{ background: '#7B5CF5' }} />
             <span className="text-xs font-semibold tracking-[0.2em] uppercase"
               style={{ color: '#7B5CF5', fontFamily: 'var(--font-ibm)' }}>
-              Built for Your World
+              {t('eyebrow')}
             </span>
           </div>
           <h2 className="mb-4 leading-tight"
             style={{ fontFamily: 'var(--font-ibm)', fontSize: 'clamp(30px, 4vw, 50px)', fontWeight: 800, color: '#ffffff' }}>
-            Product compliance isn't one regulation.{' '}
-            <span style={{ color: '#7B5CF5' }}>It's hundreds — and counting.</span>
+            {t('headline1')}{' '}
+            <span style={{ color: '#7B5CF5' }}>{t('headline2')}</span>
           </h2>
           <p className="text-base leading-relaxed"
             style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}>
-            Every year, new substances get restricted, new reporting obligations come into force, and OEMs add new requirements
-            to their supplier contracts. Pareo is built to move with it.
+            {t('subheadline')}
           </p>
         </div>
 
@@ -71,7 +73,7 @@ export function Regulations() {
                     className="text-xs px-1.5 py-0.5 rounded"
                     style={{ background: 'rgba(255,255,255,0.06)', color: 'rgba(255,255,255,0.25)', fontSize: '10px' }}
                   >
-                    Soon
+                    {t('soon')}
                   </span>
                 )}
               </Reveal>
@@ -87,17 +89,15 @@ export function Regulations() {
         >
           <div className="text-xs font-semibold tracking-[0.2em] uppercase mb-4"
             style={{ color: '#7B5CF5', fontFamily: 'var(--font-ibm)' }}>
-            Where We're Headed
+            {t('futureLabel')}
           </div>
           <h3 className="text-lg font-bold mb-3"
             style={{ fontFamily: 'var(--font-ibm)', color: '#ffffff' }}>
-            Built for today's requests. Architected for tomorrow's data infrastructure.
+            {t('futureHeadline')}
           </h3>
           <p className="text-sm leading-relaxed"
             style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}>
-            The European Digital Product Passport and initiatives like Catena-X will require suppliers to maintain continuous,
-            machine-readable compliance records across every supply chain tier. The structured product data Pareo helps you
-            generate today becomes the foundation for that — so you're not rebuilding from scratch when the requirements arrive.
+            {t('futureBody')}
           </p>
         </Reveal>
       </div>

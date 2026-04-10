@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { RegulationSweeper } from '@/components/game/RegulationSweeper';
 import { Problem } from '@/components/sections/Problem';
 import { HowItWorks } from '@/components/sections/HowItWorks';
@@ -15,6 +16,7 @@ const EASE = 'cubic-bezier(0.16,1,0.3,1)'
 // Interactive elements (buttons) explicitly restore pointer-events.
 
 function GameHero() {
+  const t = useTranslations('Hero');
   const scrollToContact = () => {
     document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -57,7 +59,8 @@ function GameHero() {
           padding: '96px 32px 48px',
         }}
       >
-        <div style={{ maxWidth: '64rem', animation: `fade-in-up 0.75s ${EASE} both` }}>
+        <div data-no-sweep="" style={{ maxWidth: '64rem' }}>
+        <div style={{ animation: `fade-in-up 0.75s ${EASE} both` }}>
           {/* Eyebrow */}
           <div
             style={{
@@ -74,7 +77,7 @@ function GameHero() {
               letterSpacing: '0.2em', textTransform: 'uppercase',
               color: '#7B5CF5', fontFamily: 'var(--font-ibm)',
             }}>
-              AI-Powered Compliance
+              {t('eyebrow')}
             </span>
           </div>
 
@@ -90,9 +93,9 @@ function GameHero() {
               animation: `fade-in-up 0.7s ${EASE} 0.2s both`,
             }}
           >
-            <span style={{ color: '#ffffff' }}>Every compliance request.</span>
+            <span style={{ color: '#ffffff' }}>{t('headline1')}</span>
             <br />
-            <span style={{ color: '#7B5CF5' }}>Handled. Automatically.</span>
+            <span style={{ color: '#7B5CF5' }}>{t('headline2')}</span>
           </h1>
 
           {/* Subheadline */}
@@ -108,9 +111,7 @@ function GameHero() {
               animation: `fade-in-up 0.6s ${EASE} 0.38s both`,
             }}
           >
-            Pareo gives your compliance team an AI workforce that works every request — so your
-            engineers stop doing data entry. REACH, RoHS, PFAS, TSCA and more. Directly into
-            Assent, CDX, or any format your customer requires.
+            {t('gameSubheadline')}
           </p>
 
           {/* CTA — re-enable pointer events only here */}
@@ -152,7 +153,7 @@ function GameHero() {
                 e.currentTarget.style.transform = 'translateY(0)';
               }}
             >
-              Request Demo
+              {t('cta')}
             </button>
           </div>
 
@@ -171,8 +172,9 @@ function GameHero() {
             }}
           >
             <span style={{ color: '#7B5CF5', opacity: 0.6 }}>↖</span>
-            Click the grid to sweep — right-click to flag regulations
+            {t('gameHint')}
           </p>
+        </div>
         </div>
       </div>
 
@@ -196,7 +198,7 @@ function GameHero() {
             letterSpacing: '0.04em',
             marginBottom: '12px',
           }}>
-            Built with 180+ interviews across industrial compliance teams. Incubated at TUM &amp; UnternehmerTUM.
+            {t('trustStrip')}
           </p>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '32px', flexWrap: 'wrap' }}>
             {['TUM', 'UnternehmerTUM', 'XPLORE'].map(name => (

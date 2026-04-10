@@ -1,8 +1,12 @@
 'use client'
 
+import { useTranslations } from 'next-intl'
+
 const EASE = 'cubic-bezier(0.16,1,0.3,1)'
 
 export function Hero() {
+  const t = useTranslations('Hero')
+
   const handleDemoClick = () => {
     const el = document.querySelector('#contact')
     if (el) el.scrollIntoView({ behavior: 'smooth' })
@@ -49,7 +53,7 @@ export function Hero() {
               className="text-xs font-semibold tracking-[0.2em] uppercase"
               style={{ color: '#7B5CF5', fontFamily: 'var(--font-ibm)' }}
             >
-              AI-Powered Compliance
+              {t('eyebrow')}
             </span>
           </div>
 
@@ -63,9 +67,9 @@ export function Hero() {
               animation: `fade-in-up 0.7s ${EASE} 0.2s both`,
             }}
           >
-            <span style={{ color: '#ffffff' }}>Every compliance request.</span>
+            <span style={{ color: '#ffffff' }}>{t('headline1')}</span>
             <br />
-            <span style={{ color: '#7B5CF5' }}>Handled. Automatically.</span>
+            <span style={{ color: '#7B5CF5' }}>{t('headline2')}</span>
           </h1>
 
           {/* Subheadline */}
@@ -79,11 +83,7 @@ export function Hero() {
               animation: `fade-in-up 0.6s ${EASE} 0.38s both`,
             }}
           >
-            Pareo gives your compliance team an AI workforce that works every request — so your
-            engineers stop doing data entry. Incoming requests in any format — email, Excel, portal
-            notification — are automatically ingested, matched against your ERP and product data,
-            and returned as validated, audit-ready responses. REACH, RoHS, PFAS, TSCA and more.
-            Directly into Assent, CDX, or any format your customer requires.
+            {t('subheadline')}
           </p>
 
           {/* CTA */}
@@ -107,7 +107,7 @@ export function Hero() {
                 e.currentTarget.style.transform = 'translateY(0)'
               }}
             >
-              Request Demo
+              {t('cta')}
             </button>
           </div>
         </div>
@@ -126,8 +126,7 @@ export function Hero() {
             className="text-center text-xs mb-4"
             style={{ color: 'rgba(255,255,255,0.35)', fontFamily: 'var(--font-ibm)', letterSpacing: '0.04em' }}
           >
-            Built with 180+ interviews across industrial compliance teams.
-            Incubated at TUM &amp; UnternehmerTUM.
+            {t('trustStrip')}
           </p>
           <div className="flex items-center justify-center gap-8 flex-wrap">
             {['TUM', 'UnternehmerTUM', 'XPLORE'].map((name) => (

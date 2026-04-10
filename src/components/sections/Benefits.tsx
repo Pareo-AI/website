@@ -1,50 +1,24 @@
 'use client'
 
+import { useTranslations } from 'next-intl'
 import { Reveal } from '@/components/ui/Reveal'
 
-const statCards = [
-  {
-    stat: 'Hours → Minutes',
-    body: 'What used to take hours to days of searching, formatting, and submitting now completes within a few minutes.',
-  },
-  {
-    stat: '>70%',
-    body: 'Of manual research and documentation effort eliminated per request — freeing your engineers for work that actually needs their expertise.',
-  },
-  {
-    stat: '100%',
-    body: 'Audit trail on every response. Every answer linked to its source document, retrievable in seconds when an auditor comes knocking.',
-  },
-]
-
-const comparison = [
-  {
-    without: 'Requests arrive by email, portal, and Excel and pile up in a shared inbox',
-    with: 'Every incoming request is automatically ingested and classified the moment it arrives',
-  },
-  {
-    without: 'Your engineer searches SAP, shared drives, lab reports, and email threads to find the data',
-    with: 'Agents retrieve the relevant product and material data from your connected systems in seconds',
-  },
-  {
-    without: 'Responses drafted from scratch each time, inconsistent quality across the team',
-    with: 'Responses generated automatically, mapped to the exact format required, evidence linked',
-  },
-  {
-    without: 'Data manually copy-pasted into Assent or customer templates',
-    with: 'Direct write-back into portals and output formats — no re-entry, no transcription errors',
-  },
-  {
-    without: 'Sub-supplier data chased over email, delays compound',
-    with: 'Automated outreach triggered immediately when data is missing, gaps tracked until closed',
-  },
-  {
-    without: 'Evidence scattered across systems, hard to reconstruct for audits',
-    with: 'Full source trail archived with every response — audit-ready from day one',
-  },
-]
+const STAT_COUNT = 3
+const COMPARISON_COUNT = 6
 
 export function Benefits() {
+  const t = useTranslations('Benefits')
+
+  const statCards = Array.from({ length: STAT_COUNT }, (_, i) => ({
+    stat: t(`stats.${i}.stat`),
+    body: t(`stats.${i}.body`),
+  }))
+
+  const comparison = Array.from({ length: COMPARISON_COUNT }, (_, i) => ({
+    without: t(`comparison.${i}.without`),
+    with: t(`comparison.${i}.with`),
+  }))
+
   return (
     <section
       className="py-24 border-t"
@@ -57,16 +31,16 @@ export function Benefits() {
             <div className="h-px w-10" style={{ background: '#7B5CF5' }} />
             <span className="text-xs font-semibold tracking-[0.2em] uppercase"
               style={{ color: '#7B5CF5', fontFamily: 'var(--font-ibm)' }}>
-              The Results
+              {t('eyebrow')}
             </span>
           </div>
           <h2 className="mb-4 leading-tight"
             style={{ fontFamily: 'var(--font-ibm)', fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 800, color: '#ffffff' }}>
-            The same team. A fraction of the work.
+            {t('headline')}
           </h2>
           <p className="max-w-2xl text-base"
             style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}>
-            Pareo doesn't replace your compliance specialists. It removes the part of their job that shouldn't exist in the first place.
+            {t('subheadline')}
           </p>
         </div>
 
@@ -99,13 +73,13 @@ export function Benefits() {
             <div className="px-6 py-4" style={{ background: 'rgba(255,255,255,0.03)', borderRight: '1px solid rgba(123,92,245,0.1)' }}>
               <span className="text-sm font-semibold"
                 style={{ color: 'rgba(255,255,255,0.35)', fontFamily: 'var(--font-ibm)' }}>
-                ✗ Without Pareo
+                {t('withoutHeader')}
               </span>
             </div>
             <div className="px-6 py-4" style={{ background: 'rgba(123,92,245,0.07)' }}>
               <span className="text-sm font-semibold"
                 style={{ color: '#7B5CF5', fontFamily: 'var(--font-ibm)' }}>
-                ✓ With Pareo
+                {t('withHeader')}
               </span>
             </div>
           </div>
@@ -148,8 +122,7 @@ export function Benefits() {
         <div className="mt-12 text-center max-w-3xl mx-auto">
           <p className="text-base leading-relaxed"
             style={{ color: 'rgba(255,255,255,0.4)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}>
-            Compliance requests aren't going away. The regulations keep coming, the OEMs keep asking, and the deadlines keep tightening.
-            Pareo means your team never falls behind again.
+            {t('closing')}
           </p>
         </div>
       </div>

@@ -1,36 +1,11 @@
 'use client'
 
 import { useRef } from 'react'
+import { useTranslations } from 'next-intl'
 import { useInView } from '@/hooks/useInView'
 
-const steps = [
-  {
-    visual: 1,
-    text: 'Every morning, the inbox has more. An Excel template from a customer. A portal notification from Assent. A PDF about PFAS restrictions, forwarded from procurement with no context.',
-  },
-  {
-    visual: 2,
-    text: 'To answer any of them, your engineer opens SAP. Searches a shared drive. Digs through old email threads with sub-suppliers. Cross-references a lab report from two years ago.',
-  },
-  {
-    visual: 3,
-    text: 'The engineer pieces it together manually. Types it into whatever format the customer requires. Checks it. Sends it. Then the next one arrives.',
-  },
-  {
-    visual: 4,
-    text: 'This happens hundreds of times a year. Across every product line, every customer, every regulation. And the volume keeps growing.',
-  },
-  {
-    visual: 5,
-    text: 'The data your team needs exists. It\'s just scattered across too many systems, in too many formats, with no way to move fast.',
-  },
-]
-
-const stats = [
-  { number: '30%', label: 'Increase per year', body: 'Compliance request volume is growing every year — driven by new regulations, deeper data requirements, and OEMs automating their outreach.' },
-  { number: '1+ hr', label: 'Per request', body: 'Retrieving data from multiple systems, validating it, and formatting the output correctly takes hours of expert time — for a single response.' },
-  { number: '4+', label: 'Systems to check', body: 'The data needed to answer a single request lives in your ERP, PLM, shared drives, lab reports, and supplier email threads — with no single source of truth.' },
-]
+const STEP_COUNT = 5
+const STAT_COUNT = 3
 
 const inboxMessages = [
   { from: 'Assent Portal', subject: 'New SVHC request — response due in 5 days', tag: 'REACH', color: '#7B5CF5' },
@@ -43,7 +18,7 @@ const inboxMessages = [
   { from: 'compliance.team@automotive.de', subject: 'CSRD supply chain data request Q4', tag: 'CSRD', color: '#7B5CF5' },
 ]
 
-function InboxVisual({ step }: { step: number }) {
+function InboxVisual({ step, inboxTitle, unreadLabel }: { step: number; inboxTitle: string; unreadLabel: (count: number) => string }) {
   const visibleCount = Math.min(step + 1, inboxMessages.length)
 
   return (
@@ -66,13 +41,13 @@ function InboxVisual({ step }: { step: number }) {
           <div className="w-3 h-3 rounded-full" style={{ background: '#28c840' }} />
         </div>
         <span className="text-xs font-medium" style={{ color: 'rgba(255,255,255,0.4)', fontFamily: 'var(--font-ibm)' }}>
-          Compliance Inbox
+          {inboxTitle}
         </span>
         <div
           className="px-2 py-0.5 rounded-full text-xs font-bold"
           style={{ background: 'rgba(239,68,68,0.15)', color: '#ef4444', fontFamily: 'var(--font-ibm)' }}
         >
-          {visibleCount} unread
+          {unreadLabel(visibleCount)}
         </div>
       </div>
 
@@ -125,7 +100,7 @@ function InboxVisual({ step }: { step: number }) {
   )
 }
 
-function ScrollStep({ step, index }: { step: typeof steps[0]; index: number }) {
+function ScrollStep({ text, index }: { text: string; index: number }) {
   const ref = useRef<HTMLDivElement>(null)
   const inView = useInView(ref, { amount: 0.6, once: false })
 
@@ -149,7 +124,7 @@ function ScrollStep({ step, index }: { step: typeof steps[0]; index: number }) {
           className="text-lg leading-relaxed"
           style={{ color: 'rgba(255,255,255,0.75)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}
         >
-          {step.text}
+          {text}
         </p>
       </div>
     </div>
@@ -157,6 +132,22 @@ function ScrollStep({ step, index }: { step: typeof steps[0]; index: number }) {
 }
 
 export function Problem() {
+  const t = useTranslations('Problem')
+
+  const steps = Array.from({ length: STEP_COUNT }, (_, i) => ({
+    visual: i + 1,
+    text: t(`steps.${i}`),
+  }))
+
+  const stats = Array.from({ length: STAT_COUNT }, (_, i) => ({
+    number: t(`stats.${i}.number`),
+    label: t(`stats.${i}.label`),
+    body: t(`stats.${i}.body`),
+  }))
+
+  const inboxTitle = t('inboxTitle')
+  const unreadLabel = (count: number) => t('unreadLabel', { count })
+
   return (
     <section
       style={{ background: '#0D0D1A' }}
@@ -171,7 +162,7 @@ export function Problem() {
               className="text-xs font-semibold tracking-[0.2em] uppercase"
               style={{ color: '#7B5CF5', fontFamily: 'var(--font-ibm)' }}
             >
-              The Problem
+              {t('eyebrow')}
             </span>
           </div>
           <h2
@@ -183,7 +174,7 @@ export function Problem() {
               color: '#ffffff',
             }}
           >
-            Your compliance team didn't sign up to be a data entry department.
+            {t('headline')}
           </h2>
         </div>
 
@@ -192,14 +183,14 @@ export function Problem() {
           {/* Left: sticky inbox */}
           <div className="hidden lg:block">
             <div className="sticky top-28">
-              <InboxSticky />
+              <InboxSticky inboxTitle={inboxTitle} unreadLabel={unreadLabel} />
             </div>
           </div>
 
           {/* Right: scroll steps */}
           <div>
             {steps.map((step, i) => (
-              <ScrollStep key={i} step={step} index={i} />
+              <ScrollStep key={i} text={step.text} index={i} />
             ))}
           </div>
         </div>
@@ -263,7 +254,7 @@ export function Problem() {
             className="text-lg max-w-2xl mx-auto"
             style={{ color: 'rgba(255,255,255,0.45)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}
           >
-            The answer isn't hiring more compliance engineers. It's changing how the work gets done.
+            {t('closing')}
           </p>
         </div>
       </div>
@@ -271,13 +262,13 @@ export function Problem() {
   )
 }
 
-function InboxSticky() {
+function InboxSticky({ inboxTitle, unreadLabel }: { inboxTitle: string; unreadLabel: (count: number) => string }) {
   const ref = useRef<HTMLDivElement>(null)
   const inView = useInView(ref, { amount: 0.1 })
 
   return (
     <div ref={ref}>
-      <InboxVisual step={inView ? 5 : 0} />
+      <InboxVisual step={inView ? 5 : 0} inboxTitle={inboxTitle} unreadLabel={unreadLabel} />
     </div>
   )
 }

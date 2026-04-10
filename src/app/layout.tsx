@@ -2,6 +2,8 @@ import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata } from 'next';
 import { IBM_Plex_Sans } from 'next/font/google';
+import { NextIntlClientProvider } from 'next-intl';
+import { cookies } from 'next/headers';
 import Script from 'next/script';
 import '@/styles/globals.css';
 import { CookieConsentProvider } from '@/components/CookieConsent';
@@ -91,13 +93,22 @@ const jsonLd = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Read locale set by the next-intl middleware (stored in NEXT_LOCALE cookie).
+  // Falls back to 'en' for routes outside locale routing (strategy, card, etc.).
+  const cookieStore = await cookies();
+  const locale = cookieStore.get('NEXT_LOCALE')?.value ?? 'en';
+  const messages =
+    locale === 'de'
+      ? (await import('../../messages/de.json')).default
+      : (await import('../../messages/en.json')).default;
+
   return (
-    <html lang="en" suppressHydrationWarning className={ibmPlex.variable}>
+    <html lang={locale} suppressHydrationWarning className={ibmPlex.variable}>
       <head>
         <link rel="preconnect" href="https://js-eu1.hs-scripts.com" />
         <link rel="preconnect" href="https://eu.i.posthog.com" />
@@ -110,7 +121,9 @@ export default function RootLayout({
       <body>
         <CookieConsentProvider>
           <PostHogProvider>
-            <ConditionalSiteLayout>{children}</ConditionalSiteLayout>
+            <NextIntlClientProvider locale={locale} messages={messages}>
+              <ConditionalSiteLayout>{children}</ConditionalSiteLayout>
+            </NextIntlClientProvider>
           </PostHogProvider>
         </CookieConsentProvider>
         <Analytics />

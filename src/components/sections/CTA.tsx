@@ -1,10 +1,12 @@
 'use client'
 
 import { useState } from 'react'
+import { useTranslations } from 'next-intl'
 import { ObfuscatedEmail } from '@/components/ObfuscatedEmail'
 import { TurnstileWidget } from '@/components/TurnstileWidget'
 
 export function CTA() {
+  const t = useTranslations('CTA')
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [company, setCompany] = useState('')
@@ -36,6 +38,12 @@ export function CTA() {
     }
   }
 
+  const bullets = [
+    { icon: '🎯', title: t('bullets.0.title'), detail: t('bullets.0.detail') },
+    { icon: '⏱', title: t('bullets.1.title'), detail: t('bullets.1.detail') },
+    { icon: '🔒', title: t('bullets.2.title'), detail: t('bullets.2.detail') },
+  ]
+
   return (
     <section
       id="contact"
@@ -50,26 +58,21 @@ export function CTA() {
               <div className="h-px w-10" style={{ background: '#7B5CF5' }} />
               <span className="text-xs font-semibold tracking-[0.2em] uppercase"
                 style={{ color: '#7B5CF5', fontFamily: 'var(--font-ibm)' }}>
-                Let's Talk
+                {t('eyebrow')}
               </span>
             </div>
             <h2 className="mb-5 leading-tight"
               style={{ fontFamily: 'var(--font-ibm)', fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 800, color: '#ffffff' }}>
-              Book a personal consultation.
+              {t('headline')}
             </h2>
             <p className="text-base leading-relaxed mb-10"
               style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}>
-              Let's discuss your current compliance challenges and explore how Pareo can help.
-              Free and non-binding.
+              {t('subheadline')}
             </p>
 
             {/* What to expect */}
             <div className="space-y-4">
-              {[
-                { icon: '🎯', title: 'Tailored to your situation', detail: "We'll ask about your current process, request volume, and systems before suggesting anything." },
-                { icon: '⏱', title: '30 minutes, no pitch deck', detail: 'A direct conversation — not a sales presentation.' },
-                { icon: '🔒', title: 'NDA available', detail: 'Happy to sign an NDA before discussing specifics about your infrastructure or compliance setup.' },
-              ].map((item, i) => (
+              {bullets.map((item, i) => (
                 <div key={i} className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0 text-base"
                     style={{ background: 'rgba(123,92,245,0.1)', border: '1px solid rgba(123,92,245,0.2)' }}>
@@ -96,10 +99,10 @@ export function CTA() {
               <div className="text-center py-8 animate-scale-sm-in">
                 <div className="text-4xl mb-4">✓</div>
                 <h3 className="text-xl font-bold mb-2" style={{ fontFamily: 'var(--font-ibm)', color: '#ffffff' }}>
-                  We'll be in touch shortly.
+                  {t('form.successTitle')}
                 </h3>
                 <p className="text-sm" style={{ color: 'rgba(255,255,255,0.45)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}>
-                  Expect a message within one business day.
+                  {t('form.successBody')}
                 </p>
               </div>
             ) : (
@@ -107,14 +110,14 @@ export function CTA() {
                 <div>
                   <label className="block text-xs font-medium mb-2"
                     style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-ibm)' }}>
-                    Full name
+                    {t('form.nameLabel')}
                   </label>
                   <input
                     type="text"
                     required
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    placeholder="Jan Müller"
+                    placeholder={t('form.namePlaceholder')}
                     className="w-full px-4 py-3 rounded-lg text-sm outline-none transition-all"
                     style={{
                       background: 'rgba(255,255,255,0.04)',
@@ -129,14 +132,14 @@ export function CTA() {
                 <div>
                   <label className="block text-xs font-medium mb-2"
                     style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-ibm)' }}>
-                    Work email
+                    {t('form.emailLabel')}
                   </label>
                   <input
                     type="email"
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="jan@company.com"
+                    placeholder={t('form.emailPlaceholder')}
                     className="w-full px-4 py-3 rounded-lg text-sm outline-none transition-all"
                     style={{
                       background: 'rgba(255,255,255,0.04)',
@@ -151,14 +154,14 @@ export function CTA() {
                 <div>
                   <label className="block text-xs font-medium mb-2"
                     style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-ibm)' }}>
-                    Company
+                    {t('form.companyLabel')}
                   </label>
                   <input
                     type="text"
                     required
                     value={company}
                     onChange={(e) => setCompany(e.target.value)}
-                    placeholder="Acme GmbH"
+                    placeholder={t('form.companyPlaceholder')}
                     className="w-full px-4 py-3 rounded-lg text-sm outline-none transition-all"
                     style={{
                       background: 'rgba(255,255,255,0.04)',
@@ -173,13 +176,14 @@ export function CTA() {
                 <div>
                   <label className="block text-xs font-medium mb-2"
                     style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-ibm)' }}>
-                    What's your biggest compliance challenge? <span style={{ color: 'rgba(255,255,255,0.25)' }}>(optional)</span>
+                    {t('form.messageLabel')}{' '}
+                    <span style={{ color: 'rgba(255,255,255,0.25)' }}>{t('form.messageOptional')}</span>
                   </label>
                   <textarea
                     rows={3}
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    placeholder="e.g. We receive ~200 SVHC requests per year and respond manually…"
+                    placeholder={t('form.messagePlaceholder')}
                     className="w-full px-4 py-3 rounded-lg text-sm outline-none transition-all resize-none"
                     style={{
                       background: 'rgba(255,255,255,0.04)',
@@ -207,17 +211,17 @@ export function CTA() {
                   onMouseEnter={e => !loading && !!turnstileToken && (e.currentTarget.style.background = '#6d4ee0')}
                   onMouseLeave={e => !loading && !!turnstileToken && (e.currentTarget.style.background = '#7B5CF5')}
                 >
-                  {loading ? 'Sending…' : 'Request a Demo'}
+                  {loading ? t('form.submitting') : t('form.submit')}
                 </button>
                 {error && (
                   <p className="text-xs text-center" style={{ color: '#f87171', fontFamily: 'var(--font-ibm)' }}>
-                    Something went wrong. Please try again or email{' '}
+                    {t('form.errorMessage')}{' '}
                     <ObfuscatedEmail encoded="aGVsbG9AcGFyZW8uYWk=" style={{ color: '#f87171' }} />.
                   </p>
                 )}
                 <p className="text-xs text-center"
                   style={{ color: 'rgba(255,255,255,0.25)', fontFamily: 'var(--font-ibm)' }}>
-                  No spam. We'll reply within one business day.
+                  {t('form.noSpam')}
                 </p>
               </form>
             )}

@@ -4,8 +4,42 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
 import { useState, useEffect } from 'react'
+import { useTranslations, useLocale } from 'next-intl'
+import { usePathname, useRouter } from '@/i18n/navigation'
+
+function LocaleSwitcher() {
+  const locale = useLocale()
+  const router = useRouter()
+  const pathname = usePathname()
+
+  const locales: Array<'en' | 'de'> = ['en', 'de']
+
+  return (
+    <div
+      className="flex items-center gap-0.5 rounded-md p-0.5"
+      style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.08)' }}
+    >
+      {locales.map((l) => (
+        <button
+          key={l}
+          onClick={() => router.replace(pathname, { locale: l })}
+          className="text-xs font-semibold px-2 py-1 rounded transition-all duration-150 uppercase"
+          style={{
+            fontFamily: 'var(--font-ibm)',
+            background: locale === l ? 'rgba(123,92,245,0.35)' : 'transparent',
+            color: locale === l ? '#ffffff' : 'rgba(255,255,255,0.4)',
+            cursor: locale === l ? 'default' : 'pointer',
+          }}
+        >
+          {l}
+        </button>
+      ))}
+    </div>
+  )
+}
 
 export function Header() {
+  const t = useTranslations('Header')
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
@@ -34,9 +68,9 @@ export function Header() {
   }, [])
 
   const navigation = [
-    { name: 'Product', href: '#product' },
-    { name: 'Security', href: '#security' },
-    { name: 'Contact', href: '#contact' },
+    { name: t('nav.product'), href: '#product' },
+    { name: t('nav.security'), href: '#security' },
+    { name: t('nav.contact'), href: '#contact' },
   ]
 
   const handleAnchorClick = (href: string) => {
@@ -52,6 +86,7 @@ export function Header() {
 
   return (
     <header
+      data-no-sweep=""
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       style={{
         background: scrolled
@@ -95,7 +130,8 @@ export function Header() {
             ))}
           </div>
 
-          <div className="hidden md:flex">
+          <div className="hidden md:flex items-center gap-3">
+            <LocaleSwitcher />
             <button
               onClick={() => handleAnchorClick('#contact')}
               className="px-5 py-2 rounded-lg text-sm font-semibold text-white transition-all duration-200 cursor-pointer"
@@ -106,7 +142,7 @@ export function Header() {
               onMouseEnter={e => (e.currentTarget.style.background = '#6d4ee0')}
               onMouseLeave={e => (e.currentTarget.style.background = '#7B5CF5')}
             >
-              Request Demo
+              {t('cta')}
             </button>
           </div>
 
@@ -135,14 +171,17 @@ export function Header() {
                 {item.name}
               </button>
             ))}
-            <div className="pt-2">
+            <div className="pt-2 flex flex-col gap-2">
               <button
                 onClick={() => handleAnchorClick('#contact')}
                 className="w-full px-5 py-2.5 rounded-lg text-sm font-semibold text-white cursor-pointer"
                 style={{ background: '#7B5CF5', fontFamily: 'var(--font-ibm)' }}
               >
-                Request Demo
+                {t('cta')}
               </button>
+              <div className="flex justify-center pt-1">
+                <LocaleSwitcher />
+              </div>
             </div>
           </div>
         )}

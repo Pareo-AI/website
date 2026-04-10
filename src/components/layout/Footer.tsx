@@ -1,12 +1,17 @@
+'use client';
+
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import { ObfuscatedEmail } from '@/components/ObfuscatedEmail';
 import { CONTACT_EMAIL } from '@/lib/constants';
 
 export function Footer() {
+  const t = useTranslations('Footer')
+
   const legalLinks = [
-    { name: 'Privacy Policy', href: '/privacy' },
-    { name: 'Terms of Service', href: '/terms' },
-    { name: 'Cookie Policy', href: '/cookies' },
+    { name: t('legal.privacy'), href: '/privacy' },
+    { name: t('legal.terms'), href: '/terms' },
+    { name: t('legal.cookies'), href: '/cookies' },
   ];
 
   return (
@@ -27,7 +32,7 @@ export function Footer() {
               className="text-xs mt-1"
               style={{ color: 'rgba(255,255,255,0.3)', fontFamily: 'var(--font-ibm)' }}
             >
-              AI-powered compliance automation for industrial manufacturers.
+              {t('tagline')}
             </p>
           </div>
 
@@ -57,7 +62,7 @@ export function Footer() {
             className="text-center text-xs"
             style={{ color: 'rgba(255,255,255,0.2)', fontFamily: 'var(--font-ibm)' }}
           >
-            © {new Date().getFullYear()} Pareo. All rights reserved.
+            {t('copyright', { year: new Date().getFullYear() })}
           </p>
         </div>
       </div>

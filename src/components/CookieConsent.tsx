@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { createContext, type ReactNode, useContext, useEffect, useState } from 'react';
+import { useTranslations } from 'next-intl';
 
 type ConsentStatus = 'pending' | 'accepted' | 'declined';
 
@@ -12,6 +13,7 @@ export function useCookieConsent() {
 }
 
 export function CookieConsentProvider({ children }: { children: ReactNode }) {
+  const t = useTranslations('CookieConsent');
   const [consent, setConsent] = useState<ConsentStatus>('pending');
   const [mounted, setMounted] = useState(false);
 
@@ -47,14 +49,13 @@ export function CookieConsentProvider({ children }: { children: ReactNode }) {
         >
           <div className="mx-auto max-w-7xl px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-start sm:items-center gap-4 justify-between">
             <p className="text-sm" style={{ color: 'rgba(255,255,255,0.6)', maxWidth: '640px' }}>
-              We use analytics cookies (PostHog) to understand how visitors use this site. Your data
-              is processed in the EU.{' '}
+              {t('text')}{' '}
               <Link
                 href="/cookies"
                 className="underline"
                 style={{ color: 'rgba(255,255,255,0.8)' }}
               >
-                Cookie Policy
+                {t('policyLink')}
               </Link>
             </p>
             <div className="flex items-center gap-3 shrink-0">
@@ -66,7 +67,7 @@ export function CookieConsentProvider({ children }: { children: ReactNode }) {
                   border: '1px solid rgba(255,255,255,0.1)',
                 }}
               >
-                Decline
+                {t('decline')}
               </button>
               <button
                 onClick={accept}
@@ -76,7 +77,7 @@ export function CookieConsentProvider({ children }: { children: ReactNode }) {
                   color: '#ffffff',
                 }}
               >
-                Accept
+                {t('accept')}
               </button>
             </div>
           </div>

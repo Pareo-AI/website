@@ -1,31 +1,19 @@
 'use client'
 
+import { useTranslations } from 'next-intl'
 import { Reveal } from '@/components/ui/Reveal'
 
-const badges = [
-  {
-    icon: '🇩🇪',
-    label: 'Made in Germany',
-    detail: 'Built and operated in Germany, under German and EU law.',
-  },
-  {
-    icon: '🔒',
-    label: 'DSGVO Compliant',
-    detail: 'Fully compliant with EU data protection regulation.',
-  },
-  {
-    icon: '🚫',
-    label: 'No model training on your data',
-    detail: 'Your product and compliance data is never used to train AI models — by Pareo or any third party.',
-  },
-  {
-    icon: '🏗️',
-    label: 'Isolated infrastructure',
-    detail: 'Deployed in a dedicated VPC. Your data never shares infrastructure with other customers.',
-  },
-]
+const badgeIcons = ['🇩🇪', '🔒', '🚫', '🏗️']
 
 export function Security() {
+  const t = useTranslations('Security')
+
+  const badges = badgeIcons.map((icon, i) => ({
+    icon,
+    label: t(`badges.${i}.label`),
+    detail: t(`badges.${i}.detail`),
+  }))
+
   return (
     <section
       id="security"
@@ -39,17 +27,17 @@ export function Security() {
             <div className="h-px w-10" style={{ background: '#7B5CF5' }} />
             <span className="text-xs font-semibold tracking-[0.2em] uppercase"
               style={{ color: '#7B5CF5', fontFamily: 'var(--font-ibm)' }}>
-              Your Data is Safe With Us
+              {t('eyebrow')}
             </span>
           </div>
           <h2 className="mb-4 leading-tight"
             style={{ fontFamily: 'var(--font-ibm)', fontSize: 'clamp(30px, 4vw, 50px)', fontWeight: 800, color: '#ffffff' }}>
-            Compliance data is sensitive.{' '}
-            <span style={{ color: '#7B5CF5' }}>We treat it that way.</span>
+            {t('headline1')}{' '}
+            <span style={{ color: '#7B5CF5' }}>{t('headline2')}</span>
           </h2>
           <p className="text-base"
             style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-ibm)', fontWeight: 300 }}>
-            Pareo is designed for regulated industrial environments — where data sovereignty, auditability, and control aren't optional.
+            {t('subheadline')}
           </p>
         </div>
 

@@ -1,0 +1,173 @@
+{
+  "Header": {
+    "nav": {
+      "product": "Produkt",
+      "security": "Datensicherheit",
+      "contact": "Kontakt"
+    },
+    "cta": "Demo anfragen"
+  },
+  "Hero": {
+    "eyebrow": "KI-gestützte Compliance",
+    "headline1": "Jede Compliance-Anfrage.",
+    "headline2": "Bearbeitet. Automatisch.",
+    "subheadline": "Pareo gibt Ihrem Compliance-Team eine KI-Belegschaft, die jede Anfrage bearbeitet – damit Ihre Ingenieure keine Dateneingabe mehr leisten müssen. Eingehende Anfragen in jedem Format – E-Mail, Excel, Portal-Benachrichtigung – werden automatisch erfasst, mit Ihren ERP- und Produktdaten abgeglichen und als validierte, prüfungsreife Antworten zurückgegeben. REACH, RoHS, PFAS, TSCA und mehr. Direkt in Assent, CDX oder in dem Format, das Ihr Kunde erfordert.",
+    "cta": "Demo anfragen",
+    "trustStrip": "Entwickelt aus 180+ Interviews mit industriellen Compliance-Teams. Gegründet an TUM & UnternehmerTUM.",
+    "gameSubheadline": "Pareo gibt Ihrem Compliance-Team eine KI-Belegschaft, die jede Anfrage bearbeitet – damit Ihre Ingenieure keine Dateneingabe mehr leisten müssen. REACH, RoHS, PFAS, TSCA und mehr. Direkt in Assent, CDX oder in dem Format, das Ihr Kunde erfordert.",
+    "gameHint": "Auf das Gitter klicken, um zu fegen – Rechtsklick zum Markieren von Vorschriften"
+  },
+  "Problem": {
+    "eyebrow": "Das Problem",
+    "headline": "Ihr Compliance-Team hat sich nicht angemeldet, um Dateneingabe zu betreiben.",
+    "steps": {
+      "0": "Jeden Morgen wartet wieder mehr. Eine Excel-Vorlage von einem Kunden. Eine Portal-Benachrichtigung von Assent. Ein PDF über PFAS-Beschränkungen, weitergeleitet von der Beschaffung – ohne Kontext.",
+      "1": "Um irgendetwas zu beantworten, öffnet Ihr Ingenieur SAP. Durchsucht ein gemeinsames Laufwerk. Gräbt sich durch alte E-Mail-Threads mit Unterlieferanten. Gleicht das Ergebnis mit einem Laborbericht von vor zwei Jahren ab.",
+      "2": "Der Ingenieur setzt das alles manuell zusammen. Tippt es in das Format, das der Kunde fordert. Prüft es. Sendet es. Dann kommt die nächste Anfrage.",
+      "3": "Das passiert hunderte Male im Jahr. Über jede Produktlinie, jeden Kunden, jede Vorschrift. Und das Volumen wächst weiter.",
+      "4": "Die Daten, die Ihr Team braucht, sind vorhanden. Sie sind nur über zu viele Systeme, in zu vielen Formaten verstreut – ohne Möglichkeit, schnell voranzukommen."
+    },
+    "stats": {
+      "0": { "number": "30%", "label": "Anstieg pro Jahr", "body": "Das Volumen an Compliance-Anfragen wächst jedes Jahr – angetrieben durch neue Vorschriften, tiefere Datenanforderungen und OEMs, die ihre Ausschreibungen automatisieren." },
+      "1": { "number": "1+ Std.", "label": "Pro Anfrage", "body": "Daten aus mehreren Systemen zu beschaffen, zu validieren und korrekt zu formatieren, kostet Stunden an Expertenzeit – für eine einzige Antwort." },
+      "2": { "number": "4+", "label": "Zu prüfende Systeme", "body": "Die Daten für eine Anfrage liegen in Ihrem ERP, PLM, gemeinsamen Laufwerken, Laborberichten und Lieferanten-E-Mails – ohne zentrale Datenquelle." }
+    },
+    "closing": "Die Lösung ist nicht, mehr Compliance-Ingenieure einzustellen. Es geht darum, die Arbeitsweise zu verändern.",
+    "inboxTitle": "Compliance-Posteingang",
+    "unreadLabel": "{count} ungelesen"
+  },
+  "HowItWorks": {
+    "eyebrow": "So funktioniert es",
+    "headline1": "Eine Anfrage rein.",
+    "headline2": "Prüfungsreife Antwort raus.",
+    "headline3": "Automatisch.",
+    "subheadline": "Pareo übernimmt den gesamten Workflow – von dem Moment, in dem eine Anfrage eingeht, bis zu dem Moment, in dem Ihre Antwort abgeht.",
+    "cta": "Demo anfragen →",
+    "tabs": {
+      "ingestion": {
+        "label": "Anfragenerfassung",
+        "headline": "Jede Anfrage. Jedes Format. Null manuelle Sortierung.",
+        "body1": "Compliance-Anfragen kommen in jeder Form – eine E-Mail mit PDF-Anhang, eine Excel-Vorlage von der Beschaffung, eine Benachrichtigung von Assent oder CDX, ein eigenständiger Fragebogen. Pareo erfasst alles automatisch, klassifiziert den Anfragetyp, extrahiert die relevanten Anforderungen und stellt sie zur Bearbeitung in die Warteschlange.",
+        "body2": "Keine manuelle Sortierung. Kein Copy-Paste in eine Tabelle. Das System übernimmt es, sobald die Anfrage eintrifft."
+      },
+      "retrieval": {
+        "label": "Datenabruf",
+        "headline": "Ihre Produktdaten – automatisch gefunden.",
+        "body1": "Um eine Compliance-Anfrage zu beantworten, durchsucht Ihr Team typischerweise SAP, PLM-Systeme, gemeinsame Laufwerke, Laborberichte und alte Lieferanten-E-Mails. Pareo erledigt das in Sekunden – verbindet sich mit Ihren bestehenden Systemen, ruft die relevanten Produkt- und Materialdaten ab und erstellt die Datenbasis für eine Antwort.",
+        "body2": "Nichts verlässt Ihre Infrastruktur. Pareo liest aus Ihren Systemen – es kopiert keine Daten heraus."
+      },
+      "generation": {
+        "label": "Antworterstellung",
+        "headline": "Validierte, prüfungsreife Antworten. Von Menschen freigegeben, bevor etwas gesendet wird.",
+        "body1": "Pareo entwirft die Compliance-Antwort – zugeordnet zum exakten Format, das Ihr Kunde benötigt, ob als IPC-1752-XML-Schema, Assent-Portal-Einreichung, ausgefüllte Excel-Vorlage oder strukturiertes PDF. Jede Antwort ist mit dem Quelldokument verknüpft, sodass der Nachweispfad eingebaut ist.",
+        "body2": "Es wird nichts automatisch gesendet. Ihr Compliance-Spezialist prüft den Entwurf, bestätigt die Nachweise und genehmigt. Pareo übernimmt die Erstellung; Ihr Team behält die Freigabe."
+      },
+      "gap": {
+        "label": "Lückenmanagement",
+        "headline": "Fehlende Daten? Pareo findet sie – bevor sie Ihr Problem werden.",
+        "body1": "Wenn die Daten für eine Anfrage intern nicht verfügbar sind, identifiziert Pareo die Lücke und wendet sich automatisch an den relevanten Unterlieferanten, um sie anzufordern. Antworten werden verfolgt, konsolidiert und in das System eingespielt – der Kreislauf wird geschlossen, ohne dass Ihr Team E-Mails hinterherläuft.",
+        "body2": "Das Ergebnis: weniger offene Anfragen, weniger verpasste Fristen, weniger ungelöste Compliance-Lücken."
+      }
+    },
+    "visuals": {
+      "incomingRequests": "Eingehende Anfragen",
+      "classifying": "Klassifizierung…",
+      "ingested": "Erfasst",
+      "processing": "Verarbeitung",
+      "queued": "In Warteschlange",
+      "draftResponse": "Entwurfsantwort — Ausstehende Prüfung",
+      "approve": "✓ Genehmigen",
+      "requestChanges": "✕ Änderungen anfordern",
+      "gapDetection": "Lückenerkennung",
+      "dataGapDetected": "Datenlücke erkannt",
+      "automatedOutreach": "📧 Automatische Kontaktaufnahme gesendet",
+      "gapResolved": "Lücke geschlossen — Erklärung erhalten & validiert",
+      "followUpScheduled": "Nachverfolgung geplant: +5 Tage"
+    }
+  },
+  "Benefits": {
+    "eyebrow": "Die Ergebnisse",
+    "headline": "Dasselbe Team. Ein Bruchteil des Aufwands.",
+    "subheadline": "Pareo ersetzt nicht Ihre Compliance-Spezialisten. Es beseitigt den Teil ihrer Arbeit, der von vornherein nicht sein sollte.",
+    "stats": {
+      "0": { "stat": "Stunden → Minuten", "body": "Was früher Stunden bis Tage an Suchen, Formatieren und Einreichen kostete, ist jetzt in wenigen Minuten erledigt." },
+      "1": { "stat": ">70%", "body": "Des manuellen Recherche- und Dokumentationsaufwands werden pro Anfrage eliminiert – damit Ihre Ingenieure Zeit für Arbeit haben, die wirklich ihr Fachwissen erfordert." },
+      "2": { "stat": "100%", "body": "Prüfpfad für jede Antwort. Jede Antwort mit dem Quelldokument verknüpft, in Sekunden abrufbar, wenn ein Prüfer erscheint." }
+    },
+    "withoutHeader": "✗ Ohne Pareo",
+    "withHeader": "✓ Mit Pareo",
+    "comparison": {
+      "0": { "without": "Anfragen kommen per E-Mail, Portal und Excel und stapeln sich in einem gemeinsamen Posteingang", "with": "Jede eingehende Anfrage wird automatisch erfasst und klassifiziert, sobald sie eintrifft" },
+      "1": { "without": "Ihr Ingenieur durchsucht SAP, gemeinsame Laufwerke, Laborberichte und E-Mail-Threads, um die Daten zu finden", "with": "Agenten rufen die relevanten Produkt- und Materialdaten in Sekunden aus Ihren verbundenen Systemen ab" },
+      "2": { "without": "Antworten jedes Mal von Grund auf neu erstellt, inkonsistente Qualität im Team", "with": "Antworten automatisch generiert, dem geforderten Format zugeordnet, Nachweise verknüpft" },
+      "3": { "without": "Daten manuell in Assent oder Kundenvorlagen kopiert", "with": "Direktes Zurückschreiben in Portale und Ausgabeformate – keine Wiedereingabe, keine Übertragungsfehler" },
+      "4": { "without": "Unterlieferantendaten per E-Mail nachverfolgt, Verzögerungen summieren sich", "with": "Automatische Kontaktaufnahme sofort ausgelöst, wenn Daten fehlen, Lücken bis zum Abschluss verfolgt" },
+      "5": { "without": "Nachweise über Systeme verteilt, schwer für Audits zu rekonstruieren", "with": "Vollständiger Quellpfad mit jeder Antwort archiviert – prüfungsbereit von Anfang an" }
+    },
+    "closing": "Compliance-Anfragen verschwinden nicht. Die Vorschriften nehmen zu, die OEMs fragen weiter nach, und die Fristen werden enger. Mit Pareo bleibt Ihr Team nie wieder im Rückstand."
+  },
+  "Regulations": {
+    "eyebrow": "Für Ihre Welt gemacht",
+    "headline1": "Produktkonformität ist nicht eine Vorschrift.",
+    "headline2": "Es sind Hunderte – und es werden mehr.",
+    "subheadline": "Jedes Jahr werden neue Stoffe eingeschränkt, neue Meldepflichten treten in Kraft, und OEMs fügen neue Anforderungen in ihre Lieferantenverträge ein. Pareo ist darauf ausgelegt, mitzuwachsen.",
+    "soon": "Bald",
+    "futureLabel": "Wohin wir gehen",
+    "futureHeadline": "Für aktuelle Anfragen gebaut. Als Dateninfrastruktur für morgen ausgelegt.",
+    "futureBody": "Der europäische Digitale Produktpass und Initiativen wie Catena-X werden von Lieferanten verlangen, laufend maschinenlesbare Compliance-Aufzeichnungen über alle Lieferkettenstufen hinweg zu pflegen. Die strukturierten Produktdaten, die Pareo Ihnen hilft heute zu generieren, werden die Grundlage dafür – damit Sie nicht von vorne anfangen müssen, wenn die Anforderungen eintreffen."
+  },
+  "Security": {
+    "eyebrow": "Ihre Daten sind bei uns sicher",
+    "headline1": "Compliance-Daten sind sensibel.",
+    "headline2": "Wir behandeln sie entsprechend.",
+    "subheadline": "Pareo ist für regulierte Industrieumgebungen konzipiert – wo Datensouveränität, Prüfbarkeit und Kontrolle keine Optionen sind.",
+    "badges": {
+      "0": { "label": "Made in Germany", "detail": "Gebaut und betrieben in Deutschland, unter deutschem und EU-Recht." },
+      "1": { "label": "DSGVO-konform", "detail": "Vollständig konform mit der EU-Datenschutzverordnung." },
+      "2": { "label": "Kein Training auf Ihren Daten", "detail": "Ihre Produkt- und Compliance-Daten werden niemals für das Training von KI-Modellen verwendet – weder von Pareo noch von Dritten." },
+      "3": { "label": "Isolierte Infrastruktur", "detail": "In einem dedizierten VPC bereitgestellt. Ihre Daten teilen sich niemals die Infrastruktur mit anderen Kunden." }
+    }
+  },
+  "CTA": {
+    "eyebrow": "Sprechen wir",
+    "headline": "Buchen Sie eine persönliche Beratung.",
+    "subheadline": "Lassen Sie uns Ihre aktuellen Compliance-Herausforderungen besprechen und erkunden, wie Pareo helfen kann. Kostenlos und unverbindlich.",
+    "bullets": {
+      "0": { "title": "Auf Ihre Situation zugeschnitten", "detail": "Wir fragen zuerst nach Ihrem aktuellen Prozess, Anfragervolumen und Systemen, bevor wir etwas vorschlagen." },
+      "1": { "title": "30 Minuten, keine Präsentation", "detail": "Ein direktes Gespräch – keine Verkaufspräsentation." },
+      "2": { "title": "NDA möglich", "detail": "Wir unterzeichnen gerne eine NDA, bevor wir Einzelheiten über Ihre Infrastruktur oder Ihr Compliance-Setup besprechen." }
+    },
+    "form": {
+      "nameLabel": "Vollständiger Name",
+      "namePlaceholder": "Jan Müller",
+      "emailLabel": "Geschäftliche E-Mail",
+      "emailPlaceholder": "jan@firma.de",
+      "companyLabel": "Unternehmen",
+      "companyPlaceholder": "Muster GmbH",
+      "messageLabel": "Was ist Ihre größte Compliance-Herausforderung?",
+      "messageOptional": "(optional)",
+      "messagePlaceholder": "z.B. Wir erhalten ~200 SVHC-Anfragen pro Jahr und antworten manuell…",
+      "submit": "Demo anfragen",
+      "submitting": "Wird gesendet…",
+      "noSpam": "Kein Spam. Wir antworten innerhalb eines Werktages.",
+      "successTitle": "Wir melden uns zeitnah.",
+      "successBody": "Erwarten Sie eine Nachricht innerhalb eines Werktages.",
+      "errorMessage": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie uns an"
+    }
+  },
+  "CookieConsent": {
+    "text": "Wir verwenden Analyse-Cookies (PostHog), um zu verstehen, wie Besucher diese Website nutzen. Ihre Daten werden in der EU verarbeitet.",
+    "policyLink": "Cookie-Richtlinie",
+    "decline": "Ablehnen",
+    "accept": "Akzeptieren"
+  },
+  "Footer": {
+    "tagline": "KI-gestützte Compliance-Automatisierung für Industriehersteller.",
+    "legal": {
+      "privacy": "Datenschutzerklärung",
+      "terms": "Nutzungsbedingungen",
+      "cookies": "Cookie-Richtlinie"
+    },
+    "copyright": "© {year} Pareo. Alle Rechte vorbehalten."
+  }
+}
