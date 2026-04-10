@@ -277,16 +277,17 @@
   "Cookies": {
     "meta": { "title": "Cookie-Richtlinie", "description": "Pareo Cookie-Richtlinie" },
     "title": "Cookie-Richtlinie",
-    "lastUpdated": "Zuletzt aktualisiert: 27. März 2026",
+    "lastUpdated": "Zuletzt aktualisiert: 10. April 2026",
     "whatAre": {
       "heading": "Was sind Cookies",
       "body": "Cookies sind kleine Textdateien, die auf Ihrem Gerät gespeichert werden, wenn Sie eine Website besuchen. Sie helfen uns zu verstehen, wie Besucher unsere Website nutzen."
     },
     "weUse": {
       "heading": "Von uns verwendete Cookies",
-      "intro": "Diese Website verwendet nur eine Kategorie von Cookies:",
+      "intro": "Diese Website verwendet zwei Kategorien von Cookies:",
+      "functional": { "label": "Funktionales Cookie (Spracheinstellung):", "body": "Ein Cookie namens NEXT_LOCALE wird gesetzt, wenn Sie den Sprachumschalter verwenden. Es speichert Ihre Sprachpräferenz für ein Jahr, damit die Website bei erneuten Besuchen in Ihrer gewählten Sprache geladen wird. Es werden keine personenbezogenen Daten erfasst." },
       "analytics": { "label": "Analyse-Cookies (PostHog):", "body": "Von PostHog gesetzt, um Seitenaufrufe und bestimmte Nutzerinteraktionen (z. B. Formularabsendungen) zu erfassen. Automatisches Klick-Tracking und Session-Recording sind deaktiviert – es werden nur explizit definierte Ereignisse erfasst. Diese Cookies werden nur gesetzt, wenn Sie auf dem Cookie-Banner auf \u201eAkzeptieren\u201c klicken. PostHog verarbeitet Daten auf EU-Servern." },
-      "note": "Wir verwenden auf dieser Marketing-Website keine essentiellen/funktionalen Cookies, Authentifizierungs-Cookies oder Werbe-Cookies."
+      "note": "Wir verwenden auf dieser Marketing-Website keine Authentifizierungs-Cookies oder Werbe-Cookies."
     },
     "consent": {
       "heading": "Ihre Einwilligung",

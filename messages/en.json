@@ -277,16 +277,17 @@
   "Cookies": {
     "meta": { "title": "Cookie Policy", "description": "Pareo Cookie Policy" },
     "title": "Cookie Policy",
-    "lastUpdated": "Last updated: March 27, 2026",
+    "lastUpdated": "Last updated: April 10, 2026",
     "whatAre": {
       "heading": "What Are Cookies",
       "body": "Cookies are small text files stored on your device when you visit a website. They help us understand how visitors use our site."
     },
     "weUse": {
       "heading": "Cookies We Use",
-      "intro": "This site uses only one category of cookie:",
+      "intro": "This site uses two categories of cookie:",
+      "functional": { "label": "Functional cookie (language preference):", "body": "A cookie named NEXT_LOCALE is set when you use the language switcher. It stores your language preference for one year so the site loads in your chosen language on return visits. No personal data is tracked." },
       "analytics": { "label": "Analytics cookies (PostHog):", "body": "Set by PostHog to track page views and specific user interactions (e.g. form submissions). Automatic click capture and session recording are disabled — only explicitly defined events are collected. These cookies are only set if you click \"Accept\" on the cookie banner. PostHog processes data on EU servers." },
-      "note": "We do not use essential/functional cookies, authentication cookies, or advertising cookies on this marketing website."
+      "note": "We do not use authentication cookies or advertising cookies on this marketing website."
     },
     "consent": {
       "heading": "Your Consent",

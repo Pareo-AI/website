@@ -30,6 +30,7 @@ export default async function CookiesPage() {
             <h2 className="text-lg font-semibold text-foreground">{t('weUse.heading')}</h2>
             <p className="text-muted-foreground">{t('weUse.intro')}</p>
             <ul className="space-y-2 text-muted-foreground list-disc list-outside ml-4">
+              <li><strong>{t('weUse.functional.label')}</strong> {t('weUse.functional.body')}</li>
               <li><strong>{t('weUse.analytics.label')}</strong> {t('weUse.analytics.body')}</li>
             </ul>
             <p className="text-muted-foreground">{t('weUse.note')}</p>
