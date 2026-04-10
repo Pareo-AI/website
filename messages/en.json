@@ -222,48 +222,48 @@
   "Terms": {
     "meta": { "title": "Terms of Service", "description": "Pareo Terms of Service" },
     "title": "Terms of Service",
-    "lastUpdated": "Last updated: April 2, 2026",
+    "lastUpdated": "Last updated: April 10, 2026",
     "acceptance": {
       "heading": "1. Acceptance of Terms",
-      "body": "By accessing and using Pareo's services, you agree to be bound by these Terms of Service."
+      "body": "By accessing this website, you agree to be bound by these Terms of Service."
     },
     "description": {
-      "heading": "2. Service Description",
-      "body": "Pareo provides AI-powered compliance management services for supply chain regulations, including document analysis, data extraction, and compliance reporting."
+      "heading": "2. About This Website",
+      "body": "This is the Pareo marketing website — an informational site about Pareo's compliance management platform. It includes a contact form for enquiries. No platform services are provided through this site."
     },
     "obligations": {
-      "heading": "3. User Obligations",
-      "intro": "You agree to:",
+      "heading": "3. Acceptable Use",
+      "intro": "When using this website, you agree to:",
       "items": {
-        "0": "Provide accurate information",
-        "1": "Maintain the security of your account",
-        "2": "Use the service in compliance with applicable laws",
-        "3": "Not misuse or attempt to disrupt the service"
+        "0": "Use this site only for lawful purposes",
+        "1": "Not attempt to disrupt, scrape, or interfere with this website or its infrastructure",
+        "2": "Provide accurate information if you use the contact form",
+        "3": "Not reproduce or distribute content from this website without our permission"
       }
     },
     "ip": {
       "heading": "4. Intellectual Property",
-      "body": "All content, features, and functionality of Pareo are owned by us and protected by international copyright, trademark, and other intellectual property laws."
+      "body": "All content on this website — including text, graphics, and branding — is owned by us and protected by copyright and other intellectual property laws."
     },
     "liability": {
       "heading": "5. Limitation of Liability",
-      "intro": "Pareo is provided \"as is\" without warranties of any kind. Our liability is governed as follows:",
+      "intro": "This website is provided \"as is\" without warranties of any kind. Our liability is governed as follows:",
       "items": {
         "0": "We are fully liable for damages resulting from intentional acts (Vorsatz) or gross negligence (grobe Fahrlässigkeit), for injury to life, body, or health, and under any mandatory statutory provisions.",
-        "1": "For slight negligence (leichte Fahrlässigkeit), we are liable only where an essential contractual obligation (Kardinalpflicht) has been breached — that is, an obligation whose fulfilment is fundamental to the proper performance of this agreement and on whose observance you may reasonably rely. In such cases, liability is limited to foreseeable damages typical for this type of contract.",
+        "1": "For slight negligence (leichte Fahrlässigkeit), we are liable only where an essential contractual obligation (Kardinalpflicht) has been breached. In such cases, liability is limited to foreseeable damages typical for this type of contract.",
         "2": "We are not liable for slight negligence in cases not involving essential contractual obligations, or for any indirect, incidental, or consequential damages in those cases."
       },
-      "note": "Pareo's outputs are provided for informational and operational assistance purposes only and do not constitute legal advice. You are responsible for independently verifying any compliance determinations before relying on them for regulatory purposes."
+      "note": "Information on this website is provided for general informational purposes only and does not constitute legal or compliance advice."
     },
     "termination": {
-      "heading": "6. Termination",
-      "body": "We reserve the right to terminate or suspend access to our service for any reason, including breach of these Terms."
+      "heading": "6. Access",
+      "body": "We reserve the right to restrict or block access to this website at any time, without notice."
     },
     "dataProcessing": {
-      "heading": "7. Data Processing",
-      "body1": "When you upload or submit documents containing personal data (for example, supplier contact information) through Pareo's services, we act as a data processor on your behalf within the meaning of Article 28 GDPR, and you act as the data controller. We process such data solely to provide the services described in these Terms and in accordance with our",
+      "heading": "7. Data",
+      "body1": "Information you submit through this website is processed in accordance with our",
       "privacyLink": "Privacy Policy",
-      "body2": "If your use of Pareo requires a Data Processing Agreement (DPA) under Article 28 GDPR, please contact us at the address below and we will provide one."
+      "body2": "We do not collect or process data beyond what is described there."
     },
     "governingLaw": {
       "heading": "8. Governing Law",

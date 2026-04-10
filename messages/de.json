@@ -222,48 +222,48 @@
   "Terms": {
     "meta": { "title": "Nutzungsbedingungen", "description": "Pareo Nutzungsbedingungen" },
     "title": "Nutzungsbedingungen",
-    "lastUpdated": "Zuletzt aktualisiert: 2. April 2026",
+    "lastUpdated": "Zuletzt aktualisiert: 10. April 2026",
     "acceptance": {
       "heading": "1. Annahme der Bedingungen",
-      "body": "Durch den Zugriff auf und die Nutzung der Dienste von Pareo stimmen Sie zu, an diese Nutzungsbedingungen gebunden zu sein."
+      "body": "Durch den Zugriff auf diese Website stimmen Sie zu, an diese Nutzungsbedingungen gebunden zu sein."
     },
     "description": {
-      "heading": "2. Leistungsbeschreibung",
-      "body": "Pareo bietet KI-gestützte Compliance-Management-Dienste für Lieferkettenvorschriften an, einschließlich Dokumentenanalyse, Datenextraktion und Compliance-Reporting."
+      "heading": "2. Über diese Website",
+      "body": "Dies ist die Pareo-Marketing-Website – eine Informationsseite über die Compliance-Management-Plattform von Pareo. Sie enthält ein Kontaktformular für Anfragen. Über diese Website werden keine Plattformdienste erbracht."
     },
     "obligations": {
-      "heading": "3. Nutzerpflichten",
-      "intro": "Sie verpflichten sich:",
+      "heading": "3. Zulässige Nutzung",
+      "intro": "Bei der Nutzung dieser Website stimmen Sie zu:",
       "items": {
-        "0": "Genaue Informationen bereitzustellen",
-        "1": "Die Sicherheit Ihres Kontos zu gewährleisten",
-        "2": "Den Dienst in Übereinstimmung mit den geltenden Gesetzen zu nutzen",
-        "3": "Den Dienst nicht zu missbrauchen oder zu stören"
+        "0": "Diese Website nur für rechtmäßige Zwecke zu nutzen",
+        "1": "Diese Website oder ihre Infrastruktur nicht zu stören, zu scrapen oder zu beeinträchtigen",
+        "2": "Bei Nutzung des Kontaktformulars genaue Angaben zu machen",
+        "3": "Inhalte dieser Website nicht ohne unsere Genehmigung zu vervielfältigen oder zu verbreiten"
       }
     },
     "ip": {
       "heading": "4. Geistiges Eigentum",
-      "body": "Alle Inhalte, Funktionen und Funktionalitäten von Pareo sind unser Eigentum und durch internationales Urheberrecht, Markenrecht und andere Gesetze zum Schutz des geistigen Eigentums geschützt."
+      "body": "Alle Inhalte dieser Website – einschließlich Texte, Grafiken und Markenzeichen – sind unser Eigentum und durch Urheberrecht und andere Gesetze zum Schutz des geistigen Eigentums geschützt."
     },
     "liability": {
       "heading": "5. Haftungsbeschränkung",
-      "intro": "Pareo wird \u201ewie besehen\u201c ohne jegliche Gewährleistung bereitgestellt. Unsere Haftung richtet sich wie folgt:",
+      "intro": "Diese Website wird \u201ewie besehen\u201c ohne jegliche Gewährleistung bereitgestellt. Unsere Haftung richtet sich wie folgt:",
       "items": {
         "0": "Wir haften uneingeschränkt für Schäden aus Vorsatz oder grober Fahrlässigkeit, für Schäden an Leben, Körper oder Gesundheit sowie nach zwingenden gesetzlichen Vorschriften.",
-        "1": "Bei leichter Fahrlässigkeit haften wir nur bei Verletzung einer wesentlichen Vertragspflicht (Kardinalpflicht) – d. h. einer Pflicht, deren Erfüllung die ordnungsgemäße Durchführung des Vertrags erst ermöglicht und auf deren Einhaltung Sie vertrauen dürfen. In diesen Fällen ist die Haftung auf vertragstypische, vorhersehbare Schäden begrenzt.",
+        "1": "Bei leichter Fahrlässigkeit haften wir nur bei Verletzung einer wesentlichen Vertragspflicht (Kardinalpflicht). In diesen Fällen ist die Haftung auf vertragstypische, vorhersehbare Schäden begrenzt.",
         "2": "Bei leichter Fahrlässigkeit außerhalb von Kardinalpflichten sowie für mittelbare, zufällige oder Folgeschäden haften wir nicht."
       },
-      "note": "Die Ausgaben von Pareo dienen ausschließlich der Information und operativen Unterstützung und stellen keine Rechtsberatung dar. Sie sind dafür verantwortlich, alle Compliance-Entscheidungen vor der Nutzung für regulatorische Zwecke eigenständig zu überprüfen."
+      "note": "Die Informationen auf dieser Website dienen ausschließlich allgemeinen Informationszwecken und stellen keine Rechts- oder Compliance-Beratung dar."
     },
     "termination": {
-      "heading": "6. Kündigung",
-      "body": "Wir behalten uns das Recht vor, den Zugang zu unserem Dienst aus beliebigem Grund, einschließlich der Verletzung dieser Nutzungsbedingungen, zu beenden oder auszusetzen."
+      "heading": "6. Zugang",
+      "body": "Wir behalten uns das Recht vor, den Zugang zu dieser Website jederzeit und ohne Vorankündigung einzuschränken oder zu sperren."
     },
     "dataProcessing": {
-      "heading": "7. Datenverarbeitung",
-      "body1": "Wenn Sie über die Dienste von Pareo Dokumente mit personenbezogenen Daten (z. B. Lieferantenkontaktdaten) hochladen oder einreichen, handeln wir als Auftragsverarbeiter in Ihrem Namen im Sinne von Art. 28 DSGVO, und Sie handeln als Verantwortlicher. Wir verarbeiten solche Daten ausschließlich zur Erbringung der in diesen Nutzungsbedingungen beschriebenen Dienste und gemäß unserer",
+      "heading": "7. Daten",
+      "body1": "Alle über diese Website übermittelten Informationen verarbeiten wir gemäß unserer",
       "privacyLink": "Datenschutzerklärung",
-      "body2": "Sofern Ihre Nutzung von Pareo gemäß Art. 28 DSGVO einen Auftragsverarbeitungsvertrag (AVV) erfordert, kontaktieren Sie uns bitte unter der unten angegebenen Adresse, und wir stellen Ihnen einen bereit."
+      "body2": "Wir erheben oder verarbeiten keine Daten, die über das dort Beschriebene hinausgehen."
     },
     "governingLaw": {
       "heading": "8. Geltendes Recht",
