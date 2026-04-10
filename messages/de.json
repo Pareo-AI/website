@@ -9,9 +9,9 @@
   },
   "Hero": {
     "eyebrow": "KI-gestützte Compliance",
-    "headline1": "Jede Compliance-Anfrage.",
-    "headline2": "Automatisch erledigt.",
-    "subheadline": "Pareo gibt Ihrem Compliance-Team KI-Agenten an die Hand, die jede Anfrage übernehmen – damit Ihre Ingenieure keine Zeit mehr mit Dateneingabe verbringen. Eingehende Anfragen in jedem Format – E-Mail, Excel, Portal-Benachrichtigung – werden automatisch erfasst, mit Ihren ERP- und Produktdaten abgeglichen und als validierte, prüfungsreife Antworten zurückgesendet. REACH, RoHS, PFAS, TSCA und mehr. Direkt in Assent, CDX oder in dem Format, das Ihr Kunde verlangt.",
+    "headline1": "Jede Compliance-Anfrage:",
+    "headline2": "automatisch, vollständig, prüfungsbereit.",
+    "subheadline": "Pareo gibt Ihrem Compliance-Team KI-Agenten an die Hand, die jede Anfrage übernehmen – damit Ihr Team keine Zeit mehr mit Dateneingabe verbringt. Eingehende Anfragen in jedem Format (E-Mail, Excel, Portal-Benachrichtigung) werden automatisch erfasst, mit Ihren ERP- und Produktdaten abgeglichen und als prüfungsreife Entwürfe zur Freigabe aufbereitet. REACH, RoHS, PFAS, TSCA und mehr. Direkt in Assent, CDX oder in dem Format, das Ihr Kunde verlangt.",
     "cta": "Demo anfragen",
     "trustStrip": "Entstanden aus 180+ Gesprächen mit Compliance-Teams in der Industrie. Gegründet an TUM & UnternehmerTUM."
   },
@@ -89,7 +89,7 @@
     "subheadline": "Pareo ersetzt Ihre Compliance-Spezialisten nicht. Es beseitigt den Teil ihrer Arbeit, der dort eigentlich nicht hingehört.",
     "stats": {
       "0": { "stat": "Stunden → Minuten", "body": "Was früher Stunden bis Tage an Suchen, Formatieren und Einreichen kostete, ist jetzt in wenigen Minuten erledigt." },
-      "1": { "stat": ">70%", "body": "Des manuellen Rechercheaufwands werden pro Anfrage eingespart – damit Ihre Ingenieure Zeit für Arbeit haben, die ihr Fachwissen wirklich braucht." },
+      "1": { "stat": ">70%", "body": "Des manuellen Rechercheaufwands werden pro Anfrage eingespart – damit Ihr Team Zeit für Arbeit hat, die wirklich Fachwissen erfordert." },
       "2": { "stat": "100%", "body": "Prüfpfad für jede Antwort. Jede Antwort mit dem Quelldokument verknüpft – abrufbar in Sekunden, wenn ein Prüfer kommt." }
     },
     "withoutHeader": "✗ Ohne Pareo",
@@ -243,7 +243,7 @@
     },
     "ip": {
       "heading": "4. Geistiges Eigentum",
-      "body": "Alle Inhalte dieser Website – einschließlich Texte, Grafiken und Markenzeichen – sind unser Eigentum und durch Urheberrecht und andere Gesetze zum Schutz des geistigen Eigentums geschützt."
+      "body": "Alle Inhalte dieser Website (einschließlich Texte, Grafiken und Markenzeichen) sind unser Eigentum und durch Urheberrecht und andere Gesetze zum Schutz des geistigen Eigentums geschützt."
     },
     "liability": {
       "heading": "5. Haftungsbeschränkung",
@@ -307,7 +307,7 @@
     "eyebrow": "Pitch Deck",
     "headline1": "Compliance-Automatisierung.",
     "headline2": "Industrielle Dateninfrastruktur.",
-    "subline": "Industrielle Zulieferer bearbeiten jährlich tausende von Produktkonformitätsanfragen – REACH, RoHS, PFAS, TSCA, CSRD – jede davon manuell, oft von Grund auf, jedes Mal. Pareo automatisiert das. Und jede Compliance-Interaktion spart nicht nur Zeit: Sie baut die maschinenlesbare Produktdatenschicht auf, die Digital-Product-Pass-Readiness, Factory-X-Teilnahme und jede folgende OEM-Anforderung ermöglicht.",
+    "subline": "Industrielle Zulieferer bearbeiten jährlich tausende von Produktkonformitätsanfragen (REACH, RoHS, PFAS, TSCA, CSRD), jede davon manuell, oft von Grund auf, jedes Mal. Pareo automatisiert das. Und jede Compliance-Interaktion spart nicht nur Zeit: Sie baut die maschinenlesbare Produktdatenschicht auf, die Digital-Product-Pass-Readiness, Factory-X-Teilnahme und jede folgende OEM-Anforderung ermöglicht.",
     "bullets": {
       "0": "KI-Agenten rufen Daten aus ERP und PLM ab – kein manuelles Copy-Paste",
       "1": "Prüfungsreife Antworten werden direkt in OEM-Portale wie Assent eingetragen",
@@ -335,7 +335,7 @@
     "eyebrow": "Industrielle Dateninfrastruktur",
     "headline1": "Die Datenschicht für",
     "headline2": "die europäische Fertigung.",
-    "subheadline": "Manufacturing-X. Digitaler Produktpass. EU-Datengesetz. Europa baut die Infrastruktur für eine einheitliche industrielle Datenwirtschaft. Hersteller, die mit strukturierten, interoperablen Produktdaten einsteigen, werden schneller agieren, sich für mehr qualifizieren und weniger Risiken tragen. Pareo beginnt mit Compliance — dem unmittelbarsten Datenproblem, das Sie bereits haben — und baut darauf auf.",
+    "subheadline": "Manufacturing-X. Digitaler Produktpass. EU-Datengesetz. Europa baut die Infrastruktur für eine einheitliche industrielle Datenwirtschaft. Hersteller, die mit strukturierten, interoperablen Produktdaten einsteigen, werden schneller agieren, sich für mehr qualifizieren und weniger Risiken tragen. Pareo beginnt mit Compliance, dem unmittelbarsten Datenproblem, das Sie bereits haben, und baut darauf auf.",
     "cta": "Demo anfragen",
     "trustStrip": "Entstanden aus 180+ Gesprächen mit Compliance-Managern, RoHS-Ingenieuren und Supply-Chain-Direktoren bei europäischen Elektronik- und Maschinenbauunternehmen. Gegründet an TUM & UnternehmerTUM."
   },
@@ -344,7 +344,7 @@
     "headline": "Eine neue industrielle Datenwirtschaft wird gesetzlich vorgeschrieben. Die meisten Zulieferer sind nicht bereit.",
     "intro": "Das ist kein Zukunftsrisiko. OEM-Mandate sind bereits in Lieferantenverträgen verankert.",
     "intro2": "Regulatorische Fristen sind im EU-Recht festgelegt.",
-    "intro3": "Die Datenlücke — Produktdaten, die in ERP-Systemen, gemeinsamen Laufwerken und E-Mail-Threads stecken — ist heute ein Qualifikationsrisiko.",
+    "intro3": "Die Datenlücke (Produktdaten, die in ERP-Systemen, gemeinsamen Laufwerken und E-Mail-Threads stecken) ist heute ein Qualifikationsrisiko.",
     "timelineTitle": "Zeitplan der Mandate",
     "timeline": {
       "0": { "date": "Jan 2024", "label": "EU Data Act", "detail": "Tritt in Kraft" },
@@ -359,7 +359,7 @@
       "0": { "a": "Der EU Data Act ist im Januar 2024 in Kraft getreten.", "b": "Ab September 2025 sind Hersteller vernetzter Produkte gesetzlich verpflichtet, Produktnutzungsdaten zugänglich und austauschbar über den EU-Binnenmarkt zu machen.", "c": "Strukturierte, interoperable Daten sind keine Option mehr — sie sind eine gesetzliche Pflicht." },
       "1": { "a": "Manufacturing-X — gefördert mit €140 Millionen aus Bundesmitteln des BMWK", "b": "— baut die sektorübergreifende Datendienst-Infrastruktur für die europäische Fertigung. Factory-X, das größte Leuchtturmprojekt, läuft von Januar 2024 bis Juni 2026 mit 40+ Konsortiumspartnern, darunter Siemens, SAP, TRUMPF, Phoenix Contact, Festo, SICK und DMG MORI.", "c": "Strukturierte Produktdaten-Konnektivität ist eine eingebaute Teilnahmevoraussetzung." },
       "2": { "a": "Siemens, Philips, Schneider Electric und TE Connectivity fordern von Lieferanten bereits strukturierte RoHS- und REACH-Erklärungen auf Komponentenebene über BOMcheck — eine Plattform, die von denselben OEMs gegründet wurde, mit inzwischen 480+ OEM-Mitgliedern und 3.100+ Lieferanten.", "b": "Intel verlangt von allen Komponentenlieferanten die IPC-1752A-Klasse C/D (Vollständige Materialdeklaration) als Vertragsbedingung.", "c": "Das ist kein zukünftiges Datendienst-Mandat. Es steht heute in Lieferantenverträgen." },
-      "3": { "a": "Der EU-Batteriepass — die erste harte Digital-Produktpass-Frist — verlangt von allen EV- und Industriebatterien einen maschinenlesbaren Produktnachweis ab Februar 2027.", "b": "Elektronik, Maschinenbau und andere Sektoren folgen im Rahmen der Ökodesign-Verordnung für nachhaltige Produkte." }
+      "3": { "a": "Der EU-Batteriepass, die erste harte Digital-Produktpass-Frist, verlangt von allen EV- und Industriebatterien einen maschinenlesbaren Produktnachweis ab Februar 2027.", "b": "Elektronik, Maschinenbau und andere Sektoren folgen im Rahmen der Ökodesign-Verordnung für nachhaltige Produkte." }
     },
     "stats": {
       "0": { "number": "€140M", "label": "BMWK-Investition", "body": "Bundesmittel, die für Manufacturing-X bereitgestellt wurden — die Datendienst-Infrastruktur für den deutschen Maschinen- und Elektrotechnikbau." },
@@ -372,7 +372,7 @@
     "eyebrow": "Das Produkt",
     "headline1": "Jede Compliance-Interaktion",
     "headline2": "baut Ihre Datenschicht auf.",
-    "subheadline": "Jede Anfrage, die Pareo bearbeitet — Erfassen, Zusammenführen, Validieren und Ausgeben von Produktdaten — ergänzt einen maschinenlesbaren Produktdatensatz nach Manufacturing-X-kompatiblen Standards. Sie bewältigen die heutige Arbeitslast und bauen gleichzeitig die Infrastruktur für die Datendienst-Teilnahme auf.",
+    "subheadline": "Jede Anfrage, die Pareo bearbeitet (Erfassen, Zusammenführen, Validieren und Ausgeben von Produktdaten), ergänzt einen maschinenlesbaren Produktdatensatz nach Manufacturing-X-kompatiblen Standards. Sie bewältigen die heutige Arbeitslast und bauen gleichzeitig die Infrastruktur für die Datendienst-Teilnahme auf.",
     "cta": "Demo anfragen →",
     "tabs": {
       "ingestion": {
@@ -417,7 +417,7 @@
     "subheadline": "Pareo ersetzt Ihre Compliance-Spezialisten nicht. Es beseitigt den Teil ihrer Arbeit, der dort eigentlich nicht hingehört — und baut gleichzeitig die Produktdateninfrastruktur auf, die Ihr Unternehmen braucht.",
     "stats": {
       "0": { "stat": "Stunden → Minuten", "body": "Was früher Stunden bis Tage an Suchen, Formatieren und Einreichen kostete, ist jetzt in wenigen Minuten erledigt." },
-      "1": { "stat": ">70%", "body": "Des manuellen Recherche- und Dokumentationsaufwands werden pro Anfrage eingespart — damit Ihre Ingenieure Zeit für Arbeit haben, die ihr Fachwissen wirklich braucht." },
+      "1": { "stat": ">70%", "body": "Des manuellen Recherche- und Dokumentationsaufwands werden pro Anfrage eingespart — damit Ihr Team Zeit für Arbeit hat, die wirklich Fachwissen erfordert." },
       "2": { "stat": "100%", "body": "Prüfpfad für jede Antwort. Jede Antwort mit dem Quelldokument verknüpft — abrufbar in Sekunden, wenn ein Prüfer kommt." }
     },
     "benchmarkNote": "Basierend auf Benchmark-Verarbeitung realer Lieferantendokumentation in Pilot-Workflows.",
@@ -485,7 +485,7 @@
     },
     "oemCards": {
       "0": {
-        "0": { "date": "In Kraft", "detail_a": "BOMcheck — mitgegründet von Siemens, Philips und GE Healthcare — verlangt von Lieferanten RoHS- und REACH-Erklärungen auf Komponentenebene. 480+ OEM-Mitglieder, 3.100+ Lieferanten. Strukturierte Materialdaten sind die Eintrittsvoraussetzung für die meisten Elektronik-Lieferketten." },
+        "0": { "date": "In Kraft", "detail_a": "BOMcheck, mitgegründet von Siemens, Philips und GE Healthcare, verlangt von Lieferanten RoHS- und REACH-Erklärungen auf Komponentenebene. 480+ OEM-Mitglieder, 3.100+ Lieferanten. Strukturierte Materialdaten sind die Eintrittsvoraussetzung für die meisten Elektronik-Lieferketten." },
         "1": { "date": "In Kraft", "detail_a": "Intel verlangt von allen Komponentenlieferanten IPC-1752A-Klasse C oder D (Vollständige Materialdeklaration) über sein Environmental Compliance Portal. Eine Vertragsbedingung, kein Wunsch." }
       },
       "1": {
@@ -499,7 +499,7 @@
     },
     "forwardLabel": "Wohin das führt",
     "forwardHeadline": "Die Compliance-Pflichten, die Sie heute bewältigen, werden durch etwas Anspruchsvolleres ersetzt.",
-    "forwardBody1_a": "Im Dezember 2025 schlug die Europäische Kommission vor, die SCIP-Datenbank abzuschaffen — mit Verweis auf 15 Millionen Einreichungen, die „administrativ kostspielig, aber nicht wirksam“ waren — und sie durch den Digitalen Produktpass zu ersetzen.",
+    "forwardBody1_a": "Im Dezember 2025 schlug die Europäische Kommission vor, die SCIP-Datenbank abzuschaffen (mit Verweis auf 15 Millionen Einreichungen, die „administrativ kostspielig, aber nicht wirksam” waren) und sie durch den Digitalen Produktpass zu ersetzen.",
     "forwardBody1_b": "Der DPP erfordert dieselben Stoff- und Materialdaten, aber in einem maschinenlesbaren, standardisierten Format, das jedes System in der Lieferkette automatisch abfragen kann.",
     "forwardBody2": "Die strukturierten Produktdaten, die Pareo für heutige RoHS-, REACH- und SCIP-Pflichten erzeugt, entsprechen direkt dem, was der DPP erfordern wird. Jede heute bearbeitete Compliance-Anfrage ist ein Baustein für die Infrastruktur, die sie ablöst."
   },
@@ -507,13 +507,13 @@
     "eyebrow": "Datensouveränität",
     "headline1": "Gebaut auf demselben Prinzip",
     "headline2": "wie die Datendienste, denen Sie beitreten.",
-    "intro1": "Das Datenraum-Ökosystem — GAIA-X, IDS, Manufacturing-X — existiert, weil Hersteller sich weigerten, Kronjuwelen-Daten auf eine zentrale Plattform hochzuladen, die sie nicht kontrollierten. Die gesamte Architektur wurde um ein Prinzip herum gebaut: Daten bleiben beim Eigentümer; Zugang wird gewährt, nicht abgegeben.",
+    "intro1": "Das Datenraum-Ökosystem (GAIA-X, IDS, Manufacturing-X) existiert, weil Hersteller sich weigerten, Kronjuwelen-Daten auf eine zentrale Plattform hochzuladen, die sie nicht kontrollierten. Die gesamte Architektur wurde um ein Prinzip herum gebaut: Daten bleiben beim Eigentümer; Zugang wird gewährt, nicht abgegeben.",
     "intro2": "Pareo ist genauso gebaut — nicht als nachträglich hinzugefügtes Compliance-Feature, sondern als strukturelle Konsequenz seiner Funktionsweise. Ihre Produktdaten bleiben in Ihren Systemen. Was Pareo erzeugt, gehört Ihnen, in Formaten, die Sie überall mitnehmen können.",
     "pillars": {
       "0": { "title": "Ihr ERP bleibt das führende System", "body": "Pareo ist darauf ausgelegt, Ihr ERP und PLM direkt abzufragen — strukturierte Produktdaten im Moment des Bedarfs abzurufen, nicht eine Kopie innerhalb von Pareos Systemen anzusammeln. Direkte ERP- und PLM-Konnektoren werden 2026 eingeführt. Bis dahin bleiben verarbeitete Dokumente in einem Speicher, den Sie kontrollieren." },
       "1": { "title": "EU-Infrastruktur", "body": "Alle Datenverarbeitung findet innerhalb EU-basierter Infrastruktur statt. Dokumente und unstrukturierte Daten, die Sie über Pareo verarbeiten, bleiben in europäischen VPCs — keine transatlantischen Datenflüsse." },
       "2": { "title": "Standardbasierte, portable Datensätze", "body": "Pareo strukturiert die verarbeiteten Daten in AAS-kompatible Datensätze — das Asset-Administration-Shell-Format, das Manufacturing-X und den Digitalen Produktpass untermauert. Der strukturierte Output gehört Ihnen, in einem Format, das mit jedem Datendienst-Konnektor funktioniert, egal ob Sie Pareo weiterhin nutzen oder nicht." },
-      "3": { "title": "Selbst-gehosteter Speicher", "body": "Der Dokumentenspeicher kann in Ihrer eigenen Infrastruktur betrieben werden. Sie stellen die Speicherschicht; Pareo nutzt sie. Ihre unstrukturierten Daten — Laborberichte, Lieferantenerklärungen, Materialzertifikate — bleiben in einer Umgebung, die Sie kontrollieren und unabhängig prüfen können." }
+      "3": { "title": "Selbst-gehosteter Speicher", "body": "Der Dokumentenspeicher kann in Ihrer eigenen Infrastruktur betrieben werden. Sie stellen die Speicherschicht; Pareo nutzt sie. Ihre unstrukturierten Daten (Laborberichte, Lieferantenerklärungen, Materialzertifikate) bleiben in einer Umgebung, die Sie kontrollieren und unabhängig prüfen können." }
     },
     "closing": "Wenn Ihr CISO fragt, was Pareo hält: Compliance-Datensätze, die aus Ihren Daten generiert wurden, in offenen Formaten, in einem Speicher, den Sie kontrollieren. Wenn Ihr CTO nach ERP-Zugang fragt: nur lesend, auf die spezifischen Felder, die eine Compliance-Anfrage benötigt, im Moment der Verarbeitung — das ist die Architektur, auf die wir hinarbeiten, und warum der Speicher von Anfang an Ihrer ist. Das ist die Antwort vor dem ersten Meeting."
   },
@@ -522,7 +522,7 @@
     "subheadline": "Der EU Data Act, Manufacturing-X und die Mandate des Digitalen Produktpasses konvergieren auf dieselbe Anforderung: strukturierte, maschinenlesbare Produktdaten auf jeder Ebene der Lieferkette. Pareo beginnt mit dem Compliance-Problem, das Ihr Team bereits hat — und baut die Datengrundlage auf, aus der jede folgende Anforderung schöpft.",
     "phases": {
       "0": { "phase": "Heute", "title": "Compliance-Automatisierung", "description": "KI-Agenten automatisieren Compliance-Workflows für RoHS, REACH, SCIP, PFAS und mehr — aus tagelanger manueller Datenarbeit werden Minuten. Jede Antwort strukturiert, validiert und prüfungsbereit." },
-      "1": { "phase": "2026", "title": "Datendienst-Bereitschaft", "description": "Ihre Produktdaten — bereits für Compliance strukturiert — werden zur Grundlage für industrielle Datendienst-Teilnahme. Manufacturing-X- und Factory-X-Konnektoren ermöglichen den automatischen Austausch von Produktdaten mit OEMs und Systemintegratoren, ohne von vorne beginnen zu müssen." },
+      "1": { "phase": "2026", "title": "Datendienst-Bereitschaft", "description": "Ihre Produktdaten, bereits für Compliance strukturiert, werden zur Grundlage für industrielle Datendienst-Teilnahme. Manufacturing-X- und Factory-X-Konnektoren ermöglichen den automatischen Austausch von Produktdaten mit OEMs und Systemintegratoren, ohne von vorne beginnen zu müssen." },
       "2": { "phase": "2027", "title": "Proaktive Regulierungsintelligenz", "description": "Globale regulatorische Änderungen überwachen. Kunden benachrichtigen, bevor neue Stoffe auf Kandidatenlisten kommen. EU-Data-Act-Compliance-Bewertungen automatisch generieren. Supply-Chain-Risiken vorhersagen, bevor sie eintreten." },
       "3": { "phase": "2028+", "title": "Digitale Produktpass-Infrastruktur", "description": "Das EU-Mandat für den Digitalen Produktpass kommt. Wir sind bereits das strukturierte Daten-Backbone — mit Erweiterung auf Kreislaufwirtschaft, Carbon Footprint und vollständige Lebenszyklus-Transparenz über den Binnenmarkt." }
     },
