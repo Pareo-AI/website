@@ -162,11 +162,43 @@
   "Footer": {
     "tagline": "KI-gestützte Compliance-Automatisierung für produzierende Unternehmen.",
     "legal": {
+      "impressum": "Impressum",
       "privacy": "Datenschutzerklärung",
       "terms": "Nutzungsbedingungen",
       "cookies": "Cookie-Richtlinie"
     },
-    "copyright": "© {year} Pareo. Alle Rechte vorbehalten."
+    "copyright": "© {year} Pareo. Alle Rechte vorbehalten.",
+    "funding": {
+      "alt": "Gefördert durch das Bundesministerium für Wirtschaft und Energie aufgrund eines Beschlusses des Deutschen Bundestages, kofinanziert durch den Europäischen Sozialfonds Plus (ESF Plus) – EXIST-Gründungsstipendium"
+    }
+  },
+  "Impressum": {
+    "meta": { "title": "Impressum", "description": "Impressum der Pareo-Website – Angaben zum Verantwortlichen, Förderhinweis und Haftungsausschluss." },
+    "title": "Impressum",
+    "subtitle": "Angaben gemäß § 5 TMG",
+    "responsible": {
+      "heading": "Verantwortlicher",
+      "country": "Deutschland",
+      "email": "E-Mail:"
+    },
+    "funding": {
+      "heading": "Förderhinweis",
+      "body": "Dieses Projekt wird im Rahmen des EXIST-Gründungsstipendiums (Förderkennzeichen 03EGTBY237) vom Bundesministerium für Wirtschaft und Energie (BMWE) aufgrund eines Beschlusses des Deutschen Bundestages gefördert und durch den Europäischen Sozialfonds Plus (ESF Plus) für die Förderperiode 2021–2027 kofinanziert."
+    },
+    "liability": {
+      "heading": "Haftung für Inhalte",
+      "content": "Die Inhalte dieser Website wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Wir sind jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen."
+    },
+    "links": {
+      "heading": "Haftung für Links",
+      "content": "Unsere Website enthält Links zu externen Websites Dritter. Auf deren Inhalte haben wir keinen Einfluss und können daher keine Gewähr übernehmen. Für die Inhalte verlinkter Seiten ist stets der jeweilige Anbieter oder Betreiber verantwortlich. Verlinkte Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar."
+    },
+    "dispute": {
+      "heading": "Streitschlichtung",
+      "odr": "Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:",
+      "odrSuffix": ".",
+      "noObligation": "Wir sind weder verpflichtet noch bereit, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen."
+    }
   },
   "Privacy": {
     "meta": { "title": "Datenschutzerklärung", "description": "Pareo Datenschutzerklärung" },

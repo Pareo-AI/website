@@ -162,11 +162,43 @@
   "Footer": {
     "tagline": "AI-powered compliance automation for industrial manufacturers.",
     "legal": {
+      "impressum": "Legal Notice",
       "privacy": "Privacy Policy",
       "terms": "Terms of Service",
       "cookies": "Cookie Policy"
     },
-    "copyright": "© {year} Pareo. All rights reserved."
+    "copyright": "© {year} Pareo. All rights reserved.",
+    "funding": {
+      "alt": "Funded by the Federal Ministry for Economic Affairs and Energy on the basis of a decision by the German Bundestag, co-financed by the European Social Fund Plus (ESF Plus) – EXIST startup grant"
+    }
+  },
+  "Impressum": {
+    "meta": { "title": "Legal Notice", "description": "Legal notice for the Pareo website — responsible party, funding disclosure, and liability." },
+    "title": "Legal Notice",
+    "subtitle": "Angaben gemäß § 5 TMG",
+    "responsible": {
+      "heading": "Responsible Party",
+      "country": "Germany",
+      "email": "Email:"
+    },
+    "funding": {
+      "heading": "Funding",
+      "body": "This project is funded under the EXIST Startup Grant programme (Förderkennzeichen 03EGTBY237) by the Federal Ministry for Economic Affairs and Energy (BMWE) on the basis of a decision by the German Bundestag, and co-financed by the European Social Fund Plus (ESF Plus) for the 2021–2027 funding period."
+    },
+    "liability": {
+      "heading": "Liability for Content",
+      "content": "The contents of this website have been created with the utmost care. However, we cannot guarantee the accuracy, completeness, or timeliness of the content. As a service provider, we are responsible for our own content on these pages in accordance with general law. We are not obligated to monitor transmitted or stored third-party information or to investigate circumstances that indicate illegal activity."
+    },
+    "links": {
+      "heading": "Liability for Links",
+      "content": "This website contains links to external third-party websites. We have no influence over the content of those sites and therefore cannot accept any liability for them. The respective provider or operator is always responsible for the content of linked pages. Linked pages were checked for possible legal violations at the time of linking. No illegal content was apparent at that time. Permanent monitoring of linked pages is not reasonable without concrete evidence of a legal violation."
+    },
+    "dispute": {
+      "heading": "Dispute Resolution",
+      "odr": "The European Commission provides a platform for online dispute resolution (ODR):",
+      "odrSuffix": ".",
+      "noObligation": "We are neither obligated nor willing to participate in dispute resolution proceedings before a consumer arbitration board."
+    }
   },
   "Privacy": {
     "meta": { "title": "Privacy Policy", "description": "Pareo Privacy Policy" },

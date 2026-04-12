@@ -1,14 +1,17 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { ObfuscatedEmail } from '@/components/ObfuscatedEmail';
 import { CONTACT_EMAIL } from '@/lib/constants';
 
 export function Footer() {
-  const t = useTranslations('Footer')
+  const t = useTranslations('Footer');
+  const locale = useLocale();
 
   const legalLinks = [
+    { name: t('legal.impressum'), href: '/impressum' },
     { name: t('legal.privacy'), href: '/privacy' },
     { name: t('legal.terms'), href: '/terms' },
     { name: t('legal.cookies'), href: '/cookies' },
@@ -58,6 +61,17 @@ export function Footer() {
         </div>
 
         <div className="mt-8 pt-6 border-t" style={{ borderColor: 'rgba(123,92,245,0.08)' }}>
+          <div className="flex justify-center mb-6">
+            <div className="bg-white rounded px-4 py-3">
+              <Image
+                src={locale === 'de' ? '/funding-de.svg' : '/funding-en.svg'}
+                alt={t('funding.alt')}
+                width={400}
+                height={60}
+                style={{ height: '48px', width: 'auto' }}
+              />
+            </div>
+          </div>
           <p
             className="text-center text-xs"
             style={{ color: 'rgba(255,255,255,0.2)', fontFamily: 'var(--font-ibm)' }}
