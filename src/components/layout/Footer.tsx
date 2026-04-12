@@ -68,7 +68,7 @@ export function Footer() {
                 alt={t('funding.alt')}
                 width={400}
                 height={60}
-                style={{ height: '48px', width: 'auto' }}
+                style={{ height: '72px', width: 'auto' }}
               />
             </div>
           </div>
