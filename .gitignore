@@ -39,3 +39,7 @@ yarn-error.log*
 
 # Bun
 .bun
+
+# Grant documents and funding assets (sensitive / not needed in repo)
+03EGTBY237_ZB.pdf
+exist/
